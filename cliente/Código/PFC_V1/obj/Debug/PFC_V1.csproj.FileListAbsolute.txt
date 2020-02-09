@@ -1,0 +1,191 @@
+c:\users\alef\documents\visual studio 2015\Projects\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csprojResolveAssemblyReference.cache
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.Cache
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\bin\Debug\LiteDB.xml
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\Alef\Documents\Visual Studio 2015\Projects\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csprojResolveAssemblyReference.cache
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.Cache
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\alunocmc.ALUNOS.001\Desktop\PFC_V1\PFC_V1\bin\Debug\LiteDB.xml
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\bin\Debug\LiteDB.xml
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csprojResolveAssemblyReference.cache
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\alunocmc.ALUNOS.000\Downloads\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.Cache
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csprojResolveAssemblyReference.cache
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC_V1\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.Cache
+C:\Users\Pvx\Desktop\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\Pvx\Desktop\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\Pvx\Desktop\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\Pvx\Desktop\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\Pvx\Desktop\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.csprojAssemblyReference.cache
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.cache
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CopyComplete
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\Pvx\Desktop\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csprojAssemblyReference.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_registros.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CoreCompileInputs.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\6º Semestre\Raspberry\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CopyComplete
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csprojResolveAssemblyReference.cache
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_conexao.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_pessoa.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_gerenciar_usuario.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_registros.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.Cache
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\Código fonte (C#, Java, Python) e Scripts BD\cliente\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csprojResolveAssemblyReference.cache
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_conexao.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_pessoa.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_gerenciar_usuario.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_registros.resources
+C:\Users\alunocmc.ALUNOS\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.Cache
+C:\Users\alunocmc.ALUNOS.000\Desktop\Artefatos\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS.000\Desktop\Artefatos\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Desktop\Artefatos\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csprojResolveAssemblyReference.cache
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_conexao.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_excluir_usuario.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_registros.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.Cache
+C:\Users\alunocmc.ALUNOS.000\Desktop\Artefatos\PFC\Codigos\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\alunocmc.ALUNOS.000\Desktop\Artefatos\PFC\Codigos\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\alunocmc.ALUNOS.000\Desktop\Artefatos\PFC\Codigos\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_usuario.resources
+C:\Users\alunocmc.ALUNOS.000\Desktop\PFC\10. Código fonte e Scripts BD\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_confirmar_acao.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csprojAssemblyReference.cache
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_conexao.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_usuario.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_confirmar_acao.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_excluir_usuario.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_registros.resources
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.cache
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CoreCompileInputs.cache
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CopyComplete
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\PFC - Entrega 6 SEM\Código fonte\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csprojAssemblyReference.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_conexao.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_usuario.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_confirmar_acao.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_excluir_usuario.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_registros.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CoreCompileInputs.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CopyComplete
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb

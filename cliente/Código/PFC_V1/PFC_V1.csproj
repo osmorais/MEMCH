@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD2004DD-537D-4BF5-9223-12DBBAB9D670}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PFC_V1</RootNamespace>
+    <AssemblyName>PFC_V1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LiteDB, Version=4.1.4.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controle\ControleInterno.cs" />
+    <Compile Include="Controle\ControleExterno.cs" />
+    <Compile Include="DAO\AutenticacaoDAO.cs" />
+    <Compile Include="DAO\IAutenticacaoDAO.cs" />
+    <Compile Include="DAO\IUsuarioDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Modelo\Conexao.cs" />
+    <Compile Include="Modelo\Objeto.cs" />
+    <Compile Include="Modelo\Registro.cs" />
+    <Compile Include="Operador\IOperadorREST.cs" />
+    <Compile Include="Operador\OperadorJson.cs" />
+    <Compile Include="Operador\Requisicao.cs" />
+    <Compile Include="Util\Mensagem.cs" />
+    <Compile Include="Util\SHA.cs" />
+    <Compile Include="Util\UrlServico.cs" />
+    <Compile Include="Visao\frm_atualizar_conexao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_atualizar_conexao.Designer.cs">
+      <DependentUpon>frm_atualizar_conexao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\frm_atualizar_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_atualizar_usuario.Designer.cs">
+      <DependentUpon>frm_atualizar_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\frm_cadastrar_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_cadastrar_usuario.Designer.cs">
+      <DependentUpon>frm_cadastrar_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\frm_confirmar_acao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_confirmar_acao.Designer.cs">
+      <DependentUpon>frm_confirmar_acao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\frm_dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_dashboard.Designer.cs">
+      <DependentUpon>frm_dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\frm_excluir_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_excluir_usuario.Designer.cs">
+      <DependentUpon>frm_excluir_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\frm_nova_conexao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_nova_conexao.Designer.cs">
+      <DependentUpon>frm_nova_conexao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Hidrometro.cs" />
+    <Compile Include="Modelo\Pessoa.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Visao\frm_registros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_registros.Designer.cs">
+      <DependentUpon>frm_registros.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Visao\frm_atualizar_conexao.resx">
+      <DependentUpon>frm_atualizar_conexao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_atualizar_usuario.resx">
+      <DependentUpon>frm_atualizar_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_cadastrar_usuario.resx">
+      <DependentUpon>frm_cadastrar_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_confirmar_acao.resx">
+      <DependentUpon>frm_confirmar_acao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_dashboard.resx">
+      <DependentUpon>frm_dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_excluir_usuario.resx">
+      <DependentUpon>frm_excluir_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_login.resx">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_nova_conexao.resx">
+      <DependentUpon>frm_nova_conexao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Visao\frm_registros.resx">
+      <DependentUpon>frm_registros.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include=".editorconfig" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\LiteDB.dll" />
+    <Content Include="lib\Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

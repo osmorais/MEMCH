@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0044: Adicionar modificador somente leitura
+dotnet_style_readonly_field = false:suggestion
