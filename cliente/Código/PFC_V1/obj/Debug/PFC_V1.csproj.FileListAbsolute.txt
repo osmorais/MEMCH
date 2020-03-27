@@ -189,3 +189,24 @@ C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Cur
 C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CopyComplete
 C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
 C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\Códigos Fonte\MEMCH 6SEM1.0 - Versão Estável\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe.config
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\bin\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\bin\Debug\PFC_V1.pdb
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\bin\Debug\LiteDB.dll
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csprojAssemblyReference.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_conexao.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_usuario.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_cadastrar.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_confirmar_acao.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_dashboard.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_excluir_usuario.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_login.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.frm_nova_conexao.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Properties.Resources.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_registros.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.GenerateResource.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CoreCompileInputs.cache
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.csproj.CopyComplete
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.exe
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.pdb
