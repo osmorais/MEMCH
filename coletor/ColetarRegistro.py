@@ -15,7 +15,7 @@ while True :
     hidrometro.registro.setData(date.today())
 
     if time.time() - inicioTimer > 30:
-        print("10 sec")
+        print("30 sec")
         inicioTimer = time.time()
         hidrometroDAO.cadastrarRegistro(hidrometro)
 
