@@ -5,8 +5,7 @@ import psycopg2
 class RegistroDAO(IRegistroDAO):
 
     def cadastrar(self, hidrometro) -> None:
-        #insert = "INSERT INTO REGISTRO (VALOR, DATA, HIDROMETROFK) VALUES (%s,%s,$s)"
-        insert = "INSERT INTO REGISTRO (VALOR, DATA, HIDROMETROFK) VALUES {}"
+        #insert = "INSERT INTO REGISTRO (VALOR, DATA, HIDROMETROFK) VALUES {}"
 
         conn = ConnectionFactory()
         try:

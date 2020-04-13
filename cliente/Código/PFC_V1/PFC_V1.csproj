@@ -75,15 +75,24 @@
     <Compile Include="DAO\IAutenticacaoDAO.cs" />
     <Compile Include="DAO\IUsuarioDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Modelo\Alerta.cs" />
     <Compile Include="Modelo\Conexao.cs" />
     <Compile Include="Modelo\Objeto.cs" />
     <Compile Include="Modelo\Registro.cs" />
+    <Compile Include="Modelo\Regra.cs" />
+    <Compile Include="Modelo\RegraTipo.cs" />
     <Compile Include="Operador\IOperadorREST.cs" />
     <Compile Include="Operador\OperadorJson.cs" />
     <Compile Include="Operador\Requisicao.cs" />
     <Compile Include="Util\Mensagem.cs" />
     <Compile Include="Util\SHA.cs" />
     <Compile Include="Util\UrlServico.cs" />
+    <Compile Include="Visao\frm_alertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_alertas.Designer.cs">
+      <DependentUpon>frm_alertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\frm_atualizar_conexao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +152,9 @@
     <Compile Include="Visao\frm_registros.Designer.cs">
       <DependentUpon>frm_registros.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Visao\frm_alertas.resx">
+      <DependentUpon>frm_alertas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\frm_atualizar_conexao.resx">
       <DependentUpon>frm_atualizar_conexao.cs</DependentUpon>
     </EmbeddedResource>

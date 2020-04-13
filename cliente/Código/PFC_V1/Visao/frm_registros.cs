@@ -16,7 +16,7 @@ namespace PFC_V1.Visao
     public partial class frm_registros : Form
     {
         private Conexao conexao;
-        private List<Registro> arrregistro;
+        //private List<Registro> arrregistro;
 
         public frm_registros(Conexao conexao)
         {
@@ -51,7 +51,7 @@ namespace PFC_V1.Visao
             }
 
             dgvRegistro.DataSource = tabelaRegistro;
-            dgvRegistro.Columns["Id"].Visible = false;
+            //dgvRegistro.Columns["Id"].Visible = false;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
