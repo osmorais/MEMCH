@@ -12,6 +12,7 @@ import java.util.Date;
  * @author osmar
  */
 public class Alerta {
+    private int id;
     private String descricao;
     private Date data;
     private Regra regra;
@@ -25,6 +26,14 @@ public class Alerta {
         this.regra = regra;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getDescricao() {
         return descricao;
     }

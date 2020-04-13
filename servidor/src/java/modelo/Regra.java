@@ -10,26 +10,35 @@ package modelo;
  * @author osmar
  */
 public class Regra {
-    private int valor;
+    private int id;
+    private double valor;
     private int periodo;
     private RegraTipo tipo;
-    private boolean ativo;
+    private int ativo;
 
     public Regra() {
     }
 
-    public Regra(int valor, int periodo, RegraTipo tipo, boolean ativo) {
+    public Regra(double valor, int periodo, RegraTipo tipo, int ativo) {
         this.valor = valor;
         this.periodo = periodo;
         this.tipo = tipo;
         this.ativo = ativo;
     }
 
-    public int getValor() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
@@ -50,10 +59,11 @@ public class Regra {
     }
 
     public boolean isAtivo() {
-        return ativo;
+        if(ativo == 1) return true;
+        else return false;
     }
 
-    public void setAtivo(boolean ativo) {
+    public void setAtivo(int ativo) {
         this.ativo = ativo;
     }
 }
