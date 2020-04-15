@@ -52,12 +52,12 @@
 			this.dgvAlerta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvAlerta.RowTemplate.Height = 24;
 			this.dgvAlerta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvAlerta.Size = new System.Drawing.Size(356, 125);
+			this.dgvAlerta.Size = new System.Drawing.Size(571, 351);
 			this.dgvAlerta.TabIndex = 8;
 			// 
 			// btnVoltar
 			// 
-			this.btnVoltar.Location = new System.Drawing.Point(296, 173);
+			this.btnVoltar.Location = new System.Drawing.Point(511, 399);
 			this.btnVoltar.Name = "btnVoltar";
 			this.btnVoltar.Size = new System.Drawing.Size(75, 23);
 			this.btnVoltar.TabIndex = 7;
@@ -78,7 +78,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(383, 206);
+			this.ClientSize = new System.Drawing.Size(598, 434);
 			this.Controls.Add(this.dgvAlerta);
 			this.Controls.Add(this.btnVoltar);
 			this.Controls.Add(this.lblAlertas);

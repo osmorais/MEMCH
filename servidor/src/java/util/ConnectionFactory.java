@@ -21,6 +21,7 @@ public class ConnectionFactory {
 
     private final String DRIVER = "org.postgresql.Driver";
     private final String URL = "jdbc:postgresql://127.0.0.1:5432/memch";
+    private final String OTHERURL = "jdbc:postgresql://10.1.1.3:5432/memch";
     private final String USER = "sys";
     private final String PASS = "sys";
 
@@ -30,7 +31,14 @@ public class ConnectionFactory {
 
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new RuntimeException("Erro na Conexão: ", ex);
+            try{
+                Class.forName(DRIVER);
+
+            return DriverManager.getConnection(OTHERURL, USER, PASS);
+            }
+            catch(ClassNotFoundException | SQLException exception){
+                throw new RuntimeException("Erro na Conexão: ", exception);
+            }
         }
     }
 

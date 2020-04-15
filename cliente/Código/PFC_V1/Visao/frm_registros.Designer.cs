@@ -45,7 +45,7 @@
 			// 
 			// btnVoltar
 			// 
-			this.btnVoltar.Location = new System.Drawing.Point(294, 171);
+			this.btnVoltar.Location = new System.Drawing.Point(511, 399);
 			this.btnVoltar.Name = "btnVoltar";
 			this.btnVoltar.Size = new System.Drawing.Size(75, 23);
 			this.btnVoltar.TabIndex = 2;
@@ -71,14 +71,14 @@
 			this.dgvRegistro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvRegistro.RowTemplate.Height = 24;
 			this.dgvRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvRegistro.Size = new System.Drawing.Size(356, 125);
+			this.dgvRegistro.Size = new System.Drawing.Size(573, 353);
 			this.dgvRegistro.TabIndex = 5;
 			// 
 			// frm_registros
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(383, 206);
+			this.ClientSize = new System.Drawing.Size(598, 434);
 			this.Controls.Add(this.dgvRegistro);
 			this.Controls.Add(this.btnVoltar);
 			this.Controls.Add(this.label1);
