@@ -11,11 +11,12 @@ namespace PFC_V1.Controle
 {
 	class ControleExterno
 	{
-		public List<T> listar<T>(Uri uri, IOperadorREST operador)
+		public List<T> listarRegistro<T>(Uri uri, IOperadorREST operador)
 		{
             Uri uriBase = new Uri(uri, "registro/");
             return operador.listar<T>(uriBase);
 		}
+		
 		public List<T> listarAlerta<T>(Uri uri, IOperadorREST operador)
 		{
 			Uri uriBase = new Uri(uri, "alerta/");

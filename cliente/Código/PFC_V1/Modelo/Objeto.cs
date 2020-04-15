@@ -10,5 +10,5 @@ namespace PFC_V1.Modelo
     public class Objeto
     {
         public int id { get; set; }
-    }
+	}
 }

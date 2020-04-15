@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PFC_V1.Modelo
 {
-	public class Registro
+	public class Registro : Objeto
 	{
-		public int id { get; set; }
+		//public int id { get; set; }
 
 		public double valor { get; set; }
 

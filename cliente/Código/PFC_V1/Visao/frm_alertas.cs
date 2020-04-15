@@ -35,7 +35,7 @@ namespace PFC_V1.Visao
 		{
 			IOperadorREST op = new OperadorJson();
 			ControleExterno controle = new ControleExterno();
-
+			 
 			List<Alerta> arralerta = controle.listarAlerta<Alerta>(
 				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
 			DataTable tabelaAlerta = new DataTable();
