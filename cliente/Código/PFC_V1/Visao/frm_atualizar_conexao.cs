@@ -14,10 +14,12 @@ namespace PFC_V1.Visao
     public partial class frm_atualizar_conexao : Form
     {
         private Conexao conexao;
-        public frm_atualizar_conexao(Conexao conexao)
+		private Usuario usuario;
+        public frm_atualizar_conexao(Conexao conexao, Usuario usuario)
         {
             InitializeComponent();
             this.conexao = conexao;
+			this.usuario = usuario;
         }
         private void frm_atualizar_conexao_Load(object sender, EventArgs e)
         {
@@ -25,16 +27,29 @@ namespace PFC_V1.Visao
         }
         private void btn_sair_cadastro_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
         private void btn_atualizar_conexao_Click(object sender, EventArgs e)
         {
-            conexao.host = txb_host_conexao.Text;
+			if (String.IsNullOrEmpty(txb_host_conexao.Text) || String.IsNullOrEmpty(txb_chave_conexao.Text) ||
+				String.IsNullOrEmpty(txb_descricao_conexao.Text))
+			{
+				throw new System.InvalidOperationException("Necessário preencimento de todos os campos.");
+			}
+
+			conexao.host = txb_host_conexao.Text;
             conexao.ativo = ckb_ativo_conexao.Checked;
             conexao.chave = txb_chave_conexao.Text;
             conexao.descricao = txb_descricao_conexao.Text;
 
-            Close();
+			for (int i = 0; i < usuario.conexoes.Count; i++)
+				if (conexao.id == usuario.conexoes[i].id)
+					usuario.conexoes[i] = conexao;
+
+			ControleInterno controle = new ControleInterno();
+			controle.atualizarConexoes(ref usuario);
+
+			Close();
         }
 
         private void txb_host_conexao_TextChanged(object sender, EventArgs e)

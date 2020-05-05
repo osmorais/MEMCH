@@ -55,38 +55,39 @@ namespace PFC_V1
         }
         private void btn_nova_conexao_Click(object sender, EventArgs e)
         {
-            Conexao nova_conexao = new Conexao();
-            frm_nova_conexao formulario = new frm_nova_conexao(nova_conexao);
-            formulario.ShowDialog();
-            if (usuario.conexoes == null) usuario.conexoes = new List<Conexao>();
-            usuario.conexoes.Add(nova_conexao);
-
-            ControleInterno controle = new ControleInterno();
-            controle.atualizarConexoes(ref usuario);
-            MessageBox.Show("Nova conexao adicionada com Sucesso!!!");
-
-            preencherDgv(usuario.conexoes);
+			try
+			{
+				frm_nova_conexao formulario = new frm_nova_conexao(usuario);
+				formulario.ShowDialog();
+				preencherDgv(usuario.conexoes);
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.Message);
+				btn_nova_conexao_Click(sender, e);
+			}
         }
         private void btn_editar_conexao_Click(object sender, EventArgs e)
         {
             Conexao conexao_alteravel = retornarConexaoDgv();
-            if (conexao_alteravel != null)
-            {
-                frm_atualizar_conexao formulario = new frm_atualizar_conexao(conexao_alteravel);
-                formulario.ShowDialog();
-                for (int i = 0; i < usuario.conexoes.Count; i++)
-                    if (conexao_alteravel.id == usuario.conexoes[i].id)
-                        usuario.conexoes[i] = conexao_alteravel;
-
-                ControleInterno controle = new ControleInterno();
-                controle.atualizarConexoes(ref usuario);
-                preencherDgv(usuario.conexoes);
-            }
-            else
-            {
-                MessageBox.Show("Não há conexão para editar!");
-            }
-        }
+			try
+			{
+				if (conexao_alteravel != null)
+				{
+					frm_atualizar_conexao formulario = new frm_atualizar_conexao(conexao_alteravel, usuario);
+					formulario.ShowDialog();
+					preencherDgv(usuario.conexoes);
+				}
+				else
+				{
+					MessageBox.Show("Não há conexão para editar!");
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				btn_nova_conexao_Click(sender, e);
+			}
+		}
         private void btn_deletar_conexao_Click(object sender, EventArgs e)
         {
             Conexao conexao_deletavel = retornarConexaoDgv();
