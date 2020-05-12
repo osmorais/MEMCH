@@ -38,7 +38,8 @@
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsm_alterar_usuario = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsm_excluir_usuario = new System.Windows.Forms.ToolStripMenuItem();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btn_alerta = new System.Windows.Forms.Button();
+			this.btn_regra = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgwConexao)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -102,7 +103,7 @@
 			this.btn_acessar_dashboard.Location = new System.Drawing.Point(9, 197);
 			this.btn_acessar_dashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_acessar_dashboard.Name = "btn_acessar_dashboard";
-			this.btn_acessar_dashboard.Size = new System.Drawing.Size(86, 25);
+			this.btn_acessar_dashboard.Size = new System.Drawing.Size(55, 25);
 			this.btn_acessar_dashboard.TabIndex = 5;
 			this.btn_acessar_dashboard.Text = "Registros";
 			this.btn_acessar_dashboard.UseVisualStyleBackColor = true;
@@ -110,10 +111,10 @@
 			// 
 			// btn_sair_dashboard
 			// 
-			this.btn_sair_dashboard.Location = new System.Drawing.Point(279, 197);
+			this.btn_sair_dashboard.Location = new System.Drawing.Point(309, 197);
 			this.btn_sair_dashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_sair_dashboard.Name = "btn_sair_dashboard";
-			this.btn_sair_dashboard.Size = new System.Drawing.Size(86, 25);
+			this.btn_sair_dashboard.Size = new System.Drawing.Size(55, 25);
 			this.btn_sair_dashboard.TabIndex = 6;
 			this.btn_sair_dashboard.Text = "Sair";
 			this.btn_sair_dashboard.UseVisualStyleBackColor = true;
@@ -152,16 +153,27 @@
 			this.tsm_excluir_usuario.Text = "Excluir cadastro";
 			this.tsm_excluir_usuario.Click += new System.EventHandler(this.tsm_excluir_usuario_Click);
 			// 
-			// button1
+			// btn_alerta
 			// 
-			this.button1.Location = new System.Drawing.Point(144, 197);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(86, 25);
-			this.button1.TabIndex = 10;
-			this.button1.Text = "Alertas";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.btn_alerta.Location = new System.Drawing.Point(109, 197);
+			this.btn_alerta.Margin = new System.Windows.Forms.Padding(2);
+			this.btn_alerta.Name = "btn_alerta";
+			this.btn_alerta.Size = new System.Drawing.Size(55, 25);
+			this.btn_alerta.TabIndex = 10;
+			this.btn_alerta.Text = "Alertas";
+			this.btn_alerta.UseVisualStyleBackColor = true;
+			this.btn_alerta.Click += new System.EventHandler(this.btn_alerta_Click);
+			// 
+			// btn_regra
+			// 
+			this.btn_regra.Location = new System.Drawing.Point(209, 197);
+			this.btn_regra.Margin = new System.Windows.Forms.Padding(2);
+			this.btn_regra.Name = "btn_regra";
+			this.btn_regra.Size = new System.Drawing.Size(55, 25);
+			this.btn_regra.TabIndex = 11;
+			this.btn_regra.Text = "Regras";
+			this.btn_regra.UseVisualStyleBackColor = true;
+			this.btn_regra.Click += new System.EventHandler(this.btn_regra_Click);
 			// 
 			// frm_dashboard
 			// 
@@ -169,7 +181,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
 			this.ClientSize = new System.Drawing.Size(374, 230);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btn_regra);
+			this.Controls.Add(this.btn_alerta);
 			this.Controls.Add(this.btn_sair_dashboard);
 			this.Controls.Add(this.btn_acessar_dashboard);
 			this.Controls.Add(this.dgwConexao);
@@ -203,6 +216,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsm_alterar_usuario;
         private System.Windows.Forms.ToolStripMenuItem tsm_excluir_usuario;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btn_alerta;
+		private System.Windows.Forms.Button btn_regra;
 	}
 }

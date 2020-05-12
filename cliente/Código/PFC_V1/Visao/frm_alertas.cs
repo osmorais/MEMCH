@@ -29,15 +29,10 @@ namespace PFC_V1.Visao
 
 		private void frm_alertas_Load(object sender, EventArgs e)
 		{
-			try { encheAlertas(); } catch (Exception ex) { }
+			try { preencherAlertas(recuperarAlertas()); } catch (Exception ex) { }
 		}
-		private void encheAlertas()
+		private void preencherAlertas(List<Alerta> arralerta)
 		{
-			IOperadorREST op = new OperadorJson();
-			ControleExterno controle = new ControleExterno();
-			 
-			List<Alerta> arralerta = controle.listarAlerta<Alerta>(
-				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
 			DataTable tabelaAlerta = new DataTable();
 
 			tabelaAlerta.Columns.Add("Id", typeof(int));
@@ -58,6 +53,16 @@ namespace PFC_V1.Visao
 
 			dgvAlerta.DataSource = tabelaAlerta;
 			//dgvAlerta.Columns["Id"].Visible = false;
+		}
+		private List<Alerta> recuperarAlertas()
+		{
+			IOperadorREST op = new OperadorJson();
+			ControleExterno controle = new ControleExterno();
+
+			List<Alerta> arralerta = controle.listarAlerta<Alerta>(
+				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
+
+			return arralerta;
 		}
 	}
 }

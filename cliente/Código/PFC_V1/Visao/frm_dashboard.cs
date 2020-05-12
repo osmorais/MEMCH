@@ -159,9 +159,15 @@ namespace PFC_V1
             }
         }
 
-		private void button1_Click(object sender, EventArgs e)
+		private void btn_alerta_Click(object sender, EventArgs e)
 		{
 			frm_alertas formulario = new frm_alertas(retornarConexaoDgv());
+			formulario.ShowDialog();
+		}
+
+		private void btn_regra_Click(object sender, EventArgs e)
+		{
+			frm_regras formulario = new frm_regras(retornarConexaoDgv());
 			formulario.ShowDialog();
 		}
 	}
