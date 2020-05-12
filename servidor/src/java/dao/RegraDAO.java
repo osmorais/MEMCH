@@ -49,7 +49,8 @@ public class RegraDAO implements IRegraDAO{
             if (rs.next()) {
                 regra.setId(rs.getInt("id"));
                 regra.setValor(rs.getDouble("valor"));
-                regra.setAtivo(rs.getInt("ativo"));
+                regra.setPeriodo(rs.getInt("periodo"));
+                regra.setAtivo(rs.getInt("ativo") == 1);
                 
                 RegraTipoDAO regratipodao = new RegraTipoDAO();
                 RegraTipo regratipo = new RegraTipo();
@@ -76,7 +77,36 @@ public class RegraDAO implements IRegraDAO{
 
     @Override
     public ArrayList<Regra> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ArrayList<Regra> arrregra = new ArrayList<Regra>();
+            
+            ConnectionFactory con = new ConnectionFactory();
+
+            conexao = con.getConnection();
+            PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Regra regra = new Regra();
+                regra.setId(rs.getInt("id"));
+                regra.setValor(rs.getDouble("valor"));
+                regra.setPeriodo(rs.getInt("periodo"));
+                
+                RegraTipoDAO regratipodao = new RegraTipoDAO();
+                RegraTipo regratipo = new RegraTipo();
+                
+                regratipo.setId(rs.getInt("regratipofk"));
+                regratipodao.consultar(regratipo);
+                
+                regra.setTipo(regratipo);
+                
+                regra.setAtivo(rs.getInt("ativo") == 1);
+                arrregra.add(regra);
+            }
+            return arrregra;
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
     
 }

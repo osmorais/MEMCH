@@ -14,12 +14,13 @@ public class Regra {
     private double valor;
     private int periodo;
     private RegraTipo tipo;
-    private int ativo;
+    private boolean ativo;
 
     public Regra() {
     }
 
-    public Regra(double valor, int periodo, RegraTipo tipo, int ativo) {
+    public Regra(int id, double valor, int periodo, RegraTipo tipo, boolean ativo) {
+        this.id = id;
         this.valor = valor;
         this.periodo = periodo;
         this.tipo = tipo;
@@ -58,12 +59,11 @@ public class Regra {
         this.tipo = tipo;
     }
 
-    public boolean isAtivo() {
-        if(ativo == 1) return true;
-        else return false;
+    public boolean getAtivo() {
+        return this.ativo;
     }
 
-    public void setAtivo(int ativo) {
+    public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
 }

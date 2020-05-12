@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Hidrometro {
     private int id;
+    private String identificador;
     private String chave;
     private String modelo;
     private String descricao;
@@ -33,6 +34,14 @@ public class Hidrometro {
         this.registros = registros;
         this.alertas = alertas;
         this.regras = regras;
+    }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
     }
 
     public String getChave() {

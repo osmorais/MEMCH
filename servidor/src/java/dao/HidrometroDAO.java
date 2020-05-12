@@ -6,8 +6,12 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Hidrometro;
+import util.ConnectionFactory;
 
 /**
  *
@@ -32,7 +36,34 @@ public class HidrometroDAO implements IHidrometroDAO{
 
     @Override
     public void consultar(Hidrometro hidrometro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+
+            conexao = con.getConnection();
+            PreparedStatement stmt = conexao.prepareStatement(SELECTID);
+            stmt.setInt(1, hidrometro.getId());
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                hidrometro.setId(rs.getInt("id"));
+                hidrometro.setIdentificador(rs.getString("identificador"));
+                hidrometro.setChave(rs.getString("chave"));
+                hidrometro.setDescricao(rs.getString("descricao"));
+                hidrometro.setModelo(rs.getString("modelo"));
+                hidrometro.setAtivo(rs.getInt("ativo") == 1);
+                
+                IRegistroDAO registrodao = new RegistroDAO();
+                hidrometro.setRegistros(registrodao.listar()); 
+                
+                IAlertaDAO alertadao = new AlertaDAO();
+                hidrometro.setAlertas(alertadao.listar()); 
+                
+                IRegraDAO regradao = new RegraDAO();
+                hidrometro.setRegras(regradao.listar()); 
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override
