@@ -25,7 +25,7 @@ import servico.SrvcRegra;
  *
  * @author osmar
  */
-@Path("Regra")
+@Path("regra")
 public class RecRegra {
     private final Gson objgson;
     private final XStream xstream;

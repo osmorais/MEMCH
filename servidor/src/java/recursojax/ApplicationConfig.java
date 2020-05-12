@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(recurso.RecAlerta.class);
         resources.add(recurso.RecRegistro.class);
+        resources.add(recurso.RecRegra.class);
     }
     
 }
