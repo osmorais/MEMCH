@@ -96,6 +96,7 @@
 			this.btn_sair_dashboard.TabIndex = 9;
 			this.btn_sair_dashboard.Text = "Sair";
 			this.btn_sair_dashboard.UseVisualStyleBackColor = true;
+			this.btn_sair_dashboard.Click += new System.EventHandler(this.btn_sair_dashboard_Click);
 			// 
 			// frm_regras
 			// 

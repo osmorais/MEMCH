@@ -56,5 +56,10 @@ namespace PFC_V1.Visao
 
 			return arrregra;
 		}
+
+		private void btn_sair_dashboard_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+		}
 	}
 }

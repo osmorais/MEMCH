@@ -152,6 +152,12 @@
     <Compile Include="Visao\frm_registros.Designer.cs">
       <DependentUpon>frm_registros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\frm_regras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_regras.Designer.cs">
+      <DependentUpon>frm_regras.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Visao\frm_alertas.resx">
       <DependentUpon>frm_alertas.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +196,9 @@
     </Compile>
     <EmbeddedResource Include="Visao\frm_registros.resx">
       <DependentUpon>frm_registros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_regras.resx">
+      <DependentUpon>frm_regras.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="packages.config" />
