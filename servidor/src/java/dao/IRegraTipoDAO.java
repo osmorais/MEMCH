@@ -17,5 +17,5 @@ public interface IRegraTipoDAO {
     void consultar(RegraTipo regraTipo);
     void alterar(RegraTipo regraTipo);
     void remover(RegraTipo regraTipo);
-    //ArrayList<RegraTipo> listar();
+    ArrayList<RegraTipo> listar();
 }

@@ -103,7 +103,7 @@
 			this.btn_acessar_dashboard.Location = new System.Drawing.Point(9, 197);
 			this.btn_acessar_dashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_acessar_dashboard.Name = "btn_acessar_dashboard";
-			this.btn_acessar_dashboard.Size = new System.Drawing.Size(55, 25);
+			this.btn_acessar_dashboard.Size = new System.Drawing.Size(60, 25);
 			this.btn_acessar_dashboard.TabIndex = 5;
 			this.btn_acessar_dashboard.Text = "Registros";
 			this.btn_acessar_dashboard.UseVisualStyleBackColor = true;
@@ -111,10 +111,10 @@
 			// 
 			// btn_sair_dashboard
 			// 
-			this.btn_sair_dashboard.Location = new System.Drawing.Point(309, 197);
+			this.btn_sair_dashboard.Location = new System.Drawing.Point(303, 197);
 			this.btn_sair_dashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_sair_dashboard.Name = "btn_sair_dashboard";
-			this.btn_sair_dashboard.Size = new System.Drawing.Size(55, 25);
+			this.btn_sair_dashboard.Size = new System.Drawing.Size(60, 25);
 			this.btn_sair_dashboard.TabIndex = 6;
 			this.btn_sair_dashboard.Text = "Sair";
 			this.btn_sair_dashboard.UseVisualStyleBackColor = true;
@@ -155,10 +155,10 @@
 			// 
 			// btn_alerta
 			// 
-			this.btn_alerta.Location = new System.Drawing.Point(109, 197);
+			this.btn_alerta.Location = new System.Drawing.Point(107, 197);
 			this.btn_alerta.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_alerta.Name = "btn_alerta";
-			this.btn_alerta.Size = new System.Drawing.Size(55, 25);
+			this.btn_alerta.Size = new System.Drawing.Size(60, 25);
 			this.btn_alerta.TabIndex = 10;
 			this.btn_alerta.Text = "Alertas";
 			this.btn_alerta.UseVisualStyleBackColor = true;
@@ -166,10 +166,10 @@
 			// 
 			// btn_regra
 			// 
-			this.btn_regra.Location = new System.Drawing.Point(209, 197);
+			this.btn_regra.Location = new System.Drawing.Point(205, 197);
 			this.btn_regra.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_regra.Name = "btn_regra";
-			this.btn_regra.Size = new System.Drawing.Size(55, 25);
+			this.btn_regra.Size = new System.Drawing.Size(60, 25);
 			this.btn_regra.TabIndex = 11;
 			this.btn_regra.Text = "Regras";
 			this.btn_regra.UseVisualStyleBackColor = true;

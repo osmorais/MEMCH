@@ -10,6 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import modelo.Alerta;
+import modelo.Regra;
 import modelo.RegraTipo;
 import util.ConnectionFactory;
 
@@ -95,6 +98,30 @@ public class RegraTipoDAO implements IRegraTipoDAO{
             stmt.setInt(1, regraTipo.getId());
 
             stmt.execute();
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
+    }
+
+    @Override
+    public ArrayList<RegraTipo> listar() {
+        try {
+            ArrayList<RegraTipo> arrregratipo = new ArrayList<RegraTipo>();
+            
+            ConnectionFactory con = new ConnectionFactory();
+
+            conexao = con.getConnection();
+            PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                RegraTipo regratipo = new RegraTipo();
+                regratipo.setId(rs.getInt("id"));
+                regratipo.setDescricao(rs.getString("descricao"));
+                
+                arrregratipo.add(regratipo);
+            }
+            return arrregratipo;
         } catch (SQLException ex) {
             throw new RuntimeException("Erro: ", ex);
         }

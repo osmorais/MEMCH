@@ -5,21 +5,21 @@
  */
 package servico;
 
-import dao.IRegraDAO;
-import dao.RegraDAO;
+import dao.IRegraTipoDAO;
+import dao.RegraTipoDAO;
 import java.util.ArrayList;
-import modelo.Regra;
+import modelo.RegraTipo;
 
 /**
  *
  * @author osmar
  */
-public class SrvcRegra {
-    public static ArrayList<Regra> listar(){
+public class SrvcRegraTipo {
+    public static ArrayList<RegraTipo> listar(){
         
         //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
-        IRegraDAO regradao = new RegraDAO();
+        IRegraTipoDAO regratipodao = new RegraTipoDAO();
         
-        return regradao.listar();
+        return regratipodao.listar();
     }
 }

@@ -32,6 +32,7 @@ public class ApplicationConfig extends Application {
         resources.add(recurso.RecAlerta.class);
         resources.add(recurso.RecRegistro.class);
         resources.add(recurso.RecRegra.class);
+        resources.add(recurso.RecRegraTipo.class);
     }
     
 }

@@ -129,7 +129,7 @@
 			// btn_cadastrar_novo
 			// 
 			this.btn_cadastrar_novo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
-			this.btn_cadastrar_novo.Location = new System.Drawing.Point(8, 158);
+			this.btn_cadastrar_novo.Location = new System.Drawing.Point(222, 159);
 			this.btn_cadastrar_novo.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_cadastrar_novo.Name = "btn_cadastrar_novo";
 			this.btn_cadastrar_novo.Size = new System.Drawing.Size(58, 26);
@@ -141,7 +141,7 @@
 			// btn_sair_cadastro
 			// 
 			this.btn_sair_cadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
-			this.btn_sair_cadastro.Location = new System.Drawing.Point(218, 158);
+			this.btn_sair_cadastro.Location = new System.Drawing.Point(5, 159);
 			this.btn_sair_cadastro.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_sair_cadastro.Name = "btn_sair_cadastro";
 			this.btn_sair_cadastro.Size = new System.Drawing.Size(58, 26);

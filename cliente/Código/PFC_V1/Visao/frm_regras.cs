@@ -11,6 +11,8 @@ namespace PFC_V1.Visao
 	public partial class frm_regras : Form
 	{
 		private Conexao conexao;
+		private List<Regra> regras;
+		private Usuario usuario;
 		public frm_regras(Conexao conexao)
 		{
 			InitializeComponent();
@@ -19,21 +21,21 @@ namespace PFC_V1.Visao
 
 		private void frm_regras_Load(object sender, EventArgs e)
 		{
-			try { preencherDgv(recuperarRegras()); } catch (Exception ex) { }
+			try { preencherDgv(recuperarRegras(this.regras)); } catch (Exception ex) { }
 		}
 		private void preencherDgv(List<Regra> regras)
 		{
-			DataTable tabelaconexao = new DataTable();
+			DataTable tabelaregra = new DataTable();
 
-			tabelaconexao.Columns.Add("Id", typeof(int));
-			tabelaconexao.Columns.Add("Gasto Limite", typeof(double));
-			tabelaconexao.Columns.Add("Periodo", typeof(int));
-			tabelaconexao.Columns.Add("Tipo", typeof(string));
-			tabelaconexao.Columns.Add("Ativo", typeof(bool));
+			tabelaregra.Columns.Add("Id", typeof(int));
+			tabelaregra.Columns.Add("Gasto Limite", typeof(double));
+			tabelaregra.Columns.Add("Periodo", typeof(int));
+			tabelaregra.Columns.Add("Tipo", typeof(string));
+			tabelaregra.Columns.Add("Ativo", typeof(bool));
 
 			foreach (Regra regra in regras)
 			{
-				tabelaconexao.Rows.Add(
+				tabelaregra.Rows.Add(
 					regra.id,
 					regra.valor,
 					regra.periodo,
@@ -41,17 +43,17 @@ namespace PFC_V1.Visao
 					regra.ativo);
 			}
 
-			dgwConexao.DataSource = tabelaconexao;
-			dgwConexao.Columns["Id"].Visible = false;
+			dgwRegras.DataSource = tabelaregra;
+			dgwRegras.Columns["Id"].Visible = false;
 
 		}
 
-		private List<Regra> recuperarRegras()
+		private List<Regra> recuperarRegras(List<Regra> arrregra)
 		{
 			IOperadorREST op = new OperadorJson();
 			ControleExterno controle = new ControleExterno();
 
-			List<Regra> arrregra = controle.listarRegra<Regra>(
+			arrregra = controle.listarRegra<Regra>(
 				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
 
 			return arrregra;
@@ -60,6 +62,47 @@ namespace PFC_V1.Visao
 		private void btn_sair_dashboard_Click(object sender, EventArgs e)
 		{
 			this.Hide();
+		}
+
+		private Regra retornarRegraDgv()
+		{
+			List<Regra> arrregra = this.regras;
+			if (arrregra != null || arrregra.Count > 0)
+			{
+				Regra regra = new Regra();
+
+				int id = (int)dgwRegras.SelectedRows[0].Cells["Id"].Value;
+				foreach (Regra aux in arrregra)
+					if (id == aux.id) regra = aux;
+
+				return regra;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		private void btn_editar_regra_Click(object sender, EventArgs e)
+		{
+			Regra regra_alteravel = retornarRegraDgv();
+			try
+			{
+				if (regra_alteravel != null)
+				{
+					frm_atualizar_regra formulario = new frm_atualizar_regra(regra_alteravel,this.conexao);
+					formulario.ShowDialog();
+					preencherDgv(recuperarRegras(this.regras));
+				}
+				else
+				{
+					MessageBox.Show("Não há conexão para editar!");
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 	}
 }

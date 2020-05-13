@@ -16,6 +16,7 @@ namespace PFC_V1.Visao
 	public partial class frm_alertas : Form
 	{
 		private Conexao conexao;
+		private List<Alerta> alertas;
 		public frm_alertas(Conexao conexao)
 		{
 			InitializeComponent();
@@ -29,7 +30,7 @@ namespace PFC_V1.Visao
 
 		private void frm_alertas_Load(object sender, EventArgs e)
 		{
-			try { preencherAlertas(recuperarAlertas()); } catch (Exception ex) { }
+			try { preencherAlertas(recuperarAlertas(this.alertas)); } catch (Exception ex) { }
 		}
 		private void preencherAlertas(List<Alerta> arralerta)
 		{
@@ -54,12 +55,12 @@ namespace PFC_V1.Visao
 			dgvAlerta.DataSource = tabelaAlerta;
 			//dgvAlerta.Columns["Id"].Visible = false;
 		}
-		private List<Alerta> recuperarAlertas()
+		private List<Alerta> recuperarAlertas(List<Alerta> arralerta)
 		{
 			IOperadorREST op = new OperadorJson();
 			ControleExterno controle = new ControleExterno();
 
-			List<Alerta> arralerta = controle.listarAlerta<Alerta>(
+			arralerta = controle.listarAlerta<Alerta>(
 				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
 
 			return arralerta;

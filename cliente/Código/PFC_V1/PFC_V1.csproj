@@ -99,6 +99,12 @@
     <Compile Include="Visao\frm_atualizar_conexao.Designer.cs">
       <DependentUpon>frm_atualizar_conexao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\frm_atualizar_regra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\frm_atualizar_regra.Designer.cs">
+      <DependentUpon>frm_atualizar_regra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\frm_atualizar_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\frm_atualizar_conexao.resx">
       <DependentUpon>frm_atualizar_conexao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\frm_atualizar_regra.resx">
+      <DependentUpon>frm_atualizar_regra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\frm_atualizar_usuario.resx">
       <DependentUpon>frm_atualizar_usuario.cs</DependentUpon>

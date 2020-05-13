@@ -28,5 +28,10 @@ namespace PFC_V1.Controle
 			Uri uriBase = new Uri(uri, "regra/");
 			return operador.listar<T>(uriBase);
 		}
+		public List<T> listarRegraTipo<T>(Uri uri, IOperadorREST operador)
+		{
+			Uri uriBase = new Uri(uri, "regratipo/");
+			return operador.listar<T>(uriBase);
+		}
 	}
 }
