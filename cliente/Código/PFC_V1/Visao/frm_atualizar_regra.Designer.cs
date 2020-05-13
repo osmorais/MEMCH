@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.gpb_nova_conexao = new System.Windows.Forms.GroupBox();
+			this.cmb_tipo = new System.Windows.Forms.ComboBox();
 			this.ckb_ativo_conexao = new System.Windows.Forms.CheckBox();
 			this.lbl_tipo = new System.Windows.Forms.Label();
 			this.lbl_ativo_conexao = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
 			this.lbl_gasto_limite = new System.Windows.Forms.Label();
 			this.lbl_memch2 = new System.Windows.Forms.Label();
 			this.lbl_memch = new System.Windows.Forms.Label();
-			this.cmb_tipo = new System.Windows.Forms.ComboBox();
 			this.gpb_nova_conexao.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -64,6 +64,15 @@
 			this.gpb_nova_conexao.TabIndex = 27;
 			this.gpb_nova_conexao.TabStop = false;
 			this.gpb_nova_conexao.Text = "Atualização de Regra";
+			// 
+			// cmb_tipo
+			// 
+			this.cmb_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmb_tipo.FormattingEnabled = true;
+			this.cmb_tipo.Location = new System.Drawing.Point(8, 126);
+			this.cmb_tipo.Name = "cmb_tipo";
+			this.cmb_tipo.Size = new System.Drawing.Size(189, 21);
+			this.cmb_tipo.TabIndex = 25;
 			// 
 			// ckb_ativo_conexao
 			// 
@@ -135,6 +144,7 @@
 			this.btn_sair_cadastro.TabIndex = 10;
 			this.btn_sair_cadastro.Text = "Sair";
 			this.btn_sair_cadastro.UseVisualStyleBackColor = true;
+			this.btn_sair_cadastro.Click += new System.EventHandler(this.btn_sair_cadastro_Click);
 			// 
 			// txb_gasto_limite
 			// 
@@ -177,15 +187,6 @@
 			this.lbl_memch.TabIndex = 25;
 			this.lbl_memch.Text = "MEMCH";
 			this.lbl_memch.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// cmb_tipo
-			// 
-			this.cmb_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmb_tipo.FormattingEnabled = true;
-			this.cmb_tipo.Location = new System.Drawing.Point(8, 126);
-			this.cmb_tipo.Name = "cmb_tipo";
-			this.cmb_tipo.Size = new System.Drawing.Size(189, 21);
-			this.cmb_tipo.TabIndex = 25;
 			// 
 			// frm_atualizar_regra
 			// 

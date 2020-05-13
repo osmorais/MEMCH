@@ -47,7 +47,7 @@ namespace PFC_V1
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
 

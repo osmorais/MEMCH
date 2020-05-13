@@ -12,7 +12,6 @@ namespace PFC_V1.Visao
 	{
 		private Conexao conexao;
 		private List<Regra> regras;
-		private Usuario usuario;
 		public frm_regras(Conexao conexao)
 		{
 			InitializeComponent();
@@ -21,7 +20,7 @@ namespace PFC_V1.Visao
 
 		private void frm_regras_Load(object sender, EventArgs e)
 		{
-			try { preencherDgv(recuperarRegras(this.regras)); } catch (Exception ex) { }
+			try { preencherDgv(recuperarRegras()); } catch (Exception ex) { }
 		}
 		private void preencherDgv(List<Regra> regras)
 		{
@@ -48,15 +47,15 @@ namespace PFC_V1.Visao
 
 		}
 
-		private List<Regra> recuperarRegras(List<Regra> arrregra)
+		private List<Regra> recuperarRegras()
 		{
 			IOperadorREST op = new OperadorJson();
 			ControleExterno controle = new ControleExterno();
 
-			arrregra = controle.listarRegra<Regra>(
+			this.regras = controle.listarRegra<Regra>(
 				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
 
-			return arrregra;
+			return this.regras;
 		}
 
 		private void btn_sair_dashboard_Click(object sender, EventArgs e)
@@ -92,7 +91,7 @@ namespace PFC_V1.Visao
 				{
 					frm_atualizar_regra formulario = new frm_atualizar_regra(regra_alteravel,this.conexao);
 					formulario.ShowDialog();
-					preencherDgv(recuperarRegras(this.regras));
+					preencherDgv(recuperarRegras());
 				}
 				else
 				{

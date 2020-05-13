@@ -36,12 +36,12 @@ namespace PFC_V1.Visao
 			ckb_ativo_conexao.Checked = regra.ativo;
 			txb_periodo.Text = regra.periodo.ToString();
 			preecherCmbRegraTipo();
-			cmb_tipo.SelectedIndex = regra.tipo.id;
+			cmb_tipo.SelectedValue = regra.tipo.id;
 		}
 
 		private void preecherCmbRegraTipo()
 		{
-			recuperarRegras(this.arrregratipo);
+			recuperarRegras();
 
 			DataTable tabelaRegraTipo = new DataTable();
 
@@ -61,13 +61,18 @@ namespace PFC_V1.Visao
 			
 		}
 
-		private void recuperarRegras(List<RegraTipo> arrregratipo)
+		private void recuperarRegras()
 		{
 			IOperadorREST op = new OperadorJson();
 			ControleExterno controle = new ControleExterno();
 
-			arrregratipo = controle.listarRegraTipo<RegraTipo>(
+			this.arrregratipo = controle.listarRegraTipo<RegraTipo>(
 				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
+		}
+
+		private void btn_sair_cadastro_Click(object sender, EventArgs e)
+		{
+			this.Hide();
 		}
 	}
 }
