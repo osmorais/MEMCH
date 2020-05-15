@@ -50,10 +50,9 @@ namespace PFC_V1.Visao
 		private List<Regra> recuperarRegras()
 		{
 			IOperadorREST op = new OperadorJson();
-			ControleExterno controle = new ControleExterno();
+			CtrlRegra controle = new CtrlRegra();
 
-			this.regras = controle.listarRegra<Regra>(
-				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
+			this.regras = controle.listar<Regra>(op, this.conexao);
 
 			return this.regras;
 		}

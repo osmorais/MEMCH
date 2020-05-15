@@ -33,7 +33,7 @@ namespace PFC_V1.Visao
 		private void iniciarCampos()
 		{
 			txb_gasto_limite.Text = regra.valor.ToString();
-			ckb_ativo_conexao.Checked = regra.ativo;
+			ckb_ativo.Checked = regra.ativo;
 			txb_periodo.Text = regra.periodo.ToString();
 			preecherCmbRegraTipo();
 			cmb_tipo.SelectedValue = regra.tipo.id;
@@ -41,7 +41,10 @@ namespace PFC_V1.Visao
 
 		private void preecherCmbRegraTipo()
 		{
-			recuperarRegras();
+			IOperadorREST op = new OperadorJson();
+			CtrlRegraTipo controle = new CtrlRegraTipo();
+
+			this.arrregratipo = controle.listar<RegraTipo>(op, this.conexao);
 
 			DataTable tabelaRegraTipo = new DataTable();
 
@@ -58,21 +61,43 @@ namespace PFC_V1.Visao
 			cmb_tipo.ValueMember = "Id";
 			cmb_tipo.DisplayMember = "Descricao";
 			cmb_tipo.DataSource = tabelaRegraTipo;
-			
-		}
-
-		private void recuperarRegras()
-		{
-			IOperadorREST op = new OperadorJson();
-			ControleExterno controle = new ControleExterno();
-
-			this.arrregratipo = controle.listarRegraTipo<RegraTipo>(
-				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
 		}
 
 		private void btn_sair_cadastro_Click(object sender, EventArgs e)
 		{
 			this.Hide();
+		}
+
+		private void btn_atualizar_regra_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Regra regra = this.regra;
+				if (String.IsNullOrEmpty(txb_gasto_limite.Text) || String.IsNullOrEmpty(txb_periodo.Text))
+				{
+					throw new System.InvalidOperationException("Necessário preencimento de todos os campos.");
+				}
+
+				if (Int32.TryParse(cmb_tipo.SelectedValue.ToString(), out int tipoaux)) { regra.tipo.id = tipoaux; }
+
+				for (int i = 0; i < this.arrregratipo.Count; i++) if (regra.tipo.id == arrregratipo[i].id) regra.tipo = arrregratipo[i];
+
+				try { regra.valor = Convert.ToDouble(txb_gasto_limite.Text); } catch (Exception ex) { MessageBox.Show("O campo \"Gasto Limite\" só aceita números"); }
+
+				if (!int.TryParse(txb_periodo.Text, out int periodoaux)) { throw new System.InvalidOperationException("O campo \"Periodo\" aceita apenas números inteiros (dias)."); }
+				else { regra.periodo = periodoaux; }
+
+				regra.ativo = ckb_ativo.Checked;
+
+				IOperadorREST op = new OperadorJson();
+				CtrlRegra controle = new CtrlRegra();
+
+				this.regra = controle.cadastrar<Regra>(regra, op, this.conexao);
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 	}
 }

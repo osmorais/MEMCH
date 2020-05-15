@@ -31,10 +31,9 @@ namespace PFC_V1.Visao
         private void encheRegistro()
         {
             IOperadorREST op = new OperadorJson();
-            ControleExterno controle = new ControleExterno();
+            CtrlRegistro controle = new CtrlRegistro();
 
-            List<Registro> arrregistro = controle.listarRegistro<Registro>(
-                new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
+            List<Registro> arrregistro = controle.listar<Registro>(op, this.conexao);
             DataTable tabelaRegistro = new DataTable();
 
             tabelaRegistro.Columns.Add("Id", typeof(int));

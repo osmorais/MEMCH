@@ -58,10 +58,9 @@ namespace PFC_V1.Visao
 		private List<Alerta> recuperarAlertas(List<Alerta> arralerta)
 		{
 			IOperadorREST op = new OperadorJson();
-			ControleExterno controle = new ControleExterno();
+			CtrlAlerta controle = new CtrlAlerta();
 
-			arralerta = controle.listarAlerta<Alerta>(
-				new Uri("http://" + conexao.host + ":8080/servidor/servico/"), op);
+			arralerta = controle.listar<Alerta>(op, this.conexao);
 
 			return arralerta;
 		}

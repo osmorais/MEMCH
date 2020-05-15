@@ -30,12 +30,12 @@
 		{
 			this.gpb_nova_conexao = new System.Windows.Forms.GroupBox();
 			this.cmb_tipo = new System.Windows.Forms.ComboBox();
-			this.ckb_ativo_conexao = new System.Windows.Forms.CheckBox();
+			this.ckb_ativo = new System.Windows.Forms.CheckBox();
 			this.lbl_tipo = new System.Windows.Forms.Label();
 			this.lbl_ativo_conexao = new System.Windows.Forms.Label();
 			this.txb_periodo = new System.Windows.Forms.TextBox();
 			this.lbl_periodo = new System.Windows.Forms.Label();
-			this.btn_cadastrar_novo = new System.Windows.Forms.Button();
+			this.btn_atualizar_regra = new System.Windows.Forms.Button();
 			this.btn_sair_cadastro = new System.Windows.Forms.Button();
 			this.txb_gasto_limite = new System.Windows.Forms.TextBox();
 			this.lbl_gasto_limite = new System.Windows.Forms.Label();
@@ -47,12 +47,12 @@
 			// gpb_nova_conexao
 			// 
 			this.gpb_nova_conexao.Controls.Add(this.cmb_tipo);
-			this.gpb_nova_conexao.Controls.Add(this.ckb_ativo_conexao);
+			this.gpb_nova_conexao.Controls.Add(this.ckb_ativo);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_tipo);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_ativo_conexao);
 			this.gpb_nova_conexao.Controls.Add(this.txb_periodo);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_periodo);
-			this.gpb_nova_conexao.Controls.Add(this.btn_cadastrar_novo);
+			this.gpb_nova_conexao.Controls.Add(this.btn_atualizar_regra);
 			this.gpb_nova_conexao.Controls.Add(this.btn_sair_cadastro);
 			this.gpb_nova_conexao.Controls.Add(this.txb_gasto_limite);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_gasto_limite);
@@ -74,16 +74,16 @@
 			this.cmb_tipo.Size = new System.Drawing.Size(189, 21);
 			this.cmb_tipo.TabIndex = 25;
 			// 
-			// ckb_ativo_conexao
+			// ckb_ativo
 			// 
-			this.ckb_ativo_conexao.AutoSize = true;
-			this.ckb_ativo_conexao.Location = new System.Drawing.Point(147, 41);
-			this.ckb_ativo_conexao.Margin = new System.Windows.Forms.Padding(2);
-			this.ckb_ativo_conexao.Name = "ckb_ativo_conexao";
-			this.ckb_ativo_conexao.Size = new System.Drawing.Size(50, 17);
-			this.ckb_ativo_conexao.TabIndex = 24;
-			this.ckb_ativo_conexao.Text = "Ativo";
-			this.ckb_ativo_conexao.UseVisualStyleBackColor = true;
+			this.ckb_ativo.AutoSize = true;
+			this.ckb_ativo.Location = new System.Drawing.Point(147, 41);
+			this.ckb_ativo.Margin = new System.Windows.Forms.Padding(2);
+			this.ckb_ativo.Name = "ckb_ativo";
+			this.ckb_ativo.Size = new System.Drawing.Size(50, 17);
+			this.ckb_ativo.TabIndex = 24;
+			this.ckb_ativo.Text = "Ativo";
+			this.ckb_ativo.UseVisualStyleBackColor = true;
 			// 
 			// lbl_tipo
 			// 
@@ -123,16 +123,17 @@
 			this.lbl_periodo.TabIndex = 12;
 			this.lbl_periodo.Text = "Periodo:";
 			// 
-			// btn_cadastrar_novo
+			// btn_atualizar_regra
 			// 
-			this.btn_cadastrar_novo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
-			this.btn_cadastrar_novo.Location = new System.Drawing.Point(223, 163);
-			this.btn_cadastrar_novo.Margin = new System.Windows.Forms.Padding(2);
-			this.btn_cadastrar_novo.Name = "btn_cadastrar_novo";
-			this.btn_cadastrar_novo.Size = new System.Drawing.Size(58, 26);
-			this.btn_cadastrar_novo.TabIndex = 11;
-			this.btn_cadastrar_novo.Text = "Atualizar";
-			this.btn_cadastrar_novo.UseVisualStyleBackColor = true;
+			this.btn_atualizar_regra.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+			this.btn_atualizar_regra.Location = new System.Drawing.Point(223, 163);
+			this.btn_atualizar_regra.Margin = new System.Windows.Forms.Padding(2);
+			this.btn_atualizar_regra.Name = "btn_atualizar_regra";
+			this.btn_atualizar_regra.Size = new System.Drawing.Size(58, 26);
+			this.btn_atualizar_regra.TabIndex = 11;
+			this.btn_atualizar_regra.Text = "Atualizar";
+			this.btn_atualizar_regra.UseVisualStyleBackColor = true;
+			this.btn_atualizar_regra.Click += new System.EventHandler(this.btn_atualizar_regra_Click);
 			// 
 			// btn_sair_cadastro
 			// 
@@ -211,12 +212,12 @@
 		#endregion
 
 		private System.Windows.Forms.GroupBox gpb_nova_conexao;
-		private System.Windows.Forms.CheckBox ckb_ativo_conexao;
+		private System.Windows.Forms.CheckBox ckb_ativo;
 		private System.Windows.Forms.Label lbl_tipo;
 		private System.Windows.Forms.Label lbl_ativo_conexao;
 		private System.Windows.Forms.TextBox txb_periodo;
 		private System.Windows.Forms.Label lbl_periodo;
-		private System.Windows.Forms.Button btn_cadastrar_novo;
+		private System.Windows.Forms.Button btn_atualizar_regra;
 		private System.Windows.Forms.Button btn_sair_cadastro;
 		private System.Windows.Forms.TextBox txb_gasto_limite;
 		private System.Windows.Forms.Label lbl_gasto_limite;

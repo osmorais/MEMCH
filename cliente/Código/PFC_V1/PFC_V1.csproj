@@ -69,8 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controle\CtrlAlerta.cs" />
     <Compile Include="Controle\ControleInterno.cs" />
-    <Compile Include="Controle\ControleExterno.cs" />
+    <Compile Include="Controle\CtrlRegistro.cs" />
+    <Compile Include="Controle\CtrlRegra.cs" />
+    <Compile Include="Controle\CtrlRegraTipo.cs" />
+    <Compile Include="Controle\Interface\IControle.cs" />
     <Compile Include="DAO\AutenticacaoDAO.cs" />
     <Compile Include="DAO\IAutenticacaoDAO.cs" />
     <Compile Include="DAO\IUsuarioDAO.cs" />
