@@ -5,16 +5,13 @@
  */
 package servico;
 
-import dao.AlertaDAO;
 import dao.HidrometroDAO;
-import dao.InterfaceDAO.IAlertaDAO;
 import dao.InterfaceDAO.IHidrometroDAO;
-import dao.InterfaceDAO.IRegistroDAO;
 import dao.InterfaceDAO.IRegraDAO;
-import dao.RegistroDAO;
 import dao.RegraDAO;
 import java.util.ArrayList;
 import modelo.Hidrometro;
+import modelo.Regra;
 
 
 
@@ -26,13 +23,17 @@ public class SrvcHidrometro {
     public static Hidrometro cadastrar(Hidrometro hidrometro){
 
         IHidrometroDAO hidrometrodao = new HidrometroDAO();
-        hidrometrodao.cadastrar(hidrometro);
-        
+        if(hidrometro.getIdentificador() != null ||
+           hidrometro.getChave() != null ||
+           hidrometro.getModelo() != null ||
+           hidrometro.getDescricao()!= null){
+            hidrometrodao.cadastrar(hidrometro);
+        }
         hidrometro.getRegras().stream().map((regra) -> {
             IRegraDAO regradao = new RegraDAO();
             regradao.cadastrar(regra, hidrometro);
             return regra;
-        }).forEachOrdered((regra) -> {
+        }).forEachOrdered((Regra regra) -> {
             hidrometro.getRegras().add(regra);
         });
         
@@ -56,11 +57,11 @@ public class SrvcHidrometro {
            hidrometro.getDescricao()!= null){
             hidrometrodao.alterar(hidrometro);
         }
-        hidrometro.getRegras().stream().map((regra) -> {
+        hidrometro.getRegras().stream().map((Regra regra) -> {
             IRegraDAO regradao = new RegraDAO();
             regradao.alterar(regra, hidrometro);
             return regra;
-        }).forEachOrdered((regra) -> {
+        }).forEachOrdered((Regra regra) -> {
             hidrometro.getRegras().add(regra);
         });
         
