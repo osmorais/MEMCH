@@ -11,8 +11,7 @@ import java.util.Date;
  *
  * @author osmar
  */
-public class Alerta {
-    private int id;
+public class Alerta extends Objeto{
     private String descricao;
     private Date data;
     private Regra regra;
@@ -26,10 +25,12 @@ public class Alerta {
         this.regra = regra;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

@@ -9,8 +9,7 @@ package modelo;
  *
  * @author osmar
  */
-public class Regra {
-    private int id;
+public class Regra extends Objeto{
     private double valor;
     private int periodo;
     private RegraTipo tipo;
@@ -27,10 +26,12 @@ public class Regra {
         this.ativo = ativo;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

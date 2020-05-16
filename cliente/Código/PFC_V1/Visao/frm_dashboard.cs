@@ -23,7 +23,8 @@ namespace PFC_V1
         public frm_dashboard(Usuario usuario)
         {
             InitializeComponent();
-            recuperarUsuario(usuario);
+			this.conexao = new Conexao();
+			recuperarUsuario(usuario);
         }
         private void frm_dashboard_Load(object sender, EventArgs e)
         {
@@ -136,8 +137,6 @@ namespace PFC_V1
                 tabelaconexao.Columns.Add("Ativo", typeof(bool));
                 tabelaconexao.Columns.Add("Descrição", typeof(string));
 				tabelaconexao.Columns.Add("Hidrometro", typeof(string));
-				tabelaconexao.Columns.Add("Chave", typeof(string));
-				tabelaconexao.Columns.Add("Descrição", typeof(string));
 				tabelaconexao.Columns.Add("Modelo", typeof(string));
 
 				foreach (Conexao conexao in conexoes)
@@ -148,8 +147,6 @@ namespace PFC_V1
                         conexao.ativo,
                         conexao.descricao,
 						conexao.hidrometro.identificador,
-						conexao.hidrometro.chave,
-						conexao.hidrometro.descricao,
 						conexao.hidrometro.modelo);
                 }
 

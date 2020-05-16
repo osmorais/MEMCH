@@ -11,8 +11,7 @@ import java.util.Date;
  *
  * @author osmar
  */
-public class Registro {
-    private int id;
+public class Registro extends Objeto{
     private double valor;
     private Date data;
 
@@ -25,10 +24,12 @@ public class Registro {
         this.data = data;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

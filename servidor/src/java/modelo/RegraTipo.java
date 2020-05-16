@@ -9,8 +9,7 @@ package modelo;
  *
  * @author osmar
  */
-public class RegraTipo {
-    private int id;
+public class RegraTipo extends Objeto{
     private String descricao;
 
     public RegraTipo() {
@@ -21,10 +20,12 @@ public class RegraTipo {
         this.descricao = descricao;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

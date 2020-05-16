@@ -34,6 +34,8 @@ namespace PFC_V1
 			conexao.descricao = txb_descricao_conexao.Text;
 			conexao.ativo = ckb_conexao_ativa.Checked;
 
+			conexao.hidrometro = new Hidrometro();
+
 			conexao.hidrometro.identificador = txb_identificador_hidrometro.Text;
 			conexao.hidrometro.modelo = txb_modelo_hidrometro.Text;
 			conexao.hidrometro.chave = txb_chave_conexao.Text;

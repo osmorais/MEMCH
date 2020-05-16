@@ -11,8 +11,7 @@ import java.util.ArrayList;
  *
  * @author osmar
  */
-public class Hidrometro {
-    private int id;
+public class Hidrometro extends Objeto{
     private String identificador;
     private String chave;
     private String modelo;
@@ -52,10 +51,12 @@ public class Hidrometro {
         this.chave = chave;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

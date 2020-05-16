@@ -9,21 +9,32 @@ package modelo;
  *
  * @author osmar
  */
-public class Conexao {
-    private int id;
+public class Conexao extends Objeto{
     private String host;
     private boolean ativo;
     private String descricao;
     private Hidrometro hidrometro;
 
+    public Conexao() {
+    }
+
+    public Conexao(String host, boolean ativo, String descricao, Hidrometro hidrometro) {
+        this.host = host;
+        this.ativo = ativo;
+        this.descricao = descricao;
+        this.hidrometro = hidrometro;
+    }
+
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getHost() {
         return host;
     }
