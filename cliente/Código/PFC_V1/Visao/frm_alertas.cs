@@ -59,8 +59,10 @@ namespace PFC_V1.Visao
 		{
 			IOperadorREST op = new OperadorJson();
 			CtrlHidrometro controle = new CtrlHidrometro();
+			Hidrometro hidrometro = new Hidrometro();
+			hidrometro.id = this.conexao.hidrometro.id;
 
-			arralerta = controle.consultar<Hidrometro>(this.conexao.hidrometro, op, this.conexao).alertas ;
+			arralerta = controle.consultar<Hidrometro>(hidrometro, op, this.conexao).alertas ;
 
 			return arralerta;
 		}

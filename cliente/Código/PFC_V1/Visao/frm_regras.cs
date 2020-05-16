@@ -51,8 +51,10 @@ namespace PFC_V1.Visao
 		{
 			IOperadorREST op = new OperadorJson();
 			CtrlHidrometro controle = new CtrlHidrometro();
+			Hidrometro hidrometro = new Hidrometro();
+			hidrometro.id = this.conexao.hidrometro.id;
 
-			this.regras = controle.consultar<Hidrometro>(this.conexao.hidrometro, op, this.conexao).regras;
+			this.regras = controle.consultar<Hidrometro>(hidrometro, op, this.conexao).regras;
 
 			return this.regras;
 		}
@@ -101,6 +103,16 @@ namespace PFC_V1.Visao
 			{
 				MessageBox.Show(ex.Message);
 			}
+		}
+
+		private void btn_nova_regra_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btn_deletar_regra_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

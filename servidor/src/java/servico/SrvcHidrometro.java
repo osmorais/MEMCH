@@ -50,8 +50,12 @@ public class SrvcHidrometro {
     public static Hidrometro alterar(Hidrometro hidrometro){
 
         IHidrometroDAO hidrometrodao = new HidrometroDAO();
-        hidrometrodao.alterar(hidrometro);
-        
+        if(hidrometro.getIdentificador() != null ||
+           hidrometro.getChave() != null ||
+           hidrometro.getModelo() != null ||
+           hidrometro.getDescricao()!= null){
+            hidrometrodao.alterar(hidrometro);
+        }
         hidrometro.getRegras().stream().map((regra) -> {
             IRegraDAO regradao = new RegraDAO();
             regradao.alterar(regra, hidrometro);

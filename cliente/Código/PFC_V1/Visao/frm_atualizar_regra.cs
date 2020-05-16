@@ -91,10 +91,13 @@ namespace PFC_V1.Visao
 
 				IOperadorREST op = new OperadorJson();
 				CtrlHidrometro controle = new CtrlHidrometro();
-				this.conexao.hidrometro.regras.Add(regra);
+				Hidrometro hidrometro = new Hidrometro();
+				hidrometro.id = this.conexao.hidrometro.id;
+				hidrometro.regras = new List<Regra>();
+				hidrometro.regras.Add(regra);
 				try
 				{
-					this.conexao.hidrometro = controle.alterar<Hidrometro>(this.conexao.hidrometro, op, this.conexao);
+					this.conexao.hidrometro = controle.alterar<Hidrometro>(hidrometro, op, this.conexao);
 
 					MessageBox.Show("Regra atualizada com sucesso!");
 					this.Hide();

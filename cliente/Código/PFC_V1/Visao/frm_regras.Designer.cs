@@ -66,6 +66,7 @@
 			this.btn_deletar_regra.TabIndex = 8;
 			this.btn_deletar_regra.Text = "Deletar";
 			this.btn_deletar_regra.UseVisualStyleBackColor = true;
+			this.btn_deletar_regra.Click += new System.EventHandler(this.btn_deletar_regra_Click);
 			// 
 			// btn_editar_regra
 			// 
@@ -87,6 +88,7 @@
 			this.btn_nova_regra.TabIndex = 6;
 			this.btn_nova_regra.Text = "Novo";
 			this.btn_nova_regra.UseVisualStyleBackColor = true;
+			this.btn_nova_regra.Click += new System.EventHandler(this.btn_nova_regra_Click);
 			// 
 			// btn_sair_dashboard
 			// 
