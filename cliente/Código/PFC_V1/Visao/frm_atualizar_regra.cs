@@ -92,7 +92,17 @@ namespace PFC_V1.Visao
 				IOperadorREST op = new OperadorJson();
 				CtrlRegra controle = new CtrlRegra();
 
-				this.regra = controle.cadastrar<Regra>(regra, op, this.conexao);
+				try
+				{
+					this.regra = controle.cadastrar<Regra>(regra, op, this.conexao);
+
+					MessageBox.Show("Regra atualizada com sucesso!");
+					this.Hide();
+				}
+				catch (Exception ex)
+				{
+					throw new System.InvalidOperationException("Ocorreu um erro inesperado, verifique sua conexão.");
+				}
 			}
 			catch(Exception ex)
 			{

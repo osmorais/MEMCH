@@ -42,7 +42,7 @@ public class RecAlerta {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("json")
+    @Path("listar/json")
     public String listarJson() {
         
         ArrayList<Alerta> arralerta = new ArrayList<>();

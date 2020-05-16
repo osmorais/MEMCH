@@ -14,6 +14,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
@@ -47,7 +48,7 @@ public class RecRegra {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("json")
+    @Path("listar/json")
     public String listarJson() {
         
         ArrayList<Regra> arrregra = new ArrayList<>();
@@ -57,6 +58,21 @@ public class RecRegra {
         
         return retorno;
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("cadastrar/json")
+    public String cadastrarJson(String conteudo) {
+        
+        Regra regra = objgson.fromJson(conteudo, Regra.class);
+        SrvcRegra.cadastrar(regra);
+        
+        String retorno = objgson.toJson(regra);
+
+        return retorno;
+    }
+    
 
     /**
      * PUT method for updating or creating an instance of RecRegra

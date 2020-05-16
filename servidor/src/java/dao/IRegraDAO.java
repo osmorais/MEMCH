@@ -13,9 +13,9 @@ import modelo.Regra;
  * @author pi
  */
 public interface IRegraDAO {
-    void cadastrar(Regra regra);
+    Regra cadastrar(Regra regra);
     void consultar(Regra regra);
-    void alterar(Regra regra);
+    Regra alterar(Regra regra);
     void remover(Regra regra);
     ArrayList<Regra> listar();
 }
