@@ -5,6 +5,10 @@
  */
 package dao;
 
+import dao.InterfaceDAO.IRegraDAO;
+import dao.InterfaceDAO.IRegistroDAO;
+import dao.InterfaceDAO.IAlertaDAO;
+import dao.InterfaceDAO.IHidrometroDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +34,7 @@ public class HidrometroDAO implements IHidrometroDAO{
     private Connection conexao;
     
     @Override
-    public void cadastrar(Hidrometro hidrometro) {
+    public Hidrometro cadastrar(Hidrometro hidrometro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -67,7 +71,7 @@ public class HidrometroDAO implements IHidrometroDAO{
     }
 
     @Override
-    public void alterar(Hidrometro hidrometro) {
+    public Hidrometro alterar(Hidrometro hidrometro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

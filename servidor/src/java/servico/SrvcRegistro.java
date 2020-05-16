@@ -5,7 +5,7 @@
  */
 package servico;
 
-import dao.IRegistroDAO;
+import dao.InterfaceDAO.IRegistroDAO;
 import dao.RegistroDAO;
 import java.util.ArrayList;
 import modelo.Registro;

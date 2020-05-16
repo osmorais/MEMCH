@@ -5,14 +5,20 @@
  */
 package recurso;
 
+import com.google.gson.Gson;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import modelo.Hidrometro;
+import servico.SrvcHidrometro;
 
 /**
  * REST Web Service
@@ -21,6 +27,8 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("hidrometro")
 public class RecHidrometro {
+    private final Gson objgson;
+    private final XStream xstream;
 
     @Context
     private UriInfo context;
@@ -29,6 +37,8 @@ public class RecHidrometro {
      * Creates a new instance of RecHidrometro
      */
     public RecHidrometro() {
+        this.objgson = new Gson();
+        this.xstream =  new XStream(new DomDriver());
     }
 
     /**
@@ -40,6 +50,20 @@ public class RecHidrometro {
     public String getXml() {
         //TODO return proper representation object
         throw new UnsupportedOperationException();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("cadastrar/json")
+    public String cadastrarJson(String conteudo) {
+        
+        Hidrometro hidrometro = objgson.fromJson(conteudo, Hidrometro.class);
+        SrvcHidrometro.cadastrar(hidrometro);
+        
+        String retorno = objgson.toJson(hidrometro);
+
+        return retorno;
     }
 
     /**

@@ -5,14 +5,13 @@
  */
 package dao;
 
+import dao.InterfaceDAO.IRegraTipoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import modelo.Alerta;
-import modelo.Regra;
 import modelo.RegraTipo;
 import util.ConnectionFactory;
 

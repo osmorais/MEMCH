@@ -5,7 +5,7 @@
  */
 package servico;
 
-import dao.IRegraDAO;
+import dao.InterfaceDAO.IRegraDAO;
 import dao.RegraDAO;
 import java.util.ArrayList;
 import modelo.Regra;

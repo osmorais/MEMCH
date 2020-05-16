@@ -5,6 +5,7 @@
  */
 package dao;
 
+import dao.InterfaceDAO.IRegraDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

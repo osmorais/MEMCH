@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
-
+package dao.InterfaceDAO;
 import java.util.ArrayList;
 import modelo.Hidrometro;
 
@@ -13,9 +12,9 @@ import modelo.Hidrometro;
  * @author osmar
  */
 public interface IHidrometroDAO {
-    void cadastrar(Hidrometro hidrometro);
+    Hidrometro cadastrar(Hidrometro hidrometro);
     void consultar(Hidrometro hidrometro);
-    void alterar(Hidrometro hidrometro);
+    Hidrometro alterar(Hidrometro hidrometro);
     void remover(Hidrometro hidrometro);
     ArrayList<Hidrometro> listar();
 }

@@ -5,7 +5,7 @@
  */
 package servico;
 
-import dao.IAlertaDAO;
+import dao.InterfaceDAO.IAlertaDAO;
 import dao.AlertaDAO;
 import java.util.ArrayList;
 import modelo.Alerta;
