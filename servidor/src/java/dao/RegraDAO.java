@@ -121,7 +121,7 @@ public class RegraDAO implements IRegraDAO{
             stmt.setInt(3, hidrometro.getId());
             stmt.setInt(4, regra.getPeriodo());
             stmt.setInt(5, regra.isAtivo() ? 1 : 0);
-            stmt.setInt(3, regra.getId());
+            stmt.setInt(6, regra.getId());
             
             int lastId = 0;
 
