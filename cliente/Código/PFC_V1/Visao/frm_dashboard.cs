@@ -88,7 +88,6 @@ namespace PFC_V1
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-				btn_nova_conexao_Click(sender, e);
 			}
 		}
         private void btn_deletar_conexao_Click(object sender, EventArgs e)
