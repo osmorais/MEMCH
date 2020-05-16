@@ -29,13 +29,11 @@ public class SrvcHidrometro {
            hidrometro.getDescricao()!= null){
             hidrometrodao.cadastrar(hidrometro);
         }
-        hidrometro.getRegras().stream().map((regra) -> {
+        
+        for(Regra regra : hidrometro.getRegras()){
             IRegraDAO regradao = new RegraDAO();
             regradao.cadastrar(regra, hidrometro);
-            return regra;
-        }).forEachOrdered((Regra regra) -> {
-            hidrometro.getRegras().add(regra);
-        });
+        }
         
         return hidrometro;
     }
@@ -57,13 +55,11 @@ public class SrvcHidrometro {
            hidrometro.getDescricao()!= null){
             hidrometrodao.alterar(hidrometro);
         }
-        hidrometro.getRegras().stream().map((Regra regra) -> {
+        
+        for(Regra regra : hidrometro.getRegras()){
             IRegraDAO regradao = new RegraDAO();
             regradao.alterar(regra, hidrometro);
-            return regra;
-        }).forEachOrdered((Regra regra) -> {
-            hidrometro.getRegras().add(regra);
-        });
+        }
         
         return hidrometro;
     }
