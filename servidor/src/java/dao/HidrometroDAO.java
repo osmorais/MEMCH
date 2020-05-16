@@ -143,6 +143,7 @@ public class HidrometroDAO implements IHidrometroDAO{
             stmt.setString(3, hidrometro.getModelo());
             stmt.setString(4, hidrometro.getDescricao());
             stmt.setInt(5, hidrometro.isAtivo()? 1 : 0);
+            stmt.setInt(6, hidrometro.getId());
             
             int lastId = 0;
 

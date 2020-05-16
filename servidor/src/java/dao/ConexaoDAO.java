@@ -42,7 +42,7 @@ public class ConexaoDAO implements IConexaoDAO{
             + "(?,?,?,?)";
     private static final String DELETE = "DELETE FROM CONEXAO WHERE ID=?";
     private static final String UPDATE = "UPDATE CONEXAO "
-            + "(HOST, ATIVO, DESCRICAO, HIDROMETROFK) VALUES "
+            + "SET HOST=?, ATIVO=?, DESCRICAO=?, HIDROMETROFK=?"
             + " WHERE ID=?";
     private Connection conexao;
     
@@ -93,9 +93,12 @@ public class ConexaoDAO implements IConexaoDAO{
             stmt.setString(3, conexao.getDescricao());
             
             IHidrometroDAO hidrometrodao = new HidrometroDAO();
-            hidrometrodao.alterar(conexao.getHidrometro());
+            Hidrometro hidrometro = conexao.getHidrometro();
+            hidrometrodao.alterar(hidrometro);
+            conexao.setHidrometro(hidrometro);
+            stmt.setInt(4, conexao.getHidrometro().getId());
             
-            stmt.setInt(4, conexao.getId());
+            stmt.setInt(5, conexao.getId());
             
             int lastId = 0;
 
