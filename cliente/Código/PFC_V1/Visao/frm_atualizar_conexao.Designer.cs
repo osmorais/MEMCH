@@ -40,7 +40,7 @@
 			this.lbl_memch2 = new System.Windows.Forms.Label();
 			this.lbl_memch = new System.Windows.Forms.Label();
 			this.lbl_chave_conexao = new System.Windows.Forms.Label();
-			this.txb_chave_conexao = new System.Windows.Forms.TextBox();
+			this.txb_chave = new System.Windows.Forms.TextBox();
 			this.gpb_hidrometro = new System.Windows.Forms.GroupBox();
 			this.ckb_hidrometro_ativo = new System.Windows.Forms.CheckBox();
 			this.txb_descricao_hidrometro = new System.Windows.Forms.TextBox();
@@ -60,7 +60,7 @@
 			this.gpb_nova_conexao.Controls.Add(this.ckb_conexao_ativa);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_descricao_conexao);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_ativo_conexao);
-			this.gpb_nova_conexao.Controls.Add(this.txb_chave_conexao);
+			this.gpb_nova_conexao.Controls.Add(this.txb_chave);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_chave_conexao);
 			this.gpb_nova_conexao.Controls.Add(this.txb_host_conexao);
 			this.gpb_nova_conexao.Controls.Add(this.lbl_host_conexao);
@@ -194,12 +194,12 @@
 			// 
 			// txb_chave_conexao
 			// 
-			this.txb_chave_conexao.Location = new System.Drawing.Point(8, 80);
-			this.txb_chave_conexao.Margin = new System.Windows.Forms.Padding(2);
-			this.txb_chave_conexao.Name = "txb_chave_conexao";
-			this.txb_chave_conexao.Size = new System.Drawing.Size(133, 20);
-			this.txb_chave_conexao.TabIndex = 13;
-			this.txb_chave_conexao.TextChanged += new System.EventHandler(this.txb_chave_conexao_TextChanged);
+			this.txb_chave.Location = new System.Drawing.Point(8, 80);
+			this.txb_chave.Margin = new System.Windows.Forms.Padding(2);
+			this.txb_chave.Name = "txb_chave_conexao";
+			this.txb_chave.Size = new System.Drawing.Size(133, 20);
+			this.txb_chave.TabIndex = 13;
+			this.txb_chave.TextChanged += new System.EventHandler(this.txb_chave_conexao_TextChanged);
 			// 
 			// gpb_hidrometro
 			// 
@@ -334,7 +334,7 @@
         private System.Windows.Forms.Label lbl_host_conexao;
         private System.Windows.Forms.Label lbl_memch2;
         private System.Windows.Forms.Label lbl_memch;
-		private System.Windows.Forms.TextBox txb_chave_conexao;
+		private System.Windows.Forms.TextBox txb_chave;
 		private System.Windows.Forms.Label lbl_chave_conexao;
 		private System.Windows.Forms.GroupBox gpb_hidrometro;
 		private System.Windows.Forms.CheckBox ckb_hidrometro_ativo;

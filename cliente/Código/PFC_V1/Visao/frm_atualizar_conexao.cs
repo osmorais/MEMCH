@@ -31,7 +31,7 @@ namespace PFC_V1.Visao
 
 			conexao.hidrometro.identificador = txb_identificador_hidrometro.Text;
 			conexao.hidrometro.modelo = txb_modelo_hidrometro.Text;
-			conexao.hidrometro.chave = txb_chave_conexao.Text;
+			conexao.hidrometro.chave = txb_chave.Text;
 			conexao.hidrometro.descricao = txb_descricao_hidrometro.Text;
 
 			if (!String.IsNullOrEmpty(conexao.host) || !String.IsNullOrEmpty(conexao.hidrometro.chave) ||
@@ -50,9 +50,13 @@ namespace PFC_V1.Visao
 
 					ControleInterno controleinterno = new ControleInterno();
 					controleinterno.atualizarConexoes(ref usuario);
+
+					MessageBox.Show("Conexao atualizada com sucesso!");
+					this.Hide();
 				}
 				catch (Exception ex)
 				{
+					throw new System.InvalidOperationException("Ocorreu um erro inesperado, verifique sua conexão.");
 				}
 			}
 			else
@@ -81,8 +85,12 @@ namespace PFC_V1.Visao
 		{
 			txb_host_conexao.Text = conexao.host;
 			ckb_conexao_ativa.Checked = conexao.ativo;
-			txb_chave_conexao.Text = conexao.hidrometro.chave;
+			txb_chave.Text = conexao.hidrometro.chave;
 			txb_descricao_conexao.Text = conexao.descricao;
+
+			txb_identificador_hidrometro.Text = conexao.hidrometro.identificador;
+			txb_modelo_hidrometro.Text = conexao.hidrometro.modelo;
+			txb_descricao_hidrometro.Text = conexao.hidrometro.descricao;
 		}
 		private void verificarAlteracao() { }
 	}
