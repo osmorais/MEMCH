@@ -25,7 +25,7 @@ namespace PFC_V1.Controle
 
 		public List<T> listar<T>(IOperadorREST operador, Conexao conexao)
 		{
-			return operador.retornarConteudo<T>(new Uri(string.Format(this.uri, conexao.host) + "listar/"));
+			return operador.retornarConteudo<T>(new Uri(this.uri + "listar/"));
 		}
 
 		public T remover<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)

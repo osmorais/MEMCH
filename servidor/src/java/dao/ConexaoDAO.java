@@ -135,11 +135,11 @@ public class ConexaoDAO implements IConexaoDAO{
                 objconexao.setAtivo(rs.getInt("ativo") == 1);
                 objconexao.setDescricao(rs.getString("descricao"));
                 
-                IHidrometroDAO hidrometrodao = new HidrometroDAO();
+                HidrometroDAO hidrometrodao = new HidrometroDAO();
                 Hidrometro hidrometro = new Hidrometro();
                 
                 hidrometro.setId(rs.getInt("hidrometrofk"));
-                hidrometrodao.consultar(hidrometro);
+                hidrometrodao.consultarHidrometro(hidrometro);
                 
                 objconexao.setHidrometro(hidrometro);
                 
