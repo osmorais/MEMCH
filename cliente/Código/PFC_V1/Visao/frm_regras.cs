@@ -50,9 +50,9 @@ namespace PFC_V1.Visao
 		private List<Regra> recuperarRegras()
 		{
 			IOperadorREST op = new OperadorJson();
-			CtrlRegra controle = new CtrlRegra();
+			CtrlHidrometro controle = new CtrlHidrometro();
 
-			this.regras = controle.listar<Regra>(op, this.conexao);
+			this.regras = controle.consultar<Hidrometro>(this.conexao.hidrometro, op, this.conexao).regras;
 
 			return this.regras;
 		}

@@ -59,7 +59,7 @@ public class Regra {
         this.tipo = tipo;
     }
 
-    public boolean getAtivo() {
+    public boolean isAtivo() {
         return this.ativo;
     }
 

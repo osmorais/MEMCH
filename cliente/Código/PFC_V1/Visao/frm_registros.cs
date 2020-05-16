@@ -31,10 +31,10 @@ namespace PFC_V1.Visao
         private void encheRegistro()
         {
             IOperadorREST op = new OperadorJson();
-            CtrlRegistro controle = new CtrlRegistro();
-
-            List<Registro> arrregistro = controle.listar<Registro>(op, this.conexao);
-            DataTable tabelaRegistro = new DataTable();
+            CtrlHidrometro controle = new CtrlHidrometro();
+			
+			List<Registro> arrregistro = controle.consultar<Hidrometro>(this.conexao.hidrometro, op, this.conexao).registros;
+			DataTable tabelaRegistro = new DataTable();
 
             tabelaRegistro.Columns.Add("Id", typeof(int));
             tabelaRegistro.Columns.Add("Valor", typeof(double));

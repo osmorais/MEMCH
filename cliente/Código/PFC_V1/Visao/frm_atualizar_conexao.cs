@@ -1,80 +1,89 @@
 ﻿using PFC_V1.Controle;
+using PFC_V1.Operador;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PFC_V1.Visao
 {
-    public partial class frm_atualizar_conexao : Form
-    {
-        private Conexao conexao;
+	public partial class frm_atualizar_conexao : Form
+	{
+		private Conexao conexao;
 		private Usuario usuario;
-        public frm_atualizar_conexao(Conexao conexao, Usuario usuario)
-        {
-            InitializeComponent();
-            this.conexao = conexao;
+		public frm_atualizar_conexao(Conexao conexao, Usuario usuario)
+		{
+			InitializeComponent();
+			this.conexao = conexao;
 			this.usuario = usuario;
-        }
-        private void frm_atualizar_conexao_Load(object sender, EventArgs e)
-        {
-            iniciarCampos();
-        }
-        private void btn_sair_cadastro_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void btn_atualizar_conexao_Click(object sender, EventArgs e)
-        {
-			if (String.IsNullOrEmpty(txb_host_conexao.Text) || String.IsNullOrEmpty(txb_chave_conexao.Text) ||
-				String.IsNullOrEmpty(txb_descricao_conexao.Text))
+		}
+		private void frm_atualizar_conexao_Load(object sender, EventArgs e)
+		{
+			iniciarCampos();
+		}
+		private void btn_sair_cadastro_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+		private void btn_atualizar_conexao_Click(object sender, EventArgs e)
+		{
+			conexao.host = txb_host_conexao.Text;
+			conexao.descricao = txb_descricao_conexao.Text;
+			conexao.ativo = ckb_conexao_ativa.Checked;
+
+			conexao.hidrometro.identificador = txb_identificador_hidrometro.Text;
+			conexao.hidrometro.modelo = txb_modelo_hidrometro.Text;
+			conexao.hidrometro.chave = txb_chave_conexao.Text;
+			conexao.hidrometro.descricao = txb_descricao_hidrometro.Text;
+
+			if (!String.IsNullOrEmpty(conexao.host) || !String.IsNullOrEmpty(conexao.hidrometro.chave) ||
+				!String.IsNullOrEmpty(conexao.descricao) || !String.IsNullOrEmpty(conexao.hidrometro.identificador)
+				|| !String.IsNullOrEmpty(conexao.hidrometro.modelo) || !String.IsNullOrEmpty(conexao.hidrometro.descricao))
+			{
+				IOperadorREST op = new OperadorJson();
+				CtrlConexao controle = new CtrlConexao();
+				try
+				{
+					conexao = controle.alterar<Conexao>(conexao, op, this.conexao);
+
+					for (int i = 0; i < usuario.conexoes.Count; i++)
+						if (conexao.id == usuario.conexoes[i].id)
+							usuario.conexoes[i] = conexao;
+
+					ControleInterno controleinterno = new ControleInterno();
+					controleinterno.atualizarConexoes(ref usuario);
+				}
+				catch (Exception ex)
+				{
+				}
+			}
+			else
 			{
 				throw new System.InvalidOperationException("Necessário preencimento de todos os campos.");
 			}
+		}
 
-			conexao.host = txb_host_conexao.Text;
-            conexao.ativo = ckb_ativo_conexao.Checked;
-            conexao.chave = txb_chave_conexao.Text;
-            conexao.descricao = txb_descricao_conexao.Text;
-
-			for (int i = 0; i < usuario.conexoes.Count; i++)
-				if (conexao.id == usuario.conexoes[i].id)
-					usuario.conexoes[i] = conexao;
-
-			ControleInterno controle = new ControleInterno();
-			controle.atualizarConexoes(ref usuario);
-
-			Close();
-        }
-
-        private void txb_host_conexao_TextChanged(object sender, EventArgs e)
-        {
-            verificarAlteracao();
-        }
-        private void txb_chave_conexao_TextChanged(object sender, EventArgs e)
-        {
-            verificarAlteracao();
-        }
-        private void ckb_ativo_conexao_CheckedChanged(object sender, EventArgs e)
-        {
-            verificarAlteracao();
-        }
-        private void txb_descricao_conexao_TextChanged(object sender, EventArgs e)
-        {
-            verificarAlteracao();
-        }
-        private void iniciarCampos()
-        {
-            txb_host_conexao.Text = conexao.host;
-            ckb_ativo_conexao.Checked = conexao.ativo;
-            txb_chave_conexao.Text = conexao.chave;
-            txb_descricao_conexao.Text = conexao.descricao;
-        }
-        private void verificarAlteracao() { }
-    }
+		private void txb_host_conexao_TextChanged(object sender, EventArgs e)
+		{
+			verificarAlteracao();
+		}
+		private void txb_chave_conexao_TextChanged(object sender, EventArgs e)
+		{
+			verificarAlteracao();
+		}
+		private void ckb_ativo_conexao_CheckedChanged(object sender, EventArgs e)
+		{
+			verificarAlteracao();
+		}
+		private void txb_descricao_conexao_TextChanged(object sender, EventArgs e)
+		{
+			verificarAlteracao();
+		}
+		private void iniciarCampos()
+		{
+			txb_host_conexao.Text = conexao.host;
+			ckb_conexao_ativa.Checked = conexao.ativo;
+			txb_chave_conexao.Text = conexao.hidrometro.chave;
+			txb_descricao_conexao.Text = conexao.descricao;
+		}
+		private void verificarAlteracao() { }
+	}
 }

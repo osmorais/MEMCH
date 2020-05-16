@@ -46,7 +46,7 @@
 			// 
 			// btn_nova_conexao
 			// 
-			this.btn_nova_conexao.Location = new System.Drawing.Point(9, 36);
+			this.btn_nova_conexao.Location = new System.Drawing.Point(11, 36);
 			this.btn_nova_conexao.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_nova_conexao.Name = "btn_nova_conexao";
 			this.btn_nova_conexao.Size = new System.Drawing.Size(86, 25);
@@ -57,7 +57,7 @@
 			// 
 			// btn_editar_hidro
 			// 
-			this.btn_editar_hidro.Location = new System.Drawing.Point(144, 36);
+			this.btn_editar_hidro.Location = new System.Drawing.Point(152, 36);
 			this.btn_editar_hidro.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_editar_hidro.Name = "btn_editar_hidro";
 			this.btn_editar_hidro.Size = new System.Drawing.Size(86, 25);
@@ -68,7 +68,7 @@
 			// 
 			// btn_deletar_hidro
 			// 
-			this.btn_deletar_hidro.Location = new System.Drawing.Point(279, 36);
+			this.btn_deletar_hidro.Location = new System.Drawing.Point(293, 36);
 			this.btn_deletar_hidro.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_deletar_hidro.Name = "btn_deletar_hidro";
 			this.btn_deletar_hidro.Size = new System.Drawing.Size(86, 25);
@@ -95,12 +95,12 @@
 			this.dgwConexao.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgwConexao.RowTemplate.Height = 24;
 			this.dgwConexao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgwConexao.Size = new System.Drawing.Size(356, 125);
+			this.dgwConexao.Size = new System.Drawing.Size(371, 229);
 			this.dgwConexao.TabIndex = 4;
 			// 
 			// btn_acessar_dashboard
 			// 
-			this.btn_acessar_dashboard.Location = new System.Drawing.Point(9, 197);
+			this.btn_acessar_dashboard.Location = new System.Drawing.Point(11, 298);
 			this.btn_acessar_dashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_acessar_dashboard.Name = "btn_acessar_dashboard";
 			this.btn_acessar_dashboard.Size = new System.Drawing.Size(60, 25);
@@ -111,7 +111,7 @@
 			// 
 			// btn_sair_dashboard
 			// 
-			this.btn_sair_dashboard.Location = new System.Drawing.Point(303, 197);
+			this.btn_sair_dashboard.Location = new System.Drawing.Point(320, 298);
 			this.btn_sair_dashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_sair_dashboard.Name = "btn_sair_dashboard";
 			this.btn_sair_dashboard.Size = new System.Drawing.Size(60, 25);
@@ -126,7 +126,7 @@
             this.toolStripMenuItem1});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(374, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(391, 24);
 			this.menuStrip1.TabIndex = 9;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -155,7 +155,7 @@
 			// 
 			// btn_alerta
 			// 
-			this.btn_alerta.Location = new System.Drawing.Point(107, 197);
+			this.btn_alerta.Location = new System.Drawing.Point(114, 298);
 			this.btn_alerta.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_alerta.Name = "btn_alerta";
 			this.btn_alerta.Size = new System.Drawing.Size(60, 25);
@@ -166,7 +166,7 @@
 			// 
 			// btn_regra
 			// 
-			this.btn_regra.Location = new System.Drawing.Point(205, 197);
+			this.btn_regra.Location = new System.Drawing.Point(217, 298);
 			this.btn_regra.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_regra.Name = "btn_regra";
 			this.btn_regra.Size = new System.Drawing.Size(60, 25);
@@ -180,7 +180,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
-			this.ClientSize = new System.Drawing.Size(374, 230);
+			this.ClientSize = new System.Drawing.Size(391, 334);
 			this.Controls.Add(this.btn_regra);
 			this.Controls.Add(this.btn_alerta);
 			this.Controls.Add(this.btn_sair_dashboard);

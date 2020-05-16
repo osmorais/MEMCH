@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Alerta;
-import modelo.Registro;
 import modelo.Regra;
 import util.ConnectionFactory;
 

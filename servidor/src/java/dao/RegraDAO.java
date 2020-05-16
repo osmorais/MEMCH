@@ -6,6 +6,7 @@
 package dao;
 
 import dao.InterfaceDAO.IRegraDAO;
+import dao.InterfaceDAO.IRegraTipoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,7 +23,8 @@ import util.ConnectionFactory;
  * @author pi
  */
 public class RegraDAO implements IRegraDAO{
-//        Column    |  Type   |                     Modifiers                      
+//                            Table "public.regra"
+//    Column    |  Type   |                     Modifiers                      
 //--------------+---------+----------------------------------------------------
 // id           | integer | not null default nextval('regra_id_seq'::regclass)
 // valor        | numeric | 
@@ -30,7 +32,13 @@ public class RegraDAO implements IRegraDAO{
 // hidrometrofk | integer | not null
 // periodo      | integer | 
 // ativo        | integer | not null
-
+//Indexes:
+//    "regra_pkey" PRIMARY KEY, btree (id)
+//Foreign-key constraints:
+//    "fk_hidrometro" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
+//    "fk_regratipo" FOREIGN KEY (regratipofk) REFERENCES regratipo(id)
+//Referenced by:
+//    TABLE "alerta" CONSTRAINT "fk_regra" FOREIGN KEY (regrafk) REFERENCES regra(id)
     private final String SELECTALL = "SELECT * FROM REGRA;";
     private final String SELECTID = "SELECT * FROM REGRA WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGRA "
@@ -43,7 +51,7 @@ public class RegraDAO implements IRegraDAO{
     private Connection conexao;
 
     @Override
-    public Regra cadastrar(Regra regra) {
+    public void cadastrar(Regra regra, Hidrometro hidrometro) {
         try {
             ConnectionFactory con = new ConnectionFactory();
             conexao = con.getConnection();
@@ -51,10 +59,10 @@ public class RegraDAO implements IRegraDAO{
             PreparedStatement stmt = conexao.prepareStatement(INSERT,
                     Statement.RETURN_GENERATED_KEYS);
             stmt.setDouble(1, regra.getValor());
-            //stmt.setString(1, regra.getDescricao());
-            stmt.setInt(1, regra.getTipo().getId());
-            stmt.setInt(1, regra.getPeriodo());
-            stmt.setInt(1, regra.getAtivo() ? 1 : 0);
+            stmt.setInt(2, regra.getTipo().getId());
+            stmt.setInt(3, hidrometro.getId());
+            stmt.setInt(4, regra.getPeriodo());
+            stmt.setInt(5, regra.isAtivo() ? 1 : 0);
 
             int lastId = 0;
 
@@ -66,7 +74,6 @@ public class RegraDAO implements IRegraDAO{
 
             regra.setId(lastId);
             ConnectionFactory.closeConnection(conexao, stmt);
-            return regra;
         } catch (SQLException ex) {
             throw new RuntimeException("Erro: ", ex);
         }
@@ -102,7 +109,7 @@ public class RegraDAO implements IRegraDAO{
     }
 
     @Override
-    public Regra alterar(Regra regra) {
+    public void alterar(Regra regra, Hidrometro hidrometro) {
         try {
             ConnectionFactory con = new ConnectionFactory();
             conexao = con.getConnection();
@@ -110,9 +117,10 @@ public class RegraDAO implements IRegraDAO{
             PreparedStatement stmt = conexao.prepareStatement(UPDATE,
                     Statement.RETURN_GENERATED_KEYS);
             stmt.setDouble(1, regra.getValor());
-           // stmt.setInt(2, regra.get);
-            //"(valor, regratipofk, hidrometrofk, periodo, ativo) values "
-            
+            stmt.setInt(2, regra.getTipo().getId());
+            stmt.setInt(3, hidrometro.getId());
+            stmt.setInt(4, regra.getPeriodo());
+            stmt.setInt(5, regra.isAtivo() ? 1 : 0);
 
             int lastId = 0;
 
@@ -124,7 +132,6 @@ public class RegraDAO implements IRegraDAO{
 
             regra.setId(lastId);
             ConnectionFactory.closeConnection(conexao, stmt);
-            return regra;
         } catch (SQLException ex) {
             throw new RuntimeException("Erro: ", ex);
         }
@@ -132,7 +139,19 @@ public class RegraDAO implements IRegraDAO{
 
     @Override
     public void remover(Regra regra) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+
+            conexao = con.getConnection();
+            PreparedStatement stmt = conexao.prepareStatement(DELETE);
+            stmt.setInt(1, regra.getId());
+
+            stmt.executeQuery();
+            
+            regra.setId(0);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override
@@ -152,7 +171,7 @@ public class RegraDAO implements IRegraDAO{
                 regra.setValor(rs.getDouble("valor"));
                 regra.setPeriodo(rs.getInt("periodo"));
                 
-                RegraTipoDAO regratipodao = new RegraTipoDAO();
+                IRegraTipoDAO regratipodao = new RegraTipoDAO();
                 RegraTipo regratipo = new RegraTipo();
                 
                 regratipo.setId(rs.getInt("regratipofk"));

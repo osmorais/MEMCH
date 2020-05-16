@@ -8,6 +8,7 @@ package recurso;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import java.util.ArrayList;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -52,6 +53,19 @@ public class RecHidrometro {
         throw new UnsupportedOperationException();
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("listar/json")
+    public String listarJson() {
+        
+        ArrayList<Hidrometro> arrhidrometro = new ArrayList<>();
+        
+        arrhidrometro = SrvcHidrometro.listar();
+        String retorno = objgson.toJson(arrhidrometro);
+        
+        return retorno;
+    }
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -65,7 +79,34 @@ public class RecHidrometro {
 
         return retorno;
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("alterar/json")
+    public String alterarJson(String conteudo) {
+        
+        Hidrometro hidrometro = objgson.fromJson(conteudo, Hidrometro.class);
+        SrvcHidrometro.alterar(hidrometro);
+        
+        String retorno = objgson.toJson(hidrometro);
 
+        return retorno;
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("consultar/json")
+    public String consultarJson(String conteudo) {
+        
+        Hidrometro hidrometro = objgson.fromJson(conteudo, Hidrometro.class);
+        SrvcHidrometro.consultar(hidrometro);
+        
+        String retorno = objgson.toJson(hidrometro);
+
+        return retorno;
+    }
     /**
      * PUT method for updating or creating an instance of RecHidrometro
      * @param content representation for the resource

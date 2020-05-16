@@ -11,6 +11,7 @@ using LiteDB;
 using PFC_V1;
 using PFC_V1.Controle;
 using PFC_V1.DAO;
+using PFC_V1.Operador;
 using PFC_V1.Visao;
 
 namespace PFC_V1
@@ -18,6 +19,7 @@ namespace PFC_V1
     public partial class frm_dashboard : Form
     {
         private Usuario usuario;
+		private Conexao conexao;
         public frm_dashboard(Usuario usuario)
         {
             InitializeComponent();
@@ -113,9 +115,15 @@ namespace PFC_V1
         }
         private void recuperarUsuario(Usuario usuario)
         {
-            ControleInterno controle = new ControleInterno();
-            controle.recuperarUsuario(ref usuario);
-            this.usuario = usuario;
+            ControleInterno controleinterno = new ControleInterno();
+            controleinterno.recuperarUsuario(ref usuario);
+
+			IOperadorREST op = new OperadorJson();
+			CtrlConexao controle = new CtrlConexao();
+
+			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
+
+			this.usuario = usuario;
         }
         private void preencherDgv(List<Conexao> conexoes)
         {
@@ -127,14 +135,22 @@ namespace PFC_V1
                 tabelaconexao.Columns.Add("Host", typeof(string));
                 tabelaconexao.Columns.Add("Ativo", typeof(bool));
                 tabelaconexao.Columns.Add("Descrição", typeof(string));
+				tabelaconexao.Columns.Add("Hidrometro", typeof(string));
+				tabelaconexao.Columns.Add("Chave", typeof(string));
+				tabelaconexao.Columns.Add("Descrição", typeof(string));
+				tabelaconexao.Columns.Add("Modelo", typeof(string));
 
-                foreach (Conexao conexao in conexoes)
+				foreach (Conexao conexao in conexoes)
                 {
                     tabelaconexao.Rows.Add(
                         conexao.id,
                         conexao.host,
                         conexao.ativo,
-                        conexao.descricao);
+                        conexao.descricao,
+						conexao.hidrometro.identificador,
+						conexao.hidrometro.chave,
+						conexao.hidrometro.descricao,
+						conexao.hidrometro.modelo);
                 }
 
                 dgwConexao.DataSource = tabelaconexao;

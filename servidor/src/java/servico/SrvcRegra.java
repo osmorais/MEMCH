@@ -22,10 +22,10 @@ public class SrvcRegra {
         
         return regradao.listar();
     }
-    public static Regra cadastrar(Regra regra){
+    public static Regra remover(Regra regra){
 
         IRegraDAO regradao = new RegraDAO();
-        regra = regradao.cadastrar(regra);
+        regradao.remover(regra);
         
         return regra;
     }

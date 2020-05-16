@@ -20,6 +20,18 @@ import util.ConnectionFactory;
  * @author osmar
  */
 public class RegistroDAO implements IRegistroDAO{
+//                                   Table "public.registro"
+//    Column    |     Type     |                       Modifiers                       
+//--------------+--------------+-------------------------------------------------------
+// id           | integer      | not null default nextval('registro_id_seq'::regclass)
+// valor        | numeric(8,3) | 
+// data         | date         | 
+// hidrometrofk | integer      | not null
+//Indexes:
+//    "registro_pkey" PRIMARY KEY, btree (id)
+//Foreign-key constraints:
+//    "fk_hidrometro" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
+
     private final String SELECTALL = "SELECT * FROM REGISTRO;";
     private final String SELECTID = "SELECT * FROM REGISTRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGISTRO "
@@ -33,24 +45,7 @@ public class RegistroDAO implements IRegistroDAO{
     
     @Override
     public void cadastrar(Registro registro) {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
-
-            conexao = con.getConnection();
-            PreparedStatement stmt = conexao.prepareStatement(INSERT,
-                    Statement.RETURN_GENERATED_KEYS);
-            stmt.setDouble(1, registro.getValor());
-            stmt.setDate(2, new java.sql.Date(registro.getData().getTime()));
-            
-            stmt.execute();
-            
-            ResultSet rs = stmt.getGeneratedKeys();
-            if (rs.next()) {
-                registro.setId(rs.getInt(1));
-            }
-        } catch (SQLException ex) {
-            throw new RuntimeException("Erro: ", ex);
-        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

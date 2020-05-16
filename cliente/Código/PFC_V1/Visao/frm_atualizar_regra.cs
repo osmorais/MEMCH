@@ -90,11 +90,11 @@ namespace PFC_V1.Visao
 				regra.ativo = ckb_ativo.Checked;
 
 				IOperadorREST op = new OperadorJson();
-				CtrlRegra controle = new CtrlRegra();
-
+				CtrlHidrometro controle = new CtrlHidrometro();
+				this.conexao.hidrometro.regras.Add(regra);
 				try
 				{
-					this.regra = controle.cadastrar<Regra>(regra, op, this.conexao);
+					this.conexao.hidrometro = controle.alterar<Hidrometro>(this.conexao.hidrometro, op, this.conexao);
 
 					MessageBox.Show("Regra atualizada com sucesso!");
 					this.Hide();

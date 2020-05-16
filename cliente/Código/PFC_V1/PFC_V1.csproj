@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="Controle\CtrlAlerta.cs" />
     <Compile Include="Controle\ControleInterno.cs" />
+    <Compile Include="Controle\CtrlConexao.cs" />
+    <Compile Include="Controle\CtrlHidrometro.cs" />
     <Compile Include="Controle\CtrlRegistro.cs" />
     <Compile Include="Controle\CtrlRegra.cs" />
     <Compile Include="Controle\CtrlRegraTipo.cs" />

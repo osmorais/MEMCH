@@ -12,9 +12,9 @@ import modelo.Hidrometro;
  * @author osmar
  */
 public interface IHidrometroDAO {
-    Hidrometro cadastrar(Hidrometro hidrometro);
+    void cadastrar(Hidrometro hidrometro);
     void consultar(Hidrometro hidrometro);
-    Hidrometro alterar(Hidrometro hidrometro);
+    void alterar(Hidrometro hidrometro);
     void remover(Hidrometro hidrometro);
     ArrayList<Hidrometro> listar();
 }

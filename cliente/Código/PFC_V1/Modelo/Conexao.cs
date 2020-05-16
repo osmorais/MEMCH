@@ -12,7 +12,7 @@ namespace PFC_V1
     {
         public string host { get; set; }
         public bool ativo { get; set; }
-        public string chave { get; set; }
         public string descricao { get; set; }
-    }
+		public Hidrometro hidrometro { get; set; }
+	}
 }

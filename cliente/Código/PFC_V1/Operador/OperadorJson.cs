@@ -11,7 +11,7 @@ namespace PFC_V1.Operador
 {
     class OperadorJson : IOperadorREST
     {
-        public List<T> listar<T>(Uri uriBase)
+        public List<T> retornarConteudo<T>(Uri uriBase)
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(
 			    new Uri(uriBase, "json"));
@@ -23,7 +23,7 @@ namespace PFC_V1.Operador
             return JsonConvert.DeserializeObject<List<T>>(resposta);
         }
 
-		public T cadastrar<T>(Objeto objeto, Uri uriBase)
+		public T enviarConteudo<T>(Objeto objeto, Uri uriBase)
 		{
 			var httpWebRequest = (HttpWebRequest)WebRequest.Create(
 				new Uri(uriBase, "json"));

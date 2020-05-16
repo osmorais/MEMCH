@@ -9,7 +9,7 @@ namespace PFC_V1.Operador
 {
     interface IOperadorREST
     {
-		T cadastrar<T>(Objeto objeto, Uri uriBase);
-		List<T> listar<T>(Uri uriBase);
+		T enviarConteudo<T>(Objeto objeto, Uri uriBase);
+		List<T> retornarConteudo<T>(Uri uriBase);
 	}
 }

@@ -78,6 +78,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Silver;
 			this.ClientSize = new System.Drawing.Size(598, 434);
 			this.Controls.Add(this.dgvRegistro);
 			this.Controls.Add(this.btnVoltar);

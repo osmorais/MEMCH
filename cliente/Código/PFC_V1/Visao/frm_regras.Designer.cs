@@ -36,7 +36,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgwRegras)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dgwConexao
+			// dgwRegras
 			// 
 			this.dgwRegras.AllowUserToAddRows = false;
 			this.dgwRegras.AllowUserToDeleteRows = false;
@@ -48,18 +48,18 @@
 			this.dgwRegras.Location = new System.Drawing.Point(9, 53);
 			this.dgwRegras.Margin = new System.Windows.Forms.Padding(2);
 			this.dgwRegras.MultiSelect = false;
-			this.dgwRegras.Name = "dgwConexao";
+			this.dgwRegras.Name = "dgwRegras";
 			this.dgwRegras.ReadOnly = true;
 			this.dgwRegras.RowHeadersVisible = false;
 			this.dgwRegras.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgwRegras.RowTemplate.Height = 24;
 			this.dgwRegras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgwRegras.Size = new System.Drawing.Size(356, 125);
+			this.dgwRegras.Size = new System.Drawing.Size(578, 341);
 			this.dgwRegras.TabIndex = 5;
 			// 
 			// btn_deletar_regra
 			// 
-			this.btn_deletar_regra.Location = new System.Drawing.Point(279, 11);
+			this.btn_deletar_regra.Location = new System.Drawing.Point(501, 11);
 			this.btn_deletar_regra.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_deletar_regra.Name = "btn_deletar_regra";
 			this.btn_deletar_regra.Size = new System.Drawing.Size(86, 25);
@@ -69,7 +69,7 @@
 			// 
 			// btn_editar_regra
 			// 
-			this.btn_editar_regra.Location = new System.Drawing.Point(144, 11);
+			this.btn_editar_regra.Location = new System.Drawing.Point(255, 11);
 			this.btn_editar_regra.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_editar_regra.Name = "btn_editar_regra";
 			this.btn_editar_regra.Size = new System.Drawing.Size(86, 25);
@@ -90,7 +90,7 @@
 			// 
 			// btn_sair_dashboard
 			// 
-			this.btn_sair_dashboard.Location = new System.Drawing.Point(279, 194);
+			this.btn_sair_dashboard.Location = new System.Drawing.Point(501, 398);
 			this.btn_sair_dashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_sair_dashboard.Name = "btn_sair_dashboard";
 			this.btn_sair_dashboard.Size = new System.Drawing.Size(86, 25);
@@ -104,7 +104,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
-			this.ClientSize = new System.Drawing.Size(374, 230);
+			this.ClientSize = new System.Drawing.Size(598, 434);
 			this.Controls.Add(this.btn_sair_dashboard);
 			this.Controls.Add(this.btn_deletar_regra);
 			this.Controls.Add(this.btn_editar_regra);

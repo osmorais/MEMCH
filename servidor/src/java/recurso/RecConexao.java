@@ -18,43 +18,50 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-import modelo.Regra;
-import servico.SrvcRegra;
+import modelo.Conexao;
+import servico.SrvcConexao;
 
 /**
  * REST Web Service
  *
  * @author osmar
  */
-@Path("regra")
-public class RecRegra {
+@Path("conexao")
+public class RecConexao {
     private final Gson objgson;
     private final XStream xstream;
-    
+
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of RecRegra
+     * Creates a new instance of RecConexao
      */
-    public RecRegra() {
+    public RecConexao() {
         this.objgson = new Gson();
         this.xstream =  new XStream(new DomDriver());
     }
 
     /**
-     * Retrieves representation of an instance of recurso.RecRegra
+     * Retrieves representation of an instance of recurso.RecConexao
      * @return an instance of java.lang.String
      */
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public String getXml() {
+        //TODO return proper representation object
+        throw new UnsupportedOperationException();
+    }
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("listar/json")
     public String listarJson() {
         
-        ArrayList<Regra> arrregra = new ArrayList<>();
+        ArrayList<Conexao> arrconexao = new ArrayList<>();
         
-        arrregra = SrvcRegra.listar();
-        String retorno = objgson.toJson(arrregra);
+        arrconexao = SrvcConexao.listar();
+        String retorno = objgson.toJson(arrconexao);
         
         return retorno;
     }
@@ -62,20 +69,33 @@ public class RecRegra {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("remover/json")
-    public String removerJson(String conteudo) {
+    @Path("cadastrar/json")
+    public String cadastrarJson(String conteudo) {
         
-        Regra regra = objgson.fromJson(conteudo, Regra.class);
-        SrvcRegra.remover(regra);
+        Conexao conexao = objgson.fromJson(conteudo, Conexao.class);
+        SrvcConexao.cadastrar(conexao);
         
-        String retorno = objgson.toJson(regra);
+        String retorno = objgson.toJson(conexao);
 
         return retorno;
     }
     
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("alterar/json")
+    public String alterarJson(String conteudo) {
+        
+        Conexao conexao = objgson.fromJson(conteudo, Conexao.class);
+        SrvcConexao.alterar(conexao);
+        
+        String retorno = objgson.toJson(conexao);
+
+        return retorno;
+    }
 
     /**
-     * PUT method for updating or creating an instance of RecRegra
+     * PUT method for updating or creating an instance of RecConexao
      * @param content representation for the resource
      */
     @PUT

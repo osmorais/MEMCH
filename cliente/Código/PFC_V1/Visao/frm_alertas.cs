@@ -58,9 +58,9 @@ namespace PFC_V1.Visao
 		private List<Alerta> recuperarAlertas(List<Alerta> arralerta)
 		{
 			IOperadorREST op = new OperadorJson();
-			CtrlAlerta controle = new CtrlAlerta();
+			CtrlHidrometro controle = new CtrlHidrometro();
 
-			arralerta = controle.listar<Alerta>(op, this.conexao);
+			arralerta = controle.consultar<Hidrometro>(this.conexao.hidrometro, op, this.conexao).alertas ;
 
 			return arralerta;
 		}

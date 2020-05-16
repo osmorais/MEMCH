@@ -6,6 +6,7 @@
 package dao.InterfaceDAO;
 
 import java.util.ArrayList;
+import modelo.Hidrometro;
 import modelo.Regra;
 
 /**
@@ -13,9 +14,9 @@ import modelo.Regra;
  * @author pi
  */
 public interface IRegraDAO {
-    Regra cadastrar(Regra regra);
+    void cadastrar(Regra regra, Hidrometro hidrometro);
     void consultar(Regra regra);
-    Regra alterar(Regra regra);
+    void alterar(Regra regra, Hidrometro hidrometro);
     void remover(Regra regra);
     ArrayList<Regra> listar();
 }

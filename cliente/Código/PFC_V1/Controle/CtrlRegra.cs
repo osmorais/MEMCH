@@ -13,14 +13,24 @@ namespace PFC_V1.Controle
 	{
 		string uri = "http://{0}:8080/servidor/servico/regra/";
 
+		public T alterar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
+		{
+			throw new System.InvalidOperationException("Operação invalida.");
+		}
+
 		public T cadastrar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			return operador.cadastrar<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "cadastrar/"));
+			throw new System.InvalidOperationException("Operação invalida.");
 		}
 
 		public List<T> listar<T>(IOperadorREST operador, Conexao conexao)
 		{
-			return operador.listar<T>(new Uri(string.Format(this.uri, conexao.host) + "listar/"));
+			throw new System.InvalidOperationException("Operação invalida.");
+		}
+
+		public T remover<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
+		{
+			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "remover/"));
 		}
 	}
 }

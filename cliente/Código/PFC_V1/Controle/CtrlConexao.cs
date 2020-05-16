@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace PFC_V1.Controle
 {
-	class CtrlRegraTipo : IControle
+	class CtrlConexao : IControle
 	{
-		string uri = "http://{0}:8080/servidor/servico/regratipo/";
+		string uri = "http://10.1.1.3:8080/servidor/servico/conexao/";
 
 		public T alterar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			throw new System.InvalidOperationException("Operação invalida.");
+			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "alterar/"));
 		}
 
 		public T cadastrar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			throw new System.InvalidOperationException("Operação invalida.");
+			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "cadastrar/"));
 		}
 
 		public List<T> listar<T>(IOperadorREST operador, Conexao conexao)
@@ -30,7 +30,7 @@ namespace PFC_V1.Controle
 
 		public T remover<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			throw new System.InvalidOperationException("Operação invalida.");
+			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "remover/"));
 		}
 	}
 }

@@ -8,5 +8,7 @@ namespace PFC_V1.Controle.Interface
 	{
 		T cadastrar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao);
 		List<T> listar<T>(IOperadorREST operador, Conexao conexao);
+		T alterar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao);
+		T remover<T>(Objeto objeto, IOperadorREST operador, Conexao conexao);
 	}
 }
