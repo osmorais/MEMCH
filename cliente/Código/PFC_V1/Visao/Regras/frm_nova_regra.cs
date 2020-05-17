@@ -33,6 +33,7 @@ namespace PFC_V1.Visao.Regra
 					throw new System.InvalidOperationException("Necessário preencimento de todos os campos.");
 				}
 
+				regra.tipo = new RegraTipo();
 				if (Int32.TryParse(cmb_tipo.SelectedValue.ToString(), out int tipoaux)) { regra.tipo.id = tipoaux; }
 
 				for (int i = 0; i < this.arrregratipo.Count; i++) if (regra.tipo.id == arrregratipo[i].id) regra.tipo = arrregratipo[i];

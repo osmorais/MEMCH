@@ -105,16 +105,16 @@
     <Compile Include="Visao\Conexao - Hidrometro\frm_atualizar_conexao.Designer.cs">
       <DependentUpon>frm_atualizar_conexao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Regra\frm_atualizar_regra.cs">
+    <Compile Include="Visao\Regras\frm_atualizar_regra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visao\Regra\frm_atualizar_regra.Designer.cs">
+    <Compile Include="Visao\Regras\frm_atualizar_regra.Designer.cs">
       <DependentUpon>frm_atualizar_regra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Regra\frm_nova_regra.cs">
+    <Compile Include="Visao\Regras\frm_nova_regra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visao\Regra\frm_nova_regra.Designer.cs">
+    <Compile Include="Visao\Regras\frm_nova_regra.Designer.cs">
       <DependentUpon>frm_nova_regra.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Usuario\frm_atualizar_usuario.cs">
@@ -170,10 +170,10 @@
     <Compile Include="Visao\Registros\frm_registros.Designer.cs">
       <DependentUpon>frm_registros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Regra\frm_regras.cs">
+    <Compile Include="Visao\Regras\frm_regras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visao\Regra\frm_regras.Designer.cs">
+    <Compile Include="Visao\Regras\frm_regras.Designer.cs">
       <DependentUpon>frm_regras.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Visao\Alertas\frm_alertas.resx">
@@ -182,10 +182,10 @@
     <EmbeddedResource Include="Visao\Conexao - Hidrometro\frm_atualizar_conexao.resx">
       <DependentUpon>frm_atualizar_conexao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Regra\frm_atualizar_regra.resx">
+    <EmbeddedResource Include="Visao\Regras\frm_atualizar_regra.resx">
       <DependentUpon>frm_atualizar_regra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Regra\frm_nova_regra.resx">
+    <EmbeddedResource Include="Visao\Regras\frm_nova_regra.resx">
       <DependentUpon>frm_nova_regra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Usuario\frm_atualizar_usuario.resx">
@@ -221,7 +221,7 @@
     <EmbeddedResource Include="Visao\Registros\frm_registros.resx">
       <DependentUpon>frm_registros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Regra\frm_regras.resx">
+    <EmbeddedResource Include="Visao\Regras\frm_regras.resx">
       <DependentUpon>frm_regras.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />

@@ -44,8 +44,8 @@ public class RegraDAO implements IRegraDAO{
     private final String SELECTALL = "SELECT * FROM REGRA WHERE HIDROMETROFK=? AND REMOVIDA<>1;";
     private final String SELECTID = "SELECT * FROM REGRA WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGRA "
-            + "(valor, regratipofk, hidrometrofk, periodo, ativo) values "
-            + "(?,?,?,?,?);";
+            + "(valor, regratipofk, hidrometrofk, periodo, ativo, removida) values "
+            + "(?,?,?,?,?,?);";
     private static final String DELETE = "DELETE FROM REGRA WHERE ID=?";
     private static final String LOGICALDELETE = "UPDATE REGRA SET REMOVIDA=1 WHERE ID=?";
     private static final String UPDATE = "UPDATE REGRA "
@@ -66,6 +66,7 @@ public class RegraDAO implements IRegraDAO{
             stmt.setInt(3, hidrometro.getId());
             stmt.setInt(4, regra.getPeriodo());
             stmt.setInt(5, regra.isAtivo() ? 1 : 0);
+            stmt.setInt(6, 0);
 
             int lastId = 0;
 
