@@ -7,6 +7,7 @@ package dao.InterfaceDAO;
 
 import java.util.ArrayList;
 import modelo.Alerta;
+import modelo.Hidrometro;
 
 /**
  *
@@ -17,5 +18,5 @@ public interface IAlertaDAO {
     void consultar(Alerta alerta);
     void alterar(Alerta alerta);
     void remover(Alerta alerta);
-    ArrayList<Alerta> listar();
+    ArrayList<Alerta> listar(Hidrometro hidrometro);
 }

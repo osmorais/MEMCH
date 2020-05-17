@@ -40,18 +40,18 @@ public class RecRegistro {
         this.xstream =  new XStream(new DomDriver());
     }
     
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("listar/json")
-    public String listarJson() {
-        
-        ArrayList<Registro> arrregistro = new ArrayList<>();
-        
-        arrregistro = SrvcRegistro.listar();
-        String retorno = objgson.toJson(arrregistro);
-        
-        return retorno;
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Path("listar/json")
+//    public String listarJson() {
+//        
+//        ArrayList<Registro> arrregistro = new ArrayList<>();
+//        
+//        arrregistro = SrvcRegistro.listar();
+//        String retorno = objgson.toJson(arrregistro);
+//        
+//        return retorno;
+//    }
 
     /**
      * PUT method for updating or creating an instance of RecRegistro

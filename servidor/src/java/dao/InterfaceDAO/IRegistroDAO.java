@@ -6,6 +6,7 @@
 package dao.InterfaceDAO;
 
 import java.util.ArrayList;
+import modelo.Hidrometro;
 import modelo.Registro;
 
 /**
@@ -17,5 +18,5 @@ public interface IRegistroDAO {
     void consultar(Registro registro);
     void alterar(Registro registro);
     void remover(Registro registro);
-    ArrayList<Registro> listar();
+    ArrayList<Registro> listar(Hidrometro hidrometro);
 }

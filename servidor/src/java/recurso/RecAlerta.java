@@ -40,18 +40,18 @@ public class RecAlerta {
         this.xstream =  new XStream(new DomDriver());
     }
     
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("listar/json")
-    public String listarJson() {
-        
-        ArrayList<Alerta> arralerta = new ArrayList<>();
-        
-        arralerta = SrvcAlerta.listar();
-        String retorno = objgson.toJson(arralerta);
-        
-        return retorno;
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Path("listar/json")
+//    public String listarJson() {
+//        
+//        ArrayList<Alerta> arralerta = new ArrayList<>();
+//        
+//        arralerta = SrvcAlerta.listar();
+//        String retorno = objgson.toJson(arralerta);
+//        
+//        return retorno;
+//    }
 
     /**
      * PUT method for updating or creating an instance of RecAlerta

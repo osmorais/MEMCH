@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Alerta;
+import modelo.Hidrometro;
 import modelo.Regra;
 import util.ConnectionFactory;
 
@@ -20,7 +21,7 @@ import util.ConnectionFactory;
  * @author pi
  */
 public class AlertaDAO implements IAlertaDAO{
-    private final String SELECTALL = "SELECT * FROM ALERTA;";
+    private final String SELECTALL = "SELECT * FROM ALERTA WHERE HIDROMETROFK=?;";
     private final String SELECTID = "SELECT * FROM REGISTRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGISTRO "
             + "(VALOR, DATA) VALUES "
@@ -52,7 +53,7 @@ public class AlertaDAO implements IAlertaDAO{
     }
 
     @Override
-    public ArrayList<Alerta> listar() {
+    public ArrayList<Alerta> listar(Hidrometro hidrometro) {
        try {
             ArrayList<Alerta> arralerta = new ArrayList<Alerta>();
             
@@ -60,6 +61,7 @@ public class AlertaDAO implements IAlertaDAO{
 
             conexao = con.getConnection();
             PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
+            stmt.setInt(1, hidrometro.getId());
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {

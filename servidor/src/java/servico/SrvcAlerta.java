@@ -15,11 +15,11 @@ import modelo.Alerta;
  * @author pi
  */
 public class SrvcAlerta {
-    public static ArrayList<Alerta> listar(){
-        
-        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
-        IAlertaDAO alertadao = new AlertaDAO();
-        
-        return alertadao.listar();
-    }
+//    public static ArrayList<Alerta> listar(){
+//        
+//        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
+//        IAlertaDAO alertadao = new AlertaDAO();
+//        
+//        return alertadao.listar();
+//    }
 }

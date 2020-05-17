@@ -39,7 +39,7 @@ public class RegraDAO implements IRegraDAO{
 //    "fk_regratipo" FOREIGN KEY (regratipofk) REFERENCES regratipo(id)
 //Referenced by:
 //    TABLE "alerta" CONSTRAINT "fk_regra" FOREIGN KEY (regrafk) REFERENCES regra(id)
-    private final String SELECTALL = "SELECT * FROM REGRA;";
+    private final String SELECTALL = "SELECT * FROM REGRA WHERE HIDROMETROFK=?;";
     private final String SELECTID = "SELECT * FROM REGRA WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGRA "
             + "(valor, regratipofk, hidrometrofk, periodo, ativo) values "
@@ -156,7 +156,7 @@ public class RegraDAO implements IRegraDAO{
     }
 
     @Override
-    public ArrayList<Regra> listar() {
+    public ArrayList<Regra> listar(Hidrometro hidrometro) {
         try {
             ArrayList<Regra> arrregra = new ArrayList<Regra>();
             
@@ -164,7 +164,8 @@ public class RegraDAO implements IRegraDAO{
 
             conexao = con.getConnection();
             PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
-
+            stmt.setInt(1, hidrometro.getId());
+            
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Regra regra = new Regra();

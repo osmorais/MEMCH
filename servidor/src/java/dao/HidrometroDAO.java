@@ -5,9 +5,6 @@
  */
 package dao;
 
-import dao.InterfaceDAO.IRegraDAO;
-import dao.InterfaceDAO.IRegistroDAO;
-import dao.InterfaceDAO.IAlertaDAO;
 import dao.InterfaceDAO.IHidrometroDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -76,27 +73,27 @@ public class HidrometroDAO implements IHidrometroDAO{
         }
     }
     
-    public void consultarHidrometro(Hidrometro hidrometro) {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
-
-            conexao = con.getConnection();
-            PreparedStatement stmt = conexao.prepareStatement(SELECTID);
-            stmt.setInt(1, hidrometro.getId());
-
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                hidrometro.setId(rs.getInt("id"));
-                hidrometro.setIdentificador(rs.getString("identificador"));
-                hidrometro.setChave(rs.getString("chave"));
-                hidrometro.setDescricao(rs.getString("descricao"));
-                hidrometro.setModelo(rs.getString("modelo"));
-                hidrometro.setAtivo(rs.getInt("ativo") == 1);
-            }
-        } catch (SQLException ex) {
-            throw new RuntimeException("Erro: ", ex);
-        }
-    }
+//    public void consultarHidrometro(Hidrometro hidrometro) {
+//        try {
+//            ConnectionFactory con = new ConnectionFactory();
+//
+//            conexao = con.getConnection();
+//            PreparedStatement stmt = conexao.prepareStatement(SELECTID);
+//            stmt.setInt(1, hidrometro.getId());
+//
+//            ResultSet rs = stmt.executeQuery();
+//            if (rs.next()) {
+//                hidrometro.setId(rs.getInt("id"));
+//                hidrometro.setIdentificador(rs.getString("identificador"));
+//                hidrometro.setChave(rs.getString("chave"));
+//                hidrometro.setDescricao(rs.getString("descricao"));
+//                hidrometro.setModelo(rs.getString("modelo"));
+//                hidrometro.setAtivo(rs.getInt("ativo") == 1);
+//            }
+//        } catch (SQLException ex) {
+//            throw new RuntimeException("Erro: ", ex);
+//        }
+//    }
 
     @Override
     public void consultar(Hidrometro hidrometro) {
@@ -115,15 +112,6 @@ public class HidrometroDAO implements IHidrometroDAO{
                 hidrometro.setDescricao(rs.getString("descricao"));
                 hidrometro.setModelo(rs.getString("modelo"));
                 hidrometro.setAtivo(rs.getInt("ativo") == 1);
-                
-                IRegistroDAO registrodao = new RegistroDAO();
-                hidrometro.setRegistros(registrodao.listar()); 
-                
-                IAlertaDAO alertadao = new AlertaDAO();
-                hidrometro.setAlertas(alertadao.listar()); 
-                
-                IRegraDAO regradao = new RegraDAO();
-                hidrometro.setRegras(regradao.listar()); 
             }
         } catch (SQLException ex) {
             throw new RuntimeException("Erro: ", ex);
@@ -184,15 +172,6 @@ public class HidrometroDAO implements IHidrometroDAO{
                 hidrometro.setDescricao(rs.getString("descricao"));
                 hidrometro.setModelo(rs.getString("modelo"));
                 hidrometro.setAtivo(rs.getInt("ativo") == 1);
-                
-                IRegistroDAO registrodao = new RegistroDAO();
-                hidrometro.setRegistros(registrodao.listar()); 
-                
-                IAlertaDAO alertadao = new AlertaDAO();
-                hidrometro.setAlertas(alertadao.listar()); 
-                
-                IRegraDAO regradao = new RegraDAO();
-                hidrometro.setRegras(regradao.listar()); 
             }
             return arrhidrometro;
         } catch (SQLException ex) {

@@ -15,11 +15,11 @@ import modelo.Registro;
  * @author osmar
  */
 public class SrvcRegistro {
-    public static ArrayList<Registro> listar(){
-        
-        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
-        IRegistroDAO registrodao = new RegistroDAO();
-        
-        return registrodao.listar();
-    }
+//    public static ArrayList<Registro> listar(){
+//        
+//        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
+//        IRegistroDAO registrodao = new RegistroDAO();
+//        
+//        return registrodao.listar();
+//    }
 }

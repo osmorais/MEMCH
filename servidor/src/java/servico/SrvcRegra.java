@@ -15,13 +15,13 @@ import modelo.Regra;
  * @author osmar
  */
 public class SrvcRegra {
-    public static ArrayList<Regra> listar(){
-        
-        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
-        IRegraDAO regradao = new RegraDAO();
-        
-        return regradao.listar();
-    }
+//    public static ArrayList<Regra> listar(){
+//        
+//        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
+//        IRegraDAO regradao = new RegraDAO();
+//        
+//        return regradao.listar();
+//    }
     public static Regra remover(Regra regra){
 
         IRegraDAO regradao = new RegraDAO();

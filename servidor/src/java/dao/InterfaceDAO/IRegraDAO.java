@@ -18,5 +18,5 @@ public interface IRegraDAO {
     void consultar(Regra regra);
     void alterar(Regra regra, Hidrometro hidrometro);
     void remover(Regra regra);
-    ArrayList<Regra> listar();
+    ArrayList<Regra> listar(Hidrometro hidrometro);
 }

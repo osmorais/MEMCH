@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import modelo.Hidrometro;
 import modelo.Registro;
 import util.ConnectionFactory;
 
@@ -32,7 +33,7 @@ public class RegistroDAO implements IRegistroDAO{
 //Foreign-key constraints:
 //    "fk_hidrometro" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
 
-    private final String SELECTALL = "SELECT * FROM REGISTRO;";
+    private final String SELECTALL = "SELECT * FROM REGISTRO WHERE HIDROMETROFK=?;";
     private final String SELECTID = "SELECT * FROM REGISTRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGISTRO "
             + "(VALOR, DATA) VALUES "
@@ -64,7 +65,7 @@ public class RegistroDAO implements IRegistroDAO{
     }
 
     @Override
-    public ArrayList<Registro> listar() {
+    public ArrayList<Registro> listar(Hidrometro hidrometro) {
         try {
             ArrayList<Registro> arrregistro = new ArrayList<Registro>();
             
@@ -72,7 +73,8 @@ public class RegistroDAO implements IRegistroDAO{
 
             conexao = con.getConnection();
             PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
-
+            stmt.setInt(1, hidrometro.getId());
+            
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Registro registro = new Registro();

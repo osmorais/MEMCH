@@ -46,18 +46,18 @@ public class RecRegra {
      * Retrieves representation of an instance of recurso.RecRegra
      * @return an instance of java.lang.String
      */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("listar/json")
-    public String listarJson() {
-        
-        ArrayList<Regra> arrregra = new ArrayList<>();
-        
-        arrregra = SrvcRegra.listar();
-        String retorno = objgson.toJson(arrregra);
-        
-        return retorno;
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Path("listar/json")
+//    public String listarJson() {
+//        
+//        ArrayList<Regra> arrregra = new ArrayList<>();
+//        
+//        arrregra = SrvcRegra.listar();
+//        String retorno = objgson.toJson(arrregra);
+//        
+//        return retorno;
+//    }
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

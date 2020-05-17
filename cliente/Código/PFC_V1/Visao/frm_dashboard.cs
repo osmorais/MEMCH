@@ -24,7 +24,7 @@ namespace PFC_V1
         {
             InitializeComponent();
 			this.conexao = new Conexao();
-			recuperarUsuario(usuario);
+			recuperar(usuario);
         }
         private void frm_dashboard_Load(object sender, EventArgs e)
         {
@@ -97,7 +97,7 @@ namespace PFC_V1
 
                 ControleInterno controle = new ControleInterno();
                 controle.excluirConexao(conexao_deletavel);
-                recuperarUsuario(usuario);
+                recuperar(usuario);
                 preencherDgv(usuario.conexoes);
                 MessageBox.Show("Conexão excluída com Sucesso!!!");
             }
@@ -111,7 +111,7 @@ namespace PFC_V1
             frm_registros formulario = new frm_registros(retornarConexaoDgv());
             formulario.ShowDialog();
         }
-        private void recuperarUsuario(Usuario usuario)
+        private void recuperar(Usuario usuario)
         {
             ControleInterno controleinterno = new ControleInterno();
             controleinterno.recuperarUsuario(ref usuario);
