@@ -106,7 +106,7 @@ namespace PFC_V1
 
 					try
 					{
-						this.conexao = controle.remover<Conexao>(conexao, op, this.conexao);
+						this.conexao = controle.remover<Conexao>(conexao_deletavel, op, this.conexao);
 						usuario.conexoes.Remove(conexao_deletavel);
 
 						ControleInterno controleinterno = new ControleInterno();

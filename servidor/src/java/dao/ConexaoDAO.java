@@ -124,7 +124,7 @@ public class ConexaoDAO implements IConexaoDAO{
             PreparedStatement stmt = this.conexao.prepareStatement(DELETE);
             stmt.setInt(1, conexao.getId());
 
-            stmt.executeQuery();
+            stmt.execute();
             
             conexao.setId(0);
         } catch (SQLException ex) {

@@ -114,6 +114,7 @@
 			this.Controls.Add(this.lbl_memch2);
 			this.Controls.Add(this.lbl_memch);
 			this.Name = "frm_confirmar_acao";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "MEMCH - CONFIRMAR AÇÃO";
 			this.ResumeLayout(false);
 			this.PerformLayout();

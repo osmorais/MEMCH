@@ -219,6 +219,7 @@
 			this.Controls.Add(this.lbl_memch2);
 			this.Controls.Add(this.lbl_memch);
 			this.Name = "frm_atualizar_usuario";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "MEMCH - ATUALIZAR USUÁRIO";
 			this.gpb_cadastro_usuario.ResumeLayout(false);
 			this.gpb_cadastro_usuario.PerformLayout();

@@ -176,6 +176,7 @@
 			this.Controls.Add(this.lbl_memch2);
 			this.Controls.Add(this.lbl_memch);
 			this.Name = "frm_excluir_usuario";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "MEMCH - EXCLUIR USUÁRIO";
 			this.Load += new System.EventHandler(this.frm_excluir_usuario_Load);
 			this.gpb_cadastro_usuario.ResumeLayout(false);
