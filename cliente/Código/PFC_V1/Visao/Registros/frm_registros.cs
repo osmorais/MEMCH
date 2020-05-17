@@ -26,7 +26,7 @@ namespace PFC_V1.Visao
 
         private void frm_registros_Load(object sender, EventArgs e)
         {
-            try { encheRegistro(); } catch (Exception ex) { }
+            try { encheRegistro(); } catch (Exception ex) { MessageBox.Show("Occorreu um erro inesperado"); this.Close(); }
         }
         private void encheRegistro()
         {

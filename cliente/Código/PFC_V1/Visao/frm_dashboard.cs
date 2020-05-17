@@ -64,7 +64,6 @@ namespace PFC_V1
 			}
 			catch (Exception ex) {
 				MessageBox.Show(ex.Message);
-				btn_nova_conexao_Click(sender, e);
 			}
         }
         private void btn_editar_conexao_Click(object sender, EventArgs e)
@@ -93,13 +92,35 @@ namespace PFC_V1
             Conexao conexao_deletavel = retornarConexaoDgv();
             if (conexao_deletavel != null)
             {
-                usuario.conexoes.Remove(conexao_deletavel);
+				var result = MessageBox.Show(
+				"Tem certeza que deseja excluir a conexão selecionada?",
+				"Confirmar Exclusão",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question,
+				MessageBoxDefaultButton.Button1);
 
-                ControleInterno controle = new ControleInterno();
-                controle.excluirConexao(conexao_deletavel);
-                recuperar(usuario);
-                preencherDgv(usuario.conexoes);
-                MessageBox.Show("Conexão excluída com Sucesso!!!");
+				if (result.Equals(DialogResult.Yes))
+				{
+					IOperadorREST op = new OperadorJson();
+					CtrlConexao controle = new CtrlConexao();
+
+					try
+					{
+						this.conexao = controle.remover<Conexao>(conexao, op, this.conexao);
+						usuario.conexoes.Remove(conexao_deletavel);
+
+						ControleInterno controleinterno = new ControleInterno();
+						controleinterno.excluirConexao(conexao_deletavel);
+
+						recuperar(usuario);
+						preencherDgv(usuario.conexoes);
+						MessageBox.Show("Conexão excluída com Sucesso!!!");
+					}
+					catch(Exception ex)
+					{
+						MessageBox.Show("Ocorreu um erro inesperado, por gentileza verifique sua conexao");
+					}
+				}
             }
             else
             {
@@ -125,7 +146,12 @@ namespace PFC_V1
         }
         private void preencherDgv(List<Conexao> conexoes)
         {
-            if (usuario.conexoes != null)
+			IOperadorREST op = new OperadorJson();
+			CtrlConexao controle = new CtrlConexao();
+
+			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
+
+			if (usuario.conexoes != null)
             {
                 DataTable tabelaconexao = new DataTable();
 

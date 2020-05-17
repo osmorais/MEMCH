@@ -117,7 +117,19 @@ public class ConexaoDAO implements IConexaoDAO{
 
     @Override
     public void remover(Conexao conexao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+
+            this.conexao = con.getConnection();
+            PreparedStatement stmt = this.conexao.prepareStatement(DELETE);
+            stmt.setInt(1, conexao.getId());
+
+            stmt.executeQuery();
+            
+            conexao.setId(0);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override

@@ -29,6 +29,13 @@ public class SrvcConexao {
         
         return conexao;
     }
+    public static Conexao remover(Conexao conexao){
+
+        IConexaoDAO conexaodao = new ConexaoDAO();
+        conexaodao.remover(conexao);
+        
+        return conexao;
+    }
     public static ArrayList<Conexao> listar(){
         
         //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();

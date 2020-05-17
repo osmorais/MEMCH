@@ -93,6 +93,20 @@ public class RecConexao {
 
         return retorno;
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("remover/json")
+    public String removerJson(String conteudo) {
+        
+        Conexao conexao = objgson.fromJson(conteudo, Conexao.class);
+        SrvcConexao.remover(conexao);
+        
+        String retorno = objgson.toJson(conexao);
+
+        return retorno;
+    }
 
     /**
      * PUT method for updating or creating an instance of RecConexao
