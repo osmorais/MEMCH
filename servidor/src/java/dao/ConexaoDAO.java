@@ -59,7 +59,7 @@ public class ConexaoDAO implements IConexaoDAO{
             stmt.setString(3, conexao.getDescricao());
             
             IHidrometroDAO hidrometrodao = new HidrometroDAO();
-            Hidrometro hidrometro = new Hidrometro();
+            Hidrometro hidrometro = conexao.getHidrometro();
             
             hidrometrodao.cadastrar(hidrometro);
             stmt.setInt(4, hidrometro.getId());
