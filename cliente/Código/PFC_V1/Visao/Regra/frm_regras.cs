@@ -90,7 +90,7 @@ namespace PFC_V1.Visao
 			{
 				if (regra_alteravel != null)
 				{
-					frm_atualizar_regra formulario = new frm_atualizar_regra(regra_alteravel,this.conexao);
+					frm_atualizar_regra formulario = new frm_atualizar_regra(regra_alteravel, this.conexao);
 					formulario.ShowDialog();
 					preencherDgv(recuperarRegras());
 				}
@@ -112,7 +112,38 @@ namespace PFC_V1.Visao
 
 		private void btn_deletar_regra_Click(object sender, EventArgs e)
 		{
+			Regra regra_deletavel = retornarRegraDgv();
+			try
+			{
+				if (regra_deletavel != null)
+				{
+					var result = MessageBox.Show(
+					"Tem certeza que deseja excluir a conexão selecionada?",
+					"Confirmar Exclusão",
+					MessageBoxButtons.YesNo,
+					MessageBoxIcon.Question,
+					MessageBoxDefaultButton.Button1);
 
+					if (result.Equals(DialogResult.Yes))
+					{
+						IOperadorREST op = new OperadorJson();
+						CtrlRegra controle = new CtrlRegra();
+
+						Regra regra = controle.remover<Regra>(regra_deletavel, op, this.conexao);
+						if(regra.id == 0) MessageBox.Show("Conexão excluída com Sucesso!!!");
+						else { MessageBox.Show("Houve algum erro no momento da exclusão"); }
+					}
+					preencherDgv(recuperarRegras());
+				}
+				else
+				{
+					MessageBox.Show("Não há conexão para editar!");
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 	}
 }

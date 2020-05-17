@@ -32,6 +32,7 @@ public class RegraDAO implements IRegraDAO{
 // hidrometrofk | integer | not null
 // periodo      | integer | 
 // ativo        | integer | not null
+// removida     | integer | 
 //Indexes:
 //    "regra_pkey" PRIMARY KEY, btree (id)
 //Foreign-key constraints:
@@ -39,12 +40,14 @@ public class RegraDAO implements IRegraDAO{
 //    "fk_regratipo" FOREIGN KEY (regratipofk) REFERENCES regratipo(id)
 //Referenced by:
 //    TABLE "alerta" CONSTRAINT "fk_regra" FOREIGN KEY (regrafk) REFERENCES regra(id)
-    private final String SELECTALL = "SELECT * FROM REGRA WHERE HIDROMETROFK=?;";
+
+    private final String SELECTALL = "SELECT * FROM REGRA WHERE HIDROMETROFK=? AND REMOVIDA<>1;";
     private final String SELECTID = "SELECT * FROM REGRA WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGRA "
             + "(valor, regratipofk, hidrometrofk, periodo, ativo) values "
             + "(?,?,?,?,?);";
     private static final String DELETE = "DELETE FROM REGRA WHERE ID=?";
+    private static final String LOGICALDELETE = "UPDATE REGRA SET REMOVIDA=1 WHERE ID=?";
     private static final String UPDATE = "UPDATE REGRA "
             + "SET valor=?, regratipofk=?, hidrometrofk=?, periodo=?, ativo=?"
             + " WHERE ID=?;";
@@ -144,10 +147,10 @@ public class RegraDAO implements IRegraDAO{
             ConnectionFactory con = new ConnectionFactory();
 
             conexao = con.getConnection();
-            PreparedStatement stmt = conexao.prepareStatement(DELETE);
+            PreparedStatement stmt = conexao.prepareStatement(LOGICALDELETE);
             stmt.setInt(1, regra.getId());
 
-            stmt.executeQuery();
+            stmt.execute();
             
             regra.setId(0);
         } catch (SQLException ex) {

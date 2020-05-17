@@ -106,7 +106,7 @@ namespace PFC_V1
 
 					try
 					{
-						this.conexao = controle.remover<Conexao>(conexao_deletavel, op, this.conexao);
+						Conexao conexao = controle.remover<Conexao>(conexao_deletavel, op, this.conexao);
 						usuario.conexoes.Remove(conexao_deletavel);
 
 						ControleInterno controleinterno = new ControleInterno();
@@ -114,7 +114,8 @@ namespace PFC_V1
 
 						recuperar(usuario);
 						preencherDgv(usuario.conexoes);
-						MessageBox.Show("Conexão excluída com Sucesso!!!");
+						if (conexao.id == 0) MessageBox.Show("Conexão excluída com Sucesso!!!");
+						else { MessageBox.Show("Houve algum erro no momento da exclusão"); }
 					}
 					catch(Exception ex)
 					{
