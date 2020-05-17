@@ -31,7 +31,8 @@ namespace PFC_V1.DAO
         {
             if (usuario.conexoes != null)
                 col_connexao.Upsert(usuario.conexoes);
-            col_pessoa.Update(usuario.pessoa);
+			if (usuario.pessoa != null)
+				col_pessoa.Update(usuario.pessoa);
             col_usuario.Update(usuario);
         }
         public void cadastrar(Usuario usuario)

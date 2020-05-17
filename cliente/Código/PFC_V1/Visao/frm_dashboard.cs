@@ -29,7 +29,6 @@ namespace PFC_V1
         private void frm_dashboard_Load(object sender, EventArgs e)
         {
             preencherDgv(usuario.conexoes);
-            Text = "MEMCH - " + usuario.pessoa.nome.ToUpper();
         }
         private void btn_sair_dashboard_Click(object sender, EventArgs e)
         {
@@ -42,7 +41,6 @@ namespace PFC_V1
 
             ControleInterno controle = new ControleInterno();
             controle.alterarUsuario(ref usuario);
-            Text = "MEMCH - " + usuario.pessoa.nome.ToUpper();
         }
         private void tsm_excluir_usuario_Click(object sender, EventArgs e)
         {

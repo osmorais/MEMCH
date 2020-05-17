@@ -40,6 +40,7 @@ namespace PFC_V1
 			conexao.hidrometro.modelo = txb_modelo_hidrometro.Text;
 			conexao.hidrometro.chave = txb_chave_conexao.Text;
 			conexao.hidrometro.descricao = txb_descricao_hidrometro.Text;
+			conexao.hidrometro.ativo = ckb_hidrometro_ativo.Checked;
 
 			if (!String.IsNullOrEmpty(conexao.host) || !String.IsNullOrEmpty(conexao.hidrometro.chave) ||
 				!String.IsNullOrEmpty(conexao.descricao) || !String.IsNullOrEmpty(conexao.hidrometro.identificador)

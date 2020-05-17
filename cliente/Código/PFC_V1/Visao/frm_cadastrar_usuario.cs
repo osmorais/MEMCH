@@ -22,9 +22,8 @@ namespace PFC_V1
         }
         private void btn_cadastrar_novo_Click(object sender, EventArgs e)
         {
-            if (
-                !string.IsNullOrWhiteSpace(txb_nome_usuario.Text) &&
-                !string.IsNullOrWhiteSpace(txb_login_usuario.Text) &&
+			if (string.IsNullOrWhiteSpace(txb_nome_usuario.Text)) txb_nome_usuario.Text = "Usuario";
+			if (!string.IsNullOrWhiteSpace(txb_login_usuario.Text) &&
                 !string.IsNullOrWhiteSpace(txb_senha_acesso.Text) &&
                 txb_senha_acesso.Text == txb_confirmar_senha.Text)
             {
@@ -38,12 +37,18 @@ namespace PFC_V1
                 usuario.login = txb_login_usuario.Text;
 
                 usuario.senha = SHA.GenerateSHA512String(usuario.senha);
+				try
+				{
+					ControleInterno controle = new ControleInterno();
+					controle.criarUsuario(usuario);
 
-                ControleInterno controle = new ControleInterno();
-                controle.criarUsuario(usuario);
-
-                MessageBox.Show("Cadastro realizado com Sucesso!");
-                Close();
+					MessageBox.Show("Cadastro realizado com Sucesso!");
+					Close();
+				}
+				catch(Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
             }
             else
             {

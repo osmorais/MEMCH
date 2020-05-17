@@ -19,15 +19,10 @@ namespace PFC_V1.Visao
             InitializeComponent();
             this.usuario = usuario;
         }
-        private void frm_atualizar_pessoa_Load(object sender, EventArgs e)
-        {
-            iniciarCampos();
-        }
         private void btn_atualizar_usuario_Click(object sender, EventArgs e)
         {
-            if (
-                !string.IsNullOrWhiteSpace(txb_nome_usuario.Text) &&
-                !string.IsNullOrWhiteSpace(txb_login_usuario.Text) &&
+			if (string.IsNullOrWhiteSpace(txb_nome_usuario.Text)) txb_nome_usuario.Text = "Usuario";
+			if (!string.IsNullOrWhiteSpace(txb_login_usuario.Text) &&
                 !string.IsNullOrWhiteSpace(txb_senha_acesso.Text) &&
                 txb_senha_acesso.Text == txb_confirmar_senha.Text)
             {
@@ -50,12 +45,6 @@ namespace PFC_V1.Visao
         private void btn_sair_formulario_Click(object sender, EventArgs e)
         {
             Close();
-        }
-        private void iniciarCampos()
-        {
-            txb_nome_usuario.Text = usuario.pessoa.nome;
-            txb_cpf_usuario.Text = usuario.pessoa.cpf;
-            txb_login_usuario.Text = usuario.login;
         }
     }
 }
