@@ -111,6 +111,12 @@
     <Compile Include="Visao\Regra\frm_atualizar_regra.Designer.cs">
       <DependentUpon>frm_atualizar_regra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Regra\frm_nova_regra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Regra\frm_nova_regra.Designer.cs">
+      <DependentUpon>frm_nova_regra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Usuario\frm_atualizar_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Regra\frm_atualizar_regra.resx">
       <DependentUpon>frm_atualizar_regra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Regra\frm_nova_regra.resx">
+      <DependentUpon>frm_nova_regra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Usuario\frm_atualizar_usuario.resx">
       <DependentUpon>frm_atualizar_usuario.cs</DependentUpon>

@@ -11,7 +11,7 @@ namespace PFC_V1.Visao
 	public partial class frm_regras : Form
 	{
 		private Conexao conexao;
-		private List<Regra> regras;
+		private List<PFC_V1.Modelo.Regra> regras;
 		public frm_regras(Conexao conexao)
 		{
 			InitializeComponent();
@@ -22,7 +22,7 @@ namespace PFC_V1.Visao
 		{
 			try { preencherDgv(recuperarRegras()); } catch (Exception ex) { }
 		}
-		private void preencherDgv(List<Regra> regras)
+		private void preencherDgv(List<PFC_V1.Modelo.Regra> regras)
 		{
 			DataTable tabelaregra = new DataTable();
 
@@ -32,7 +32,7 @@ namespace PFC_V1.Visao
 			tabelaregra.Columns.Add("Tipo", typeof(string));
 			tabelaregra.Columns.Add("Ativo", typeof(bool));
 
-			foreach (Regra regra in regras)
+			foreach (PFC_V1.Modelo.Regra regra in regras)
 			{
 				tabelaregra.Rows.Add(
 					regra.id,
@@ -47,7 +47,7 @@ namespace PFC_V1.Visao
 
 		}
 
-		private List<Regra> recuperarRegras()
+		private List<PFC_V1.Modelo.Regra> recuperarRegras()
 		{
 			IOperadorREST op = new OperadorJson();
 			CtrlHidrometro controle = new CtrlHidrometro();
@@ -64,15 +64,15 @@ namespace PFC_V1.Visao
 			this.Hide();
 		}
 
-		private Regra retornarRegraDgv()
+		private PFC_V1.Modelo.Regra retornarRegraDgv()
 		{
-			List<Regra> arrregra = this.regras;
+			List<PFC_V1.Modelo.Regra> arrregra = this.regras;
 			if (arrregra != null || arrregra.Count > 0)
 			{
-				Regra regra = new Regra();
+				PFC_V1.Modelo.Regra regra = new PFC_V1.Modelo.Regra();
 
 				int id = (int)dgwRegras.SelectedRows[0].Cells["Id"].Value;
-				foreach (Regra aux in arrregra)
+				foreach (PFC_V1.Modelo.Regra aux in arrregra)
 					if (id == aux.id) regra = aux;
 
 				return regra;
@@ -85,7 +85,7 @@ namespace PFC_V1.Visao
 
 		private void btn_editar_regra_Click(object sender, EventArgs e)
 		{
-			Regra regra_alteravel = retornarRegraDgv();
+			PFC_V1.Modelo.Regra regra_alteravel = retornarRegraDgv();
 			try
 			{
 				if (regra_alteravel != null)
@@ -107,12 +107,29 @@ namespace PFC_V1.Visao
 
 		private void btn_nova_regra_Click(object sender, EventArgs e)
 		{
-
+			PFC_V1.Modelo.Regra regra_alteravel = retornarRegraDgv();
+			try
+			{
+				if (regra_alteravel != null)
+				{
+					Regra.frm_nova_regra formulario = new Regra.frm_nova_regra(this.conexao);
+					formulario.ShowDialog();
+					preencherDgv(recuperarRegras());
+				}
+				else
+				{
+					MessageBox.Show("Não há conexão para editar!");
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void btn_deletar_regra_Click(object sender, EventArgs e)
 		{
-			Regra regra_deletavel = retornarRegraDgv();
+			PFC_V1.Modelo.Regra regra_deletavel = retornarRegraDgv();
 			try
 			{
 				if (regra_deletavel != null)
@@ -129,7 +146,7 @@ namespace PFC_V1.Visao
 						IOperadorREST op = new OperadorJson();
 						CtrlRegra controle = new CtrlRegra();
 
-						Regra regra = controle.remover<Regra>(regra_deletavel, op, this.conexao);
+						PFC_V1.Modelo.Regra regra = controle.remover<PFC_V1.Modelo.Regra>(regra_deletavel, op, this.conexao);
 						if(regra.id == 0) MessageBox.Show("Conexão excluída com Sucesso!!!");
 						else { MessageBox.Show("Houve algum erro no momento da exclusão"); }
 					}

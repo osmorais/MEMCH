@@ -3,12 +3,7 @@ using PFC_V1.Modelo;
 using PFC_V1.Operador;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PFC_V1.Visao

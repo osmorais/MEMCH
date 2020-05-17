@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.gpb_nova_conexao = new System.Windows.Forms.GroupBox();
+			this.gpb_nova_regra = new System.Windows.Forms.GroupBox();
 			this.cmb_tipo = new System.Windows.Forms.ComboBox();
 			this.ckb_ativo = new System.Windows.Forms.CheckBox();
 			this.lbl_tipo = new System.Windows.Forms.Label();
@@ -41,29 +41,29 @@
 			this.lbl_gasto_limite = new System.Windows.Forms.Label();
 			this.lbl_memch2 = new System.Windows.Forms.Label();
 			this.lbl_memch = new System.Windows.Forms.Label();
-			this.gpb_nova_conexao.SuspendLayout();
+			this.gpb_nova_regra.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// gpb_nova_conexao
+			// gpb_nova_regra
 			// 
-			this.gpb_nova_conexao.Controls.Add(this.cmb_tipo);
-			this.gpb_nova_conexao.Controls.Add(this.ckb_ativo);
-			this.gpb_nova_conexao.Controls.Add(this.lbl_tipo);
-			this.gpb_nova_conexao.Controls.Add(this.lbl_ativo_conexao);
-			this.gpb_nova_conexao.Controls.Add(this.txb_periodo);
-			this.gpb_nova_conexao.Controls.Add(this.lbl_periodo);
-			this.gpb_nova_conexao.Controls.Add(this.btn_atualizar_regra);
-			this.gpb_nova_conexao.Controls.Add(this.btn_sair_cadastro);
-			this.gpb_nova_conexao.Controls.Add(this.txb_gasto_limite);
-			this.gpb_nova_conexao.Controls.Add(this.lbl_gasto_limite);
-			this.gpb_nova_conexao.Location = new System.Drawing.Point(5, 51);
-			this.gpb_nova_conexao.Margin = new System.Windows.Forms.Padding(2);
-			this.gpb_nova_conexao.Name = "gpb_nova_conexao";
-			this.gpb_nova_conexao.Padding = new System.Windows.Forms.Padding(2);
-			this.gpb_nova_conexao.Size = new System.Drawing.Size(286, 193);
-			this.gpb_nova_conexao.TabIndex = 27;
-			this.gpb_nova_conexao.TabStop = false;
-			this.gpb_nova_conexao.Text = "Atualização de Regra";
+			this.gpb_nova_regra.Controls.Add(this.cmb_tipo);
+			this.gpb_nova_regra.Controls.Add(this.ckb_ativo);
+			this.gpb_nova_regra.Controls.Add(this.lbl_tipo);
+			this.gpb_nova_regra.Controls.Add(this.lbl_ativo_conexao);
+			this.gpb_nova_regra.Controls.Add(this.txb_periodo);
+			this.gpb_nova_regra.Controls.Add(this.lbl_periodo);
+			this.gpb_nova_regra.Controls.Add(this.btn_atualizar_regra);
+			this.gpb_nova_regra.Controls.Add(this.btn_sair_cadastro);
+			this.gpb_nova_regra.Controls.Add(this.txb_gasto_limite);
+			this.gpb_nova_regra.Controls.Add(this.lbl_gasto_limite);
+			this.gpb_nova_regra.Location = new System.Drawing.Point(5, 51);
+			this.gpb_nova_regra.Margin = new System.Windows.Forms.Padding(2);
+			this.gpb_nova_regra.Name = "gpb_nova_regra";
+			this.gpb_nova_regra.Padding = new System.Windows.Forms.Padding(2);
+			this.gpb_nova_regra.Size = new System.Drawing.Size(286, 193);
+			this.gpb_nova_regra.TabIndex = 27;
+			this.gpb_nova_regra.TabStop = false;
+			this.gpb_nova_regra.Text = "Atualização de Regra";
 			// 
 			// cmb_tipo
 			// 
@@ -195,15 +195,15 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Silver;
 			this.ClientSize = new System.Drawing.Size(297, 251);
-			this.Controls.Add(this.gpb_nova_conexao);
+			this.Controls.Add(this.gpb_nova_regra);
 			this.Controls.Add(this.lbl_memch2);
 			this.Controls.Add(this.lbl_memch);
 			this.Name = "frm_atualizar_regra";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "frm_atualizar_regra";
 			this.Load += new System.EventHandler(this.frm_atualizar_regra_Load);
-			this.gpb_nova_conexao.ResumeLayout(false);
-			this.gpb_nova_conexao.PerformLayout();
+			this.gpb_nova_regra.ResumeLayout(false);
+			this.gpb_nova_regra.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -211,7 +211,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.GroupBox gpb_nova_conexao;
+		private System.Windows.Forms.GroupBox gpb_nova_regra;
 		private System.Windows.Forms.CheckBox ckb_ativo;
 		private System.Windows.Forms.Label lbl_tipo;
 		private System.Windows.Forms.Label lbl_ativo_conexao;

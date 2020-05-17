@@ -42,14 +42,14 @@
 			this.lbl_memch2 = new System.Windows.Forms.Label();
 			this.lbl_memch = new System.Windows.Forms.Label();
 			this.gpb_hidrometro = new System.Windows.Forms.GroupBox();
+			this.ckb_hidrometro_ativo = new System.Windows.Forms.CheckBox();
 			this.txb_descricao_hidrometro = new System.Windows.Forms.TextBox();
+			this.lbl_ativo = new System.Windows.Forms.Label();
 			this.lbl_descricao = new System.Windows.Forms.Label();
 			this.txb_modelo_hidrometro = new System.Windows.Forms.TextBox();
 			this.lbl_modelo = new System.Windows.Forms.Label();
 			this.txb_identificador_hidrometro = new System.Windows.Forms.TextBox();
 			this.lbl_identificador = new System.Windows.Forms.Label();
-			this.ckb_hidrometro_ativo = new System.Windows.Forms.CheckBox();
-			this.lbl_ativo = new System.Windows.Forms.Label();
 			this.gpb_nova_conexao.SuspendLayout();
 			this.gpb_hidrometro.SuspendLayout();
 			this.SuspendLayout();
@@ -152,10 +152,10 @@
 			// btn_cadastrar_novo
 			// 
 			this.btn_cadastrar_novo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
-			this.btn_cadastrar_novo.Location = new System.Drawing.Point(329, 302);
+			this.btn_cadastrar_novo.Location = new System.Drawing.Point(322, 302);
 			this.btn_cadastrar_novo.Margin = new System.Windows.Forms.Padding(2);
 			this.btn_cadastrar_novo.Name = "btn_cadastrar_novo";
-			this.btn_cadastrar_novo.Size = new System.Drawing.Size(58, 26);
+			this.btn_cadastrar_novo.Size = new System.Drawing.Size(65, 26);
 			this.btn_cadastrar_novo.TabIndex = 11;
 			this.btn_cadastrar_novo.Text = "Cadastrar";
 			this.btn_cadastrar_novo.UseVisualStyleBackColor = true;
@@ -216,14 +216,35 @@
 			this.gpb_hidrometro.TabStop = false;
 			this.gpb_hidrometro.Text = "Cadastro de novo Hidrometro";
 			// 
-			// txb_descricao
+			// ckb_hidrometro_ativo
+			// 
+			this.ckb_hidrometro_ativo.AutoSize = true;
+			this.ckb_hidrometro_ativo.Location = new System.Drawing.Point(147, 41);
+			this.ckb_hidrometro_ativo.Margin = new System.Windows.Forms.Padding(2);
+			this.ckb_hidrometro_ativo.Name = "ckb_hidrometro_ativo";
+			this.ckb_hidrometro_ativo.Size = new System.Drawing.Size(50, 17);
+			this.ckb_hidrometro_ativo.TabIndex = 28;
+			this.ckb_hidrometro_ativo.Text = "Ativo";
+			this.ckb_hidrometro_ativo.UseVisualStyleBackColor = true;
+			// 
+			// txb_descricao_hidrometro
 			// 
 			this.txb_descricao_hidrometro.BackColor = System.Drawing.SystemColors.Control;
 			this.txb_descricao_hidrometro.Location = new System.Drawing.Point(148, 80);
 			this.txb_descricao_hidrometro.Margin = new System.Windows.Forms.Padding(2);
-			this.txb_descricao_hidrometro.Name = "txb_descricao";
+			this.txb_descricao_hidrometro.Name = "txb_descricao_hidrometro";
 			this.txb_descricao_hidrometro.Size = new System.Drawing.Size(231, 20);
 			this.txb_descricao_hidrometro.TabIndex = 26;
+			// 
+			// lbl_ativo
+			// 
+			this.lbl_ativo.AutoSize = true;
+			this.lbl_ativo.Location = new System.Drawing.Point(145, 24);
+			this.lbl_ativo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbl_ativo.Name = "lbl_ativo";
+			this.lbl_ativo.Size = new System.Drawing.Size(34, 13);
+			this.lbl_ativo.TabIndex = 27;
+			this.lbl_ativo.Text = "Ativo:";
 			// 
 			// lbl_descricao
 			// 
@@ -235,11 +256,11 @@
 			this.lbl_descricao.TabIndex = 16;
 			this.lbl_descricao.Text = "Breve descrição:";
 			// 
-			// txb_modelo
+			// txb_modelo_hidrometro
 			// 
 			this.txb_modelo_hidrometro.Location = new System.Drawing.Point(8, 80);
 			this.txb_modelo_hidrometro.Margin = new System.Windows.Forms.Padding(2);
-			this.txb_modelo_hidrometro.Name = "txb_modelo";
+			this.txb_modelo_hidrometro.Name = "txb_modelo_hidrometro";
 			this.txb_modelo_hidrometro.Size = new System.Drawing.Size(133, 20);
 			this.txb_modelo_hidrometro.TabIndex = 13;
 			// 
@@ -253,11 +274,11 @@
 			this.lbl_modelo.TabIndex = 12;
 			this.lbl_modelo.Text = "Modelo:";
 			// 
-			// txb_identificador
+			// txb_identificador_hidrometro
 			// 
 			this.txb_identificador_hidrometro.Location = new System.Drawing.Point(8, 41);
 			this.txb_identificador_hidrometro.Margin = new System.Windows.Forms.Padding(2);
-			this.txb_identificador_hidrometro.Name = "txb_identificador";
+			this.txb_identificador_hidrometro.Name = "txb_identificador_hidrometro";
 			this.txb_identificador_hidrometro.Size = new System.Drawing.Size(133, 20);
 			this.txb_identificador_hidrometro.TabIndex = 3;
 			// 
@@ -270,27 +291,6 @@
 			this.lbl_identificador.Size = new System.Drawing.Size(68, 13);
 			this.lbl_identificador.TabIndex = 2;
 			this.lbl_identificador.Text = "Identificador:";
-			// 
-			// ckb_hidrometro_ativo
-			// 
-			this.ckb_hidrometro_ativo.AutoSize = true;
-			this.ckb_hidrometro_ativo.Location = new System.Drawing.Point(147, 41);
-			this.ckb_hidrometro_ativo.Margin = new System.Windows.Forms.Padding(2);
-			this.ckb_hidrometro_ativo.Name = "ckb_hidrometro_ativo";
-			this.ckb_hidrometro_ativo.Size = new System.Drawing.Size(50, 17);
-			this.ckb_hidrometro_ativo.TabIndex = 28;
-			this.ckb_hidrometro_ativo.Text = "Ativo";
-			this.ckb_hidrometro_ativo.UseVisualStyleBackColor = true;
-			// 
-			// lbl_ativo
-			// 
-			this.lbl_ativo.AutoSize = true;
-			this.lbl_ativo.Location = new System.Drawing.Point(145, 24);
-			this.lbl_ativo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.lbl_ativo.Name = "lbl_ativo";
-			this.lbl_ativo.Size = new System.Drawing.Size(34, 13);
-			this.lbl_ativo.TabIndex = 27;
-			this.lbl_ativo.Text = "Ativo:";
 			// 
 			// frm_nova_conexao
 			// 

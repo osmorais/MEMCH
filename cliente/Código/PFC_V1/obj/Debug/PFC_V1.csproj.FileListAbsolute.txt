@@ -213,3 +213,4 @@ C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Cur
 C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_alertas.resources
 C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_regras.resources
 C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.frm_atualizar_regra.resources
+C:\Users\osmar\Desktop\ARQUIVOS\Sistemas de Informação\Projeto de Final de Curso\MEMCH Git\cliente\Código\PFC_V1\obj\Debug\PFC_V1.Visao.Regra.frm_nova_regra.resources
