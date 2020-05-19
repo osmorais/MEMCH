@@ -34,8 +34,8 @@ namespace PFC_V1.Visao
         }
         private void iniciarCampos()
         {
-            txb_nome_usuario.Text = usuario.pessoa.nome;
-            txb_cpf_usuario.Text = usuario.pessoa.cpf;
+            if(!string.IsNullOrEmpty(txb_nome_usuario.Text))txb_nome_usuario.Text = usuario.pessoa.nome;
+			if (!string.IsNullOrEmpty(txb_cpf_usuario.Text)) txb_cpf_usuario.Text = usuario.pessoa.cpf;
             txb_login_usuario.Text = usuario.login;
         }
     }
