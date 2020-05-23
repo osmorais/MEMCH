@@ -133,68 +133,6 @@ namespace PFC_V1
             frm_registros formulario = new frm_registros(retornarConexaoDgv());
             formulario.ShowDialog();
         }
-        private void recuperar(Usuario usuario)
-        {
-            ControleInterno controleinterno = new ControleInterno();
-            controleinterno.recuperarUsuario(ref usuario);
-
-			IOperadorREST op = new OperadorJson();
-			CtrlConexao controle = new CtrlConexao();
-
-			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
-
-			this.usuario = usuario;
-        }
-        private void preencherDgv(List<Conexao> conexoes)
-        {
-			IOperadorREST op = new OperadorJson();
-			CtrlConexao controle = new CtrlConexao();
-
-			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
-
-			if (usuario.conexoes != null)
-            {
-                DataTable tabelaconexao = new DataTable();
-
-                tabelaconexao.Columns.Add("Id", typeof(int));
-                tabelaconexao.Columns.Add("Host", typeof(string));
-                tabelaconexao.Columns.Add("Ativo", typeof(bool));
-                tabelaconexao.Columns.Add("Descrição", typeof(string));
-				tabelaconexao.Columns.Add("Hidrometro", typeof(string));
-				tabelaconexao.Columns.Add("Modelo", typeof(string));
-
-				foreach (Conexao conexao in conexoes)
-                {
-                    tabelaconexao.Rows.Add(
-                        conexao.id,
-                        conexao.host,
-                        conexao.ativo,
-                        conexao.descricao,
-						conexao.hidrometro.identificador,
-						conexao.hidrometro.modelo);
-                }
-
-                dgwConexao.DataSource = tabelaconexao;
-                dgwConexao.Columns["Id"].Visible = false;
-            }
-        }
-        private Conexao retornarConexaoDgv()
-        {
-            if (usuario.conexoes != null || usuario.conexoes.Count > 0)
-            {
-                Conexao conexao = new Conexao();
-
-                int id = (int)dgwConexao.SelectedRows[0].Cells["Id"].Value;
-                foreach (Conexao aux in usuario.conexoes)
-                    if (id == aux.id) conexao = aux;
-
-                return conexao;
-            }
-            else
-            {
-                return null;
-            }
-        }
 
 		private void btn_alerta_Click(object sender, EventArgs e)
 		{
@@ -206,6 +144,69 @@ namespace PFC_V1
 		{
 			frm_regras formulario = new frm_regras(retornarConexaoDgv());
 			formulario.ShowDialog();
+		}
+
+		private void recuperar(Usuario usuario)
+		{
+			ControleInterno controleinterno = new ControleInterno();
+			controleinterno.recuperarUsuario(ref usuario);
+
+			IOperadorREST op = new OperadorJson();
+			CtrlConexao controle = new CtrlConexao();
+
+			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
+
+			this.usuario = usuario;
+		}
+		private void preencherDgv(List<Conexao> conexoes)
+		{
+			IOperadorREST op = new OperadorJson();
+			CtrlConexao controle = new CtrlConexao();
+
+			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
+
+			if (usuario.conexoes != null)
+			{
+				DataTable tabelaconexao = new DataTable();
+
+				tabelaconexao.Columns.Add("Id", typeof(int));
+				tabelaconexao.Columns.Add("Host", typeof(string));
+				tabelaconexao.Columns.Add("Ativo", typeof(bool));
+				tabelaconexao.Columns.Add("Descrição", typeof(string));
+				tabelaconexao.Columns.Add("Hidrometro", typeof(string));
+				tabelaconexao.Columns.Add("Modelo", typeof(string));
+
+				foreach (Conexao conexao in conexoes)
+				{
+					tabelaconexao.Rows.Add(
+						conexao.id,
+						conexao.host,
+						conexao.ativo,
+						conexao.descricao,
+						conexao.hidrometro.identificador,
+						conexao.hidrometro.modelo);
+				}
+
+				dgwConexao.DataSource = tabelaconexao;
+				dgwConexao.Columns["Id"].Visible = false;
+			}
+		}
+		private Conexao retornarConexaoDgv()
+		{
+			if (usuario.conexoes != null || usuario.conexoes.Count > 0)
+			{
+				Conexao conexao = new Conexao();
+
+				int id = (int)dgwConexao.SelectedRows[0].Cells["Id"].Value;
+				foreach (Conexao aux in usuario.conexoes)
+					if (id == aux.id) conexao = aux;
+
+				return conexao;
+			}
+			else
+			{
+				return null;
+			}
 		}
 	}
 }

@@ -51,7 +51,7 @@
 			this.btnVoltar.TabIndex = 2;
 			this.btnVoltar.Text = "Voltar";
 			this.btnVoltar.UseVisualStyleBackColor = true;
-			this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+			this.btnVoltar.Click += new System.EventHandler(this.btn_Voltar_Click);
 			// 
 			// dgvRegistro
 			// 

@@ -28,35 +28,36 @@ namespace PFC_V1.Visao
         {
             try { encheRegistro(); } catch (Exception ex) { MessageBox.Show("Occorreu um erro inesperado"); this.Close(); }
         }
-        private void encheRegistro()
-        {
-            IOperadorREST op = new OperadorJson();
-            CtrlHidrometro controle = new CtrlHidrometro();
-			Hidrometro hidrometro = new Hidrometro();
-			hidrometro.id = this.conexao.hidrometro.id;
-			
-			List<Registro> arrregistro = controle.consultar<Hidrometro>(hidrometro, op, this.conexao).registros;
-			DataTable tabelaRegistro = new DataTable();
 
-            tabelaRegistro.Columns.Add("Id", typeof(int));
-            tabelaRegistro.Columns.Add("Valor", typeof(double));
-            tabelaRegistro.Columns.Add("Data", typeof(DateTime));
-
-            foreach (Registro registro in arrregistro)
-            {
-                tabelaRegistro.Rows.Add(
-                    registro.id,
-                    registro.valor,
-                    registro.data);
-            }
-
-            dgvRegistro.DataSource = tabelaRegistro;
-            //dgvRegistro.Columns["Id"].Visible = false;
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void btn_Voltar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
-    }
+
+		private void encheRegistro()
+		{
+			IOperadorREST op = new OperadorJson();
+			CtrlHidrometro controle = new CtrlHidrometro();
+			Hidrometro hidrometro = new Hidrometro();
+			hidrometro.id = this.conexao.hidrometro.id;
+
+			List<Registro> arrregistro = controle.consultar<Hidrometro>(hidrometro, op, this.conexao).registros;
+			DataTable tabelaRegistro = new DataTable();
+
+			tabelaRegistro.Columns.Add("Id", typeof(int));
+			tabelaRegistro.Columns.Add("Valor", typeof(double));
+			tabelaRegistro.Columns.Add("Data", typeof(DateTime));
+
+			foreach (Registro registro in arrregistro)
+			{
+				tabelaRegistro.Rows.Add(
+					registro.id,
+					registro.valor,
+					registro.data);
+			}
+
+			dgvRegistro.DataSource = tabelaRegistro;
+			//dgvRegistro.Columns["Id"].Visible = false;
+		}
+	}
 }
