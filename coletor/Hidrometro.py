@@ -5,7 +5,7 @@ class Hidrometro:
         self.id = 0
         self.chave = ""
         self.modelo = ""
-        self.ativo = True
+        self.ativo = 1
         #registro = Registro()
         self.registro = Registro()
         #self.registros.append(registro)
