@@ -1,5 +1,4 @@
 ﻿using PFC_V1.Controle;
-using PFC_V1.Modelo;
 using PFC_V1.Operador;
 using System;
 using System.Collections.Generic;
@@ -107,19 +106,11 @@ namespace PFC_V1.Visao
 
 		private void btn_nova_regra_Click(object sender, EventArgs e)
 		{
-			PFC_V1.Modelo.Regra regra_alteravel = retornarRegraDgv();
 			try
 			{
-				if (regra_alteravel != null)
-				{
-					Regra.frm_nova_regra formulario = new Regra.frm_nova_regra(this.conexao);
-					formulario.ShowDialog();
-					preencherDgv(recuperarRegras());
-				}
-				else
-				{
-					MessageBox.Show("Não há conexão para editar!");
-				}
+				Regra.frm_nova_regra formulario = new Regra.frm_nova_regra(this.conexao);
+				formulario.ShowDialog();
+				preencherDgv(recuperarRegras());
 			}
 			catch (Exception ex)
 			{
@@ -147,7 +138,7 @@ namespace PFC_V1.Visao
 						CtrlRegra controle = new CtrlRegra();
 
 						PFC_V1.Modelo.Regra regra = controle.remover<PFC_V1.Modelo.Regra>(regra_deletavel, op, this.conexao);
-						if(regra.id == 0) MessageBox.Show("Conexão excluída com Sucesso!!!");
+						if (regra.id == 0) MessageBox.Show("Conexão excluída com Sucesso!!!");
 						else { MessageBox.Show("Houve algum erro no momento da exclusão"); }
 					}
 					preencherDgv(recuperarRegras());

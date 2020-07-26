@@ -82,7 +82,9 @@ namespace PFC_V1.Visao
 
 				for (int i = 0; i < this.arrregratipo.Count; i++) if (regra.tipo.id == arrregratipo[i].id) regra.tipo = arrregratipo[i];
 
-				try { regra.valor = Convert.ToDouble(txb_gasto_limite.Text); } catch (Exception ex) { MessageBox.Show("O campo \"Gasto Limite\" só aceita números"); }
+				try { regra.valor = Convert.ToDouble(txb_gasto_limite.Text); } catch (Exception ex) {
+					throw new System.InvalidOperationException("O campo \"Gasto Limite\" só aceita números");
+				}
 
 				if (!int.TryParse(txb_periodo.Text, out int periodoaux)) { throw new System.InvalidOperationException("O campo \"Periodo\" aceita apenas números inteiros (dias)."); }
 				else { regra.periodo = periodoaux; }
