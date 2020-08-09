@@ -4,14 +4,30 @@
 
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
+// {
+//   "files": [],
+//   "references": [
+//     {
+//       "path": "./tsconfig.spec.json"
+//     },
+//     {
+//       "path": "./tsconfig.spec.json"
+//     }
+// ]
+// }
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-]
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // "outDir": "./src/app/dist",
+    "types": [],
+    // "rootDir": "./src",
+    // "experimentalDecorators": true
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
 }

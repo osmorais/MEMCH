@@ -1,0 +1,91 @@
+.mntmain-content .panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #FFFFFF;
+    margin: 10px 0;
+}
+
+.mntpanel-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.mntpanel-50 {
+    width: 48%;
+}
+
+.mntpanel-row button {
+    height: 50px;
+    background: linear-gradient(150deg, #DCDCDC, #0398fc 50%, #0303fc 100%);
+    font-size: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.mntpanel-row button:hover {
+    transform: scale(1.01);
+    transition: .2s;
+}
+
+div.ajax-content {
+    width: 100%;
+    height: 200px;
+}
+
+.consultarmnt-parent {
+    padding: 40px;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow-y: auto;
+}
+
+.consultarmnt-parent .consultarmnt {
+    color: #000000;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00ff00;
+}
+
+.consultarmnt-parent .consultarmnt h1 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 35px;
+}
+
+.relpanel-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.relpanel-50 {
+    width: 100%;
+}
+
+div.pato {
+    height: 25%; 
+    margin-left: 40px; 
+    margin-top: 20px;
+}
+
+.mntmain-content-title {
+    color: #FFFFFF;
+    padding: 10px;
+}
+
+.mntmain-content-title h3 {
+text-transform: uppercase;
+border-bottom: 1px solid #FFFFFF;
+}
