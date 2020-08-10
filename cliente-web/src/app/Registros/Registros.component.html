@@ -3,12 +3,15 @@
     <tr>
       <th>#</th>
       <th>Valor</th>
+      <th>Data</th>
     </tr>
   </thead>
   <tbody *ngIf="registros && registros.length">
-    <tr *ngFor="let registro registros">
+    <tr *ngFor="let registro of registros">
+      <!-- <tr> -->
       <td>{{registro.id}}</td>
       <td>{{registro.valor}}</td>
+      <td>{{registro.data}}</td>
     </tr>
   </tbody>
 </table>

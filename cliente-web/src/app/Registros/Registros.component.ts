@@ -21,6 +21,7 @@ export class RegistrosComponent implements OnInit {
   getRegistros(){
     this.http.get('http://10.1.1.3:8080/servidor/servico/registro/listar/json').subscribe(response => {
       this.registros = response;
+      console.log(response);
     }, error => {
       console.log(error);
     }
