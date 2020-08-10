@@ -1,3 +1,14 @@
-<p>
-  Registros works!
-</p>
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="registros && registros.length">
+    <tr *ngFor="let registro registros">
+      <td>{{registro.id}}</td>
+      <td>{{registro.valor}}</td>
+    </tr>
+  </tbody>
+</table>

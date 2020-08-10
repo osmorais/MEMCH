@@ -9,10 +9,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegistrosComponent implements OnInit {
 
+  registros: any;
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+    this.getRegistros();
+  }
+
+  // tslint:disable-next-line: typedef
+  getRegistros(){
+    this.http.get('http://10.1.1.3:8080/servidor/servico/registro/listar/json').subscribe(response => {
+      this.registros = response;
+    }, error => {
+      console.log(error);
+    }
+    );
   }
 
 }
