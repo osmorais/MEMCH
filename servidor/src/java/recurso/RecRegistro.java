@@ -17,6 +17,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import modelo.Registro;
 import servico.SrvcRegistro;
 
@@ -43,14 +44,14 @@ public class RecRegistro {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("listar/json")
-    public String listarJson() {
+    public Response listarJson() {
         
         ArrayList<Registro> arrregistro = new ArrayList<>();
         
         arrregistro = SrvcRegistro.listar();
         String retorno = objgson.toJson(arrregistro);
         
-        return retorno;
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }
 
     /**
