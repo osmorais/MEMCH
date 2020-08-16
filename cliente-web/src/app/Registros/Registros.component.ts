@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { RegistroService } from '../_services/registro.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class RegistrosComponent implements OnInit {
 
   registros: any;
-  constructor(private http: HttpClient) { }
+  constructor(private registroService: RegistroService) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -19,7 +19,7 @@ export class RegistrosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getRegistros(){
-    this.http.get('http://10.1.1.3:8080/servidor/servico/registro/listar/json').subscribe(response => {
+    this.registroService.getRegistros().subscribe(response => {
       this.registros = response;
       console.log(response);
     }, error => {
