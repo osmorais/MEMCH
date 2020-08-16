@@ -3,8 +3,9 @@ import { Registro } from './Registro';
 import { Alerta } from './Alerta';
 import { Regra } from './Regra';
 
-export class Hidrometro extends Objeto{
+export class Hidrometro{
 
+    id: number;
     identificador: string;
     chave: string;
     modelo: string;

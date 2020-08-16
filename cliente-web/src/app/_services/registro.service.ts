@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Registro } from '../_models/Registro';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class RegistroService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
-  getRegistros(){
-    return this.http.get(this.baseURL + 'listar/json');
+  getRegistros(): Observable<Registro[]>{
+    return this.http.get<Registro[]>(this.baseURL + 'listar/json');
   }
 }
