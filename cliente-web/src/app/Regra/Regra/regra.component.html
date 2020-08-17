@@ -1,0 +1,58 @@
+<button layout-align="center center" type="button" class="btn btn-primary" (click)="openModal(template)">Cadastrar Nova Regra!</button>
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form formGroup="registerForm">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Valor</label>
+          <input type="text" class="form-control" 
+          [ngClass]="{'is-invalid': registerForm.get('valor').errors && registerForm.get('valor').touched}"
+          formControlName="valor">
+          <div class="invalid-feedback">
+            O valor é obrigatório.
+          </div>
+        </div>
+      </div>  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Periodo</label>
+          <input type="text" class="form-control" formControlName="periodo">
+          <div class="invalid-feedback">
+            O Periodo é obrigatório.
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Tipo</label>
+          <input type="text" class="form-control" formControlName="tipo">
+          <div class="invalid-feedback">
+            O Tipo é obrigatório.
+          </div>
+        </div>
+      </div>  
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label>Ativo</label>
+          <input type="text" class="form-control" formControlName="ativo">
+        </div>
+      </div>  
+    </form>
+    <br>
+    <button class="btn btn-secondary" (click)="openModal(template)">
+      Fechar
+    </button>
+    <button class="btn btn-primary" (click)="salvarAlteracao()">
+      Salvar Alterações
+    </button>
+    <br>
+    <br>
+  </div>
+</ng-template>
+

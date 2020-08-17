@@ -20,7 +20,7 @@ export class RegistrosComponent implements OnInit {
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getRegistros();
-    this.getHidrometro();
+    // this.getHidrometro();
   }
 
   // tslint:disable-next-line: typedef
