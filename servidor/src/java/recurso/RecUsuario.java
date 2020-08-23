@@ -17,6 +17,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import modelo.Usuario;
 import servico.SrvcUsuario;
 
@@ -45,14 +46,14 @@ public class RecUsuario {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("consultar/json")
-    public String consultarJson(String conteudo) {
+    public Response consultarJson(String conteudo) {
         
         Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
         SrvcUsuario.consultar(usuario);
         
         String retorno = objgson.toJson(usuario);
 
-        return retorno;
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }
 
     /**
