@@ -22,18 +22,20 @@ import util.ConnectionFactory;
  * @author osmar
  */
 public class ConexaoDAO implements IConexaoDAO{
-//                  Table "public.conexao"
-//    Column    |          Type          | Modifiers 
-//--------------+------------------------+-----------
-// id           | integer                | not null
+//                                    Table "public.conexao"
+//    Column    |          Type          |                      Modifiers                       
+//--------------+------------------------+------------------------------------------------------
+// id           | integer                | not null default nextval('conexao_id_seq'::regclass)
 // host         | character varying(15)  | not null
 // ativo        | integer                | not null
 // descricao    | character varying(100) | 
 // hidrometrofk | integer                | not null
+// usuariofk    | integer                | 
 //Indexes:
-//    "pkconexao" PRIMARY KEY, btree (id)
+//    "conexao_pkey" PRIMARY KEY, btree (id)
 //Foreign-key constraints:
 //    "hidrometrofk" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
+//    "usuariofk" FOREIGN KEY (usuariofk) REFERENCES usuario(id)
 
     private final String SELECTALL = "SELECT * FROM CONEXAO;";
     private final String SELECTID = "SELECT * FROM CONEXAO WHERE ID=?;";
