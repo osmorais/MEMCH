@@ -35,6 +35,7 @@ public class UsuarioDAO implements IUsuarioDAO{
 //    "pessoafk" FOREIGN KEY (pessoaid) REFERENCES pessoa(id)
     private final String SELECTALL = "SELECT * FROM USUARIO;";
     private final String SELECTID = "SELECT * FROM USUARIO WHERE ID=?;";
+    private final String SELECTFORLOGIN = "SELECT * FROM USUARIO WHERE LOGIN=? AND SENHA=?;";
     private static final String INSERT = "INSERT INTO USUARIO "
             + "(LOGIN, SENHA, PESSOAID) VALUES "
             + "(?,?,?)";
@@ -74,8 +75,32 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public void consultar(Usuario alerta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void consultar(Usuario usuario) {
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+
+            conexao = con.getConnection();
+            PreparedStatement stmt = conexao.prepareStatement(SELECTFORLOGIN);
+            stmt.setString(1, usuario.getLogin());
+            stmt.setString(2, usuario.getSenha());
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                usuario.setId(rs.getInt("id"));
+                usuario.setLogin(rs.getString("nome"));
+                usuario.setSenha(rs.getString("cpf"));
+                
+                IPessoaDAO pessoadao = new PessoaDAO();
+                Pessoa pessoa = new Pessoa();
+                pessoa.setId(rs.getInt("pessoafk"));
+                
+                pessoadao.consultar(pessoa);
+                
+                usuario.setPessoa(pessoa);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override

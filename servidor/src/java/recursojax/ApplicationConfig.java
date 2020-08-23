@@ -35,6 +35,7 @@ public class ApplicationConfig extends Application {
         resources.add(recurso.RecRegistro.class);
         resources.add(recurso.RecRegra.class);
         resources.add(recurso.RecRegraTipo.class);
+        resources.add(recurso.RecUsuario.class);
     }
     
 }
