@@ -87,8 +87,8 @@ public class UsuarioDAO implements IUsuarioDAO{
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 usuario.setId(rs.getInt("id"));
-                usuario.setLogin(rs.getString("nome"));
-                usuario.setSenha(rs.getString("cpf"));
+                usuario.setLogin(rs.getString("login"));
+                usuario.setSenha(rs.getString("senha"));
                 
                 IPessoaDAO pessoadao = new PessoaDAO();
                 Pessoa pessoa = new Pessoa();
