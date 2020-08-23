@@ -16,6 +16,7 @@ import { DateTimeFormatPipe } from './_helps/DateTimeFormatPipe.pipe';
 import { RegraComponent } from './Regra/Regra/regra.component';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
+import { MenuComponent } from './Menu/Menu.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NavComponent } from './nav/nav.component';
       LoginComponent,
       RegraComponent,
       DateTimeFormatPipe,
-      NavComponent
+      NavComponent,
+      MenuComponent
    ],
   imports: [
     BrowserModule,
