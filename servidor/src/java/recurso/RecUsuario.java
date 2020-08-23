@@ -18,7 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 import modelo.Usuario;
-import servico.SrvcHidrometro;
+import servico.SrvcUsuario;
 
 /**
  * REST Web Service
@@ -47,10 +47,10 @@ public class RecUsuario {
     @Path("consultar/json")
     public String consultarJson(String conteudo) {
         
-        Usuario hidrometro = objgson.fromJson(conteudo, Usuario.class);
-        SrvcHidrometro.consultar(hidrometro);
+        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        SrvcUsuario.consultar(usuario);
         
-        String retorno = objgson.toJson(hidrometro);
+        String retorno = objgson.toJson(usuario);
 
         return retorno;
     }
