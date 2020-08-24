@@ -8,13 +8,14 @@ import { JsonPipe } from '@angular/common';
   providedIn: 'root'
 })
 export class UsuarioService {
-  baseURL = 'http://localhost:8080/servidor/servico/usuario/';
+  baseURL = 'http://localhost:8080/servidor/servico/usuario/consultar/json';
 
   constructor(private http: HttpClient) { }
 
 
   // tslint:disable-next-line: typedef
   postDoLogin(usuario: Usuario) {
-    return this.http.post(this.baseURL + 'consultar', usuario);
+    console.log(this.http.request);
+    return this.http.post(this.baseURL, usuario);
   }
 }

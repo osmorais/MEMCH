@@ -36,6 +36,7 @@ public class ApplicationConfig extends Application {
         resources.add(recurso.RecRegra.class);
         resources.add(recurso.RecRegraTipo.class);
         resources.add(recurso.RecUsuario.class);
+        resources.add(recursojax.CrossOrigin.class);
     }
     
 }
