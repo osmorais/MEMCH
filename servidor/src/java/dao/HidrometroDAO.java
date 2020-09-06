@@ -172,6 +172,7 @@ public class HidrometroDAO implements IHidrometroDAO{
                 hidrometro.setDescricao(rs.getString("descricao"));
                 hidrometro.setModelo(rs.getString("modelo"));
                 hidrometro.setAtivo(rs.getInt("ativo") == 1);
+                arrhidrometro.add(hidrometro);
             }
             return arrhidrometro;
         } catch (SQLException ex) {

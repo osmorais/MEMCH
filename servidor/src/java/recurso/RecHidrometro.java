@@ -54,18 +54,31 @@ public class RecHidrometro {
         //TODO return proper representation object
         throw new UnsupportedOperationException();
     }
+//    
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Path("listar/json")
+//    public String listarJson() {
+//        
+//        ArrayList<Hidrometro> arrhidrometro = new ArrayList<>();
+//        
+//        arrhidrometro = SrvcHidrometro.listar();
+//        String retorno = objgson.toJson(arrhidrometro);
+//        
+//        return retorno;
+//    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("listar/json")
-    public String listarJson() {
+    @Path("listar")
+    public Response listar() {
         
         ArrayList<Hidrometro> arrhidrometro = new ArrayList<>();
         
         arrhidrometro = SrvcHidrometro.listar();
         String retorno = objgson.toJson(arrhidrometro);
         
-        return retorno;
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }
     
     @POST
