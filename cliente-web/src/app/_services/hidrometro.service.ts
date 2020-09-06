@@ -12,11 +12,15 @@ export class HidrometroService {
 
   constructor(private http: HttpClient) { }
 
-  getHidrometro(id: number): Observable<Hidrometro>{
+  getHidrometro(id: number): Observable<Hidrometro> {
     return this.http.get<Hidrometro>(this.baseURL + 'consultar/json/' + id);
   }
 
-  postHidrometro(hidrometro: Hidrometro): Observable<Hidrometro>{
+  getAllHidrometro(): Observable<Hidrometro[]> {
+    return this.http.get<Hidrometro[]>(this.baseURL + 'listar');
+  }
+
+  postHidrometro(hidrometro: Hidrometro): Observable<Hidrometro> {
     return this.http.post<Hidrometro>(this.baseURL + 'cadastrar/json/', hidrometro);
   }
 }
