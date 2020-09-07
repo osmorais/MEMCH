@@ -9,19 +9,19 @@ import dao.InterfaceDAO.IRegraDAO;
 import dao.RegraDAO;
 import java.util.ArrayList;
 import modelo.Regra;
+import modelo.Hidrometro;
 
 /**
  *
  * @author osmar
  */
 public class SrvcRegra {
-//    public static ArrayList<Regra> listar(){
-//        
-//        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
-//        IRegraDAO regradao = new RegraDAO();
-//        
-//        return regradao.listar();
-//    }
+    public static ArrayList<Regra> listar(Hidrometro hidrometro){
+        
+        IRegraDAO regradao = new RegraDAO();
+        
+        return regradao.listar(hidrometro);
+    }
     public static Regra remover(Regra regra){
 
         IRegraDAO regradao = new RegraDAO();

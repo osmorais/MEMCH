@@ -17,9 +17,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.PathParam;
 import modelo.Regra;
+import javax.ws.rs.core.MediaType;
+import modelo.Hidrometro;
 import servico.SrvcRegra;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -46,18 +49,20 @@ public class RecRegra {
      * Retrieves representation of an instance of recurso.RecRegra
      * @return an instance of java.lang.String
      */
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("listar/json")
-//    public String listarJson() {
-//        
-//        ArrayList<Regra> arrregra = new ArrayList<>();
-//        
-//        arrregra = SrvcRegra.listar();
-//        String retorno = objgson.toJson(arrregra);
-//        
-//        return retorno;
-//    }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("listar/json/{id}")
+    public Response listarJson(@PathParam("id") Integer id) {
+        
+        ArrayList<Regra> arrregistro = new ArrayList<>();
+        Hidrometro hidrometro = new Hidrometro();
+        hidrometro.setId(id);
+        
+        arrregistro = SrvcRegra.listar(hidrometro);
+        String retorno = objgson.toJson(arrregistro);
+        
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
