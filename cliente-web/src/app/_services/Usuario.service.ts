@@ -8,7 +8,7 @@ import { JsonPipe } from '@angular/common';
   providedIn: 'root'
 })
 export class UsuarioService {
-  baseURL = 'http://localhost:8080/servidor/servico/usuario/consultar/json';
+  baseURL = 'http://10.1.1.3:8080/servidor/servico/usuario/consultar/json';
 
   constructor(private http: HttpClient) { }
 
