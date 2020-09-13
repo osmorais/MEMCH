@@ -9,17 +9,19 @@ import dao.InterfaceDAO.IAlertaDAO;
 import dao.AlertaDAO;
 import java.util.ArrayList;
 import modelo.Alerta;
+import modelo.Hidrometro;
 
 /**
  *
  * @author pi
  */
 public class SrvcAlerta {
-//    public static ArrayList<Alerta> listar(){
-//        
-//        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
-//        IAlertaDAO alertadao = new AlertaDAO();
-//        
-//        return alertadao.listar();
-//    }
+    public static ArrayList<Alerta> listar(){
+        
+        IAlertaDAO alertadao = new AlertaDAO();
+        Hidrometro obj = new Hidrometro();
+        obj.setId(12);
+        
+        return alertadao.listar(obj);
+    }
 }
