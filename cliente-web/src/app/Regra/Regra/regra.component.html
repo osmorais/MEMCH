@@ -21,14 +21,14 @@
       </tr>
     </thead>
     <tbody *ngIf="regras && regras.length">
-      <tr *ngFor="let regras of regras">
+      <tr *ngFor="let regra of regras">
         <!-- <tr> -->
-        <td>{{regras.id}}</td>
-        <td>{{regras.valor}}</td>
-        <td>{{regras.periodo}}</td>
-        <td>{{regras.tipo.descricao}}</td>
-        <td *ngIf="regras.ativo">Sim</td>
-        <td *ngIf="!regras.ativo">Não</td>
+        <td>{{regra.id}}</td>
+        <td>{{regra.valor}}</td>
+        <td>{{regra.periodo}}</td>
+        <td>{{regra.tipo.descricao}}</td>
+        <td *ngIf="regra.ativo">Sim</td>
+        <td *ngIf="!regra.ativo">Não</td>
       </tr>
     </tbody>
     <tfoot *ngIf="!regras">
