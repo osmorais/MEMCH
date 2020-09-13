@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import './css/all.css'; */
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 
-@import './assets/css/dashboard.css';
+@import "./assets/css/dashboard.css";
 /* @import './assets/css/login.css'; */
-@import './assets/css/register.css';
-@import './assets/css/dashboard.css';
-@import './assets/css/monitoramento.css';
-@import './assets/css/monitoramentocad.css';
+@import "./assets/css/register.css";
+@import "./assets/css/dashboard.css";
+@import "./assets/css/monitoramento.css";
+@import "./assets/css/monitoramentocad.css";
+
+#toast-container > div {
+  opacity: 1;
+}

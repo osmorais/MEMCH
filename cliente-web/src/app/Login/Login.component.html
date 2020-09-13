@@ -14,7 +14,8 @@
         <input type="password" id="inputPassword" class="form-control"
           [ngClass]="{'is-invalid': registerForm.controls.senha.errors && registerForm.controls.senha.touched}"
           formControlName="senha" placeholder="Senha" required="" tooltip="Informe sua Senha" />
-        <button [disabled]="!registerForm.valid" class="btn btn-lg btn-primary btn-block" tooltip="Monitorar meu Gasto!"
+        <button href="../Menu/Menu.component.html"
+        [disabled]="!registerForm.valid" class="btn btn-lg btn-primary btn-block" tooltip="Monitorar meu Gasto!"
           type="submit" (click)="fazerLogin()">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet-half" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">

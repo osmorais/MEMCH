@@ -27,6 +27,12 @@
         <td *ngIf="!regras.ativo">Não</td>
       </tr>
     </tbody>
+    <tfoot *ngIf="!regras">
+      <tr>
+        <td colspan="7" class="text-center">
+          Nenhuma regra encontrada!
+        </td>
+    </tfoot>
   </table>
 </div>
 <ng-template #template>
@@ -74,7 +80,7 @@
     </form>
     <br>
     <div class="modal-footer d-flex">
-      <button class="btn btn-secondary" (click)="openModal(template)">
+      <button class="btn btn-secondary" (click)="modalRef.hide()">
         Fechar
       </button>
       <button class="btn btn-primary ml-auto" (click)="salvarAlteracao()">

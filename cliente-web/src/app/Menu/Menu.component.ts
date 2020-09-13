@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HidrometroService } from '../_services/hidrometro.service';
 import { Hidrometro } from '../_models/Hidrometro';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -11,7 +12,8 @@ import { Hidrometro } from '../_models/Hidrometro';
 export class MenuComponent implements OnInit {
   hidrometros: Hidrometro[];
 
-  constructor(private hidrometroService: HidrometroService) { }
+  constructor(private hidrometroService: HidrometroService,
+              private toastr: ToastrService) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -26,6 +28,7 @@ export class MenuComponent implements OnInit {
       console.log(_hidrometros);
     },
       error => {
+        this.toastr.error('Não foi possível recuperar os dados do hidrometro.', 'Verifique sua conexão');
         console.log(error);
     });
   }
