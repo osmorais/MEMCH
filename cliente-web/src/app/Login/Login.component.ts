@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Usuario } from '../_models/Usuario';
 import { UsuarioService } from '../_services/Usuario.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService,
               private fb: FormBuilder,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              public router: Router) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -40,7 +42,8 @@ export class LoginComponent implements OnInit {
         (usuarioResponse: Usuario) => {
           // tslint:disable-next-line: triple-equals
           if (usuarioResponse.id != null && usuarioResponse.id != 0){
-            this.toastr.info('Autenticação feita com sucesso!'); }
+            this.router.navigate(['/registros']);
+            this.toastr.success('Autenticação feita com sucesso!'); }
           else { this.toastr.warning('Usuario não encontrado, verifique seus dados de acesso!'); }
           console.log(usuarioResponse);
         }, error => {

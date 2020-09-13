@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RegistroService } from '../_services/registro.service';
 import { Registro } from '../_models/Registro';
 import { Hidrometro } from '../_models/Hidrometro';
@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./Registros.component.css']
 })
 export class RegistrosComponent implements OnInit {
-
   registros: Registro[];
   hidrometro: Hidrometro;
   constructor(private registroService: RegistroService,

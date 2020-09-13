@@ -21,17 +21,21 @@ import { RegraComponent } from './Regra/Regra/regra.component';
 import { DateTimeFormatPipe } from './_helps/DateTimeFormatPipe.pipe';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
+import { DashboardComponent } from './Dashboard/Dashboard.component';
+import { AlertaComponent } from './Alerta/Alerta.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     RegistrosComponent,
     LoginComponent,
     RegraComponent,
     DateTimeFormatPipe,
     NavComponent,
-    MenuComponent
-  ],
+    MenuComponent,
+      DashboardComponent,
+      AlertaComponent
+   ],
   imports: [
     BrowserModule,
     FormsModule,
