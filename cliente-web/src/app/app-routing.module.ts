@@ -7,10 +7,10 @@ import { RegistrosComponent } from './Registros/Registros.component';
 import { RegraComponent } from './Regra/Regra/regra.component';
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent},
   {path: 'registros', component: RegistrosComponent},
   {path: 'regras', component: RegraComponent},
   {path: 'alertas', component: AlertaComponent},
-  {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: '', redirectTo: 'registros', pathMatch: 'full'},
   {path: '**', redirectTo: 'registros', pathMatch: 'full'}

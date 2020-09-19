@@ -1,34 +1,39 @@
 <app-Menu></app-Menu>
-
-
-
-<div id="alertas">
-  <div class="mr-auto"></div>
-  <table class="table table-striped">
-    <thead class="thead-light">
-      <tr>
-        <th>#</th>
-        <th>Descrição</th>
-        <th>Data</th>
-        <th>Gasto Limite</th>
-        <th>Periodo</th>
-      </tr>
-    </thead>
-    <tbody *ngIf="alertas && alertas.length">
-      <tr *ngFor="let alertas of alertas">
-        <!-- <tr> -->
-        <td>{{alertas.id}}</td>
-        <td>{{alertas.descricao}}</td>
-        <td>{{alertas.data | DateTimeFormatPipe}}</td>
-        <td>{{alertas.regra.valor}}</td>
-        <td>{{alertas.regra.periodo}}</td>
-      </tr>
-    </tbody>
-    <tfoot *ngIf="!alertas">
-      <tr>
-        <td colspan="7" class="text-center">
-          Nenhum alerta encontrado!
-        </td>
-    </tfoot>
-  </table>
+<div class="my-container">
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+    </div>
+  </ng-template>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
+  </ngx-loading>
+  <div id="alertas">
+    <div class="mr-auto"></div>
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Descrição</th>
+          <th>Data</th>
+          <th>Gasto Limite</th>
+          <th>Periodo</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="alertas && alertas.length">
+        <tr *ngFor="let alertas of alertas">
+          <!-- <tr> -->
+          <td>{{alertas.id}}</td>
+          <td>{{alertas.descricao}}</td>
+          <td>{{alertas.data | DateTimeFormatPipe}}</td>
+          <td>{{alertas.regra.valor}}</td>
+          <td>{{alertas.regra.periodo}}</td>
+        </tr>
+      </tbody>
+      <tfoot *ngIf="!alertas">
+        <tr>
+          <td colspan="7" class="text-center">
+            Nenhum alerta encontrado!
+          </td>
+      </tfoot>
+    </table>
+  </div>
 </div>

@@ -15,6 +15,7 @@ export class RegraComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   regras: Regra[];
+  public loading = false;
 
   constructor(private modalService: BsModalService,
               private regraService: RegraService,

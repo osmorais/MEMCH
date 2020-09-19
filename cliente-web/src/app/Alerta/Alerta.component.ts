@@ -11,6 +11,7 @@ import { AlertaService } from '../_services/alerta.service';
 })
 export class AlertaComponent implements OnInit {
   alertas: Alerta[];
+  public loading = false;
 
   constructor(private toastr: ToastrService,
               private alertaService: AlertaService) { }
@@ -22,14 +23,17 @@ export class AlertaComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getAlertas() {
+    this.loading = true;
     // tslint:disable-next-line: variable-name
     this.alertaService.getAlertas().subscribe((_alertas: Alerta[]) => {
+      this.loading = false;
       this.alertas = _alertas;
       if (this.alertas.length > 1) { this.toastr.info(this.alertas.length + ' alertas foram retornados!'); }
       // tslint:disable-next-line: triple-equals
       if (this.alertas.length == 1) { this.toastr.info(this.alertas.length + ' alerta foi retornado!'); }
       console.log(_alertas);
     }, error => {
+      this.loading = false;
       this.toastr.error('Não foi possível recuperar os dados de Alertas.', 'Verifique sua conexão');
       console.log(error);
     });

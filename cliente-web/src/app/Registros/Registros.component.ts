@@ -14,6 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 export class RegistrosComponent implements OnInit {
   registros: Registro[];
   hidrometro: Hidrometro;
+  public loading = false;
+
   constructor(private registroService: RegistroService,
               private hidrometroService: HidrometroService,
               private toastr: ToastrService) { }
@@ -26,14 +28,17 @@ export class RegistrosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getRegistros() {
+    this.loading = true;
     // tslint:disable-next-line: variable-name
     this.registroService.getRegistros().subscribe((_registros: Registro[]) => {
+      this.loading = false;
       this.registros = _registros;
       if (this.registros.length > 1) { this.toastr.info(this.registros.length + ' registros foram retornados!'); }
       // tslint:disable-next-line: triple-equals
       if (this.registros.length == 1) { this.toastr.info(this.registros.length + ' registro foi retornado!'); }
       console.log(_registros);
     }, error => {
+      this.loading = false;
       this.toastr.error('Não foi possível recuperar os dados do Cosumo.', 'Verifique sua conexão');
       console.log(error);
     });
@@ -41,12 +46,15 @@ export class RegistrosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getHidrometro() {
+    this.loading = true;
     // tslint:disable-next-line: variable-name
     this.hidrometroService.getHidrometro(12).subscribe((_hidrometro: Hidrometro) => {
+      this.loading = false;
       this.hidrometro = _hidrometro;
       console.log(_hidrometro);
     },
       error => {
+        this.loading = false;
         this.toastr.error('Por favor verifique sua conexão', 'Falha de comunicação');
         console.log();
       });

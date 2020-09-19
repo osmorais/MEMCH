@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { RegistroService } from './_services/registro.service';
 
@@ -48,6 +49,7 @@ import { AlertaComponent } from './Alerta/Alerta.component';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    NgxLoadingModule.forRoot({}),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
