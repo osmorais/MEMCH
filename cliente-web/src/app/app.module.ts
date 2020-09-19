@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
-import { NgxLoadingModule } from 'ngx-loading';
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 
 import { RegistroService } from './_services/registro.service';
 
@@ -49,7 +49,14 @@ import { AlertaComponent } from './Alerta/Alerta.component';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    NgxLoadingModule.forRoot({}),
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.circleSwish,
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+      backdropBorderRadius: '4px',
+      primaryColour: '#ffffff',
+      secondaryColour: '#ffffff',
+      tertiaryColour: '#ffffff'
+  }),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
