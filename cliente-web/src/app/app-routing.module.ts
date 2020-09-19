@@ -4,7 +4,7 @@ import { AlertaComponent } from './Alerta/Alerta.component';
 import { DashboardComponent } from './Dashboard/Dashboard.component';
 import { LoginComponent } from './Login/Login.component';
 import { RegistrosComponent } from './Registros/Registros.component';
-import { RegraComponent } from './Regra/Regra/regra.component';
+import { RegraComponent } from './Regra/regra.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},

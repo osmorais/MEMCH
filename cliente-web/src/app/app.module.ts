@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { RegistrosComponent } from './Registros/Registros.component';
 import { LoginComponent } from './Login/Login.component';
 import { MenuComponent } from './Menu/Menu.component';
-import { RegraComponent } from './Regra/Regra/regra.component';
+import { RegraComponent } from './Regra/regra.component';
 
 import { DateTimeFormatPipe } from './_helps/DateTimeFormatPipe.pipe';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +26,7 @@ import { DashboardComponent } from './Dashboard/Dashboard.component';
 import { AlertaComponent } from './Alerta/Alerta.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     RegistrosComponent,
     LoginComponent,
