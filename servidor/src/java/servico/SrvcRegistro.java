@@ -16,11 +16,11 @@ import modelo.Registro;
  * @author osmar
  */
 public class SrvcRegistro {
-    public static ArrayList<Registro> listar(){
+    public static ArrayList<Registro> listar(int hidrometroID){
         
         IRegistroDAO registrodao = new RegistroDAO();
         Hidrometro obj = new Hidrometro();
-        obj.setId(12);
+        obj.setId(hidrometroID);
         
         return registrodao.listar(obj);
     }

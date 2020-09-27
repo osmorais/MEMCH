@@ -16,11 +16,11 @@ import modelo.Hidrometro;
  * @author pi
  */
 public class SrvcAlerta {
-    public static ArrayList<Alerta> listar(){
+    public static ArrayList<Alerta> listar(int id){
         
         IAlertaDAO alertadao = new AlertaDAO();
         Hidrometro obj = new Hidrometro();
-        obj.setId(12);
+        obj.setId(id);
         
         return alertadao.listar(obj);
     }
