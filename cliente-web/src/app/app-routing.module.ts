@@ -8,7 +8,7 @@ import { RegraComponent } from './Regra/regra.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'registros', component: RegistrosComponent},
+  {path: 'registros/:id', component: RegistrosComponent},
   {path: 'regras', component: RegraComponent},
   {path: 'alertas', component: AlertaComponent},
   {path: 'dashboard', component: DashboardComponent},

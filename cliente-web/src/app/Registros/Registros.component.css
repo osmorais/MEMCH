@@ -10,6 +10,29 @@ div.flex-dashboard {
   padding-left: 17%
 }
 
+#sidebarSecodLevel {
+  left: 17%;
+}
+
+.sidebar-sticky-second {
+  position: relative;
+  top: 0;
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.603);
+  left: 100%;
+  top: -2%;
+  height: 5000%;
+  width: 5000%;
+}
+
+.sidebar .nav-link-second {
+  font-weight: 500;
+  color: rgb(218, 218, 218);
+  padding: 0.5rem 3rem;
+}
+
 sidebar {
   display: block;
   height: 100%;

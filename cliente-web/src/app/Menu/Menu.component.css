@@ -1,9 +1,17 @@
 #sidebarSecodLevel {
-  left: 17%;
+  left: 16%;
 }
 
 body {
   font-size: 0.875rem;
+}
+
+.bg-menu{
+  background-color: #343a40!important;
+}
+
+.bg-menu-second {
+  background-color: hsl(210 10% 17% / 1)!important;
 }
 
 .feather {
@@ -49,9 +57,10 @@ body {
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.603);
   left: 100%;
-  top: -2%;
+  top: -102%;
   height: 5000%;
   width: 5000%;
+  display: flex;
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -63,7 +72,12 @@ body {
 
 .sidebar .nav-link {
   font-weight: 500;
-  color: #333;
+  color: #a8a8a8;
+}
+
+.sidebar .nav-link-title {
+  font-weight: 500;
+  color: #a8a8a8;
 }
 
 .sidebar .nav-link-second {
@@ -123,4 +137,27 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+div.menu ul li a:hover {
+  color: #b1b1b1;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transform: scale(1.07);
+  transition: 0.2s;
+}
+
+.sidebar .nav-link:hover {
+  font-weight: 500;
+  color: #a8a8a8;
+  margin-left: 20px;
+  font-weight: bold;
+  transform: scale(1.07);
+  transition: 0.2s;
+}
+
+div.menu ul li svg {
+  color: #999999;
+  font-size: 25px;
 }

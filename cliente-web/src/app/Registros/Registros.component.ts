@@ -4,6 +4,7 @@ import { Registro } from '../_models/Registro';
 import { Hidrometro } from '../_models/Hidrometro';
 import { HidrometroService } from '../_services/hidrometro.service';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -14,11 +15,15 @@ import { ToastrService } from 'ngx-toastr';
 export class RegistrosComponent implements OnInit {
   registros: Registro[];
   hidrometro: Hidrometro;
+  hidrometroID: number;
   public loading = false;
 
-  constructor(private registroService: RegistroService,
+  constructor(private route: ActivatedRoute,
+              private registroService: RegistroService,
               private hidrometroService: HidrometroService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService) {
+                this.route.params.subscribe(params => this.hidrometroID = params.id);
+              }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -48,7 +53,7 @@ export class RegistrosComponent implements OnInit {
   getHidrometro() {
     this.loading = true;
     // tslint:disable-next-line: variable-name
-    this.hidrometroService.getHidrometro(12).subscribe((_hidrometro: Hidrometro) => {
+    this.hidrometroService.getHidrometro(this.hidrometroID).subscribe((_hidrometro: Hidrometro) => {
       this.loading = false;
       this.hidrometro = _hidrometro;
       console.log(_hidrometro);
