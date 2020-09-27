@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MenuComponent implements OnInit {
   hidrometros: Hidrometro[];
+  openSecondLevel: boolean;
 
   constructor(private hidrometroService: HidrometroService,
               private toastr: ToastrService) { }
@@ -18,6 +19,7 @@ export class MenuComponent implements OnInit {
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getHidrometro();
+    this.openSecondLevel = false;
   }
 
   // tslint:disable-next-line: typedef
@@ -31,5 +33,15 @@ export class MenuComponent implements OnInit {
         this.toastr.error('Não foi possível recuperar os dados do hidrometro.', 'Verifique sua conexão');
         console.log(error);
     });
+  }
+
+  // tslint:disable-next-line: typedef
+  OpenSecondLevel(){
+    this.openSecondLevel = true;
+  }
+
+  // tslint:disable-next-line: typedef
+  CloseSecondLevel(){
+    this.openSecondLevel = false;
   }
 }
