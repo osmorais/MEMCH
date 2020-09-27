@@ -28,7 +28,7 @@
           <td>{{alertas.regra.periodo}}</td>
         </tr>
       </tbody>
-      <tfoot *ngIf="!alertas">
+      <tfoot *ngIf="!alertas || alertas.length < 1">
         <tr>
           <td colspan="7" class="text-center">
             Nenhum alerta encontrado!

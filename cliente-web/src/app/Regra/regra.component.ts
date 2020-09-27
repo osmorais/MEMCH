@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Regra } from 'src/app/_models/Regra';
 import { RegraService } from 'src/app/_services/regra.service';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -15,11 +16,15 @@ export class RegraComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   regras: Regra[];
+  hidrometroID: number;
   public loading = false;
 
-  constructor(private modalService: BsModalService,
+  constructor(private route: ActivatedRoute,
+              private modalService: BsModalService,
               private regraService: RegraService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService) {
+                this.route.params.subscribe(params => this.hidrometroID = params.id);
+              }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -34,7 +39,7 @@ export class RegraComponent implements OnInit {
   // tslint:disable-next-line: typedef
   getRegras() {
     // tslint:disable-next-line: variable-name
-    this.regraService.getRegrasByHidrometro(12).subscribe((_regras: Regra[]) => {
+    this.regraService.getRegras(this.hidrometroID).subscribe((_regras: Regra[]) => {
       this.regras = _regras;
       if (this.regras.length > 1) { this.toastr.info(this.regras.length + ' regras foram retornadas!'); }
       // tslint:disable-next-line: triple-equals

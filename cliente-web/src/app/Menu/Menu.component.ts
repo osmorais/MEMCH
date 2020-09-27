@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HidrometroService } from '../_services/hidrometro.service';
 import { Hidrometro } from '../_models/Hidrometro';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -12,9 +13,11 @@ import { ToastrService } from 'ngx-toastr';
 export class MenuComponent implements OnInit {
   hidrometros: Hidrometro[];
   openSecondLevel: boolean;
+  redirectString: string;
 
   constructor(private hidrometroService: HidrometroService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              public router: Router) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -36,7 +39,8 @@ export class MenuComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  OpenSecondLevel(){
+  OpenSecondLevel(redirect: string){
+    this.redirectString = redirect;
     this.openSecondLevel = true;
   }
 
@@ -44,4 +48,15 @@ export class MenuComponent implements OnInit {
   CloseSecondLevel(){
     this.openSecondLevel = false;
   }
+
+  // tslint:disable-next-line: typedef
+  OpenPage(id: number){
+    this.redirectTo('/' + this.redirectString + '/' + id);
+  }
+
+  // tslint:disable-next-line: typedef
+  redirectTo(uri: string){
+    this.router.navigateByUrl('/#', {skipLocationChange: true}).then(() =>
+    this.router.navigate([uri]));
+ }
 }

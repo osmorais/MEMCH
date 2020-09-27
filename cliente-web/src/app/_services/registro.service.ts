@@ -13,7 +13,7 @@ export class RegistroService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
-  getRegistros(): Observable<Registro[]>{
-    return this.http.get<Registro[]>(this.baseURL + 'listar/json');
+  getRegistros(hidrometroID: number): Observable<Registro[]>{
+    return this.http.get<Registro[]>(this.baseURL + 'listar/json/' + hidrometroID);
   }
 }

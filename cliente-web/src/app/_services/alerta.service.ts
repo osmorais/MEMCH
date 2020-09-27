@@ -13,7 +13,7 @@ export class AlertaService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
-  getAlertas(): Observable<Alerta[]> {
-    return this.http.get<Alerta[]>(this.baseURL + 'listar/json/');
+  getAlertas(hidrometroID: number): Observable<Alerta[]> {
+    return this.http.get<Alerta[]>(this.baseURL + 'listar/json/' + hidrometroID);
   }
 }

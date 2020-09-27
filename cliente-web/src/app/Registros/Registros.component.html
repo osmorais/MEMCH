@@ -23,7 +23,7 @@
           <td>{{registro.data | DateTimeFormatPipe}}</td>
         </tr>
       </tbody>
-      <tfoot *ngIf="!registros">
+      <tfoot *ngIf="!registros || registros.length < 1">
         <tr>
           <td colspan="7" class="text-center">
             Nenhum registro encontrado!

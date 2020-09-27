@@ -35,7 +35,7 @@
           <td *ngIf="!regra.ativo">Não</td>
         </tr>
       </tbody>
-      <tfoot *ngIf="!regras">
+      <tfoot *ngIf="!regras || regras.length < 1">
         <tr>
           <td colspan="7" class="text-center">
             Nenhuma regra encontrada!

@@ -13,7 +13,7 @@ export class RegraService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
-  getRegrasByHidrometro(id: number): Observable<Regra[]> {
+  getRegras(id: number): Observable<Regra[]> {
     return this.http.get<Regra[]>(this.baseURL + 'listar/json/' + id);
   }
 }

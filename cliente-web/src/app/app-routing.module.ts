@@ -9,11 +9,12 @@ import { RegraComponent } from './Regra/regra.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registros/:id', component: RegistrosComponent},
-  {path: 'regras', component: RegraComponent},
-  {path: 'alertas', component: AlertaComponent},
+  {path: 'regras/:id', component: RegraComponent},
+  {path: 'alertas/:id', component: AlertaComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: '', redirectTo: 'registros', pathMatch: 'full'},
-  {path: '**', redirectTo: 'registros', pathMatch: 'full'}
+  {path: '#', component: DashboardComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({

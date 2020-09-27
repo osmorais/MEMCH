@@ -35,7 +35,7 @@ export class RegistrosComponent implements OnInit {
   getRegistros() {
     this.loading = true;
     // tslint:disable-next-line: variable-name
-    this.registroService.getRegistros().subscribe((_registros: Registro[]) => {
+    this.registroService.getRegistros(this.hidrometroID).subscribe((_registros: Registro[]) => {
       this.loading = false;
       this.registros = _registros;
       if (this.registros.length > 1) { this.toastr.info(this.registros.length + ' registros foram retornados!'); }

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           // tslint:disable-next-line: triple-equals
           if (usuarioResponse.id != null && usuarioResponse.id != 0){
-            this.router.navigate(['/registros']);
+            this.router.navigate(['/registros/12']);
             this.toastr.success('Autenticação feita com sucesso!'); }
           else { this.toastr.warning('Usuario não encontrado, verifique seus dados de acesso!'); }
           console.log(usuarioResponse);
