@@ -44,7 +44,7 @@ public class RecRegistro {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("listar/json")
+    @Path("listar/json/{id}")
     public Response listarJson(@PathParam("id") Integer id) {
         
         ArrayList<Registro> arrregistro = new ArrayList<>();
