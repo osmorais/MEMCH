@@ -8,6 +8,7 @@ package servico;
 import dao.InterfaceDAO.IRegraTipoDAO;
 import dao.RegraTipoDAO;
 import java.util.ArrayList;
+import modelo.Hidrometro;
 import modelo.RegraTipo;
 
 /**
@@ -17,7 +18,6 @@ import modelo.RegraTipo;
 public class SrvcRegraTipo {
     public static ArrayList<RegraTipo> listar(){
         
-        //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
         IRegraTipoDAO regratipodao = new RegraTipoDAO();
         
         return regratipodao.listar();
