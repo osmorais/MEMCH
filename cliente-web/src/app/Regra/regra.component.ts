@@ -5,6 +5,8 @@ import { Regra } from 'src/app/_models/Regra';
 import { RegraService } from 'src/app/_services/regra.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
+import { RegratipoService } from '../_services/regratipo.service';
+import { RegraTipo } from '../_models/RegraTipo';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -16,12 +18,14 @@ export class RegraComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   regras: Regra[];
+  regraTipo: RegraTipo[];
   hidrometroID: number;
   public loading = false;
 
   constructor(private route: ActivatedRoute,
               private modalService: BsModalService,
               private regraService: RegraService,
+              private regraTipoService: RegratipoService,
               private toastr: ToastrService) {
                 this.route.params.subscribe(params => this.hidrometroID = params.id);
               }
@@ -34,6 +38,17 @@ export class RegraComponent implements OnInit {
   // tslint:disable-next-line: typedef
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  // tslint:disable-next-line: typedef
+  getRegraTipo() {
+    // tslint:disable-next-line: variable-name
+    this.regraTipoService.getAllRegraTipo().subscribe((_regraTipo: RegraTipo[]) => {
+      this.regraTipo = _regraTipo;
+    }, error => {
+      this.toastr.error('Não foi possível recuperar os dados da(s) regra(s).', 'Verifique sua conexão');
+      console.log(error);
+    });
   }
 
   // tslint:disable-next-line: typedef

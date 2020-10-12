@@ -22,6 +22,7 @@
           <th>Periodo</th>
           <th>Tipo</th>
           <th>Ativo</th>
+          <th></th>
         </tr>
       </thead>
       <tbody *ngIf="regras && regras.length">
@@ -33,6 +34,16 @@
           <td>{{regra.tipo.descricao}}</td>
           <td *ngIf="regra.ativo">Sim</td>
           <td *ngIf="!regra.ativo">Não</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-success" tooltip="Editar">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-sm btn-danger" tooltip="Excluir">
+                <i class="fa fa-eraser"></i>
+              </button>
+            </div>
+          </td>
         </tr>
       </tbody>
       <tfoot *ngIf="!regras || regras.length < 1">
@@ -73,7 +84,7 @@
           </div>
           <div class="form-group col-md-6">
             <label>Tipo</label>
-            <input type="text" class="form-control" formControlName="tipo">
+            <select class="form-control" formControlName="tipo" ng-option="option.ID as option.Name for option in regraTipo"></select>
             <div class="invalid-feedback">
               O Tipo é obrigatório.
             </div>
