@@ -18,7 +18,7 @@ export class RegraComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   regras: Regra[];
-  regraTipo: RegraTipo[];
+  regraTipos: RegraTipo[];
   hidrometroID: number;
   public loading = false;
 
@@ -32,7 +32,10 @@ export class RegraComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+    // tslint:disable-next-line: no-var-keyword prefer-const
+    var self = this;
     this.getRegras();
+    this.getRegraTipo();
   }
 
   // tslint:disable-next-line: typedef
@@ -43,8 +46,9 @@ export class RegraComponent implements OnInit {
   // tslint:disable-next-line: typedef
   getRegraTipo() {
     // tslint:disable-next-line: variable-name
-    this.regraTipoService.getAllRegraTipo().subscribe((_regraTipo: RegraTipo[]) => {
-      this.regraTipo = _regraTipo;
+    this.regraTipoService.getAllRegraTipo().subscribe((_regraTipos: RegraTipo[]) => {
+      this.regraTipos = _regraTipos;
+      console.log(this.regraTipos);
     }, error => {
       this.toastr.error('Não foi possível recuperar os dados da(s) regra(s).', 'Verifique sua conexão');
       console.log(error);
@@ -68,6 +72,7 @@ export class RegraComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   salvarAlteracao() {
+    console.log(this.registerForm.value);
   }
 
   // tslint:disable-next-line: typedef

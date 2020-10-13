@@ -83,8 +83,10 @@
             </div>
           </div>
           <div class="form-group col-md-6">
-            <label>Tipo</label>
-            <select class="form-control" formControlName="tipo" ng-option="option.ID as option.Name for option in regraTipo"></select>
+            <label for="tipo">Tipo</label>
+            <select formControlName="tipo" class="form-control">
+              <option disabled>Selecione um tipo de regra</option>
+            </select>
             <div class="invalid-feedback">
               O Tipo é obrigatório.
             </div>
