@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -76,6 +77,21 @@ public class RecRegra {
         String retorno = objgson.toJson(regra);
 
         return retorno;
+    }
+    
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("remover/json/{id}")
+    public Response remover(@PathParam("id") Integer id) {
+        
+        Regra regra = new Regra();
+        regra.setId(id);
+        
+        SrvcRegra.remover(regra);
+        
+        String retorno = objgson.toJson(regra);
+        
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }
     
 

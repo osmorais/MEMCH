@@ -22,6 +22,7 @@ public class SrvcRegra {
         
         return regradao.listar(hidrometro);
     }
+    
     public static Regra remover(Regra regra){
 
         IRegraDAO regradao = new RegraDAO();
