@@ -8,12 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class RegraService {
 
-  baseURL = 'http://10.1.1.3:8080/servidor/servico/regra/';
+  baseURL = 'http://10.1.1.3:8080/servidor/servico/regra';
 
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
   getRegras(id: number): Observable<Regra[]> {
-    return this.http.get<Regra[]>(this.baseURL + 'listar/json/' + id);
+    return this.http.get<Regra[]>(`${this.baseURL}/listar/json/${id}`);
+  }
+
+  deleteRegra(id: number) {
+    return this.http.delete(`${this.baseURL}/deletar/json/${id}`);
   }
 }

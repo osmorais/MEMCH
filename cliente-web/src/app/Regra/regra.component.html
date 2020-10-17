@@ -9,7 +9,7 @@
   <div id="regras">
     <div class="mr-auto"></div>
     <div>
-      <button type="button" class="btn btn-outline-primary" (click)="openModal(template)">
+      <button type="button" class="btn btn-outline-primary" (click)="criarRegra(regraTipos, template)">
         <i class="fa fa-plus-circle"></i>&nbsp;
         Cadastrar Nova Regra!
       </button>
@@ -17,7 +17,7 @@
     <table class="table table-striped">
       <thead class="thead-light">
         <tr>
-          <th>#</th>
+          <th>Regra</th>
           <th>Valor</th>
           <th>Periodo</th>
           <th>Tipo</th>
@@ -39,7 +39,7 @@
               <button class="btn btn-sm btn-success" tooltip="Editar">
                 <i class="fa fa-edit"></i>
               </button>
-              <button class="btn btn-sm btn-danger" tooltip="Excluir">
+              <button class="btn btn-sm btn-danger" tooltip="Excluir" (click)="excluirRegra(regra, confirm)">
                 <i class="fa fa-eraser"></i>
               </button>
             </div>
@@ -86,6 +86,7 @@
             <label for="tipo">Tipo</label>
             <select formControlName="tipo" class="form-control">
               <option disabled>Selecione um tipo de regra</option>
+              <option *ngFor="let tipo of regraTipos">{{tipo.descricao}}</option>
             </select>
             <div class="invalid-feedback">
               O Tipo é obrigatório.
@@ -112,4 +113,31 @@
       <br>
     </div>
   </ng-template>
+
+  <ng-template #confirm>
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">
+            Deletando Regra
+          </h4>
+          <button type="button" class="close pull-right" (click)="modalRef.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>{{bodyDeletarRegra}}</p>
+        </div>
+        <div class="modal-footer btn-group d-flex">
+          <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">
+            CANCELAR
+          </button>
+          <button type="button" class="btn btn-outline-danger">
+            DELETAR
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
 </div>

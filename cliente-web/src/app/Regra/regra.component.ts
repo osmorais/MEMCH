@@ -18,9 +18,11 @@ export class RegraComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   regras: Regra[];
+  currentRegra: Regra;
   regraTipos: RegraTipo[];
   hidrometroID: number;
   public loading = false;
+  bodyDeletarRegra = '';
 
   constructor(private route: ActivatedRoute,
               private modalService: BsModalService,
@@ -41,6 +43,12 @@ export class RegraComponent implements OnInit {
   // tslint:disable-next-line: typedef
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  // tslint:disable-next-line: typedef
+  criarRegra(regraTipos: RegraTipo[],template: any) {
+    this.openModal(template);
+    let tipos = regraTipos; 
   }
 
   // tslint:disable-next-line: typedef
@@ -83,5 +91,24 @@ export class RegraComponent implements OnInit {
       tipo: new FormControl('', Validators.required),
       ativo: new FormControl()
     });
+  }
+
+  excluirRegra(currentRegra: Regra, template: any) {
+    this.openModal(template);
+    this.currentRegra = currentRegra;
+    this.bodyDeletarRegra = `Tem certeza que deseja excluir a Regra ${currentRegra.id}?`;
+  }
+
+  confirmeDelete(template: any) {
+    this.regraService.deleteRegra(this.currentRegra.id).subscribe(
+      () => {
+        template.hide();
+        this.getRegras();
+        this.toastr.success('Regra deletada com sucesso!');
+      }, error => {
+        this.toastr.error('Erro ao tentar deletar');
+        console.log(error);
+      }
+    );
   }
 }
