@@ -82,16 +82,12 @@ public class RecRegra {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("remover/json/{id}")
-    public Response remover(@PathParam("id") Integer id) {
+    public void remover(@PathParam("id") Integer id) {
         
         Regra regra = new Regra();
         regra.setId(id);
         
         SrvcRegra.remover(regra);
-        
-        String retorno = objgson.toJson(regra);
-        
-        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }
     
 
