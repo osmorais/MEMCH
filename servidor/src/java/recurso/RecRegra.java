@@ -50,6 +50,40 @@ public class RecRegra {
      * Retrieves representation of an instance of recurso.RecRegra
      * @return an instance of java.lang.String
      */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("cadastrar/json/{id}")
+    public Response cadastrarJson(String conteudo, @PathParam("id") Integer id) {
+        
+        Regra regra = objgson.fromJson(conteudo, Regra.class);
+        Hidrometro hidrometro = new Hidrometro();
+        hidrometro.setId(id);
+        
+        regra = SrvcRegra.cadastrar(regra, hidrometro);
+        
+        String retorno = objgson.toJson(regra);
+
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("alterar/json/{id}")
+    public Response alterarJson(String conteudo, @PathParam("id") Integer id) {
+        
+        Regra regra = objgson.fromJson(conteudo, Regra.class);
+        Hidrometro hidrometro = new Hidrometro();
+        hidrometro.setId(id);
+        
+        regra = SrvcRegra.alterar(regra, hidrometro);
+        
+        String retorno = objgson.toJson(regra);
+
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("listar/json/{id}")

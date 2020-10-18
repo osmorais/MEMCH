@@ -30,4 +30,20 @@ public class SrvcRegra {
         
         return regra;
     }
+    
+    public static Regra cadastrar(Regra regra, Hidrometro hidrometro){
+
+        IRegraDAO regradao = new RegraDAO();
+        regradao.cadastrar(regra, hidrometro);
+        
+        return regra;
+    }
+    
+    public static Regra alterar(Regra regra, Hidrometro hidrometro){
+
+        IRegraDAO regradao = new RegraDAO();
+        regradao.alterar(regra, hidrometro);
+        
+        return regra;
+    }
 }
