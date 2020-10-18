@@ -140,7 +140,7 @@
             <select formControlName="tipo" id="tipo" class="form-control"
             [ngClass]="{'is-invalid': registerForm.get('tipo').errors && registerForm.get('tipo').touched}">
               <option disabled>Selecione um tipo de regra</option>
-              <option *ngFor="let tipo of regraTipos" value="{{tipo.id}}">{{tipo.descricao}}</option>
+              <option *ngFor="let tipo of regraTipos">{{tipo.descricao}}</option>
             </select> 
             <div *ngIf="registerForm.get('tipo').hasError('required')
             && registerForm.get('tipo').touched" 

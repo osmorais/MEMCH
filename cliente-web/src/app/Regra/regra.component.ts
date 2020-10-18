@@ -87,7 +87,8 @@ export class RegraComponent implements OnInit {
 
   salvarAlteracao(template: any) {
     var self = this;
-    this.registerForm.get('tipo').setValue(this.regraTipos.find(x => x.id == this.registerForm.get('tipo').value));
+    this.registerForm.get('tipo').setValue(
+      this.regraTipos.find(x => x.descricao.toLocaleUpperCase() == this.registerForm.get('tipo').value.toLocaleUpperCase()));
 
     if (this.registerForm.valid) {
 
@@ -116,7 +117,7 @@ export class RegraComponent implements OnInit {
       else {
         this.currentRegra = Object.assign({}, this.registerForm.value);
         this.currentRegra.id = this.currentId;
-        
+
         this.loading = true;
 
         this.regraService.putRegra(this.hidrometroID, this.currentRegra).subscribe(
@@ -126,7 +127,7 @@ export class RegraComponent implements OnInit {
             setTimeout(() => {
               this.loading = false;
               window.location.reload();
-            }, 1000);
+            }, 1000); 
 
           }, error => {
             this.loading = false;
@@ -153,7 +154,7 @@ export class RegraComponent implements OnInit {
     this.regraTipos = tipos;
     this.registerForm.reset();
     this.registerForm.get('ativo').setValue(false);
-    this.registerForm.get('tipo').setValue(this.regraTipos[0]);
+    this.registerForm.get('tipo').setValue(this.regraTipos[0].descricao);
     this.openModal(template);
   }
 
@@ -164,7 +165,7 @@ export class RegraComponent implements OnInit {
     this.currentId = this.currentRegra.id;
     this.registerForm.get('valor').setValue(currentRegra.valor);
     this.registerForm.get('periodo').setValue(currentRegra.periodo);
-    this.registerForm.get('tipo').setValue(currentRegra.tipo);
+    this.registerForm.get('tipo').setValue(currentRegra.tipo.descricao);
     this.registerForm.get('ativo').setValue(currentRegra.ativo);
     this.openModal(template);
   }
