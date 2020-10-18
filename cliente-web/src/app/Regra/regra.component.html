@@ -64,39 +64,89 @@
     <div class="modal-body">
       <form [formGroup]="registerForm">
         <div class="form-row">
-          <div class="form-group col-md-12">
-            <label>Valor</label>
-            <input type="text" class="form-control"
-              [ngClass]="{'is-invalid': registerForm.get('valor').errors && registerForm.get('valor').touched}"
-              formControlName="valor">
-            <div class="invalid-feedback">
+          <div class="form-group col-md-8">
+            <label for="valor">Valor Limite</label>&nbsp;
+            <svg 
+              tooltip="O valor limite se refere a quantidade de gasto dentro do periodo, 
+              onde quando atingida será emitido um alerta."
+              width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+            <input type="text" id="valor" class="form-control" formControlName="valor"
+            [ngClass]="{'is-invalid': registerForm.get('valor').errors && registerForm.get('valor').touched}"
+            placeholder="Insira um valor limite de gasto (ml)">
+            <div *ngIf="registerForm.get('valor').hasError('required')
+            && registerForm.get('valor').touched" 
+            class="invalid-feedback">
               O valor é obrigatório.
             </div>
+            <div *ngIf="registerForm.get('valor').hasError('minlength')
+            && registerForm.get('valor').touched" 
+            class="invalid-feedback">
+              O valor deve ter no mínimo 3 Caracters.
+            </div>
+            <div *ngIf="registerForm.get('valor').hasError('maxlength')
+            && registerForm.get('valor').touched" 
+            class="invalid-feedback">
+              O valor deve ter no máximo 10 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="ativo">Regra Ativa&#63;</label>&nbsp;
+            <svg 
+              tooltip="Se a regra não estiver ativa, a mesma não será considerada pelo sistema."
+              width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+            <input type="checkbox" class="form-control" id="ativo" formControlName="ativo">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label>Periodo</label>
-            <input type="text" class="form-control" formControlName="periodo">
-            <div class="invalid-feedback">
+            <label for="periodo">Periodo</label>&nbsp;
+            <svg 
+              tooltip="O periodo se refere ao intervalo de tempo 
+              em que o consumo será medido e será feita a verificação do gasto limite."
+              width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+            <input type="text" id="periodo" class="form-control" formControlName="periodo"
+            [ngClass]="{'is-invalid': registerForm.get('periodo').errors && registerForm.get('periodo').touched}"
+            placeholder="Insira o intervalo (dias)">
+            <div *ngIf="registerForm.get('periodo').hasError('required')
+            && registerForm.get('periodo').touched" 
+            class="invalid-feedback">
               O Periodo é obrigatório.
             </div>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="tipo">Tipo</label>
-            <select formControlName="tipo" class="form-control">
-              <option disabled>Selecione um tipo de regra</option>
-              <option *ngFor="let tipo of regraTipos">{{tipo.descricao}}</option>
-            </select>
-            <div class="invalid-feedback">
-              O Tipo é obrigatório.
+            <div *ngIf="registerForm.get('periodo').hasError('minlength')
+            && registerForm.get('periodo').touched" 
+            class="invalid-feedback">
+              O Periodo deve ter no mínimo 1 Caracters.
+            </div>
+            <div *ngIf="registerForm.get('periodo').hasError('maxlength')
+            && registerForm.get('periodo').touched" 
+            class="invalid-feedback">
+              O Periodo deve ter no máximo 4 Caracters.
             </div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <label>Ativo</label>
-            <input type="text" class="form-control" formControlName="ativo">
+          <div class="form-group col-md-6">
+            <label for="tipo">Tipo de Regra</label>&nbsp;
+            <svg 
+              tooltip="Regras de surto são regras onde você será alertado de um possivel problema, como por exemplo, um vazamento.
+              Já regras de consumo são para definir um limite pessoal de gasto."
+              width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+            <select formControlName="tipo" id="tipo" class="form-control"
+            [ngClass]="{'is-invalid': registerForm.get('tipo').errors && registerForm.get('tipo').touched}">
+              <option disabled>Selecione um tipo de regra</option>
+              <option *ngFor="let tipo of regraTipos" value="{{tipo.id}}">{{tipo.descricao}}</option>
+            </select> 
+            <div *ngIf="registerForm.get('tipo').hasError('required')
+            && registerForm.get('tipo').touched" 
+            class="invalid-feedback">
+              O Tipo de Regra é obrigatório.
+            </div>
           </div>
         </div>
       </form>
@@ -105,7 +155,7 @@
         <button class="btn btn-secondary" (click)="modalRef.hide()">
           Fechar
         </button>
-        <button class="btn btn-primary ml-auto" (click)="salvarAlteracao()">
+        <button [disabled]="!registerForm.valid" class="btn btn-primary ml-auto" (click)="salvarAlteracao(template)">
           Salvar Alterações
         </button>
       </div>
@@ -115,7 +165,6 @@
   </ng-template>
 
   <ng-template #confirm>
-    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title pull-left">
@@ -132,11 +181,10 @@
           <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">
             CANCELAR
           </button>
-          <button type="button" class="btn btn-outline-danger">
+          <button type="button" class="btn btn-outline-danger" (click)="confirmeDelete(confirm)">
             DELETAR
           </button>
         </div>
-      </div>
     </div>
   </ng-template>
 

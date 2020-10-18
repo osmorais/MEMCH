@@ -18,6 +18,6 @@ export class RegraService {
   }
 
   deleteRegra(id: number) {
-    return this.http.delete(`${this.baseURL}/deletar/json/${id}`);
+    return this.http.delete(`${this.baseURL}/remover/json/${id}`);
   }
 }

@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'app-Login',
   templateUrl: './Login.component.html',
   styleUrls: ['./Login.component.css']
@@ -22,12 +21,10 @@ export class LoginComponent implements OnInit {
               private toastr: ToastrService,
               public router: Router) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.validation();
   }
 
-  // tslint:disable-next-line: typedef
   validation() {
     this.registerForm = this.fb.group({
       login: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
@@ -35,7 +32,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line: typedef
   fazerLogin() {
     this.loading = true;
     if (this.registerForm.valid) {
@@ -43,9 +39,8 @@ export class LoginComponent implements OnInit {
       this.usuarioService.postDoLogin(this.usuario).subscribe(
         (usuarioResponse: Usuario) => {
           this.loading = false;
-          // tslint:disable-next-line: triple-equals
           if (usuarioResponse.id != null && usuarioResponse.id != 0){
-            this.router.navigate(['/registros/12']);
+            this.router.navigate(['/dashboard']);
             this.toastr.success('Autenticação feita com sucesso!'); }
           else { this.toastr.warning('Usuario não encontrado, verifique seus dados de acesso!'); }
           console.log(usuarioResponse);

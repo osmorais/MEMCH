@@ -7,7 +7,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import {MatSelectModule} from '@angular/material/select';
 
 import { ToastrModule } from 'ngx-toastr';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
@@ -60,7 +59,7 @@ import { AlertaComponent } from './Alerta/Alerta.component';
   }),
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     RegistroService
