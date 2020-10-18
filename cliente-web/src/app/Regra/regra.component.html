@@ -36,7 +36,7 @@
           <td *ngIf="!regra.ativo">Não</td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-sm btn-success" tooltip="Editar">
+              <button class="btn btn-sm btn-success" tooltip="Editar" (click)="editarRegra(regra, template)">
                 <i class="fa fa-edit"></i>
               </button>
               <button class="btn btn-sm btn-danger" tooltip="Excluir" (click)="excluirRegra(regra, confirm)">
@@ -56,7 +56,7 @@
   </div>
   <ng-template #template>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Regra</h4>
+      <h4 class="modal-title pull-left">REGRA</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -153,14 +153,12 @@
       <br>
       <div class="modal-footer d-flex">
         <button class="btn btn-secondary" (click)="modalRef.hide()">
-          Fechar
+          FECHAR
         </button>
         <button [disabled]="!registerForm.valid" class="btn btn-primary ml-auto" (click)="salvarAlteracao(template)">
-          Salvar Alterações
+          SALVAR
         </button>
       </div>
-      <br>
-      <br>
     </div>
   </ng-template>
 
@@ -168,7 +166,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title pull-left">
-            Deletando Regra
+            DELETANDO REGRA
           </h4>
           <button type="button" class="close pull-right" (click)="modalRef.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>

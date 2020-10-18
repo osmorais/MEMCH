@@ -12,12 +12,19 @@ export class RegraService {
 
   constructor(private http: HttpClient) { }
 
-  // tslint:disable-next-line: typedef
   getRegras(id: number): Observable<Regra[]> {
     return this.http.get<Regra[]>(`${this.baseURL}/listar/json/${id}`);
   }
 
   deleteRegra(id: number) {
     return this.http.delete(`${this.baseURL}/remover/json/${id}`);
+  }
+
+  postRegra(id: number, regra: Regra){
+    return this.http.post(`${this.baseURL}/cadastrar/json/${id}`, regra);
+  }
+
+  putRegra(id: number, regra: Regra){
+    return this.http.post(`${this.baseURL}/alterar/json/${id}`, regra);
   }
 }

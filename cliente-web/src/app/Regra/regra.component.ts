@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { RegratipoService } from '../_services/regratipo.service';
 import { RegraTipo } from '../_models/RegraTipo';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-Regra',
@@ -17,25 +18,27 @@ export class RegraComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   regras: Regra[];
+  currentId: number;
   currentRegra: Regra;
   regraTipos: RegraTipo[];
   hidrometroID: number;
   public loading = false;
   bodyDeletarRegra = '';
+  modoSalvar = 'post';
 
   tiposList: RegraTipo[] = [
-    {id: 1, descricao: 'Surto'},
-    {id: 2, descricao: 'Consumo'}
+    { id: 1, descricao: 'Surto' },
+    { id: 2, descricao: 'Consumo' }
   ];
 
   constructor(private route: ActivatedRoute,
-              private modalService: BsModalService,
-              private regraService: RegraService,
-              private fb: FormBuilder,
-              private regraTipoService: RegratipoService,
-              private toastr: ToastrService) {
-                this.route.params.subscribe(params => this.hidrometroID = params.id);
-              }
+    private modalService: BsModalService,
+    private regraService: RegraService,
+    private fb: FormBuilder,
+    private regraTipoService: RegratipoService,
+    private toastr: ToastrService) {
+    this.route.params.subscribe(params => this.hidrometroID = params.id);
+  }
 
   ngOnInit() {
     var self = this;
@@ -51,11 +54,15 @@ export class RegraComponent implements OnInit {
 
   getRegraTipo() {
     this.regraTipoService.getAllRegraTipo().subscribe((_regraTipos: RegraTipo[]) => {
+
       this.regraTipos = _regraTipos;
       console.log(this.regraTipos);
+
     }, error => {
+
       this.toastr.error('Não foi possível recuperar os dados da(s) regra(s).', 'Verifique sua conexão');
       console.log(error);
+
     });
   }
 
@@ -64,22 +71,70 @@ export class RegraComponent implements OnInit {
     this.regraService.getRegras(this.hidrometroID).subscribe((_regras: Regra[]) => {
       this.loading = false;
       this.regras = _regras;
+
       if (this.regras.length > 1) { this.toastr.info(this.regras.length + ' regras foram retornadas!'); }
       if (this.regras.length == 1) { this.toastr.info(this.regras.length + ' regra foi retornada!'); }
       console.log(_regras);
+
     }, error => {
+
       this.loading = false;
       this.toastr.error('Não foi possível recuperar os dados da(s) regra(s).', 'Verifique sua conexão');
       console.log(error);
+
     });
   }
 
   salvarAlteracao(template: any) {
     var self = this;
-    this.registerForm.get('tipo').setValue(this.regraTipos.find(x=> x.id == this.registerForm.get('tipo').value));
-    if(this.registerForm.valid){
-      
-      this.modalRef.hide();
+    this.registerForm.get('tipo').setValue(this.regraTipos.find(x => x.id == this.registerForm.get('tipo').value));
+
+    if (this.registerForm.valid) {
+
+      if (this.modoSalvar === 'post') {
+
+        this.currentRegra = Object.assign({}, this.registerForm.value);
+
+        this.loading = true;
+
+        this.regraService.postRegra(this.hidrometroID, this.currentRegra).subscribe(
+          (novaRegra: Regra) => {
+
+            this.toastr.success(`Regra cadastrada com sucesso!`);
+            setTimeout(() => {
+              this.loading = false;
+              window.location.reload();
+            }, 1000);
+
+          }, error => {
+            this.loading = false;
+            this.toastr.error('Erro ao tentar cadastrar');
+            console.log(error);
+          }
+        );
+      }
+      else {
+        this.currentRegra = Object.assign({}, this.registerForm.value);
+        this.currentRegra.id = this.currentId;
+        
+        this.loading = true;
+
+        this.regraService.putRegra(this.hidrometroID, this.currentRegra).subscribe(
+          (novaRegra: Regra) => {
+
+            this.toastr.success(`Regra alterada com sucesso!`);
+            setTimeout(() => {
+              this.loading = false;
+              window.location.reload();
+            }, 1000);
+
+          }, error => {
+            this.loading = false;
+            this.toastr.error('Erro ao tentar alterar');
+            console.log(error);
+          }
+        );
+      }
     }
   }
 
@@ -92,11 +147,26 @@ export class RegraComponent implements OnInit {
     });
   }
 
-  criarRegra(tipos: RegraTipo[],template: any) {
+  criarRegra(tipos: RegraTipo[], template: any) {
     var self = this;
-    this.registerForm.get('ativo').setValue(false);
-    this.openModal(template);
+    this.modoSalvar = 'post';
     this.regraTipos = tipos;
+    this.registerForm.reset();
+    this.registerForm.get('ativo').setValue(false);
+    this.registerForm.get('tipo').setValue(this.regraTipos[0]);
+    this.openModal(template);
+  }
+
+  editarRegra(currentRegra: Regra, template: any) {
+    var self = this;
+    this.modoSalvar = 'put';
+    this.currentRegra = Object.assign({}, currentRegra);
+    this.currentId = this.currentRegra.id;
+    this.registerForm.get('valor').setValue(currentRegra.valor);
+    this.registerForm.get('periodo').setValue(currentRegra.periodo);
+    this.registerForm.get('tipo').setValue(currentRegra.tipo);
+    this.registerForm.get('ativo').setValue(currentRegra.ativo);
+    this.openModal(template);
   }
 
   excluirRegra(currentRegra: Regra, template: any) {
@@ -108,6 +178,7 @@ export class RegraComponent implements OnInit {
 
   confirmeDelete(template: any) {
     this.loading = true;
+
     this.regraService.deleteRegra(this.currentRegra.id).subscribe(
       () => {
         this.toastr.success('Regra deletada com sucesso!');
@@ -115,10 +186,12 @@ export class RegraComponent implements OnInit {
           this.loading = false;
           window.location.reload();
         }, 1000);
+
       }, error => {
         this.loading = false;
         this.toastr.error('Erro ao tentar deletar');
         console.log(error);
+
       }
     );
   }
