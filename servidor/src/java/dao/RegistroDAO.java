@@ -33,7 +33,7 @@ public class RegistroDAO implements IRegistroDAO{
 //Foreign-key constraints:
 //    "fk_hidrometro" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
 
-    private final String SELECTALL = "SELECT * FROM REGISTRO WHERE HIDROMETROFK=?;";
+    private final String SELECTALL = "SELECT * FROM REGISTRO WHERE HIDROMETROFK=? ORDER BY ID;";
     private final String SELECTID = "SELECT * FROM REGISTRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGISTRO "
             + "(VALOR, DATA) VALUES "
