@@ -23,16 +23,17 @@ import util.ConnectionFactory;
  * @author pi
  */
 public class RegraDAO implements IRegraDAO{
-//                            Table "public.regra"
-//    Column    |  Type   |                     Modifiers                      
-//--------------+---------+----------------------------------------------------
-// id           | integer | not null default nextval('regra_id_seq'::regclass)
-// valor        | numeric | 
-// regratipofk  | integer | not null
-// hidrometrofk | integer | not null
-// periodo      | integer | 
-// ativo        | integer | not null
-// removida     | integer | 
+//                               Table "public.regra"
+//      Column       |  Type   |                     Modifiers                      
+//-------------------+---------+----------------------------------------------------
+// id                | integer | not null default nextval('regra_id_seq'::regclass)
+// valor             | numeric | 
+// regratipofk       | integer | not null
+// hidrometrofk      | integer | not null
+// periodo           | integer | 
+// ativo             | integer | not null
+// removida          | integer | 
+// dt_inicio_periodo | date    | 
 //Indexes:
 //    "regra_pkey" PRIMARY KEY, btree (id)
 //Foreign-key constraints:
@@ -41,11 +42,12 @@ public class RegraDAO implements IRegraDAO{
 //Referenced by:
 //    TABLE "alerta" CONSTRAINT "fk_regra" FOREIGN KEY (regrafk) REFERENCES regra(id)
 
+
     private final String SELECTALL = "SELECT * FROM REGRA WHERE HIDROMETROFK=? AND REMOVIDA<>1;";
     private final String SELECTID = "SELECT * FROM REGRA WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGRA "
-            + "(valor, regratipofk, hidrometrofk, periodo, ativo, removida) values "
-            + "(?,?,?,?,?,?);";
+            + "(valor, regratipofk, hidrometrofk, periodo, ativo, removida, dt_inicio_periodo) values "
+            + "(?,?,?,?,?,?, NOW());";
     private static final String DELETE = "DELETE FROM REGRA WHERE ID=?";
     private static final String LOGICALDELETE = "UPDATE REGRA SET REMOVIDA=1 WHERE ID=?";
     private static final String UPDATE = "UPDATE REGRA "
