@@ -12,10 +12,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-
-  // tslint:disable-next-line: typedef
   postDoLogin(usuario: Usuario) {
-    console.log(this.http.request);
     return this.http.post(this.baseURL, usuario);
   }
 }

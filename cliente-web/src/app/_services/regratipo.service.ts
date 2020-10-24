@@ -11,7 +11,6 @@ export class RegratipoService {
 
   constructor(private http: HttpClient) { }
 
-  // tslint:disable-next-line: typedef
   getAllRegraTipo(): Observable<RegraTipo[]> {
     return this.http.get<RegraTipo[]>(this.baseURL + 'listar/json/');
   }
