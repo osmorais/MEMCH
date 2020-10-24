@@ -25,21 +25,17 @@ export class RegistrosComponent implements OnInit {
                 this.route.params.subscribe(params => this.hidrometroID = params.id);
               }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getRegistros();
-    // this.getHidrometro();
   }
 
-  // tslint:disable-next-line: typedef
   getRegistros() {
     this.loading = true;
-    // tslint:disable-next-line: variable-name
     this.registroService.getRegistros(this.hidrometroID).subscribe((_registros: Registro[]) => {
       this.loading = false;
       this.registros = _registros;
       if (this.registros.length > 1) { this.toastr.info(this.registros.length + ' registros foram retornados!'); }
-      // tslint:disable-next-line: triple-equals
+
       if (this.registros.length == 1) { this.toastr.info(this.registros.length + ' registro foi retornado!'); }
       console.log(_registros);
     }, error => {
@@ -49,10 +45,8 @@ export class RegistrosComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line: typedef
   getHidrometro() {
     this.loading = true;
-    // tslint:disable-next-line: variable-name
     this.hidrometroService.getHidrometro(this.hidrometroID).subscribe((_hidrometro: Hidrometro) => {
       this.loading = false;
       this.hidrometro = _hidrometro;

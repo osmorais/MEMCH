@@ -21,20 +21,17 @@ export class AlertaComponent implements OnInit {
                 this.route.params.subscribe(params => this.hidrometroID = params.id);
               }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getAlertas();
   }
 
-  // tslint:disable-next-line: typedef
   getAlertas() {
     this.loading = true;
-    // tslint:disable-next-line: variable-name
     this.alertaService.getAlertas(this.hidrometroID).subscribe((_alertas: Alerta[]) => {
       this.loading = false;
       this.alertas = _alertas;
       if (this.alertas.length > 1) { this.toastr.info(this.alertas.length + ' alertas foram retornados!'); }
-      // tslint:disable-next-line: triple-equals
+      
       if (this.alertas.length == 1) { this.toastr.info(this.alertas.length + ' alerta foi retornado!'); }
       console.log(_alertas);
     }, error => {
