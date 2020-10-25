@@ -19,15 +19,12 @@ export class MenuComponent implements OnInit {
               private toastr: ToastrService,
               public router: Router) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getHidrometro();
     this.openSecondLevel = false;
   }
 
-  // tslint:disable-next-line: typedef
   getHidrometro(){
-    // tslint:disable-next-line: variable-name
     this.hidrometroService.getAllHidrometro().subscribe((_hidrometros: Hidrometro[]) => {
       this.hidrometros = _hidrometros;
       console.log(_hidrometros);
@@ -38,23 +35,19 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line: typedef
   OpenSecondLevel(redirect: string){
     this.redirectString = redirect;
     this.openSecondLevel = true;
   }
 
-  // tslint:disable-next-line: typedef
   CloseSecondLevel(){
     this.openSecondLevel = false;
   }
 
-  // tslint:disable-next-line: typedef
   OpenPage(id: number){
     this.redirectTo('/' + this.redirectString + '/' + id);
   }
 
-  // tslint:disable-next-line: typedef
   redirectTo(uri: string){
     this.router.navigateByUrl('/#', {skipLocationChange: true}).then(() =>
     this.router.navigate([uri]));

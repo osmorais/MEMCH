@@ -92,9 +92,9 @@ export class RegraComponent implements OnInit {
 
     if (this.registerForm.valid) {
 
-      if (this.modoSalvar === 'post') {
+      this.currentRegra = Object.assign({}, this.registerForm.value);
 
-        this.currentRegra = Object.assign({}, this.registerForm.value);
+      if (this.modoSalvar === 'post') {
 
         this.loading = true;
 
@@ -115,7 +115,6 @@ export class RegraComponent implements OnInit {
         );
       }
       else {
-        this.currentRegra = Object.assign({}, this.registerForm.value);
         this.currentRegra.id = this.currentId;
 
         this.loading = true;

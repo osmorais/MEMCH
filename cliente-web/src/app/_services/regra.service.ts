@@ -25,6 +25,6 @@ export class RegraService {
   }
 
   putRegra(id: number, regra: Regra){
-    return this.http.post(`${this.baseURL}/alterar/json/${id}`, regra);
+    return this.http.put(`${this.baseURL}/alterar/json/${id}`, regra);
   }
 }

@@ -1,0 +1,245 @@
+
+<app-Menu></app-Menu>
+<div class="my-container">
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+    </div>
+  </ng-template>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
+  </ngx-loading>
+  <div id="conexoes">
+    <div class="mr-auto"></div>
+    <div>
+      <button type="button" class="btn btn-outline-primary" (click)="criarConexao(template)">
+        <i class="fa fa-plus-circle"></i>&nbsp;
+        Cadastrar Nova Conexao!
+      </button>
+    </div>
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>Conexao</th>
+          <th>IP de Acesso</th>
+          <th>Ativo</th>
+          <th>Descricao</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngIf="conexoes && conexoes.length">
+        <tr *ngFor="let conexao of conexoes">
+          <!-- <tr> -->
+          <td>{{conexao.id}}</td>
+          <td>{{conexao.host}}</td>
+          <td *ngIf="conexao.ativo">Sim</td>
+          <td *ngIf="!conexao.ativo">Não</td>
+          <td>{{conexao.descricao}}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-success" tooltip="Editar" (click)="editarConexao(conexao, template)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-sm btn-danger" tooltip="Excluir" (click)="excluirConexao(conexao, confirm)">
+                <i class="fa fa-eraser"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot *ngIf="!conexoes || conexoes.length < 1">
+        <tr>
+          <td colspan="7" class="text-center">
+            Nenhuma conexão encontrada!
+          </td>
+      </tfoot>
+    </table>
+  </div>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">CONEXÃO</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="registerForm">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="host">Host</label>&nbsp;
+            <svg tooltip="Endereço de IP do dispositivo coletor do gasto de agua." width="1em" height="1em"
+              viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="host" class="form-control" formControlName="host"
+              [ngClass]="{'is-invalid': registerForm.get('host').errors && registerForm.get('host').touched}"
+              placeholder="Endereço IP (Ex: 999.999.999.999)">
+            <div *ngIf="registerForm.get('host').hasError('required')
+            && registerForm.get('host').touched" class="invalid-feedback">
+              O host é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('host').hasError('minlength')
+            && registerForm.get('host').touched" class="invalid-feedback">
+              O host deve ter no mínimo 7 Caracters.
+            </div>
+            <div *ngIf="registerForm.get('host').hasError('maxlength')
+            && registerForm.get('host').touched" class="invalid-feedback">
+              O host deve ter no máximo 15 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="ativo">Conexão Ativa&#63;</label>&nbsp;
+            <svg tooltip="Se a conexao não estiver ativa, a mesma não será considerada pelo sistema." width="1em"
+              height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="checkbox" class="form-control" id="ativo" formControlName="ativo">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="chave">Chave</label>&nbsp;
+            <svg tooltip="A chave é um codigo unico para o hidrometro." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="chave" class="form-control" formControlName="chave"
+              [ngClass]="{'is-invalid': registerForm.get('chave').errors && registerForm.get('chave').touched}"
+              placeholder="Insira a chave">
+            <div *ngIf="registerForm.get('chave').hasError('required')
+            && registerForm.get('chave').touched" class="invalid-feedback">
+              A chave é obrigatória.
+            </div>
+            <div *ngIf="registerForm.get('chave').hasError('minlength')
+            && registerForm.get('chave').touched" class="invalid-feedback">
+              A chave deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="descricao">Descrição</label>&nbsp;
+            <svg tooltip="Breve descrição referente a sua conexão." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="descricao" class="form-control" formControlName="descricao" [ngClass]="{'is-invalid': registerForm.get('descricao').errors 
+            && registerForm.get('descricao').touched}" placeholder="Insira a descricao">
+            <div *ngIf="registerForm.get('descricao').hasError('required')
+            && registerForm.get('descricao').touched" class="invalid-feedback">
+              A descrição é obrigatória.
+            </div>
+            <div *ngIf="registerForm.get('descricao').hasError('minlength')
+            && registerForm.get('descricao').touched" class="invalid-feedback">
+              A descrição deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="identificador">Identificador</label>&nbsp;
+            <svg tooltip="O identificador é um apelido para seu hidrometro." width="1em" height="1em"
+              viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="identificador" class="form-control" formControlName="identificador" [ngClass]="{'is-invalid': registerForm.get('identificador').errors 
+            && registerForm.get('identificador').touched}" placeholder="Insira a descrição identificador">
+            <div *ngIf="registerForm.get('identificador').hasError('required')
+            && registerForm.get('identificador').touched" class="invalid-feedback">
+              O identificador é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('identificador').hasError('minlength')
+            && registerForm.get('identificador').touched" class="invalid-feedback">
+              O identificador deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="hidrometroAtivo">Hidrometro Ativo&#63;</label>&nbsp;
+            <svg tooltip="Se o hidrometro não estiver ativa, a mesma não será considerada pelo sistema." width="1em"
+              height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="checkbox" class="form-control" id="hidrometroAtivo" formControlName="hidrometroAtivo">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="modelo">Modelo</label>&nbsp;
+            <svg tooltip="O modelo se refere ao modelo do seu hidrometro." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="modelo" class="form-control" formControlName="modelo" [ngClass]="{'is-invalid': registerForm.get('modelo').errors 
+            && registerForm.get('modelo').touched}" placeholder="Insira o modelo">
+            <div *ngIf="registerForm.get('modelo').hasError('required')
+            && registerForm.get('modelo').touched" class="invalid-feedback">
+              O modelo é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('modelo').hasError('minlength')
+            && registerForm.get('modelo').touched" class="invalid-feedback">
+              O modelo deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="hidrometrodescricao">Descrição do Hidrometro</label>&nbsp;
+            <svg tooltip="Breve descrição referente ao seu hidrometro." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="hidrometrodescricao" class="form-control" formControlName="hidrometrodescricao"
+              [ngClass]="{'is-invalid': registerForm.get('hidrometrodescricao').errors 
+            && registerForm.get('hidrometrodescricao').touched}" placeholder="Insira a descrição do hidrometro">
+            <div *ngIf="registerForm.get('hidrometrodescricao').hasError('required')
+            && registerForm.get('hidrometrodescricao').touched" class="invalid-feedback">
+              A descrição do hidrometro é obrigatória.
+            </div>
+            <div *ngIf="registerForm.get('hidrometrodescricao').hasError('minlength')
+            && registerForm.get('hidrometrodescricao').touched" class="invalid-feedback">
+              A descrição do hidrometro deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="modal-footer d-flex">
+        <button class="btn btn-secondary" (click)="modalRef.hide()">
+          FECHAR
+        </button>
+        <button [disabled]="!registerForm.valid" class="btn btn-primary ml-auto" (click)="salvarAlteracao(template)">
+          SALVAR
+        </button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #confirm>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">
+          DELETANDO CONEXAO
+        </h4>
+        <button type="button" class="close pull-right" (click)="modalRef.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{bodyDeletarConexao}}</p>
+      </div>
+      <div class="modal-footer btn-group d-flex">
+        <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">
+          CANCELAR
+        </button>
+        <button type="button" class="btn btn-outline-danger" (click)="confirmeDelete(confirm)">
+          DELETAR
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

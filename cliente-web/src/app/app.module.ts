@@ -18,6 +18,7 @@ import { RegistrosComponent } from './Registros/Registros.component';
 import { LoginComponent } from './Login/Login.component';
 import { MenuComponent } from './Menu/Menu.component';
 import { RegraComponent } from './Regra/regra.component';
+import { ConexaoComponent } from './Conexao/Conexao.component';
 
 import { DateTimeFormatPipe } from './_helps/DateTimeFormatPipe.pipe';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,6 +32,7 @@ import { AlertaComponent } from './Alerta/Alerta.component';
     RegistrosComponent,
     LoginComponent,
     RegraComponent,
+    ConexaoComponent,
     DateTimeFormatPipe,
     NavComponent,
     MenuComponent,
