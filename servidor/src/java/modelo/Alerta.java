@@ -15,26 +15,18 @@ public class Alerta extends Objeto{
     private String descricao;
     private Date data;
     private Regra regra;
+    private String descricaoRegra;
 
     public Alerta() {
     }
 
-    public Alerta(String descricao, Date data, Regra regra) {
+    public Alerta(String descricao, Date data, Regra regra, String descricaoRegra) {
         this.descricao = descricao;
         this.data = data;
         this.regra = regra;
+        this.descricaoRegra = descricaoRegra;
     }
 
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-    
     public String getDescricao() {
         return descricao;
     }
@@ -58,4 +50,22 @@ public class Alerta extends Objeto{
     public void setRegra(Regra regra) {
         this.regra = regra;
     }
+
+    public String getDescricaoRegra() {
+        return descricaoRegra;
+    }
+
+    public void setDescricaoRegra(String descricaoRegra) {
+        this.descricaoRegra = descricaoRegra;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
 }

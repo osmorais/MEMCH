@@ -21,6 +21,21 @@ import util.ConnectionFactory;
  * @author pi
  */
 public class AlertaDAO implements IAlertaDAO{
+//                                        Table "public.alerta"
+//    Column    |          Type          |                      Modifiers                      
+//--------------+------------------------+-----------------------------------------------------
+// id           | integer                | not null default nextval('alerta_id_seq'::regclass)
+// data         | date                   | 
+// hidrometrofk | integer                | not null
+// regrafk      | integer                | not null
+// descricao    | character varying(100) | 
+// regra        | character varying(200) | 
+//Indexes:
+//    "alerta_pkey" PRIMARY KEY, btree (id)
+//Foreign-key constraints:
+//    "fk_hidrometro" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
+//    "fk_regra" FOREIGN KEY (regrafk) REFERENCES regra(id)
+
     private final String SELECTALL = "SELECT * FROM ALERTA WHERE HIDROMETROFK=? order by ID;";
     private final String SELECTID = "SELECT * FROM REGISTRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGISTRO "
@@ -69,6 +84,7 @@ public class AlertaDAO implements IAlertaDAO{
                 alerta.setId(rs.getInt("id"));
                 alerta.setDescricao(rs.getString("descricao"));
                 alerta.setData(rs.getDate("data"));
+                alerta.setDescricaoRegra(rs.getString("regra"));
                 
                 RegraDAO regradao = new RegraDAO();
                 Regra regra = new Regra();
