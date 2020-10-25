@@ -22,6 +22,8 @@
           <th>IP de Acesso</th>
           <th>Ativo</th>
           <th>Descricao</th>
+          <th>Hidrometro</th>
+          <th>Modelo</th>
           <th></th>
         </tr>
       </thead>
@@ -33,6 +35,8 @@
           <td *ngIf="conexao.ativo">Sim</td>
           <td *ngIf="!conexao.ativo">Não</td>
           <td>{{conexao.descricao}}</td>
+          <td>{{conexao.hidrometro.identificador}}</td>
+          <td>{{conexao.hidrometro.modelo}}</td>
           <td>
             <div class="btn-group">
               <button class="btn btn-sm btn-success" tooltip="Editar" (click)="editarConexao(conexao, template)">
@@ -87,7 +91,7 @@
               O host deve ter no máximo 15 Caracters.
             </div>
           </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-5">
             <label for="ativo">Conexão Ativa&#63;</label>&nbsp;
             <svg tooltip="Se a conexao não estiver ativa, a mesma não será considerada pelo sistema." width="1em"
               height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor"

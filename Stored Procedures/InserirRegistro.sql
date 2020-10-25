@@ -43,11 +43,11 @@ BEGIN
 					IF(SELECT REGRATIPOFK FROM REGRA WHERE HIDROMETROFK = HIDROMETROCOLETA LIMIT 1) = 2 THEN -- REGRA DE CONSUMO
 						DESCRICAOREGRA := CONCAT('Valor gasto no periodo: ',VALORPERIODO);
 						INSERT INTO ALERTA (DESCRICAO, DATA, HIDROMETROFK, REGRAFK, REGRA)
-						VALUES (DESCRICAOREGRA,DATACOLETA,HIDROMETROCOLETA,TuplaRegra.ID, CONCAT('Consumo - Valor Maximo: ',cast(TuplaRegra.Valor as varchar(100))));
+						VALUES (DESCRICAOREGRA,DATACOLETA,HIDROMETROCOLETA,TuplaRegra.ID, CONCAT('Consumo (',TuplaRegra.PERIODO,' dias) - Valor Maximo: ',cast(TuplaRegra.Valor as varchar(100))));
 					ELSE
 						DESCRICAOREGRA := CONCAT('O registro apresentou um consumo fora do comum estipulado.');
 						INSERT INTO ALERTA (DESCRICAO, DATA, HIDROMETROFK, REGRAFK, REGRA)
-						VALUES (DESCRICAOREGRA,DATACOLETA,HIDROMETROCOLETA,TuplaRegra.ID, CONCAT('Surto - Valor Maximo: ',cast(TuplaRegra.Valor as varchar(100))));
+						VALUES (DESCRICAOREGRA,DATACOLETA,HIDROMETROCOLETA,TuplaRegra.ID, CONCAT('Surto (',TuplaRegra.PERIODO,' dias) - Valor Maximo: ',cast(TuplaRegra.Valor as varchar(100))));
 					END IF;
 				END IF;
 				

@@ -6,4 +6,5 @@ export class Alerta extends Objeto{
     descricao: string;
     data: Date;
     regra: Regra;
+    descricaoRegra: string;
 }
