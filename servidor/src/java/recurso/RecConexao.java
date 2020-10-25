@@ -12,14 +12,20 @@ import java.util.ArrayList;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import modelo.Conexao;
+import modelo.Hidrometro;
+import modelo.Regra;
 import servico.SrvcConexao;
+import servico.SrvcRegra;
 
 /**
  * REST Web Service
@@ -66,6 +72,30 @@ public class RecConexao {
         return retorno;
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("listar")
+    public Response listar() {
+        
+        ArrayList<Conexao> arrconexao = new ArrayList<>();
+        
+        arrconexao = SrvcConexao.listar();
+        String retorno = objgson.toJson(arrconexao);
+        
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("remover/{id}")
+    public void remover(@PathParam("id") Integer id) {
+        
+        Conexao regra = new Conexao();
+        regra.setId(id);
+        
+        SrvcConexao.remover(regra);
+    }
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -78,6 +108,36 @@ public class RecConexao {
         String retorno = objgson.toJson(conexao);
 
         return retorno;
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("cadastrar")
+    public Response cadastrar(String conteudo) {
+        
+        Conexao conexao = objgson.fromJson(conteudo, Conexao.class);
+        
+        conexao = SrvcConexao.cadastrar(conexao);
+        
+        String retorno = objgson.toJson(conexao);
+
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("alterar")
+    public Response alterar(String conteudo) {
+        
+        Conexao conexao = objgson.fromJson(conteudo, Conexao.class);
+        
+        conexao = SrvcConexao.alterar(conexao);
+        
+        String retorno = objgson.toJson(conexao);
+
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }
     
     @POST

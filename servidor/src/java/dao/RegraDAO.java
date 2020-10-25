@@ -43,7 +43,7 @@ public class RegraDAO implements IRegraDAO{
 //    TABLE "alerta" CONSTRAINT "fk_regra" FOREIGN KEY (regrafk) REFERENCES regra(id)
 
 
-    private final String SELECTALL = "SELECT * FROM REGRA WHERE HIDROMETROFK=? AND REMOVIDA<>1;";
+    private final String SELECTALL = "SELECT * FROM REGRA WHERE HIDROMETROFK=? AND REMOVIDA<>1 order by ID;";
     private final String SELECTID = "SELECT * FROM REGRA WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGRA "
             + "(valor, regratipofk, hidrometrofk, periodo, ativo, removida, dt_inicio_periodo) values "

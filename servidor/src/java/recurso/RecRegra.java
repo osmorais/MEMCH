@@ -67,7 +67,7 @@ public class RecRegra {
         return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }
     
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("alterar/json/{id}")
@@ -89,12 +89,12 @@ public class RecRegra {
     @Path("listar/json/{id}")
     public Response listarJson(@PathParam("id") Integer id) {
         
-        ArrayList<Regra> arrregistro = new ArrayList<>();
+        ArrayList<Regra> arrregra = new ArrayList<>();
         Hidrometro hidrometro = new Hidrometro();
         hidrometro.setId(id);
         
-        arrregistro = SrvcRegra.listar(hidrometro);
-        String retorno = objgson.toJson(arrregistro);
+        arrregra = SrvcRegra.listar(hidrometro);
+        String retorno = objgson.toJson(arrregra);
         
         return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
     }

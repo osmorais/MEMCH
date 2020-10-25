@@ -37,7 +37,7 @@ public class ConexaoDAO implements IConexaoDAO{
 //    "hidrometrofk" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
 //    "usuariofk" FOREIGN KEY (usuariofk) REFERENCES usuario(id)
 
-    private final String SELECTALL = "SELECT * FROM CONEXAO;";
+    private final String SELECTALL = "SELECT * FROM CONEXAO order by ID;";
     private final String SELECTID = "SELECT * FROM CONEXAO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO CONEXAO "
             + "(HOST, ATIVO, DESCRICAO, HIDROMETROFK) VALUES "

@@ -21,7 +21,7 @@ import util.ConnectionFactory;
  * @author pi
  */
 public class AlertaDAO implements IAlertaDAO{
-    private final String SELECTALL = "SELECT * FROM ALERTA WHERE HIDROMETROFK=?;";
+    private final String SELECTALL = "SELECT * FROM ALERTA WHERE HIDROMETROFK=? order by ID;";
     private final String SELECTID = "SELECT * FROM REGISTRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO REGISTRO "
             + "(VALOR, DATA) VALUES "
