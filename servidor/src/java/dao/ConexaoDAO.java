@@ -79,7 +79,31 @@ public class ConexaoDAO implements IConexaoDAO{
 
     @Override
     public void consultar(Conexao conexao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+
+            this.conexao = con.getConnection();
+            PreparedStatement stmt = this.conexao.prepareStatement(SELECTID);
+            stmt.setInt(1, conexao.getId());
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                conexao.setId(rs.getInt("id"));
+                conexao.setHost(rs.getString("host"));
+                conexao.setAtivo(rs.getInt("ativo") == 1);
+                conexao.setDescricao(rs.getString("descricao"));
+                
+                HidrometroDAO hidrometrodao = new HidrometroDAO();
+                Hidrometro hidrometro = new Hidrometro();
+                
+                hidrometro.setId(rs.getInt("hidrometrofk"));
+                hidrometrodao.consultar(hidrometro);
+                
+                conexao.setHidrometro(hidrometro);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override

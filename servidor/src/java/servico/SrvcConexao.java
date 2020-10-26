@@ -6,7 +6,9 @@
 package servico;
 
 import dao.ConexaoDAO;
+import dao.HidrometroDAO;
 import dao.InterfaceDAO.IConexaoDAO;
+import dao.InterfaceDAO.IHidrometroDAO;
 import java.util.ArrayList;
 import modelo.Conexao;
 
@@ -32,6 +34,8 @@ public class SrvcConexao {
     public static Conexao remover(Conexao conexao){
 
         IConexaoDAO conexaodao = new ConexaoDAO();
+        conexaodao.consultar(conexao);
+        
         conexaodao.remover(conexao);
         
         return conexao;

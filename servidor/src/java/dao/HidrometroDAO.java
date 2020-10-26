@@ -40,8 +40,8 @@ public class HidrometroDAO implements IHidrometroDAO{
     private final String SELECTALL = "SELECT * FROM HIDROMETRO where removido <> 1 order by id;";
     private final String SELECTID = "SELECT * FROM HIDROMETRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO HIDROMETRO "
-            + "(IDENTIFICADOR, CHAVE, MODELO, DESCRICAO, ATIVO) VALUES "
-            + "(?,?,?,?,?)";
+            + "(IDENTIFICADOR, CHAVE, MODELO, DESCRICAO, ATIVO, REMOVIDO) VALUES "
+            + "(?,?,?,?,?,?)";
     private static final String DELETE = "DELETE FROM HIDROMETRO WHERE ID=?";
     private static final String UPDATE = "UPDATE HIDROMETRO "
             + "SET IDENTIFICADOR=?, CHAVE=?, MODELO=?, DESCRICAO=?, ATIVO=?"
@@ -62,6 +62,7 @@ public class HidrometroDAO implements IHidrometroDAO{
             stmt.setString(3, hidrometro.getModelo());
             stmt.setString(4, hidrometro.getDescricao());
             stmt.setInt(5, hidrometro.isAtivo()? 1 : 0);
+            stmt.setInt(6, 0);
             
             stmt.execute();
             
