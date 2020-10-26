@@ -2,7 +2,7 @@
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-menu sidebar collapse">
       <div class="sidebar-sticky pt-3">
-        <a class="nav-link" routerLink="../../dashboard">
+        <a class="nav-link" routerLink="/dashboard">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet-half" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
@@ -12,7 +12,7 @@
           </svg>&nbsp;
           Inicio
         </a>
-        <a class="nav-link" routerLink="../../conexao">
+        <a class="nav-link" routerLink="/conexao">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-diagram-2" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
@@ -73,11 +73,11 @@
     <nav *ngIf="openSecondLevel" id="sidebarSecodLevel" class="col-md-3 col-lg-2 d-md-block bg-menu-second sidebar collapse">
       <div class="sidebar-sticky pt-3">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Selecione um Hidrometro</span>
+          <span>Selecione um IP de acesso</span>
         </h6>
         <ul class="nav flex-column mb-2">
-          <li class="nav-item" *ngFor="let hidrometro of hidrometros">
-            <a class="nav-link" style="cursor: pointer" (click)="OpenPage(hidrometro.id)">
+          <li class="nav-item" *ngFor="let conexao of conexoes">
+            <a class="nav-link" style="cursor: pointer" (click)="OpenPage(conexao.hidrometro.id)">
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet-half" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -85,7 +85,7 @@
                 <path fill-rule="evenodd"
                   d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z" />
               </svg>&nbsp;
-              {{hidrometro.identificador}}
+              {{conexao.host}}
             </a>
           </li>
         </ul>
