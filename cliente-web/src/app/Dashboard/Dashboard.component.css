@@ -6,7 +6,28 @@
     height: 568px;
 }
 
+#dashboard .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 .col-sm-6{
     flex: 0 0 50%;
     max-width: 25%;
+}
+
+button p {
+    font-size: 15px;
+}
+
+.card-body #desativado {
+    font-size: 7px;
+    color: red;
+}
+
+.card-body #ativo {
+    font-size: 7px;
+    color: rgb(0, 255, 55);
 }

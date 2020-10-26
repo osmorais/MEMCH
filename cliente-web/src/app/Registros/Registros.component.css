@@ -8,6 +8,12 @@ div.flex-dashboard {
 #registros {
   background-color: #f5f5f5;
   padding-left: 17%
+  
+}
+
+#registros p{
+  font-family: 'Kulim Park';
+  font-size: 22px;
 }
 
 #sidebarSecodLevel {

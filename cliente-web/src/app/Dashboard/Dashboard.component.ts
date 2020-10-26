@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Hidrometro } from '../_models/Hidrometro';
 import { HidrometroService } from '../_services/hidrometro.service';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'app-Dashboard',
   templateUrl: './Dashboard.component.html',
   styleUrls: ['./Dashboard.component.css']
@@ -14,17 +14,15 @@ export class DashboardComponent implements OnInit {
   hidrometros: Array<Hidrometro>;
 
   constructor(private toastr: ToastrService,
-              private hidrometroService: HidrometroService) { }
+              private hidrometroService: HidrometroService,
+              public router: Router) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getHidrometros();
   }
 
-  // tslint:disable-next-line: typedef
   getHidrometros() {
     this.loading = true;
-    // tslint:disable-next-line: variable-name
     this.hidrometroService.getAllHidrometro().subscribe((_hidrometros: Array<Hidrometro>) => {
       this.loading = false;
       this.hidrometros = _hidrometros;
@@ -37,4 +35,13 @@ export class DashboardComponent implements OnInit {
         console.log();
       });
   }
+
+  OpenPage(redirectString: String, hidrometroId: number){
+    this.redirectTo('/' + redirectString + '/' + hidrometroId);
+  }
+
+  redirectTo(uri: string){
+    this.router.navigateByUrl('/#', {skipLocationChange: true}).then(() =>
+    this.router.navigate([uri]));
+ }
 }

@@ -1,4 +1,3 @@
-
 <app-Menu></app-Menu>
 <div class="my-container">
   <ng-template #customLoadingTemplate>
@@ -9,10 +8,12 @@
   </ngx-loading>
   <div id="conexoes">
     <div class="mr-auto"></div>
-    <div>
+    <div class="form-row mt-2 mb-2">
+      <div class="col-md-10">
+        <p class="ml-2">CONEXÕES</p>
+      </div>
       <button type="button" class="btn btn-outline-primary" (click)="criarConexao(template)">
-        <i class="fa fa-plus-circle"></i>&nbsp;
-        Cadastrar Nova Conexao!
+        <i class="fa fa-plus-circle"></i>
       </button>
     </div>
     <table class="table table-striped">

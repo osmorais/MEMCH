@@ -73,7 +73,7 @@
     <nav *ngIf="openSecondLevel" id="sidebarSecodLevel" class="col-md-3 col-lg-2 d-md-block bg-menu-second sidebar collapse">
       <div class="sidebar-sticky pt-3">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Selecione um IP de acesso</span>
+          <span>Selecione um Hidrometro</span>
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item" *ngFor="let conexao of conexoes">
@@ -85,7 +85,7 @@
                 <path fill-rule="evenodd"
                   d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z" />
               </svg>&nbsp;
-              {{conexao.host}}
+              {{conexao.hidrometro.identificador}}
             </a>
           </li>
         </ul>

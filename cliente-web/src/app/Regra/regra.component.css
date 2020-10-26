@@ -1,4 +1,9 @@
 #regras {
   background-color: #f5f5f5;
-  padding-left: 17%
+  padding-left: 17%;
+}
+
+#regras p{
+  font-family: 'Kulim Park';
+  font-size: 22px;
 }
