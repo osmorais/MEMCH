@@ -125,6 +125,9 @@ public class ConexaoDAO implements IConexaoDAO{
             this.conexao = con.getConnection();
             PreparedStatement stmt = this.conexao.prepareStatement(DELETE);
             stmt.setInt(1, conexao.getId());
+            
+            HidrometroDAO hidrometrodao = new HidrometroDAO();
+            hidrometrodao.remover(conexao.getHidrometro());
 
             stmt.execute();
             

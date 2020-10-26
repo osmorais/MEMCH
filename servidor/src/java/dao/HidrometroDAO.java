@@ -37,7 +37,7 @@ public class HidrometroDAO implements IHidrometroDAO{
 //    TABLE "registro" CONSTRAINT "fk_hidrometro" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
 //    TABLE "conexao" CONSTRAINT "hidrometrofk" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
 
-    private final String SELECTALL = "SELECT * FROM HIDROMETRO;";
+    private final String SELECTALL = "SELECT * FROM HIDROMETRO where removido <> 1 order by id;";
     private final String SELECTID = "SELECT * FROM HIDROMETRO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO HIDROMETRO "
             + "(IDENTIFICADOR, CHAVE, MODELO, DESCRICAO, ATIVO) VALUES "
@@ -46,6 +46,7 @@ public class HidrometroDAO implements IHidrometroDAO{
     private static final String UPDATE = "UPDATE HIDROMETRO "
             + "SET IDENTIFICADOR=?, CHAVE=?, MODELO=?, DESCRICAO=?, ATIVO=?"
             + " WHERE ID=?";
+    private static final String LOGICALDELETE = "UPDATE HIDROMETRO SET REMOVIDO=1 WHERE ID=?";
     private Connection conexao;
     
     @Override
@@ -150,7 +151,19 @@ public class HidrometroDAO implements IHidrometroDAO{
 
     @Override
     public void remover(Hidrometro hidrometro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+
+            conexao = con.getConnection();
+            PreparedStatement stmt = conexao.prepareStatement(LOGICALDELETE);
+            stmt.setInt(1, hidrometro.getId());
+
+            stmt.execute();
+            
+            hidrometro.setId(0);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override
