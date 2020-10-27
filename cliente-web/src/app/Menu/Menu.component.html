@@ -73,7 +73,10 @@
     <nav *ngIf="openSecondLevel" id="sidebarSecodLevel" class="col-md-3 col-lg-2 d-md-block bg-menu-second sidebar collapse">
       <div class="sidebar-sticky pt-3">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Selecione um Hidrometro</span>
+          <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>&nbsp;&nbsp;
+          <i *ngIf="!loading" class="fa fa-sitemap" aria-hidden="true"></i>&nbsp;&nbsp;
+          <span *ngIf="loading">Buscando hidrometros...</span>
+          <span *ngIf="!loading">Selecione um Hidrometro</span>
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item" *ngFor="let conexao of conexoes">

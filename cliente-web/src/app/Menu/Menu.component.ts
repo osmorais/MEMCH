@@ -14,17 +14,19 @@ export class MenuComponent implements OnInit {
   conexoes: Conexao[];
   openSecondLevel: boolean;
   redirectString: string;
+  public loading = false;
 
   constructor(private conexaoService: ConexaoService,
               private toastr: ToastrService,
               public router: Router) { }
 
   ngOnInit() {
-    this.getConexoes();
+    //this.getConexoes();
     this.openSecondLevel = false;
   }
 
   OpenSecondLevel(redirect: string){
+    this.getConexoes();
     this.redirectString = redirect;
     this.openSecondLevel = true;
   }
@@ -43,12 +45,14 @@ export class MenuComponent implements OnInit {
  }
 
  getConexoes(){
+   this.loading = true;
   this.conexaoService.getConexoes().subscribe((_conexoes: Conexao[]) => {
-
+    this.loading = false;
     this.conexoes = _conexoes;
     console.log(_conexoes);
 
   }, error => {
+    this.loading = false;
     this.toastr.error('Não foi possível recuperar os dados.', 'Verifique sua conexão');
     console.log(error);
   })
