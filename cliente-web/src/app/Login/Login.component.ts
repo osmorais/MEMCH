@@ -4,6 +4,7 @@ import { Usuario } from '../_models/Usuario';
 import { UsuarioService } from '../_services/Usuario.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../_services/Auth.service';
 
 @Component({
   selector: 'app-Login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private usuarioService: UsuarioService,
               private fb: FormBuilder,
               private toastr: ToastrService,
+              public authService: AuthService,
               public router: Router) { }
 
   ngOnInit() {
@@ -40,9 +42,14 @@ export class LoginComponent implements OnInit {
         (usuarioResponse: Usuario) => {
           this.loading = false;
           if (usuarioResponse.id != null && usuarioResponse.id != 0){
+            this.authService.autenticarUsuario();
             this.router.navigate(['/dashboard']);
-            this.toastr.success('Autenticação feita com sucesso!'); }
-          else { this.toastr.warning('Usuario não encontrado, verifique seus dados de acesso!'); }
+            this.toastr.success('Autenticação feita com sucesso!'); 
+          }
+          else { 
+            this.authService.desautenticarUsuario(); 
+            this.toastr.warning('Usuario não encontrado, verifique seus dados de acesso!'); 
+          }
           console.log(usuarioResponse);
         }, error => {
           this.loading = false;

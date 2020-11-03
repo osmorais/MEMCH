@@ -6,15 +6,16 @@ import { DashboardComponent } from './Dashboard/Dashboard.component';
 import { LoginComponent } from './Login/Login.component';
 import { RegistrosComponent } from './Registros/Registros.component';
 import { RegraComponent } from './Regra/regra.component';
+import { AuthGuard } from './_guards/Auth.Guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'registros/:id', component: RegistrosComponent},
-  {path: 'regras/:id', component: RegraComponent},
-  {path: 'alertas/:id', component: AlertaComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'conexao', component: ConexaoComponent},
-  {path: '#', component: DashboardComponent},
+  {path: 'registros/:id', component: RegistrosComponent, canActivate: [AuthGuard]},
+  {path: 'regras/:id', component: RegraComponent, canActivate: [AuthGuard]},
+  {path: 'alertas/:id', component: AlertaComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'conexao', component: ConexaoComponent, canActivate: [AuthGuard]},
+  {path: '#', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];

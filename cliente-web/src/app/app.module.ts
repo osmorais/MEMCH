@@ -25,6 +25,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './Dashboard/Dashboard.component';
 import { AlertaComponent } from './Alerta/Alerta.component';
+import { AuthService } from './_services/Auth.service';
+import { AuthGuard } from './_guards/Auth.Guard';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { AlertaComponent } from './Alerta/Alerta.component';
     ReactiveFormsModule,
   ],
   providers: [
-    RegistroService
+    RegistroService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

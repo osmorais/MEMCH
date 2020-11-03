@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/Auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
   }
 
+  LogOut(){
+    this.authService.desautenticarUsuario();
+    this.router.navigate(['/login'])
+  }
 }
