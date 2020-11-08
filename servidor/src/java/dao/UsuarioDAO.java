@@ -37,7 +37,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     private final String SELECTID = "SELECT * FROM USUARIO WHERE ID=?;";
     private final String SELECTFORLOGIN = "SELECT * FROM USUARIO WHERE LOGIN=? AND SENHA=?;";
     private static final String INSERT = "INSERT INTO USUARIO "
-            + "(LOGIN, SENHA, PESSOAID) VALUES "
+            + "(LOGIN, SENHA, PESSOAFK) VALUES "
             + "(?,?,?)";
     private static final String DELETE = "DELETE FROM USUARIO WHERE ID=?";
     private static final String UPDATE = "UPDATE USUARIO "
