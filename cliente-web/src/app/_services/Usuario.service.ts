@@ -8,11 +8,15 @@ import { JsonPipe } from '@angular/common';
   providedIn: 'root'
 })
 export class UsuarioService {
-  baseURL = 'http://10.1.1.3:8080/servidor/servico/usuario/consultar/json';
+  baseURL = 'http://10.1.1.3:8080/servidor/servico/usuario';
 
   constructor(private http: HttpClient) { }
 
-  postDoLogin(usuario: Usuario) {
-    return this.http.post(this.baseURL, usuario);
+  postLogin(usuario: Usuario) {
+    return this.http.post(`${this.baseURL}/consultar/json`, usuario);
+  }
+
+  postUsuario(usuario: Usuario) {
+    return this.http.post(`${this.baseURL}/cadastrar/json`, usuario);
   }
 }

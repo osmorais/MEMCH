@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     if (this.registerForm.valid) {
       this.usuario = Object.assign({}, this.registerForm.value);
-      this.usuarioService.postDoLogin(this.usuario).subscribe(
+      this.usuarioService.postLogin(this.usuario).subscribe(
         (usuarioResponse: Usuario) => {
           this.loading = false;
           if (usuarioResponse.id != null && usuarioResponse.id != 0){

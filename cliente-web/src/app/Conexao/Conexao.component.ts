@@ -25,7 +25,7 @@ export class ConexaoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private modalService: BsModalService,
-    private ConexaoService: ConexaoService,
+    private conexaoService: ConexaoService,
     private fb: FormBuilder,
     private toastr: ToastrService) { }
 
@@ -53,7 +53,7 @@ export class ConexaoComponent implements OnInit {
 
   getConexoes(){
     this.loading = true;
-    this.ConexaoService.getConexoes().subscribe((_conexoes: Conexao[]) => {
+    this.conexaoService.getConexoes().subscribe((_conexoes: Conexao[]) => {
       this.loading = false;
 
       this.conexoes = _conexoes;
@@ -107,7 +107,7 @@ export class ConexaoComponent implements OnInit {
   confirmeDelete(template: any, modal: any) {
     this.loading = true;
 
-    this.ConexaoService.deleteConexao(this.currentConexao.id).subscribe(
+    this.conexaoService.deleteConexao(this.currentConexao.id).subscribe(
       () => {
         this.toastr.success('Conexão deletada com sucesso!');
         setTimeout(() => {
@@ -126,7 +126,7 @@ export class ConexaoComponent implements OnInit {
     );
   }
 
-  salvarAlteracao(template: any, modal: any) {
+  salvarAlteracao(modal: any) {
     var self = this;
 
     if (this.registerForm.valid) {
@@ -149,7 +149,7 @@ export class ConexaoComponent implements OnInit {
 
         this.loading = true;
 
-        this.ConexaoService.postConexao(this.currentConexao).subscribe(
+        this.conexaoService.postConexao(this.currentConexao).subscribe(
           (_novaconexao: Conexao) => {
 
             this.toastr.success(`Conexão cadastrada com sucesso!`);
@@ -173,7 +173,7 @@ export class ConexaoComponent implements OnInit {
 
         this.loading = true;
 
-        this.ConexaoService.putConexao(this.currentConexao).subscribe(
+        this.conexaoService.putConexao(this.currentConexao).subscribe(
           (_conexao: Conexao) => {
 
             this.toastr.success(`Conexão alterada com sucesso!`);
@@ -192,7 +192,7 @@ export class ConexaoComponent implements OnInit {
       }
     }
     else{
-      this.toastr.error('Verifique os campos informados e tente novamente.','Formalário inválido');
+      this.toastr.error('Verifique os campos informados e tente novamente.','Formulario invalido');
     }
   }
 }

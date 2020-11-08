@@ -1,0 +1,300 @@
+<div class="my-container">
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+    </div>
+  </ng-template>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
+  </ngx-loading>
+  <!-- <div id="usuario"> -->
+  <div class="row mt-4">
+    <div class="col-md-6" style="height: 450px;">
+      <div class="row col-md-10 my-auto side-heder">
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cadastro de Usuário</h1>
+      </div>
+      <div class="form-row">
+        <i class="fas fa-users mb-3"></i>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+          <button class="btn btn-lg btn-primary btn-block" (click)="voltarLogin()">Voltar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <form [formGroup]="registerForm">
+        <div class="form-row">
+          <div class="form-group col-md-12 required">
+            <label for="">Nome Completo:</label>
+            <input type="text" class="form-control" formControlName="nome" [ngClass]="{'is-invalid': registerForm.get('nome').errors &&
+            registerForm.get('nome').touched }" placeholder="Insira o Nome Completo" />
+            <div *ngIf="registerForm.get('nome').hasError('required') &&
+                    registerForm.get('nome').touched" class="invalid-feedback">
+              Nome completo é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('nome').hasError('minlength') &&
+                    registerForm.get('nome').touched" class="invalid-feedback">
+              O nome deve ter no minimo 10 caracteres.
+            </div>
+            <div *ngIf="registerForm.get('nome').hasError('maxLength') &&
+                    registerForm.get('nome').touched" class="invalid-feedback">
+              O nome deve ter no maximo 40 caracteres.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="">CPF:</label>
+            <input class="form-control" type="text" formControlName="cpf" [ngClass]="{ 'is-invalid': registerForm.get('cpf').errors && 
+            registerForm.get('cpf').touched}" placeholder="Insira seu CPF" />
+            <div *ngIf="registerForm.get('cpf').hasError('required') &&
+                    registerForm.get('cpf').touched" class="invalid-feedback">
+              cpf é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('cpf').hasError('minlength') &&
+                    registerForm.get('cpf').touched" class="invalid-feedback">
+              O cpf deve ter no minimo 11 caracteres.
+            </div>
+            <div *ngIf="registerForm.get('cpf').hasError('maxLength') &&
+                    registerForm.get('cpf').touched" class="invalid-feedback">
+              O cpf deve ter no maximo 14 caracteres.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="">Usuario:</label>
+            <input class="form-control" type="text" formControlName="usuario" [ngClass]="{'is-invalid': registerForm.get('usuario').errors &&
+                                    registerForm.get('usuario').touched}" placeholder="Insira o nome de Usuário" />
+            <div *ngIf="registerForm.get('usuario').hasError('required') &&
+                    registerForm.get('usuario').touched" class="invalid-feedback">
+              Usuário é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('usuario').hasError('minlength') &&
+                    registerForm.get('usuario').touched" class="invalid-feedback">
+              O usuario deve ter no minimo 11 caracteres.
+            </div>
+            <div *ngIf="registerForm.get('usuario').hasError('maxLength') &&
+                    registerForm.get('usuario').touched" class="invalid-feedback">
+              O usuario deve ter no maximo 14 caracteres.
+            </div>
+          </div>
+        </div>
+        <div formGroupName="passwords">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="">Senha:</label>
+              <input class="form-control" type="password" formControlName="senha" [ngClass]="{ 'is-invalid': registerForm.get('passwords.senha').errors &&
+                                       registerForm.get('passwords.senha').touched}" placeholder="Digite uma Senha" />
+              <div *ngIf="registerForm.get('passwords.senha').hasError('minlength') &&
+              registerForm.get('passwords.senha').touched" class="invalid-feedback">
+                A senha deve conter no mínimo 8 caracteres
+              </div>
+              <div *ngIf="registerForm.get('passwords.senha').hasError('maxLength') &&
+              registerForm.get('passwords.senha').touched" class="invalid-feedback">
+                A senha deve conter no maximo 50 caracteres
+              </div>
+              <div *ngIf="registerForm.get('passwords.senha').hasError('required') &&
+                      registerForm.get('passwords.senha').touched" class="invalid-feedback">
+                Senha é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="">Confirmar Senha:</label>
+              <input class="form-control" type="password" formControlName="confirmarSenha" [ngClass]="{ 'is-invalid': registerForm.get('passwords.confirmarSenha').errors 
+                         && registerForm.get('passwords.confirmarSenha').touched}" placeholder="Repita a Senha" />
+              <div *ngIf="registerForm.get('passwords.confirmarSenha').hasError('required') &&
+                      registerForm.get('passwords.confirmarSenha').touched" class="invalid-feedback">
+                É necessário repetir a senha.
+              </div>
+              <div *ngIf="registerForm.get('passwords.confirmarSenha').hasError('mismatch') 
+                      && registerForm.get('passwords.confirmarSenha').touched" class="invalid-feedback">
+                As senhas não são compatíveis.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8 ">
+            <button type="button" class="btn btn-outline-primary" (click)="criarConexao(template)">
+              <i class="fa fa-plus-circle"></i>Configurar uma Conexão
+            </button>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8 offset-md-2">
+            <button class="btn btn-lg btn-success btn-block" [disabled]="!registerForm.valid"
+              (click)="cadastrarUsuario()">Registrar Usuario</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- </div> -->
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">CONEXÃO</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="registerFormConexao">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="host">Host</label>&nbsp;
+            <svg tooltip="Endereço de IP do dispositivo coletor do gasto de agua." width="1em" height="1em"
+              viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="host" class="form-control" formControlName="host"
+              [ngClass]="{'is-invalid': registerFormConexao.get('host').errors && registerFormConexao.get('host').touched}"
+              placeholder="Endereço IP (Ex: 999.999.999.999)">
+            <div *ngIf="registerFormConexao.get('host').hasError('required')
+            && registerFormConexao.get('host').touched" class="invalid-feedback">
+              O host é obrigatório.
+            </div>
+            <div *ngIf="registerFormConexao.get('host').hasError('minlength')
+            && registerFormConexao.get('host').touched" class="invalid-feedback">
+              O host deve ter no mínimo 7 Caracters.
+            </div>
+            <div *ngIf="registerFormConexao.get('host').hasError('maxlength')
+            && registerFormConexao.get('host').touched" class="invalid-feedback">
+              O host deve ter no máximo 15 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="ativo">Conexão Ativa&#63;</label>&nbsp;
+            <svg tooltip="Se a conexao não estiver ativa, a mesma não será considerada pelo sistema." width="1em"
+              height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="checkbox" class="form-control" id="ativo" formControlName="ativo">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="chave">Chave</label>&nbsp;
+            <svg tooltip="A chave é um codigo unico para o hidrometro." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="chave" class="form-control" formControlName="chave"
+              [ngClass]="{'is-invalid': registerFormConexao.get('chave').errors && registerFormConexao.get('chave').touched}"
+              placeholder="Insira a chave">
+            <div *ngIf="registerFormConexao.get('chave').hasError('required')
+            && registerFormConexao.get('chave').touched" class="invalid-feedback">
+              A chave é obrigatória.
+            </div>
+            <div *ngIf="registerFormConexao.get('chave').hasError('minlength')
+            && registerFormConexao.get('chave').touched" class="invalid-feedback">
+              A chave deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="descricao">Descrição</label>&nbsp;
+            <svg tooltip="Breve descrição referente a sua conexão." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="descricao" class="form-control" formControlName="descricao" [ngClass]="{'is-invalid': registerFormConexao.get('descricao').errors 
+            && registerFormConexao.get('descricao').touched}" placeholder="Insira a descricao">
+            <div *ngIf="registerFormConexao.get('descricao').hasError('required')
+            && registerFormConexao.get('descricao').touched" class="invalid-feedback">
+              A descrição é obrigatória.
+            </div>
+            <div *ngIf="registerFormConexao.get('descricao').hasError('minlength')
+            && registerFormConexao.get('descricao').touched" class="invalid-feedback">
+              A descrição deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="identificador">Identificador</label>&nbsp;
+            <svg tooltip="O identificador é um apelido para seu hidrometro." width="1em" height="1em"
+              viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="identificador" class="form-control" formControlName="identificador" [ngClass]="{'is-invalid': registerFormConexao.get('identificador').errors 
+            && registerFormConexao.get('identificador').touched}" placeholder="Insira a descrição identificador">
+            <div *ngIf="registerFormConexao.get('identificador').hasError('required')
+            && registerFormConexao.get('identificador').touched" class="invalid-feedback">
+              O identificador é obrigatório.
+            </div>
+            <div *ngIf="registerFormConexao.get('identificador').hasError('minlength')
+            && registerFormConexao.get('identificador').touched" class="invalid-feedback">
+              O identificador deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="hidrometroAtivo">Hidrometro Ativo&#63;</label>&nbsp;
+            <svg tooltip="Se o hidrometro não estiver ativa, a mesma não será considerada pelo sistema." width="1em"
+              height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="checkbox" class="form-control" id="hidrometroAtivo" formControlName="hidrometroAtivo">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="modelo">Modelo</label>&nbsp;
+            <svg tooltip="O modelo se refere ao modelo do seu hidrometro." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="modelo" class="form-control" formControlName="modelo" [ngClass]="{'is-invalid': registerFormConexao.get('modelo').errors 
+            && registerFormConexao.get('modelo').touched}" placeholder="Insira o modelo">
+            <div *ngIf="registerFormConexao.get('modelo').hasError('required')
+            && registerFormConexao.get('modelo').touched" class="invalid-feedback">
+              O modelo é obrigatório.
+            </div>
+            <div *ngIf="registerFormConexao.get('modelo').hasError('minlength')
+            && registerFormConexao.get('modelo').touched" class="invalid-feedback">
+              O modelo deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="hidrometrodescricao">Descrição do Hidrometro</label>&nbsp;
+            <svg tooltip="Breve descrição referente ao seu hidrometro." width="1em" height="1em" viewBox="0 0 16 16"
+              class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            <input type="text" id="hidrometrodescricao" class="form-control" formControlName="hidrometrodescricao"
+              [ngClass]="{'is-invalid': registerFormConexao.get('hidrometrodescricao').errors 
+            && registerFormConexao.get('hidrometrodescricao').touched}" placeholder="Insira a descrição do hidrometro">
+            <div *ngIf="registerFormConexao.get('hidrometrodescricao').hasError('required')
+            && registerFormConexao.get('hidrometrodescricao').touched" class="invalid-feedback">
+              A descrição do hidrometro é obrigatória.
+            </div>
+            <div *ngIf="registerFormConexao.get('hidrometrodescricao').hasError('minlength')
+            && registerFormConexao.get('hidrometrodescricao').touched" class="invalid-feedback">
+              A descrição do hidrometro deve ter no mínimo 4 Caracters.
+            </div>
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="modal-footer d-flex">
+        <button class="btn btn-secondary" (click)="modalRef.hide()">
+          FECHAR
+        </button>
+        <button [disabled]="!registerFormConexao.valid" class="btn btn-primary ml-auto" (click)="adicionarConexao()">
+          SALVAR
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

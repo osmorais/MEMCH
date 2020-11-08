@@ -29,9 +29,10 @@ import { AuthService } from './_services/Auth.service';
 import { AuthGuard } from './_guards/Auth.Guard';
 import { Conexao } from './_models/Conexao';
 import { ConexaoService } from './_services/conexao.service';
+import { UsuarioComponent } from './Usuario/Usuario.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     RegistrosComponent,
     LoginComponent,
@@ -41,7 +42,8 @@ import { ConexaoService } from './_services/conexao.service';
     NavComponent,
     MenuComponent,
       DashboardComponent,
-      AlertaComponent
+      AlertaComponent,
+      UsuarioComponent
    ],
   imports: [
     BrowserModule,
