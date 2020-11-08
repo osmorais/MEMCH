@@ -8,23 +8,23 @@ import { Observable } from 'rxjs';
 })
 export class RegraService {
 
-  baseURL = 'http://10.1.1.3:8080/servidor/servico/regra';
+  baseURL = ':8080/servidor/servico/regra';
 
   constructor(private http: HttpClient) { }
 
-  getRegras(id: number): Observable<Regra[]> {
-    return this.http.get<Regra[]>(`${this.baseURL}/listar/json/${id}`);
+  getRegras(id: number, host: string): Observable<Regra[]> {
+    return this.http.get<Regra[]>(`http://${host}${this.baseURL}/listar/json/${id}`);
   }
 
-  deleteRegra(id: number) {
-    return this.http.delete(`${this.baseURL}/remover/json/${id}`);
+  deleteRegra(id: number, host: string)  {
+    return this.http.delete(`http://${host}${this.baseURL}/remover/json/${id}`);
   }
 
-  postRegra(id: number, regra: Regra){
-    return this.http.post(`${this.baseURL}/cadastrar/json/${id}`, regra);
+  postRegra(id: number, host: string,  regra: Regra){
+    return this.http.post(`http://${host}${this.baseURL}/cadastrar/json/${id}`, regra);
   }
 
-  putRegra(id: number, regra: Regra){
-    return this.http.put(`${this.baseURL}/alterar/json/${id}`, regra);
+  putRegra(id: number, host: string,  regra: Regra){
+    return this.http.put(`http://${host}${this.baseURL}/alterar/json/${id}`, regra);
   }
 }

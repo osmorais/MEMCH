@@ -35,7 +35,8 @@ export class MenuComponent implements OnInit {
     this.openSecondLevel = false;
   }
 
-  OpenPage(hidrometroId: number){
+  OpenPage(hidrometroId: number, host: string){
+    localStorage.setItem('host', host);
     this.redirectTo('/' + this.redirectString + '/' + hidrometroId);
   }
 

@@ -27,6 +27,8 @@ import { DashboardComponent } from './Dashboard/Dashboard.component';
 import { AlertaComponent } from './Alerta/Alerta.component';
 import { AuthService } from './_services/Auth.service';
 import { AuthGuard } from './_guards/Auth.Guard';
+import { Conexao } from './_models/Conexao';
+import { ConexaoService } from './_services/conexao.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,7 @@ import { AuthGuard } from './_guards/Auth.Guard';
     ReactiveFormsModule,
   ],
   providers: [
-    RegistroService,
+    ConexaoService,
     AuthService,
     AuthGuard
   ],

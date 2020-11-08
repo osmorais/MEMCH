@@ -27,7 +27,8 @@ export class AlertaComponent implements OnInit {
 
   getAlertas() {
     this.loading = true;
-    this.alertaService.getAlertas(this.hidrometroID).subscribe((_alertas: Alerta[]) => {
+    this.alertaService.getAlertas(this.hidrometroID, localStorage.getItem('host'))
+    .subscribe((_alertas: Alerta[]) => {
       this.loading = false;
       this.alertas = _alertas;
       if (this.alertas.length > 1) { this.toastr.info(this.alertas.length + ' alertas foram retornados!'); }

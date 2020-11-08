@@ -8,11 +8,11 @@ import { Alerta } from '../_models/Alerta';
 })
 export class AlertaService {
 
-  baseURL = 'http://10.1.1.3:8080/servidor/servico/alerta/';
+  baseURL = ':8080/servidor/servico/alerta';
 
   constructor(private http: HttpClient) { }
 
-  getAlertas(hidrometroID: number): Observable<Alerta[]> {
-    return this.http.get<Alerta[]>(this.baseURL + 'listar/json/' + hidrometroID);
+  getAlertas(hidrometroID: number, host: string): Observable<Alerta[]> {
+    return this.http.get<Alerta[]>(`http://${host}${this.baseURL}/listar/json/${hidrometroID}`);
   }
 }

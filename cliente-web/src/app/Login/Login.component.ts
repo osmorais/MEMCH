@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           if (usuarioResponse.id != null && usuarioResponse.id != 0){
             this.authService.autenticarUsuario();
+            localStorage.setItem('host', '10.1.1.3');
             this.router.navigate(['/dashboard']);
             this.toastr.success('Autenticação feita com sucesso!'); 
           }

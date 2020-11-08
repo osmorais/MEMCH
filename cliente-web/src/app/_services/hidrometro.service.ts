@@ -8,19 +8,19 @@ import { Hidrometro } from '../_models/Hidrometro';
 })
 export class HidrometroService {
 
-  baseURL = 'http://10.1.1.3:8080/servidor/servico/hidrometro/';
+  baseURL = ':8080/servidor/servico/hidrometro';
 
   constructor(private http: HttpClient) { }
 
-  getHidrometro(id: number): Observable<Hidrometro> {
-    return this.http.get<Hidrometro>(this.baseURL + 'consultar/json/' + id);
+  getHidrometro(id: number, host: string): Observable<Hidrometro> {
+    return this.http.get<Hidrometro>(`http://${host}${this.baseURL}/consultar/json/${id}`);
   }
 
-  getAllHidrometro(): Observable<Hidrometro[]> {
-    return this.http.get<Hidrometro[]>(this.baseURL + 'listar');
+  getAllHidrometro(host: string): Observable<Hidrometro[]> {
+    return this.http.get<Hidrometro[]>(`http://${host}${this.baseURL}/listar`);
   }
 
-  postHidrometro(hidrometro: Hidrometro): Observable<Hidrometro> {
-    return this.http.post<Hidrometro>(this.baseURL + 'cadastrar/json/', hidrometro);
+  postHidrometro(hidrometro: Hidrometro, host: string): Observable<Hidrometro> {
+    return this.http.post<Hidrometro>(`http://${host}${this.baseURL}/cadastrar/json/`, hidrometro);
   }
 }

@@ -31,7 +31,8 @@ export class RegistrosComponent implements OnInit {
 
   getRegistros() {
     this.loading = true;
-    this.registroService.getRegistros(this.hidrometroID).subscribe((_registros: Registro[]) => {
+    this.registroService.getRegistros(this.hidrometroID, localStorage.getItem('host'))
+    .subscribe((_registros: Registro[]) => {
       this.loading = false;
       this.registros = _registros;
       if (this.registros.length > 1) { this.toastr.info(this.registros.length + ' registros foram retornados!'); }
@@ -47,7 +48,8 @@ export class RegistrosComponent implements OnInit {
 
   getHidrometro() {
     this.loading = true;
-    this.hidrometroService.getHidrometro(this.hidrometroID).subscribe((_hidrometro: Hidrometro) => {
+    this.hidrometroService.getHidrometro(this.hidrometroID, localStorage.getItem('host'))
+    .subscribe((_hidrometro: Hidrometro) => {
       this.loading = false;
       this.hidrometro = _hidrometro;
       console.log(_hidrometro);

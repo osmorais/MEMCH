@@ -80,7 +80,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item" *ngFor="let conexao of conexoes">
-            <a class="nav-link" style="cursor: pointer" (click)="OpenPage(conexao.hidrometro.id)">
+            <a class="nav-link" style="cursor: pointer" (click)="OpenPage(conexao.hidrometro.id, conexao.host)">
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet-half" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"

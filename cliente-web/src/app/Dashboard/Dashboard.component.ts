@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   getHidrometros() {
     this.loading = true;
-    this.hidrometroService.getAllHidrometro().subscribe((_hidrometros: Array<Hidrometro>) => {
+    this.hidrometroService.getAllHidrometro(localStorage.getItem('host')).subscribe((_hidrometros: Array<Hidrometro>) => {
       this.loading = false;
       this.hidrometros = _hidrometros;
       this.toastr.info('Dados recuperados com sucesso');

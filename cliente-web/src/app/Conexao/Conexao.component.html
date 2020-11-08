@@ -217,7 +217,7 @@
         <button class="btn btn-secondary" (click)="modalRef.hide()">
           FECHAR
         </button>
-        <button [disabled]="!registerForm.valid" class="btn btn-primary ml-auto" (click)="salvarAlteracao(template)">
+        <button [disabled]="!registerForm.valid" class="btn btn-primary ml-auto" (click)="salvarAlteracao(template, modalRef)">
           SALVAR
         </button>
       </div>
@@ -241,7 +241,7 @@
         <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">
           CANCELAR
         </button>
-        <button type="button" class="btn btn-outline-danger" (click)="confirmeDelete(confirm)">
+        <button type="button" class="btn btn-outline-danger" (click)="confirmeDelete(confirm, modalRef)">
           DELETAR
         </button>
       </div>

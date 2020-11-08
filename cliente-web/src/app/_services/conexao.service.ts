@@ -15,7 +15,7 @@ export class ConexaoService {
   getConexoes(): Observable<Conexao[]> {
     return this.http.get<Conexao[]>(`${this.baseURL}/listar`);
   }
-
+x
   deleteConexao(id: number) {
     return this.http.delete(`${this.baseURL}/remover/${id}`);
   }

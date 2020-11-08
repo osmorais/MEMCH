@@ -53,7 +53,7 @@ export class RegraComponent implements OnInit {
   }
 
   getRegraTipo() {
-    this.regraTipoService.getAllRegraTipo().subscribe((_regraTipos: RegraTipo[]) => {
+    this.regraTipoService.getAllRegraTipo(localStorage.getItem('host')).subscribe((_regraTipos: RegraTipo[]) => {
 
       this.regraTipos = _regraTipos;
       console.log(this.regraTipos);
@@ -68,7 +68,8 @@ export class RegraComponent implements OnInit {
 
   getRegras() {
     this.loading = true;
-    this.regraService.getRegras(this.hidrometroID).subscribe((_regras: Regra[]) => {
+    this.regraService.getRegras(this.hidrometroID, localStorage.getItem('host'))
+    .subscribe((_regras: Regra[]) => {
       this.loading = false;
       this.regras = _regras;
 
@@ -85,7 +86,7 @@ export class RegraComponent implements OnInit {
     });
   }
 
-  salvarAlteracao(template: any) {
+  salvarAlteracao(template: any, modal: any) {
     var self = this;
     this.registerForm.get('tipo').setValue(
       this.regraTipos.find(x => x.descricao.toLocaleUpperCase() == this.registerForm.get('tipo').value.toLocaleUpperCase()));
@@ -98,13 +99,16 @@ export class RegraComponent implements OnInit {
 
         this.loading = true;
 
-        this.regraService.postRegra(this.hidrometroID, this.currentRegra).subscribe(
+        this.regraService.postRegra(this.hidrometroID, localStorage.getItem('host'), this.currentRegra)
+        .subscribe(
           (novaRegra: Regra) => {
 
             this.toastr.success(`Regra cadastrada com sucesso!`);
             setTimeout(() => {
               this.loading = false;
-              window.location.reload();
+              this.regras = [];
+              this.getRegras();
+              modal.hide();
             }, 1000);
 
           }, error => {
@@ -119,13 +123,16 @@ export class RegraComponent implements OnInit {
 
         this.loading = true;
 
-        this.regraService.putRegra(this.hidrometroID, this.currentRegra).subscribe(
+        this.regraService.putRegra(this.hidrometroID, localStorage.getItem('host'), this.currentRegra)
+        .subscribe(
           (novaRegra: Regra) => {
 
             this.toastr.success(`Regra alterada com sucesso!`);
             setTimeout(() => {
               this.loading = false;
-              window.location.reload();
+              this.regras = [];
+              this.getRegras();
+              modal.hide();
             }, 1000); 
 
           }, error => {
@@ -176,15 +183,18 @@ export class RegraComponent implements OnInit {
     this.bodyDeletarRegra = `Tem certeza que deseja excluir a Regra ${currentRegra.id}?`;
   }
 
-  confirmeDelete(template: any) {
+  confirmeDelete(template: any, modal: any) {
     this.loading = true;
 
-    this.regraService.deleteRegra(this.currentRegra.id).subscribe(
+    this.regraService.deleteRegra(this.currentRegra.id, localStorage.getItem('host'))
+    .subscribe(
       () => {
         this.toastr.success('Regra deletada com sucesso!');
         setTimeout(() => {
           this.loading = false;
-          window.location.reload();
+          this.regras = [];
+          this.getRegras();
+          modal.hide();
         }, 1000);
 
       }, error => {

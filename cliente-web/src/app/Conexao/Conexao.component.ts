@@ -104,7 +104,7 @@ export class ConexaoComponent implements OnInit {
     this.bodyDeletarConexao = `Tem certeza que deseja excluir a Conexao ${currentConexao.id}?`;
   }
 
-  confirmeDelete(template: any) {
+  confirmeDelete(template: any, modal: any) {
     this.loading = true;
 
     this.ConexaoService.deleteConexao(this.currentConexao.id).subscribe(
@@ -112,7 +112,9 @@ export class ConexaoComponent implements OnInit {
         this.toastr.success('Conexão deletada com sucesso!');
         setTimeout(() => {
           this.loading = false;
-          window.location.reload();
+          this.conexoes = [];
+          this.getConexoes();
+          modal.hide();
         }, 1000);
 
       }, error => {
@@ -124,7 +126,7 @@ export class ConexaoComponent implements OnInit {
     );
   }
 
-  salvarAlteracao(template: any) {
+  salvarAlteracao(template: any, modal: any) {
     var self = this;
 
     if (this.registerForm.valid) {
@@ -153,9 +155,10 @@ export class ConexaoComponent implements OnInit {
             this.toastr.success(`Conexão cadastrada com sucesso!`);
             setTimeout(() => {
               this.loading = false;
-              window.location.reload();
+              this.conexoes = [];
+              this.getConexoes();
+              modal.hide();
             }, 1000);
-
           }, error => {
             this.loading = false;
             this.toastr.error('Erro ao tentar cadastrar');
@@ -176,9 +179,10 @@ export class ConexaoComponent implements OnInit {
             this.toastr.success(`Conexão alterada com sucesso!`);
             setTimeout(() => {
               this.loading = false;
-              window.location.reload();
+              this.conexoes = [];
+              this.getConexoes();
+              modal.hide();
             }, 1000); 
-
           }, error => {
             this.loading = false;
             this.toastr.error('Erro ao tentar alterar');

@@ -8,11 +8,11 @@ import { Registro } from '../_models/Registro';
 })
 export class RegistroService {
 
-  baseURL = 'http://10.1.1.3:8080/servidor/servico/registro/';
+  baseURL = ':8080/servidor/servico/registro';
 
   constructor(private http: HttpClient) { }
 
-  getRegistros(hidrometroID: number): Observable<Registro[]>{
-    return this.http.get<Registro[]>(this.baseURL + 'listar/json/' + hidrometroID);
+  getRegistros(hidrometroID: number, host: string): Observable<Registro[]>{
+    return this.http.get<Registro[]>(`http://${host}${this.baseURL}/listar/json/${hidrometroID}`);
   }
 }

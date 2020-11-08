@@ -7,11 +7,12 @@ import { RegraTipo } from '../_models/RegraTipo';
   providedIn: 'root'
 })
 export class RegratipoService {
-  baseURL = 'http://10.1.1.3:8080/servidor/servico/regratipo/';
+
+  baseURL = ':8080/servidor/servico/regratipo';
 
   constructor(private http: HttpClient) { }
 
-  getAllRegraTipo(): Observable<RegraTipo[]> {
-    return this.http.get<RegraTipo[]>(this.baseURL + 'listar/json/');
+  getAllRegraTipo(host: string): Observable<RegraTipo[]> {
+    return this.http.get<RegraTipo[]>(`http://${host}${this.baseURL}/listar/json/`);
   }
 }

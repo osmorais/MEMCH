@@ -19,4 +19,8 @@ export class NavComponent implements OnInit {
     this.authService.desautenticarUsuario();
     this.router.navigate(['/login'])
   }
+
+  LoggedIn(){
+    return this.authService.usuarioAutenticado;
+  }
 }
