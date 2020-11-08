@@ -33,21 +33,21 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit() {
     this.validador();
-    this.validadorConexao();
+    // this.validadorConexao();
   }
 
-  validadorConexao() {
-    this.registerFormConexao = this.fb.group({
-      host: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
-      ativo: ['',],
-      descricao: ['', [Validators.required, Validators.minLength(4)]],
-      identificador: ['', [Validators.required, Validators.minLength(4)]],
-      chave: ['', [Validators.required, Validators.minLength(4)]],
-      hidrometroAtivo: ['',],
-      modelo: ['', [Validators.required, Validators.minLength(4)]],
-      hidrometrodescricao: ['', [Validators.required, Validators.minLength(4)]]
-    });
-  }
+  // validadorConexao() {
+  //   this.registerFormConexao = this.fb.group({
+  //     host: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
+  //     ativo: ['',],
+  //     descricao: ['', [Validators.required, Validators.minLength(4)]],
+  //     identificador: ['', [Validators.required, Validators.minLength(4)]],
+  //     chave: ['', [Validators.required, Validators.minLength(4)]],
+  //     hidrometroAtivo: ['',],
+  //     modelo: ['', [Validators.required, Validators.minLength(4)]],
+  //     hidrometrodescricao: ['', [Validators.required, Validators.minLength(4)]]
+  //   });
+  // }
 
   validador() {
     this.registerForm = this.fb.group({
@@ -73,11 +73,11 @@ export class UsuarioComponent implements OnInit {
 
   cadastrarUsuario() {
     if (this.registerForm.valid) {
-      this.currentUsuario = new Usuario;
+      this.currentUsuario = new Usuario();
       this.currentUsuario.login = this.registerForm.get('usuario').value;
-      this.currentUsuario.senha = this.registerForm.get('senha').value;
+      this.currentUsuario.senha = this.registerForm.get('passwords.senha').value;
 
-      this.currentUsuario.pessoa = new Pessoa;
+      this.currentUsuario.pessoa = new Pessoa();
       this.currentUsuario.pessoa.nome = this.registerForm.get('nome').value;
       this.currentUsuario.pessoa.cpf = this.registerForm.get('cpf').value;
 
@@ -87,7 +87,7 @@ export class UsuarioComponent implements OnInit {
         this.toastr.success(`Usuario cadastrado com sucesso!`);
         setTimeout(() => {
           this.loading = false;
-          this.salvarConexao();
+          // this.salvarConexao();
           this.router.navigate(['/login']);
         }, 1000);
       }, error => {
@@ -116,45 +116,47 @@ export class UsuarioComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
-  adicionarConexao() {
-    if (this.registerFormConexao.valid) {
-      let currentForm = Object.assign({}, this.registerFormConexao.value);
+  // adicionarConexao(modal: any) {
+  //   if (this.registerFormConexao.valid) {
+  //     let currentForm = Object.assign({}, this.registerFormConexao.value);
 
-      this.currentConexao = new Conexao();
-      this.currentConexao.host = currentForm.host;
-      this.currentConexao.ativo = currentForm.ativo;
-      this.currentConexao.descricao = currentForm.descricao;
+  //     this.currentConexao = new Conexao();
+  //     this.currentConexao.host = currentForm.host;
+  //     this.currentConexao.ativo = currentForm.ativo;
+  //     this.currentConexao.descricao = currentForm.descricao;
 
-      this.currentConexao.hidrometro = new Hidrometro();
-      this.currentConexao.hidrometro.chave = currentForm.chave;
-      this.currentConexao.hidrometro.ativo = currentForm.hidrometroAtivo;
-      this.currentConexao.hidrometro.descricao = currentForm.hidrometrodescricao;
-      this.currentConexao.hidrometro.identificador = currentForm.identificador;
-      this.currentConexao.hidrometro.modelo = currentForm.modelo;
-    }
-  }
+  //     this.currentConexao.hidrometro = new Hidrometro();
+  //     this.currentConexao.hidrometro.chave = currentForm.chave;
+  //     this.currentConexao.hidrometro.ativo = currentForm.hidrometroAtivo;
+  //     this.currentConexao.hidrometro.descricao = currentForm.hidrometrodescricao;
+  //     this.currentConexao.hidrometro.identificador = currentForm.identificador;
+  //     this.currentConexao.hidrometro.modelo = currentForm.modelo;
 
-  salvarConexao() {
-    if (this.registerFormConexao.valid) {
-      this.loading = true;
+  //     modal.hide();
+  //   }
+  // }
 
-      this.conexaoService.postConexao(this.currentConexao).subscribe(
-        (_novaconexao: Conexao) => {
+  // salvarConexao() {
+  //   if (this.registerFormConexao.valid) {
+  //     this.loading = true;
 
-          this.toastr.success(`Conexão cadastrada com sucesso!`);
-          setTimeout(() => {
-            this.loading = false;
-            this.currentConexao = _novaconexao;
-          }, 1000);
-        }, error => {
-          this.loading = false;
-          this.toastr.error('Erro ao tentar cadastrar');
-          console.log(error);
-        }
-      );
-    }
-    else {
-      this.toastr.error('Verifique os campos informados e tente novamente.', 'Formulario invalido');
-    }
-  }
+  //     this.conexaoService.postConexao(this.currentConexao).subscribe(
+  //       (_novaconexao: Conexao) => {
+
+  //         this.toastr.success(`Conexão cadastrada com sucesso!`);
+  //         setTimeout(() => {
+  //           this.loading = false;
+  //           this.currentConexao = _novaconexao;
+  //         }, 1000);
+  //       }, error => {
+  //         this.loading = false;
+  //         this.toastr.error('Erro ao tentar cadastrar');
+  //         console.log(error);
+  //       }
+  //     );
+  //   }
+  //   else {
+  //     this.toastr.error('Verifique os campos informados e tente novamente.', 'Formulario invalido');
+  //   }
+  // }
 }
