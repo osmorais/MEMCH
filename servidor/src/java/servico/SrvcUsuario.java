@@ -31,4 +31,11 @@ public class SrvcUsuario {
         
         return usuario;
     }
+    public static Usuario cadastrar(Usuario usuario){
+
+        IUsuarioDAO conexaodao = new UsuarioDAO();
+        conexaodao.cadastrar(usuario);
+        
+        return usuario;
+    }
 }
