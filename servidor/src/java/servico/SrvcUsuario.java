@@ -38,4 +38,11 @@ public class SrvcUsuario {
         
         return usuario;
     }
+    public static Usuario alterar(Usuario usuario){
+
+        IUsuarioDAO conexaodao = new UsuarioDAO();
+        conexaodao.alterar(usuario);
+        
+        return usuario;
+    }
 }

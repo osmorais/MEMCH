@@ -85,8 +85,29 @@ try {
     }
 
     @Override
-    public void alterar(Pessoa alerta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void alterar(Pessoa pessoa) {
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+            this.conexao = con.getConnection();
+
+            PreparedStatement stmt = this.conexao.prepareStatement(UPDATE,
+                    Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, pessoa.getNome());
+            stmt.setString(2, pessoa.getCpf());
+            
+            int lastId = 0;
+
+            stmt.execute();
+            final ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                lastId = rs.getInt(1);
+            }
+
+            pessoa.setId(lastId);
+            ConnectionFactory.closeConnection(this.conexao, stmt);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override

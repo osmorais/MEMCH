@@ -104,8 +104,35 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public void alterar(Usuario alerta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void alterar(Usuario usuario) {
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+            this.conexao = con.getConnection();
+
+            PreparedStatement stmt = this.conexao.prepareStatement(UPDATE,
+                    Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, usuario.getLogin());
+            stmt.setString(2, usuario.getSenha());
+            
+            IPessoaDAO pessoadao = new PessoaDAO();
+            Pessoa pessoa = usuario.getPessoa();
+            
+            pessoadao.alterar(pessoa);
+            stmt.setInt(3, pessoa.getId());
+            
+            int lastId = 0;
+
+            stmt.execute();
+            final ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                lastId = rs.getInt(1);
+            }
+
+            usuario.setId(lastId);
+            ConnectionFactory.closeConnection(this.conexao, stmt);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
     }
 
     @Override

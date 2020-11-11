@@ -85,6 +85,35 @@ public class RecUsuario {
 
         return retorno;
     }
+    
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("alterar")
+    public Response alterar(String conteudo) {
+        
+        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        
+        usuario = SrvcUsuario.alterar(usuario);
+        
+        String retorno = objgson.toJson(usuario);
+
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("alterar/json")
+    public String alterarJson(String conteudo) {
+        
+        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        usuario = SrvcUsuario.alterar(usuario);
+        
+        String retorno = objgson.toJson(usuario);
+
+        return retorno;
+    }
 
     /**
      * Retrieves representation of an instance of recurso.RecUsuario
