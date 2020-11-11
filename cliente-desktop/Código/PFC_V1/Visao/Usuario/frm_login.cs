@@ -1,5 +1,7 @@
 ﻿using PFC_V1.Controle;
 using PFC_V1.DAO;
+using PFC_V1.Operador;
+using PFC_V1.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,10 +41,22 @@ namespace PFC_V1
                 usuario.login = txb_nome_usuario.Text;
                 usuario.senha = txb_senha_acesso.Text;
 
-                ControleInterno controle = new ControleInterno();
-                controle.autenticar(ref usuario);
+				usuario.senha = SHA.GenerateSHA512String(usuario.senha);
+				//ControleInterno controle = new ControleInterno();
+				//controle.autenticar(ref usuario);
 
-                frm_dashboard formulario = new frm_dashboard(usuario);
+				IOperadorREST op = new OperadorJson();
+				CtrlUsuario controle = new CtrlUsuario();
+				Conexao conexao = new Conexao()
+				{
+					host = "10.1.1.3"
+				};
+
+				var currentUsuario = controle.consultar<Usuario>(usuario, op, conexao);
+
+				if (currentUsuario.id == 0) throw new Exception("Usuário inexistente.");
+
+				frm_dashboard formulario = new frm_dashboard(usuario);
                 formulario.ShowDialog();
             }
             catch (Exception ex)
