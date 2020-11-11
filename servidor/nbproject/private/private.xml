@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/util/ConnectionFactory.java</file>
+            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/dao/UsuarioDAO.java</file>
+            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/recurso/RecRegistro.java</file>
+            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/dao/PessoaDAO.java</file>
+            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/recurso/RecConexao.java</file>
             <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/recurso/RecUsuario.java</file>
-            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/recursojax/CrossOrigin.java</file>
+            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/servico/SrvcUsuario.java</file>
+            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/servico/SrvcConexao.java</file>
         </group>
     </open-files>
 </project-private>

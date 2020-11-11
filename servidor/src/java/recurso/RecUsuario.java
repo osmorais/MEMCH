@@ -45,7 +45,7 @@ public class RecUsuario {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("consultar/json")
+    @Path("consultar")
     public Response consultarJson(String conteudo) {
         
         Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
@@ -59,7 +59,7 @@ public class RecUsuario {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("cadastrar/json")
+    @Path("cadastrar")
     public Response cadastrar(String conteudo) {
         
         Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
@@ -69,6 +69,21 @@ public class RecUsuario {
         String retorno = objgson.toJson(usuario);
 
         return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("cadastrar/json")
+    public String cadastrarJson(String conteudo) {
+        
+        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        
+        usuario = SrvcUsuario.cadastrar(usuario);
+        
+        String retorno = objgson.toJson(usuario);
+
+        return retorno;
     }
 
     /**
