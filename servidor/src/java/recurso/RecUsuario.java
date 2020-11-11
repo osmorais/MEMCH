@@ -46,7 +46,7 @@ public class RecUsuario {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("consultar")
-    public Response consultarJson(String conteudo) {
+    public Response consultar(String conteudo) {
         
         Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
         SrvcUsuario.consultar(usuario);
@@ -54,6 +54,20 @@ public class RecUsuario {
         String retorno = objgson.toJson(usuario);
 
         return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("consultar/json")
+    public String consultarJson(String conteudo) {
+        
+        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        SrvcUsuario.consultar(usuario);
+        
+        String retorno = objgson.toJson(usuario);
+
+        return retorno;
     }
     
     @POST
@@ -109,6 +123,20 @@ public class RecUsuario {
         
         Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
         usuario = SrvcUsuario.alterar(usuario);
+        
+        String retorno = objgson.toJson(usuario);
+
+        return retorno;
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("remover/json")
+    public String removerJson(String conteudo) {
+        
+        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        SrvcUsuario.remover(usuario);
         
         String retorno = objgson.toJson(usuario);
 

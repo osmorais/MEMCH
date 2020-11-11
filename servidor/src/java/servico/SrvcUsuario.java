@@ -45,4 +45,11 @@ public class SrvcUsuario {
         
         return usuario;
     }
+    public static Usuario remover(Usuario usuario){
+
+        IUsuarioDAO conexaodao = new UsuarioDAO();
+        conexaodao.remover(usuario);
+        
+        return usuario;
+    }
 }

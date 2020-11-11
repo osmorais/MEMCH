@@ -119,6 +119,7 @@ public class UsuarioDAO implements IUsuarioDAO{
             
             pessoadao.alterar(pessoa);
             stmt.setInt(3, pessoa.getId());
+            stmt.setInt(4, usuario.getId());
             
             int lastId = 0;
 
@@ -144,6 +145,11 @@ public class UsuarioDAO implements IUsuarioDAO{
             PreparedStatement stmt = this.conexao.prepareStatement(DELETE);
             stmt.setInt(1, usuario.getId());
 
+            IPessoaDAO pessoadao = new PessoaDAO();
+            Pessoa pessoa = usuario.getPessoa();
+                
+            pessoadao.remover(pessoa);
+            
             stmt.execute();
             
             usuario.setId(0);

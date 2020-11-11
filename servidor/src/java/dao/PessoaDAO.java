@@ -94,6 +94,7 @@ try {
                     Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, pessoa.getNome());
             stmt.setString(2, pessoa.getCpf());
+            stmt.setInt(3, pessoa.getId());
             
             int lastId = 0;
 
