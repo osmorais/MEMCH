@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LiteDB;
 using PFC_V1.Controle;
 using PFC_V1.DAO;
+using PFC_V1.Operador;
 using PFC_V1.Util;
 
 namespace PFC_V1
@@ -39,8 +40,17 @@ namespace PFC_V1
                 usuario.senha = SHA.GenerateSHA512String(usuario.senha);
 				try
 				{
-					ControleInterno controle = new ControleInterno();
-					controle.criarUsuario(usuario);
+					//ControleInterno controle = new ControleInterno();
+					//controle.criarUsuario(usuario);
+
+					IOperadorREST op = new OperadorJson();
+					CtrlUsuario controle = new CtrlUsuario();
+					Conexao conexao = new Conexao()
+					{
+						host = "10.1.1.3"
+					};
+
+					usuario = controle.cadastrar<Usuario>(usuario, op, conexao);
 
 					MessageBox.Show("Cadastro realizado com Sucesso!");
 					Close();
