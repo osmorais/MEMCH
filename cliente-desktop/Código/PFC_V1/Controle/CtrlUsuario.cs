@@ -30,7 +30,7 @@ namespace PFC_V1.Controle
 
 		public T remover<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "cadastrar/"));
+			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "remover/"));
 		}
 
 		public T consultar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)

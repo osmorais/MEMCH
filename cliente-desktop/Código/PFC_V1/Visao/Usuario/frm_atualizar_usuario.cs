@@ -1,4 +1,6 @@
-﻿using PFC_V1.Util;
+﻿using PFC_V1.Controle;
+using PFC_V1.Operador;
+using PFC_V1.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +40,18 @@ namespace PFC_V1.Visao
 
                     usuario.senha = SHA.GenerateSHA512String(usuario.senha);
 
-                    Close();
+					IOperadorREST op = new OperadorJson();
+					CtrlUsuario controle = new CtrlUsuario();
+					Conexao conexao = new Conexao()
+					{
+						host = "10.1.1.3"
+					};
+
+					usuario = controle.alterar<Usuario>(usuario, op, conexao);
+
+					MessageBox.Show("Alteração realizada com Sucesso!");
+
+					Close();
                 }
             }
         }

@@ -39,8 +39,8 @@ namespace PFC_V1
             frm_atualizar_usuario formulario = new frm_atualizar_usuario(usuario);
             formulario.ShowDialog();
 
-            ControleInterno controle = new ControleInterno();
-            controle.alterarUsuario(ref usuario);
+            //ControleInterno controle = new ControleInterno();
+            //controle.alterarUsuario(ref usuario);
         }
         private void tsm_excluir_usuario_Click(object sender, EventArgs e)
         {
@@ -49,9 +49,17 @@ namespace PFC_V1
 
             if (confirmação == DialogResult.OK)
             {
-                ControleInterno controle = new ControleInterno();
-                controle.excluirUsuario(usuario);
-                Close();
+				IOperadorREST op = new OperadorJson();
+				CtrlUsuario controle = new CtrlUsuario();
+				Conexao conexao = new Conexao()
+				{
+					host = "10.1.1.3"
+				};
+
+				controle.remover<Usuario>(usuario, op, conexao);
+
+				MessageBox.Show("Remoção realizada com Sucesso!");
+				Close();
             }
         }
         private void btn_nova_conexao_Click(object sender, EventArgs e)
@@ -148,13 +156,18 @@ namespace PFC_V1
 
 		private void recuperar(Usuario usuario)
 		{
-			ControleInterno controleinterno = new ControleInterno();
-			controleinterno.recuperarUsuario(ref usuario);
-
 			IOperadorREST op = new OperadorJson();
-			CtrlConexao controle = new CtrlConexao();
+			CtrlUsuario controle = new CtrlUsuario();
+			Conexao conexao = new Conexao()
+			{
+				host = "10.1.1.3"
+			};
 
-			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
+			usuario = controle.consultar<Usuario>(usuario, op, conexao);
+			
+			CtrlConexao controleConexao = new CtrlConexao();
+
+			usuario.conexoes = controleConexao.listar<Conexao>(op, this.conexao);
 
 			this.usuario = usuario;
 		}
