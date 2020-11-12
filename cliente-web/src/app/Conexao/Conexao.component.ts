@@ -126,7 +126,7 @@ export class ConexaoComponent implements OnInit {
     );
   }
 
-  salvarAlteracao(modal: any) {
+  salvarAlteracao(template: any, modal: any) {
     var self = this;
 
     if (this.registerForm.valid) {

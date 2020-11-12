@@ -74,9 +74,11 @@
       <div class="sidebar-sticky pt-3">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>&nbsp;&nbsp;
-          <i *ngIf="!loading" class="fa fa-sitemap" aria-hidden="true"></i>&nbsp;&nbsp;
-          <span *ngIf="loading">Buscando hidrometros...</span>
-          <span *ngIf="!loading">Selecione um Hidrometro</span>
+          <i *ngIf="!loading && !conexaoVazia" class="fa fa-sitemap" aria-hidden="true"></i>&nbsp;&nbsp;
+          <span *ngIf="loading && !conexaoVazia">Buscando hidrometros...</span>
+          <span *ngIf="!loading && !conexaoVazia">Selecione um Hidrometro</span>
+          <i *ngIf="conexaoVazia" class="far fa-frown"></i>&nbsp;&nbsp;
+          <span *ngIf="conexaoVazia">Você não tem hidrometros</span>
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item" *ngFor="let conexao of conexoes">

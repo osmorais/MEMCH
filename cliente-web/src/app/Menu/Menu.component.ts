@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
   openSecondLevel: boolean;
   redirectString: string;
   public loading = false;
+  public conexaoVazia = false;
 
   constructor(private conexaoService: ConexaoService,
               private toastr: ToastrService,
@@ -50,8 +51,13 @@ export class MenuComponent implements OnInit {
   this.conexaoService.getConexoes().subscribe((_conexoes: Conexao[]) => {
     this.loading = false;
     this.conexoes = _conexoes;
-    console.log(_conexoes);
-
+    
+    if(this.conexoes.length  > 0) {
+      this.conexaoVazia = false;
+    }
+    else {
+      this.conexaoVazia = true;
+    }
   }, error => {
     this.loading = false;
     this.toastr.error('Não foi possível recuperar os dados.', 'Verifique sua conexão');
