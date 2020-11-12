@@ -13,9 +13,9 @@ import modelo.Conexao;
  * @author osmar
  */
 public interface IConexaoDAO {
-    void cadastrar(Conexao conexao);
+    void cadastrar(Conexao conexao,int usuarioid);
     void consultar(Conexao conexao);
     void alterar(Conexao conexao);
     void remover(Conexao conexao);
-    ArrayList<Conexao> listar();
+    ArrayList<Conexao> listar(int usuarioid);
 }

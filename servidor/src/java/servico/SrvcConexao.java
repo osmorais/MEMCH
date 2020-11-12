@@ -17,10 +17,10 @@ import modelo.Conexao;
  * @author osmar
  */
 public class SrvcConexao {
-    public static Conexao cadastrar(Conexao conexao){
+    public static Conexao cadastrar(Conexao conexao, int usuarioid){
 
         IConexaoDAO conexaodao = new ConexaoDAO();
-        conexaodao.cadastrar(conexao);
+        conexaodao.cadastrar(conexao, usuarioid);
         
         return conexao;
     }
@@ -40,11 +40,11 @@ public class SrvcConexao {
         
         return conexao;
     }
-    public static ArrayList<Conexao> listar(){
+    public static ArrayList<Conexao> listar(int usuarioid){
         
         //ArrayList<Registro> arrdepartamento = new ArrayList<Registro>();
         IConexaoDAO conexaodao = new ConexaoDAO();
         
-        return conexaodao.listar();
+        return conexaodao.listar(usuarioid);
     }
 }

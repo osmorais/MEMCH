@@ -37,11 +37,11 @@ public class ConexaoDAO implements IConexaoDAO{
 //    "hidrometrofk" FOREIGN KEY (hidrometrofk) REFERENCES hidrometro(id)
 //    "usuariofk" FOREIGN KEY (usuariofk) REFERENCES usuario(id)
 
-    private final String SELECTALL = "SELECT * FROM CONEXAO order by ID;";
+    private final String SELECTALL = "SELECT * FROM CONEXAO WHERE USUARIOFK=? order by ID;";
     private final String SELECTID = "SELECT * FROM CONEXAO WHERE ID=?;";
     private static final String INSERT = "INSERT INTO CONEXAO "
-            + "(HOST, ATIVO, DESCRICAO, HIDROMETROFK) VALUES "
-            + "(?,?,?,?)";
+            + "(HOST, ATIVO, DESCRICAO, HIDROMETROFK, USUARIOFK) VALUES "
+            + "(?,?,?,?,?)";
     private static final String DELETE = "DELETE FROM CONEXAO WHERE ID=?";
     private static final String UPDATE = "UPDATE CONEXAO "
             + "SET HOST=?, ATIVO=?, DESCRICAO=?, HIDROMETROFK=?"
@@ -49,7 +49,7 @@ public class ConexaoDAO implements IConexaoDAO{
     private Connection conexao;
     
     @Override
-    public void cadastrar(Conexao conexao) {
+    public void cadastrar(Conexao conexao, int usuarioid) {
         try {
             ConnectionFactory con = new ConnectionFactory();
 
@@ -59,6 +59,7 @@ public class ConexaoDAO implements IConexaoDAO{
             stmt.setString(1, conexao.getHost());
             stmt.setInt(2, conexao.isAtivo()? 1 : 0);
             stmt.setString(3, conexao.getDescricao());
+            stmt.setInt(4, usuarioid);
             
             IHidrometroDAO hidrometrodao = new HidrometroDAO();
             Hidrometro hidrometro = conexao.getHidrometro();
@@ -162,7 +163,7 @@ public class ConexaoDAO implements IConexaoDAO{
     }
 
     @Override
-    public ArrayList<Conexao> listar() {
+    public ArrayList<Conexao> listar(int usuarioid) {
         try {
             ArrayList<Conexao> arrconexao = new ArrayList<Conexao>();
             
@@ -170,6 +171,7 @@ public class ConexaoDAO implements IConexaoDAO{
 
             conexao = con.getConnection();
             PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
+            stmt.setInt(1, usuarioid);
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
