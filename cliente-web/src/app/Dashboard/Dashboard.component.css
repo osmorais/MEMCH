@@ -6,6 +6,11 @@
     height: 568px;
 }
 
+#dashboard #title{
+    font-family: 'Kulim Park';
+    font-size: 22px;
+  }
+
 #dashboard .row {
     display: flex;
     flex-wrap: wrap;
