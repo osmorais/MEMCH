@@ -61,12 +61,12 @@ public class RecConexao {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("listar/json")
-    public String listarJson() {
+    @Path("listar/{id}/json")
+    public String listarJson(@PathParam("id") Integer usuarioid) {
         
         ArrayList<Conexao> arrconexao = new ArrayList<>();
         
-        arrconexao = SrvcConexao.listar();
+        arrconexao = SrvcConexao.listar(usuarioid);
         String retorno = objgson.toJson(arrconexao);
         
         return retorno;
@@ -74,12 +74,12 @@ public class RecConexao {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("listar")
-    public Response listar() {
+    @Path("listar/{id}")
+    public Response listar(@PathParam("id") Integer usuarioid) {
         
         ArrayList<Conexao> arrconexao = new ArrayList<>();
         
-        arrconexao = SrvcConexao.listar();
+        arrconexao = SrvcConexao.listar(usuarioid);
         String retorno = objgson.toJson(arrconexao);
         
         return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
@@ -99,11 +99,11 @@ public class RecConexao {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("cadastrar/json")
-    public String cadastrarJson(String conteudo) {
+    @Path("cadastrar/{id}/json")
+    public String cadastrarJson(String conteudo, @PathParam("id") Integer usuarioid) {
         
         Conexao conexao = objgson.fromJson(conteudo, Conexao.class);
-        SrvcConexao.cadastrar(conexao);
+        SrvcConexao.cadastrar(conexao, usuarioid);
         
         String retorno = objgson.toJson(conexao);
 
@@ -113,12 +113,12 @@ public class RecConexao {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("cadastrar")
-    public Response cadastrar(String conteudo) {
+    @Path("cadastrar/{id}")
+    public Response cadastrar(String conteudo, @PathParam("id") Integer usuarioid) {
         
         Conexao conexao = objgson.fromJson(conteudo, Conexao.class);
         
-        conexao = SrvcConexao.cadastrar(conexao);
+        conexao = SrvcConexao.cadastrar(conexao, usuarioid);
         
         String retorno = objgson.toJson(conexao);
 
