@@ -9,6 +9,7 @@ import { Pessoa } from '../_models/Pessoa';
 import { Usuario } from '../_models/Usuario';
 import { ConexaoService } from '../_services/conexao.service';
 import { UsuarioService } from '../_services/Usuario.service';
+import * as sha512 from 'js-sha512';
 
 @Component({
   selector: 'app-Usuario',
@@ -76,6 +77,8 @@ export class UsuarioComponent implements OnInit {
       this.currentUsuario = new Usuario();
       this.currentUsuario.login = this.registerForm.get('usuario').value;
       this.currentUsuario.senha = this.registerForm.get('passwords.senha').value;
+      
+      this.currentUsuario.senha = sha512.sha512(this.currentUsuario.senha).toLocaleUpperCase();
 
       this.currentUsuario.pessoa = new Pessoa();
       this.currentUsuario.pessoa.nome = this.registerForm.get('nome').value;

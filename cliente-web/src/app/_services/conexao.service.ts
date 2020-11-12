@@ -13,7 +13,7 @@ export class ConexaoService {
   constructor(private http: HttpClient) { }
 
   getConexoes(): Observable<Conexao[]> {
-    return this.http.get<Conexao[]>(`${this.baseURL}/listar`);
+    return this.http.get<Conexao[]>(`${this.baseURL}/listar/${localStorage.getItem('currentUsuarioID')}`);
   }
 x
   deleteConexao(id: number) {
@@ -21,7 +21,7 @@ x
   }
 
   postConexao(conexao: Conexao){
-    return this.http.post(`${this.baseURL}/cadastrar/json`, conexao);
+    return this.http.post(`${this.baseURL}/cadastrar/${localStorage.getItem('currentUsuarioID')}`, conexao);
   }
 
   putConexao(conexao: Conexao){

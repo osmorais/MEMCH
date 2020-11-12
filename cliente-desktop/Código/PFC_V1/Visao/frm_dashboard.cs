@@ -167,7 +167,7 @@ namespace PFC_V1
 			
 			CtrlConexao controleConexao = new CtrlConexao();
 
-			usuario.conexoes = controleConexao.listar<Conexao>(op, this.conexao);
+			usuario.conexoes = controleConexao.listar<Conexao>(usuario, op, this.conexao);
 
 			this.usuario = usuario;
 		}
@@ -176,7 +176,7 @@ namespace PFC_V1
 			IOperadorREST op = new OperadorJson();
 			CtrlConexao controle = new CtrlConexao();
 
-			usuario.conexoes = controle.listar<Conexao>(op, this.conexao);
+			usuario.conexoes = controle.listar<Conexao>(this.usuario, op, this.conexao);
 
 			if (usuario.conexoes != null)
 			{

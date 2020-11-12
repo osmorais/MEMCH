@@ -5,6 +5,7 @@ import { UsuarioService } from '../_services/Usuario.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../_services/Auth.service';
+import * as sha512 from 'js-sha512';
 
 @Component({
   selector: 'app-Login',
@@ -38,11 +39,14 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     if (this.registerForm.valid) {
       this.usuario = Object.assign({}, this.registerForm.value);
+
+      this.usuario.senha = sha512.sha512(this.usuario.senha).toLocaleUpperCase();
+
       this.usuarioService.postLogin(this.usuario).subscribe(
         (usuarioResponse: Usuario) => {
           this.loading = false;
           if (usuarioResponse.id != null && usuarioResponse.id != 0){
-            this.authService.autenticarUsuario();
+            this.authService.autenticarUsuario(usuarioResponse);
             localStorage.setItem('host', '10.1.1.3');
             this.router.navigate(['/dashboard']);
             this.toastr.success('Autenticação feita com sucesso!'); 

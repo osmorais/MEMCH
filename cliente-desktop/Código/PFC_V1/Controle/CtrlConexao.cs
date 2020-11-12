@@ -20,12 +20,17 @@ namespace PFC_V1.Controle
 
 		public T cadastrar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "cadastrar/"));
+			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + string.Concat("cadastrar/", objeto.id, "/")));
 		}
 
 		public List<T> listar<T>(IOperadorREST operador, Conexao conexao)
 		{
 			return operador.retornarConteudo<T>(new Uri(this.uri + "listar/"));
+		}
+
+		public List<T> listar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
+		{
+			return operador.retornarConteudo<T>(new Uri(this.uri + string.Concat("listar/", objeto.id, "/")));
 		}
 
 		public T remover<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
