@@ -12,10 +12,10 @@ class RegistroDAO(IRegistroDAO):
             connection = conn.getConnection()
             cursor = connection.cursor()
 
-            print("REGISTRO DAO")
-            print("valor : " , round(hidrometro.registro.valor,3))
-            print("data: " + str(hidrometro.registro.data))
-            print("hidrometro: " + str(hidrometro.id))
+            print("[INFO] Registrando estado do hidrometro...")
+            print("[INFO]     Valor : " , round(hidrometro.registro.valor,3))
+            print("[INFO]      Data : " + str(hidrometro.registro.data))
+            print("[INFO] Hidrometro: " + str(hidrometro.id))
 
             # record_to_insert = (round(hidrometro.registro.valor,3),
             #                         str(hidrometro.registro.data),
@@ -28,8 +28,9 @@ class RegistroDAO(IRegistroDAO):
                 hidrometro.id])
 
             connection.commit()
-            #count = cursor.rowcount
-            #return (count, "Record inserted successfully into mobile table")
+            existeAlertas = cursor.fetchone()
+            hidrometro.setExisteAlertas(existeAlertas)
+
         except (Exception, psycopg2.Error) as error:
             if (connection):
                 print("SQL Error:", error)

@@ -8,9 +8,18 @@ class Hidrometro:
         self.ativo = 1
         #registro = Registro()
         self.registro = Registro()
+        self.existeAlertas = 0
+        self.identificador = ""
         #self.registros.append(registro)
 
+    def setIdentificador(self,identificador):
+        self.identificador = identificador
 
+    def setExisteAlertas(self,existeAlertas):
+        self.existeAlertas = existeAlertas
+
+    def getExisteAlertas(self):
+        return self.existeAlertas
 
     def setId(self,id):
         self.id = id
