@@ -7,7 +7,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 
-def sendMail(content):
+def sendMail(content, emailto):
     msg = MIMEMultipart()
     
     msg.attach(MIMEText(content, 'plain'))
@@ -15,9 +15,9 @@ def sendMail(content):
     server = smtplib.SMTP('smtp.gmail.com: 587')
     server.starttls()
 
-    password = "68433212tenaz"
-    msg['From'] = "osmorais5@gmail.com"
-    msg['To'] = "osmorais5@gmail.com"
+    password = "memchemail"
+    msg['From'] = "alerta.memch@gmail.com"
+    msg['To'] = emailto
     msg['Subject'] = "ALERTA! - MEMCH - Monitoramento de estado de metragem cubica de hidrometro"
 
     server.login(msg['From'], password)
@@ -59,4 +59,4 @@ while True :
             message = message + "\n\nMEMCH - Monitoramento de Estado de Metragem Cúbica\n"
             message = message + "UMC - Universidade de Mogi das Cruzes\n"
             message = message + "Projeto de Final de Curso - 2020"
-            sendMail(message)
+            sendMail(message, "osmorais5@gmail.com")
