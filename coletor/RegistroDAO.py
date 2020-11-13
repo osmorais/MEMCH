@@ -29,7 +29,7 @@ class RegistroDAO(IRegistroDAO):
 
             connection.commit()
             existeAlertas = cursor.fetchone()
-            hidrometro.setExisteAlertas(existeAlertas)
+            hidrometro.setExisteAlertas(existeAlertas[0])
 
         except (Exception, psycopg2.Error) as error:
             if (connection):
