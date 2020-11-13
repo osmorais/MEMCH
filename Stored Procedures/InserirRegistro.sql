@@ -10,7 +10,7 @@ DECLARE
 
 	TuplaRegra RECORD;
 	cursorRegra cursor(hidrometroid integer) 
-		 for select ID, PERIODO, VALOR, dt_inicio_periodo
+		 for select ID, PERIODO, VALOR, regratipofk, dt_inicio_periodo
 		 from REGRA
 		 where HIDROMETROFK = hidrometroid;
 BEGIN
@@ -41,19 +41,20 @@ BEGIN
 					END IF;
 
 					IF((SELECT COUNT(*) FROM REGISTRO WHERE DATA = TuplaRegra.dt_inicio_periodo) > 0) THEN
-						VALORINICIOPERIODO := (SELECT coalesce(VALOR, 0) FROM REGISTRO WHERE DATA = TuplaRegra.dt_inicio_periodo limit 1);
+						VALORINICIOPERIODO := (SELECT coalesce(VALOR, 0) FROM REGISTRO WHERE DATA = TuplaRegra.dt_inicio_periodo 
+						AND HIDROMETROFK = HIDROMETROCOLETA limit 1);
 					ELSE
 						VALORINICIOPERIODO := 0;
 					END IF;
 					
-					VALORFIMPERIODO := (SELECT MAX(VALOR) FROM REGISTRO WHERE DATA BETWEEN TuplaRegra.dt_inicio_periodo AND (TuplaRegra.dt_inicio_periodo + TuplaRegra.PERIODO));
+					VALORFIMPERIODO := (SELECT MAX(VALOR) FROM REGISTRO WHERE DATA BETWEEN TuplaRegra.dt_inicio_periodo AND (TuplaRegra.dt_inicio_periodo + TuplaRegra.PERIODO) AND HIDROMETROFK = HIDROMETROCOLETA);
 					--raise notice 'Valor total do periodo informado - % em % dias',VALORPERIODO,TuplaRegra.PERIODO;
 
 					VALORPERIODO := VALORFIMPERIODO - VALORINICIOPERIODO;
 
 					IF(VALORPERIODO > TuplaRegra.Valor) THEN
 						ALERTADISPARADO := 1;
-						IF(SELECT REGRATIPOFK FROM REGRA WHERE HIDROMETROFK = HIDROMETROCOLETA LIMIT 1) = 2 THEN -- REGRA DE CONSUMO
+						IF(TuplaRegra.regratipofk) = 2 THEN -- REGRA DE CONSUMO
 							DESCRICAOREGRA := CONCAT('Valor gasto no periodo: ',VALORPERIODO);
 							INSERT INTO ALERTA (DESCRICAO, DATA, HIDROMETROFK, REGRAFK, REGRA)
 							VALUES (DESCRICAOREGRA,DATACOLETA,HIDROMETROCOLETA,TuplaRegra.ID, CONCAT('Consumo (',TuplaRegra.PERIODO,' dias) - Valor Maximo: ',cast(TuplaRegra.Valor as varchar(100))));
