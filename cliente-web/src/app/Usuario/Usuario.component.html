@@ -86,11 +86,11 @@
             </div>
             <div *ngIf="registerForm.get('usuario').hasError('minlength') &&
                     registerForm.get('usuario').touched" class="invalid-feedback">
-              O usuario deve ter no minimo 11 caracteres.
+              O usuario deve ter no minimo 5 caracteres.
             </div>
             <div *ngIf="registerForm.get('usuario').hasError('maxLength') &&
                     registerForm.get('usuario').touched" class="invalid-feedback">
-              O usuario deve ter no maximo 14 caracteres.
+              O usuario deve ter no maximo 50 caracteres.
             </div>
           </div>
         </div>

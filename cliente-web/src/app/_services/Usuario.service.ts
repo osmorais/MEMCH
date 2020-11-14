@@ -13,10 +13,18 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   postLogin(usuario: Usuario) {
-    return this.http.post(`${this.baseURL}/consultar`, usuario);
+    return this.http.post(`${this.baseURL}/consultarLogin`, usuario);
   }
 
   postUsuario(usuario: Usuario) {
     return this.http.post(`${this.baseURL}/cadastrar`, usuario);
+  }
+
+  putUsuario(usuario: Usuario) {
+    return this.http.put(`${this.baseURL}/alterar`, usuario);
+  }
+
+  getUsuario(id:number) {
+    return this.http.get(`${this.baseURL}/consultar/${id}`);
   }
 }

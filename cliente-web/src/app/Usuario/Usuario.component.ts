@@ -57,8 +57,8 @@ export class UsuarioComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       passwords: this.fb.group({
-        senha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
-        confirmarSenha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]]
+        senha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+        confirmarSenha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]]
       }, { validator: this.compararSenhas })
     });
   }

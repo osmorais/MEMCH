@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
 
   validation() {
     this.registerForm = this.fb.group({
-      login: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
-      senha: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      login: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+      senha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
     });
   }
 

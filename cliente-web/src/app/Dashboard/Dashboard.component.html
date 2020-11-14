@@ -11,6 +11,11 @@
       <div class="col-md-10">
         <p class="ml-2" id="title">DASHBOARD INICIAL</p>
       </div>
+      <button type="button" class="btn btn-outline-primary" (click)="alterarUsuario(template)">
+        <i class="fas fa-user-edit"></i>&nbsp;Alterar Usuario
+      </button>
+    </div>
+    <div class="row mt-3">
       <div *ngIf="!conexoes || conexoes.length < 1"><br><br>
         <div class="ml-5">
           <h1 class="text-center">
@@ -79,4 +84,134 @@
       </div>
     </div>
   </div>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">USUARIO</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="registerForm">
+        <div class="form-row">
+          <div class="form-group col-md-12 required">
+            <label for="">Nome Completo:</label>
+            <input type="text" class="form-control" formControlName="nome" [ngClass]="{'is-invalid': registerForm.get('nome').errors &&
+            registerForm.get('nome').touched }" placeholder="Insira o Nome Completo" />
+            <div *ngIf="registerForm.get('nome').hasError('required') &&
+                    registerForm.get('nome').touched" class="invalid-feedback">
+              Nome completo é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('nome').hasError('minlength') &&
+                    registerForm.get('nome').touched" class="invalid-feedback">
+              O nome deve ter no minimo 10 caracteres.
+            </div>
+            <div *ngIf="registerForm.get('nome').hasError('maxLength') &&
+                    registerForm.get('nome').touched" class="invalid-feedback">
+              O nome deve ter no maximo 40 caracteres.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="">CPF:</label>
+            <input class="form-control" type="text" formControlName="cpf" [ngClass]="{ 'is-invalid': registerForm.get('cpf').errors && 
+            registerForm.get('cpf').touched}" placeholder="Insira seu CPF" />
+            <div *ngIf="registerForm.get('cpf').hasError('required') &&
+                    registerForm.get('cpf').touched" class="invalid-feedback">
+              cpf é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('cpf').hasError('minlength') &&
+                    registerForm.get('cpf').touched" class="invalid-feedback">
+              O cpf deve ter no minimo 11 caracteres.
+            </div>
+            <div *ngIf="registerForm.get('cpf').hasError('maxLength') &&
+                    registerForm.get('cpf').touched" class="invalid-feedback">
+              O cpf deve ter no maximo 14 caracteres.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="">Email:</label>
+            <input class="form-control" type="text" formControlName="email" [ngClass]="{'is-invalid': registerForm.get('email').errors &&
+            registerForm.get('email').touched}" placeholder="Insira seu Endereço de Email" />
+            <div *ngIf="registerForm.get('email').hasError('required') &&
+                    registerForm.get('email').touched" class="invalid-feedback">
+              Email é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('email').hasError('email') &&
+                    registerForm.get('email').touched" class="invalid-feedback">
+              Deve ser um e-mail válido
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="">Usuario:</label>
+            <input class="form-control" type="text" formControlName="usuario" [ngClass]="{'is-invalid': registerForm.get('usuario').errors &&
+                                    registerForm.get('usuario').touched}" placeholder="Insira o nome de Usuário" />
+            <div *ngIf="registerForm.get('usuario').hasError('required') &&
+                    registerForm.get('usuario').touched" class="invalid-feedback">
+              Usuário é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('usuario').hasError('minlength') &&
+                    registerForm.get('usuario').touched" class="invalid-feedback">
+              O usuario deve ter no minimo 5 caracteres.
+            </div>
+            <div *ngIf="registerForm.get('usuario').hasError('maxLength') &&
+                    registerForm.get('usuario').touched" class="invalid-feedback">
+              O usuario deve ter no maximo 50 caracteres.
+            </div>
+          </div>
+        </div>
+        <div formGroupName="passwords">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="">Senha:</label>
+              <input class="form-control" type="password" formControlName="senha" [ngClass]="{ 'is-invalid': registerForm.get('passwords.senha').errors &&
+                                       registerForm.get('passwords.senha').touched}" placeholder="Digite uma Senha" />
+              <div *ngIf="registerForm.get('passwords.senha').hasError('minlength') &&
+              registerForm.get('passwords.senha').touched" class="invalid-feedback">
+                A senha deve conter no mínimo 8 caracteres
+              </div>
+              <div *ngIf="registerForm.get('passwords.senha').hasError('maxLength') &&
+              registerForm.get('passwords.senha').touched" class="invalid-feedback">
+                A senha deve conter no maximo 50 caracteres
+              </div>
+              <div *ngIf="registerForm.get('passwords.senha').hasError('required') &&
+                      registerForm.get('passwords.senha').touched" class="invalid-feedback">
+                Senha é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="">Confirmar Senha:</label>
+              <input class="form-control" type="password" formControlName="confirmarSenha" [ngClass]="{ 'is-invalid': registerForm.get('passwords.confirmarSenha').errors 
+                         && registerForm.get('passwords.confirmarSenha').touched}" placeholder="Repita a Senha" />
+              <div *ngIf="registerForm.get('passwords.confirmarSenha').hasError('required') &&
+                      registerForm.get('passwords.confirmarSenha').touched" class="invalid-feedback">
+                É necessário repetir a senha.
+              </div>
+              <div *ngIf="registerForm.get('passwords.confirmarSenha').hasError('mismatch') 
+                      && registerForm.get('passwords.confirmarSenha').touched" class="invalid-feedback">
+                As senhas não são compatíveis.
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="modal-footer d-flex">
+        <button class="btn btn-secondary" (click)="modalRef.hide()">
+          FECHAR
+        </button>
+        <button [disabled]="!registerForm.valid" class="btn btn-primary ml-auto" (click)="salvarAlteracao(template, modalRef)">
+          SALVAR
+        </button>
+      </div>
+    </div>
+  </ng-template>
 </div>

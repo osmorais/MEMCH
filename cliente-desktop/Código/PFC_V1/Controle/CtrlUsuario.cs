@@ -35,7 +35,7 @@ namespace PFC_V1.Controle
 
 		public T consultar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "consultar/"));
+			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "consultarLogin/"));
 		}
 	}
 }
