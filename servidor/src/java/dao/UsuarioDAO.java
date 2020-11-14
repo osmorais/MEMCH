@@ -86,6 +86,34 @@ public class UsuarioDAO implements IUsuarioDAO{
             ConnectionFactory con = new ConnectionFactory();
 
             conexao = con.getConnection();
+            PreparedStatement stmt = conexao.prepareStatement(SELECTID);
+            stmt.setInt(1, usuario.getId());
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                usuario.setId(rs.getInt("id"));
+                usuario.setLogin(rs.getString("login"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setEmail(rs.getString("email"));
+                
+                IPessoaDAO pessoadao = new PessoaDAO();
+                Pessoa pessoa = new Pessoa();
+                pessoa.setId(rs.getInt("pessoafk"));
+                
+                pessoadao.consultar(pessoa);
+                
+                usuario.setPessoa(pessoa);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro: ", ex);
+        }
+    }
+    
+    public void consultarLogin(Usuario usuario) {
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+
+            conexao = con.getConnection();
             PreparedStatement stmt = conexao.prepareStatement(SELECTFORLOGIN);
             stmt.setString(1, usuario.getLogin());
             stmt.setString(2, usuario.getSenha());

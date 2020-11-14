@@ -23,11 +23,17 @@ public class SrvcUsuario {
         
         return usuariodao.listar();
     }
-     
-     public static Usuario consultar(Usuario usuario){
+    public static Usuario consultar(Usuario usuario){
 
         IUsuarioDAO usuariodao = new UsuarioDAO();
         usuariodao.consultar(usuario);
+        
+        return usuario;
+    }
+    public static Usuario consultarLogin(Usuario usuario){
+
+        IUsuarioDAO usuariodao = new UsuarioDAO();
+        usuariodao.consultarLogin(usuario);
         
         return usuario;
     }

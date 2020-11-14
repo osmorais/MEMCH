@@ -14,9 +14,10 @@ import modelo.Usuario;
  * @author osmar
  */
 public interface IUsuarioDAO {
-    void cadastrar(Usuario alerta);
-    void consultar(Usuario alerta);
-    void alterar(Usuario alerta);
-    void remover(Usuario alerta);
+    void cadastrar(Usuario usuario);
+    void consultar(Usuario usuario);
+    void consultarLogin(Usuario usuario);
+    void alterar(Usuario usuario);
+    void remover(Usuario usuario);
     ArrayList<Usuario> listar();
 }

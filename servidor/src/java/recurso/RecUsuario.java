@@ -16,6 +16,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import modelo.Usuario;
@@ -42,13 +43,14 @@ public class RecUsuario {
         this.xstream =  new XStream(new DomDriver());
     }
     
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("consultar")
-    public Response consultar(String conteudo) {
+    @Path("consultar/{id}")
+    public Response consultar(@PathParam("id") Integer id) {
         
-        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        Usuario usuario = new Usuario();
+        usuario.setId(id);
+        
         SrvcUsuario.consultar(usuario);
         
         String retorno = objgson.toJson(usuario);
@@ -59,11 +61,25 @@ public class RecUsuario {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("consultar/json")
+    @Path("consultarLogin")
+    public Response consultarLogin(String conteudo) {
+        
+        Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
+        SrvcUsuario.consultarLogin(usuario);
+        
+        String retorno = objgson.toJson(usuario);
+
+        return Response.status(200).entity(retorno).header("Access-Control-Allow-Origin", "*").build();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("consultarLogin/json")
     public String consultarJson(String conteudo) {
         
         Usuario usuario = objgson.fromJson(conteudo, Usuario.class);
-        SrvcUsuario.consultar(usuario);
+        SrvcUsuario.consultarLogin(usuario);
         
         String retorno = objgson.toJson(usuario);
 
