@@ -54,6 +54,7 @@ export class UsuarioComponent implements OnInit {
     this.registerForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(40)]],
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
+      email: ['', [Validators.required, Validators.email]],
       usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       passwords: this.fb.group({
         senha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
@@ -77,6 +78,7 @@ export class UsuarioComponent implements OnInit {
       this.currentUsuario = new Usuario();
       this.currentUsuario.login = this.registerForm.get('usuario').value;
       this.currentUsuario.senha = this.registerForm.get('passwords.senha').value;
+      this.currentUsuario.email = this.registerForm.get('email').value;
       
       this.currentUsuario.senha = sha512.sha512(this.currentUsuario.senha).toLocaleUpperCase();
 
@@ -105,7 +107,11 @@ export class UsuarioComponent implements OnInit {
   }
 
   voltarLogin() {
-    this.router.navigate(['/login']);
+    this.loading = true;
+    setTimeout(() => {
+          this.loading = false;
+          this.router.navigate(['/login']);
+        }, 500);
   }
 
   criarConexao(template: any) {

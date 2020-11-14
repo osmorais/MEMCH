@@ -26,7 +26,8 @@ namespace PFC_V1.Visao
 			if (string.IsNullOrWhiteSpace(txb_nome_usuario.Text)) txb_nome_usuario.Text = "Usuario";
 			if (!string.IsNullOrWhiteSpace(txb_login_usuario.Text) &&
                 !string.IsNullOrWhiteSpace(txb_senha_acesso.Text) &&
-                txb_senha_acesso.Text == txb_confirmar_senha.Text)
+				!string.IsNullOrWhiteSpace(txb_email.Text) &&
+				txb_senha_acesso.Text == txb_confirmar_senha.Text)
             {
                 frm_confirmar_acao formulario = new frm_confirmar_acao(usuario.senha);
                 DialogResult resultado = formulario.ShowDialog();
@@ -37,8 +38,9 @@ namespace PFC_V1.Visao
                     usuario.pessoa.cpf = txb_cpf_usuario.Text;
                     usuario.login = txb_login_usuario.Text;
                     usuario.senha = txb_senha_acesso.Text;
+					usuario.email = txb_email.Text;
 
-                    usuario.senha = SHA.GenerateSHA512String(usuario.senha);
+					usuario.senha = SHA.GenerateSHA512String(usuario.senha);
 
 					IOperadorREST op = new OperadorJson();
 					CtrlUsuario controle = new CtrlUsuario();
@@ -59,5 +61,13 @@ namespace PFC_V1.Visao
         {
             Close();
         }
-    }
+
+		private void frm_atualizar_usuario_Load(object sender, EventArgs e)
+		{
+			txb_nome_usuario.Text = this.usuario.pessoa.nome;
+			txb_cpf_usuario.Text = this.usuario.pessoa.cpf;
+			txb_login_usuario.Text = this.usuario.login;
+			txb_email.Text = this.usuario.email;
+		}
+	}
 }

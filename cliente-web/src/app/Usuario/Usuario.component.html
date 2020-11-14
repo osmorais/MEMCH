@@ -62,6 +62,21 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-12">
+            <label for="">Email:</label>
+            <input class="form-control" type="text" formControlName="email" [ngClass]="{'is-invalid': registerForm.get('email').errors &&
+            registerForm.get('email').touched}" placeholder="Insira seu Endereço de Email" />
+            <div *ngIf="registerForm.get('email').hasError('required') &&
+                    registerForm.get('email').touched" class="invalid-feedback">
+              Email é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('email').hasError('email') &&
+                    registerForm.get('email').touched" class="invalid-feedback">
+              Deve ser um e-mail válido
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
             <label for="">Usuario:</label>
             <input class="form-control" type="text" formControlName="usuario" [ngClass]="{'is-invalid': registerForm.get('usuario').errors &&
                                     registerForm.get('usuario').touched}" placeholder="Insira o nome de Usuário" />

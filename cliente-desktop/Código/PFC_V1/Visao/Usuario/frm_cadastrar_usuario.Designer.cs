@@ -44,6 +44,8 @@
 			this.lbl_login_usuario = new System.Windows.Forms.Label();
 			this.txb_cpf_usuario = new System.Windows.Forms.TextBox();
 			this.lbl_cpf_usuario = new System.Windows.Forms.Label();
+			this.txb_email = new System.Windows.Forms.TextBox();
+			this.lbl_email = new System.Windows.Forms.Label();
 			this.gpb_cadastro_usuario.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -115,6 +117,8 @@
 			// 
 			// gpb_cadastro_usuario
 			// 
+			this.gpb_cadastro_usuario.Controls.Add(this.txb_email);
+			this.gpb_cadastro_usuario.Controls.Add(this.lbl_email);
 			this.gpb_cadastro_usuario.Controls.Add(this.txb_confirmar_senha);
 			this.gpb_cadastro_usuario.Controls.Add(this.lbl_confirmar_senha);
 			this.gpb_cadastro_usuario.Controls.Add(this.txb_senha_acesso);
@@ -176,7 +180,7 @@
 			// 
 			// txb_login_usuario
 			// 
-			this.txb_login_usuario.Location = new System.Drawing.Point(8, 86);
+			this.txb_login_usuario.Location = new System.Drawing.Point(8, 123);
 			this.txb_login_usuario.Margin = new System.Windows.Forms.Padding(2);
 			this.txb_login_usuario.Name = "txb_login_usuario";
 			this.txb_login_usuario.Size = new System.Drawing.Size(133, 20);
@@ -185,7 +189,7 @@
 			// lbl_login_usuario
 			// 
 			this.lbl_login_usuario.AutoSize = true;
-			this.lbl_login_usuario.Location = new System.Drawing.Point(6, 70);
+			this.lbl_login_usuario.Location = new System.Drawing.Point(6, 107);
 			this.lbl_login_usuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lbl_login_usuario.Name = "lbl_login_usuario";
 			this.lbl_login_usuario.Size = new System.Drawing.Size(90, 13);
@@ -194,7 +198,7 @@
 			// 
 			// txb_cpf_usuario
 			// 
-			this.txb_cpf_usuario.Location = new System.Drawing.Point(147, 41);
+			this.txb_cpf_usuario.Location = new System.Drawing.Point(8, 85);
 			this.txb_cpf_usuario.Margin = new System.Windows.Forms.Padding(2);
 			this.txb_cpf_usuario.Name = "txb_cpf_usuario";
 			this.txb_cpf_usuario.Size = new System.Drawing.Size(133, 20);
@@ -203,12 +207,30 @@
 			// lbl_cpf_usuario
 			// 
 			this.lbl_cpf_usuario.AutoSize = true;
-			this.lbl_cpf_usuario.Location = new System.Drawing.Point(145, 24);
+			this.lbl_cpf_usuario.Location = new System.Drawing.Point(6, 68);
 			this.lbl_cpf_usuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lbl_cpf_usuario.Name = "lbl_cpf_usuario";
 			this.lbl_cpf_usuario.Size = new System.Drawing.Size(60, 13);
 			this.lbl_cpf_usuario.TabIndex = 16;
 			this.lbl_cpf_usuario.Text = "Nº do CPF:";
+			// 
+			// txtEmail
+			// 
+			this.txb_email.Location = new System.Drawing.Point(147, 41);
+			this.txb_email.Margin = new System.Windows.Forms.Padding(2);
+			this.txb_email.Name = "txtEmail";
+			this.txb_email.Size = new System.Drawing.Size(133, 20);
+			this.txb_email.TabIndex = 25;
+			// 
+			// lbl_email
+			// 
+			this.lbl_email.AutoSize = true;
+			this.lbl_email.Location = new System.Drawing.Point(145, 24);
+			this.lbl_email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbl_email.Name = "lbl_email";
+			this.lbl_email.Size = new System.Drawing.Size(35, 13);
+			this.lbl_email.TabIndex = 24;
+			this.lbl_email.Text = "Email:";
 			// 
 			// frm_cadastrar
 			// 
@@ -249,5 +271,7 @@
         private System.Windows.Forms.Label lbl_confirmar_senha;
         private System.Windows.Forms.TextBox txb_cpf_usuario;
         private System.Windows.Forms.Label lbl_cpf_usuario;
-    }
+		private System.Windows.Forms.TextBox txb_email;
+		private System.Windows.Forms.Label lbl_email;
+	}
 }

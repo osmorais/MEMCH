@@ -12,7 +12,8 @@ namespace PFC_V1
     {
         public string login { get; set; }
         public string senha { get; set; }
-        public Pessoa pessoa { get; set; }
+		public string email { get; set; }
+		public Pessoa pessoa { get; set; }
         public List<Conexao> conexoes { get; set; }
     }
 }

@@ -26,7 +26,8 @@ namespace PFC_V1
 			if (string.IsNullOrWhiteSpace(txb_nome_usuario.Text)) txb_nome_usuario.Text = "Usuario";
 			if (!string.IsNullOrWhiteSpace(txb_login_usuario.Text) &&
                 !string.IsNullOrWhiteSpace(txb_senha_acesso.Text) &&
-                txb_senha_acesso.Text == txb_confirmar_senha.Text)
+				!string.IsNullOrWhiteSpace(txb_email.Text) &&
+				txb_senha_acesso.Text == txb_confirmar_senha.Text)
             {
                 Pessoa pessoa = new Pessoa();
                 pessoa.nome = txb_nome_usuario.Text;
@@ -36,6 +37,7 @@ namespace PFC_V1
                 usuario.pessoa = pessoa;
                 usuario.senha = txb_senha_acesso.Text;
                 usuario.login = txb_login_usuario.Text;
+				usuario.email = txb_email.Text;
 
                 usuario.senha = SHA.GenerateSHA512String(usuario.senha);
 				try
