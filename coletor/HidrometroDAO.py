@@ -1,4 +1,4 @@
-IUsuarioDAOIUsuarioDAO
+from IHidrometroDAO import IHidrometroDAO
 from ConnectionFactory import ConnectionFactory
 import psycopg2
 from RegistroDAO import RegistroDAO
