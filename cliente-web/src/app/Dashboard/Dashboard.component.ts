@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   registerForm: FormGroup;
   currentUsuario: Usuario;
   modalRef: BsModalRef;
+  currentPessoaID: number;
 
   constructor(private conexaoService: ConexaoService,
     private toastr: ToastrService,
@@ -107,7 +108,7 @@ export class DashboardComponent implements OnInit {
     this.loading = true;
     this.usuarioService.getUsuario(this.currentUsuario.id).subscribe((_usuario: Usuario) => {
       this.currentUsuario = _usuario;
-
+      this.currentPessoaID = this.currentUsuario.pessoa.id;
       this.loading = false;
     
       this.registerForm.get('nome').setValue(this.currentUsuario.pessoa.nome);
@@ -136,6 +137,7 @@ export class DashboardComponent implements OnInit {
       this.currentUsuario.senha = sha512.sha512(this.currentUsuario.senha).toLocaleUpperCase();
 
       this.currentUsuario.pessoa = new Pessoa();
+      this.currentUsuario.pessoa.id = this.currentPessoaID;
       this.currentUsuario.pessoa.nome = this.registerForm.get('nome').value;
       this.currentUsuario.pessoa.cpf = this.registerForm.get('cpf').value;
 
