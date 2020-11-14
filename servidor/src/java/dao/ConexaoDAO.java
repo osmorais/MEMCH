@@ -59,13 +59,14 @@ public class ConexaoDAO implements IConexaoDAO{
             stmt.setString(1, conexao.getHost());
             stmt.setInt(2, conexao.isAtivo()? 1 : 0);
             stmt.setString(3, conexao.getDescricao());
-            stmt.setInt(4, usuarioid);
+            
             
             IHidrometroDAO hidrometrodao = new HidrometroDAO();
             Hidrometro hidrometro = conexao.getHidrometro();
             
             hidrometrodao.cadastrar(hidrometro);
             stmt.setInt(4, hidrometro.getId());
+            stmt.setInt(5, usuarioid);
             
             stmt.execute();
             
