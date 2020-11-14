@@ -39,22 +39,22 @@ public class SrvcUsuario {
     }
     public static Usuario cadastrar(Usuario usuario){
 
-        IUsuarioDAO conexaodao = new UsuarioDAO();
-        conexaodao.cadastrar(usuario);
+        IUsuarioDAO usuariodao = new UsuarioDAO();
+        usuariodao.cadastrar(usuario);
         
         return usuario;
     }
     public static Usuario alterar(Usuario usuario){
 
-        IUsuarioDAO conexaodao = new UsuarioDAO();
-        conexaodao.alterar(usuario);
+        IUsuarioDAO usuariodao = new UsuarioDAO();
+        usuariodao.alterar(usuario);
         
         return usuario;
     }
     public static Usuario remover(Usuario usuario){
 
-        IUsuarioDAO conexaodao = new UsuarioDAO();
-        conexaodao.remover(usuario);
+        IUsuarioDAO usuariodao = new UsuarioDAO();
+        usuariodao.remover(usuario);
         
         return usuario;
     }

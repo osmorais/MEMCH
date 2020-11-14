@@ -109,6 +109,7 @@ public class UsuarioDAO implements IUsuarioDAO{
         }
     }
     
+    @Override
     public void consultarLogin(Usuario usuario) {
         try {
             ConnectionFactory con = new ConnectionFactory();
