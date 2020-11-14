@@ -18,6 +18,12 @@
     margin-left: 0px;
 }
 
+.fa-skull-crossbones {
+    margin: auto;
+    font-size: 260px;
+    color: #808080;
+}
+
 .col-sm-6{
     flex: 0 0 50%;
     max-width: 25%;

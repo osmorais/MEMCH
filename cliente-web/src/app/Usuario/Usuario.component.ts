@@ -37,18 +37,18 @@ export class UsuarioComponent implements OnInit {
     // this.validadorConexao();
   }
 
-  // validadorConexao() {
-  //   this.registerFormConexao = this.fb.group({
-  //     host: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
-  //     ativo: ['',],
-  //     descricao: ['', [Validators.required, Validators.minLength(4)]],
-  //     identificador: ['', [Validators.required, Validators.minLength(4)]],
-  //     chave: ['', [Validators.required, Validators.minLength(4)]],
-  //     hidrometroAtivo: ['',],
-  //     modelo: ['', [Validators.required, Validators.minLength(4)]],
-  //     hidrometrodescricao: ['', [Validators.required, Validators.minLength(4)]]
-  //   });
-  // }
+  validadorConexao() {
+    this.registerFormConexao = this.fb.group({
+      host: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
+      ativo: ['',],
+      descricao: ['', [Validators.required, Validators.minLength(4)]],
+      identificador: ['', [Validators.required, Validators.minLength(4)]],
+      chave: ['', [Validators.required, Validators.minLength(4)]],
+      hidrometroAtivo: ['',],
+      modelo: ['', [Validators.required, Validators.minLength(4)]],
+      hidrometrodescricao: ['', [Validators.required, Validators.minLength(4)]]
+    });
+  }
 
   validador() {
     this.registerForm = this.fb.group({
@@ -168,4 +168,5 @@ export class UsuarioComponent implements OnInit {
   //     this.toastr.error('Verifique os campos informados e tente novamente.', 'Formulario invalido');
   //   }
   // }
+  //   }
 }
