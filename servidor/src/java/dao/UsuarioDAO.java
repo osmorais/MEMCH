@@ -184,10 +184,10 @@ public class UsuarioDAO implements IUsuarioDAO{
 
             IPessoaDAO pessoadao = new PessoaDAO();
             Pessoa pessoa = usuario.getPessoa();
-                
-            pessoadao.remover(pessoa);
             
             stmt.execute();
+            
+            pessoadao.remover(pessoa);
             
             usuario.setId(0);
         } catch (SQLException ex) {
