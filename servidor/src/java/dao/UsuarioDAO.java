@@ -22,26 +22,31 @@ import util.ConnectionFactory;
  * @author osmar
  */
 public class UsuarioDAO implements IUsuarioDAO{
-//                                     Table "public.usuario"
-//  Column  |         Type          |                      Modifiers                       
-//----------+-----------------------+------------------------------------------------------
-// id       | integer               | not null default nextval('usuario_id_seq'::regclass)
-// login    | character varying(20) | 
-// senha    | character varying(20) | 
-// pessoafk | integer               | not null
+//                                  Table "public.usuario"
+//  Column  |          Type          |                      Modifiers                       
+//----------+------------------------+------------------------------------------------------
+// id       | integer                | not null default nextval('usuario_id_seq'::regclass)
+// login    | character varying(20)  | 
+// pessoafk | integer                | not null
+// senha    | character varying(200) | not null default 'admin'::character varying
+// email    | character varying(100) | 
 //Indexes:
 //    "pk_usuario" PRIMARY KEY, btree (id)
 //Foreign-key constraints:
-//    "pessoafk" FOREIGN KEY (pessoaid) REFERENCES pessoa(id)
+//    "pessoafk" FOREIGN KEY (pessoafk) REFERENCES pessoa(id)
+//Referenced by:
+//    TABLE "conexao" CONSTRAINT "usuariofk" FOREIGN KEY (usuariofk) REFERENCES usuario(id)
+//
+
     private final String SELECTALL = "SELECT * FROM USUARIO;";
     private final String SELECTID = "SELECT * FROM USUARIO WHERE ID=?;";
     private final String SELECTFORLOGIN = "SELECT * FROM USUARIO WHERE LOGIN=? AND SENHA=?;";
     private static final String INSERT = "INSERT INTO USUARIO "
-            + "(LOGIN, SENHA, PESSOAFK) VALUES "
-            + "(?,?,?)";
+            + "(LOGIN, SENHA, PESSOAFK, EMAIL) VALUES "
+            + "(?,?,?,?)";
     private static final String DELETE = "DELETE FROM USUARIO WHERE ID=?";
     private static final String UPDATE = "UPDATE USUARIO "
-            + "SET LOGIN=?, SENHA=?, PESSOAFK=?"
+            + "SET LOGIN=?, SENHA=?, PESSOAFK=?, EMAIL=?"
             + " WHERE ID=?";
     
     private Connection conexao;
@@ -62,7 +67,8 @@ public class UsuarioDAO implements IUsuarioDAO{
             
             pessoadao.cadastrar(pessoa);
             stmt.setInt(3, pessoa.getId());
-            
+            stmt.setString(4, usuario.getEmail());
+             
             stmt.execute();
             
             ResultSet rs = stmt.getGeneratedKeys();
@@ -89,6 +95,7 @@ public class UsuarioDAO implements IUsuarioDAO{
                 usuario.setId(rs.getInt("id"));
                 usuario.setLogin(rs.getString("login"));
                 usuario.setSenha(rs.getString("senha"));
+                usuario.setEmail(rs.getString("email"));
                 
                 IPessoaDAO pessoadao = new PessoaDAO();
                 Pessoa pessoa = new Pessoa();
@@ -119,7 +126,8 @@ public class UsuarioDAO implements IUsuarioDAO{
             
             pessoadao.alterar(pessoa);
             stmt.setInt(3, pessoa.getId());
-            stmt.setInt(4, usuario.getId());
+            stmt.setString(4, usuario.getEmail());
+            stmt.setInt(5, usuario.getId());
             
             int lastId = 0;
 
@@ -174,6 +182,7 @@ public class UsuarioDAO implements IUsuarioDAO{
                 usuario.setId(rs.getInt("id"));
                 usuario.setLogin(rs.getString("login"));
                 usuario.setSenha(rs.getString("senha"));
+                usuario.setEmail(rs.getString("email"));
                 
                 IPessoaDAO pessoadao = new PessoaDAO();
                 Pessoa pessoa = new Pessoa();

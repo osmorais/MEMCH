@@ -16,15 +16,25 @@ public class Usuario extends Objeto{
     private String senha;
     private ArrayList<Conexao> conexoes;
     private Pessoa pessoa;
+    private String email;
 
     public Usuario() {
     }
 
-    public Usuario(String login, String senha, ArrayList<Conexao> conexoes, Pessoa pessoa) {
+    public Usuario(String login, String senha, ArrayList<Conexao> conexoes, Pessoa pessoa, String email) {
         this.login = login;
         this.senha = senha;
         this.conexoes = conexoes;
         this.pessoa = pessoa;
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLogin() {
