@@ -44,19 +44,23 @@
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="">CPF:</label>
-            <input class="form-control" type="text" formControlName="cpf" [ngClass]="{ 'is-invalid': registerForm.get('cpf').errors && 
+            <input maxlength="11" class="form-control" type="text" formControlName="cpf" [ngClass]="{ 'is-invalid': registerForm.get('cpf').errors && 
             registerForm.get('cpf').touched}" placeholder="Insira seu CPF" />
             <div *ngIf="registerForm.get('cpf').hasError('required') &&
                     registerForm.get('cpf').touched" class="invalid-feedback">
-              cpf é obrigatório.
+              CPF é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('cpf').hasError('cpfInvalido') &&
+                    registerForm.get('cpf').touched" class="invalid-feedback">
+              O CPF deve ser válido.
             </div>
             <div *ngIf="registerForm.get('cpf').hasError('minlength') &&
                     registerForm.get('cpf').touched" class="invalid-feedback">
-              O cpf deve ter no minimo 11 caracteres.
+              O CPF deve ter 11 caracteres, sem "." ou "-".
             </div>
             <div *ngIf="registerForm.get('cpf').hasError('maxLength') &&
                     registerForm.get('cpf').touched" class="invalid-feedback">
-              O cpf deve ter no maximo 14 caracteres.
+              O CPF deve ter 11 caracteres, sem "." ou "-".
             </div>
           </div>
         </div>
