@@ -27,6 +27,7 @@
     "js-sha512": "^0.8.0",
     "ngx-bootstrap": "^5.6.1",
     "ngx-loading": "^8.0.0",
+    "ngx-mask": "^11.0.0",
     "ngx-toastr": "^13.0.0",
     "rxjs": "~6.5.5",
     "ts-md5": "^1.2.7",
