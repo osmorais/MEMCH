@@ -55,6 +55,10 @@ export class DashboardComponent implements OnInit {
   somenteLetras(controle: AbstractControl) {
     var stringvalue = controle.value;
 
+    if(stringvalue == null){
+      return null
+    }
+
     if (stringvalue.indexOf("1") > -1 ||
       stringvalue.indexOf("2") > -1 ||
       stringvalue.indexOf("3") > -1 ||

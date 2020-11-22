@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
@@ -42,31 +42,13 @@ export class ConexaoComponent implements OnInit {
     this.registerForm = this.fb.group({
       host: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
       ativo: ['', ],
-      descricao: ['', [Validators.required, Validators.minLength(4), this.somenteLetras]],
+      descricao: ['', [Validators.required, Validators.minLength(4)]],
       identificador: ['', [Validators.required, Validators.minLength(4)]],
       chave: ['', [Validators.required, Validators.minLength(4)]],
       hidrometroAtivo: ['', ],
       modelo: ['', [Validators.required, Validators.minLength(4)]],
-      hidrometrodescricao: ['', [Validators.required, Validators.minLength(4), this.somenteLetras]]
+      hidrometrodescricao: ['', [Validators.required, Validators.minLength(4)]]
     });
-  }
-
-  somenteLetras(controle: AbstractControl) {
-    var stringvalue = controle.value;
-
-    if (stringvalue.indexOf("1") > -1 ||
-      stringvalue.indexOf("2") > -1 ||
-      stringvalue.indexOf("3") > -1 ||
-      stringvalue.indexOf("4") > -1 ||
-      stringvalue.indexOf("5") > -1 ||
-      stringvalue.indexOf("6") > -1 ||
-      stringvalue.indexOf("7") > -1 ||
-      stringvalue.indexOf("8") > -1 ||
-      stringvalue.indexOf("9") > -1) {
-      return { contemNumeros: true };
-    }
-
-    return null;
   }
 
   getConexoes(){
