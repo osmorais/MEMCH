@@ -33,7 +33,7 @@ class HidrometroDAO(IHidrometroDAO):
                 connection.close()
 
     def consultar(self,hidrometro) -> None:
-        select = "SELECT * FROM HIDROMETRO LIMIT 1"
+        select = "SELECT * FROM HIDROMETRO WHERE ULTIMO_REGISTRO < (NOW() - INTERVAL '40 DAY') LIMIT 1"
 
         conn = ConnectionFactory();
         try:
