@@ -27,9 +27,10 @@ export class DashboardComponent implements OnInit {
   currentUsuario: Usuario;
   modalRef: BsModalRef;
   currentPessoaID: number;
-  public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Hidrometro 1' }
-  ];
+  public lineChartData: ChartDataSets[] = [];
+
+  // { data: [65, 59, 80, 81, 56, 55, 40], label: 'Hidrometro 1' }
+
   public lineChartLabels: Label[] = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: false,
@@ -79,6 +80,14 @@ export class DashboardComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // red
+      backgroundColor: 'rgba(255,0,0,0.3)',
+      borderColor: 'red',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
   public lineChartLegend = true;
@@ -124,7 +133,7 @@ export class DashboardComponent implements OnInit {
   somenteLetras(controle: AbstractControl) {
     var stringvalue = controle.value;
 
-    if(stringvalue == null){
+    if (stringvalue == null) {
       return null
     }
 
@@ -184,7 +193,7 @@ export class DashboardComponent implements OnInit {
       valido = true;
     }
 
-    if (valido){ return null;}
+    if (valido) { return null; }
 
     return { cpfInvalido: true };
   }
@@ -204,7 +213,30 @@ export class DashboardComponent implements OnInit {
     this.conexaoService.getConexoes().subscribe((_conexoes: Conexao[]) => {
       this.loading = false;
       this.conexoes = _conexoes;
-      console.log(_conexoes);
+
+      this.conexoes.forEach(x => {
+        var registros = x.hidrometro.registros;
+
+        this.lineChartData.push(
+          {
+            data: [
+              +registros[0].valor,
+              +registros[1].valor,
+              +registros[2].valor,
+              +registros[3].valor, 
+              +registros[4].valor, 
+              +registros[5].valor, 
+              +registros[6].valor, 
+              +registros[7].valor,
+              +registros[8].valor,
+              +registros[9].valor, 
+              +registros[10].valor, 
+              +registros[11].valor
+            ], 
+              label: x.hidrometro.identificador
+          })
+      });
+
 
     }, error => {
       this.loading = false;
@@ -247,7 +279,7 @@ export class DashboardComponent implements OnInit {
       this.currentUsuario = _usuario;
       this.currentPessoaID = this.currentUsuario.pessoa.id;
       this.loading = false;
-    
+
       this.registerForm.get('nome').setValue(this.currentUsuario.pessoa.nome);
       this.registerForm.get('cpf').setValue(this.currentUsuario.pessoa.cpf);
       this.registerForm.get('email').setValue(this.currentUsuario.email);
@@ -270,7 +302,7 @@ export class DashboardComponent implements OnInit {
       this.currentUsuario.login = this.registerForm.get('usuario').value;
       this.currentUsuario.senha = this.registerForm.get('passwords.senha').value;
       this.currentUsuario.email = this.registerForm.get('email').value;
-      
+
       this.currentUsuario.senha = sha512.sha512(this.currentUsuario.senha).toLocaleUpperCase();
 
       this.currentUsuario.pessoa = new Pessoa();
