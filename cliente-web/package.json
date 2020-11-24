@@ -25,6 +25,7 @@
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.4",
     "js-sha512": "^0.8.0",
+    "ng2-charts": "^2.4.2",
     "ngx-bootstrap": "^5.6.1",
     "ngx-loading": "^8.0.0",
     "ngx-mask": "^11.0.0",

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as sha512 from 'js-sha512';
@@ -11,6 +11,8 @@ import { Usuario } from '../_models/Usuario';
 import { ConexaoService } from '../_services/conexao.service';
 import { HidrometroService } from '../_services/hidrometro.service';
 import { UsuarioService } from '../_services/Usuario.service';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { Color, BaseChartDirective, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-Dashboard',
@@ -25,6 +27,64 @@ export class DashboardComponent implements OnInit {
   currentUsuario: Usuario;
   modalRef: BsModalRef;
   currentPessoaID: number;
+  public lineChartData: ChartDataSets[] = [
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Hidrometro 1' }
+  ];
+  public lineChartLabels: Label[] = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+  public lineChartOptions: (ChartOptions & { annotation: any }) = {
+    responsive: false,
+    scales: {
+      // We use this empty structure as a placeholder for dynamic theming.
+      xAxes: [{}],
+      yAxes: [
+        {
+          id: 'y-axis-0',
+          position: 'left',
+        },
+        {
+          id: 'y-axis-1',
+          position: 'right',
+          gridLines: {
+            color: 'rgba(255,0,0,0.3)',
+          },
+          ticks: {
+            fontColor: 'red',
+          }
+        }
+      ]
+    },
+    annotation: {},
+  };
+  public lineChartColors: Color[] = [
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // dark grey
+      backgroundColor: 'rgba(77,83,96,0.2)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(77,83,96,1)'
+    },
+    { // green
+      backgroundColor: 'rgba(0, 255, 0, 0.3)',
+      borderColor: 'green',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
+  public lineChartLegend = true;
+  public lineChartType: ChartType = 'line';
+
+  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
 
   constructor(private conexaoService: ConexaoService,
     private toastr: ToastrService,
@@ -37,6 +97,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getConexoes();
     this.validador();
+  }
+
+  // events
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
   }
 
   validador() {

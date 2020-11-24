@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
+import { ChartsModule } from 'ng2-charts';
 
 import { RegistroService } from './_services/registro.service';
 
@@ -68,6 +69,7 @@ import { UsuarioComponent } from './Usuario/Usuario.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ChartsModule,
   ],
   providers: [
     ConexaoService,

@@ -92,6 +92,18 @@
         </div>
       </div>
     </div>
+    <div class="row mt-2">
+      <div class="flex">
+        <div class="flex-item">
+          <div style="display: block;">
+            <canvas baseChart width="1069" height="500" [datasets]="lineChartData" [labels]="lineChartLabels"
+              [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+              [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)" style="display: block;width: 1069px;height: 500px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <ng-template #template>
