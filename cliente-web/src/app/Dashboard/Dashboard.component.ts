@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
 
   validador() {
     this.registerForm = this.fb.group({
-      nome: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(40)]],
+      nome: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(40), this.somenteLetras]],
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11), this.ValidaCpf]],
       email: ['', [Validators.required, Validators.email]],
       usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
@@ -50,6 +50,28 @@ export class DashboardComponent implements OnInit {
         confirmarSenha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]]
       }, { validator: this.compararSenhas })
     });
+  }
+
+  somenteLetras(controle: AbstractControl) {
+    var stringvalue = controle.value;
+
+    if(stringvalue == null){
+      return null
+    }
+
+    if (stringvalue.indexOf("1") > -1 ||
+      stringvalue.indexOf("2") > -1 ||
+      stringvalue.indexOf("3") > -1 ||
+      stringvalue.indexOf("4") > -1 ||
+      stringvalue.indexOf("5") > -1 ||
+      stringvalue.indexOf("6") > -1 ||
+      stringvalue.indexOf("7") > -1 ||
+      stringvalue.indexOf("8") > -1 ||
+      stringvalue.indexOf("9") > -1) {
+      return { contemNumeros: true };
+    }
+
+    return null;
   }
 
   ValidaCpf(controle: AbstractControl) {

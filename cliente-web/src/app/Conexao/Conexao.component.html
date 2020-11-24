@@ -140,6 +140,10 @@
             && registerForm.get('descricao').touched" class="invalid-feedback">
               A descrição deve ter no mínimo 4 Caracters.
             </div>
+            <div *ngIf="registerForm.get('descricao').hasError('contemNumeros') &&
+                    registerForm.get('descricao').touched" class="invalid-feedback">
+              Descrição não pode conter números.
+            </div>
           </div>
         </div>
         <div class="form-row">
@@ -208,6 +212,10 @@
             <div *ngIf="registerForm.get('hidrometrodescricao').hasError('minlength')
             && registerForm.get('hidrometrodescricao').touched" class="invalid-feedback">
               A descrição do hidrometro deve ter no mínimo 4 Caracters.
+            </div>
+            <div *ngIf="registerForm.get('hidrometrodescricao').hasError('contemNumeros') &&
+                    registerForm.get('hidrometrodescricao').touched" class="invalid-feedback">
+              Descrição não pode conter números.
             </div>
           </div>
         </div>

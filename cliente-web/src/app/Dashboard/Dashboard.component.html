@@ -112,6 +112,10 @@
                     registerForm.get('nome').touched" class="invalid-feedback">
               Nome completo é obrigatório.
             </div>
+            <div *ngIf="registerForm.get('nome').hasError('contemNumeros') &&
+                    registerForm.get('nome').touched" class="invalid-feedback">
+              Nome não pode conter números.
+            </div>
             <div *ngIf="registerForm.get('nome').hasError('minlength') &&
                     registerForm.get('nome').touched" class="invalid-feedback">
               O nome deve ter no minimo 10 caracteres.
