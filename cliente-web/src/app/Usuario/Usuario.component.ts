@@ -66,7 +66,7 @@ export class UsuarioComponent implements OnInit {
   somenteLetras(controle: AbstractControl) {
     var stringvalue = controle.value;
 
-    if(stringvalue == null){
+    if (stringvalue == null) {
       return null
     }
 
@@ -156,18 +156,38 @@ export class UsuarioComponent implements OnInit {
 
       this.loading = true;
 
-      this.usuarioService.postUsuario(this.currentUsuario).subscribe((_usuario: Usuario) => {
-        this.toastr.success(`Usuario cadastrado com sucesso!`);
-        setTimeout(() => {
+      var canPost = false
+      this.usuarioService.postLogin(this.currentUsuario).subscribe(
+        (usuarioResponse: Usuario) => {
           this.loading = false;
-          // this.salvarConexao();
-          this.router.navigate(['/login']);
-        }, 1000);
-      }, error => {
-        this.loading = false;
-        this.toastr.error('Erro ao tentar cadastrar');
-        console.log(error);
-      });
+          if (usuarioResponse.id != null && usuarioResponse.id != 0) {
+            this.toastr.warning('Já existe um registro com esse nome de usuario');
+          }
+          else {
+            canPost = true;
+          }
+          console.log(usuarioResponse);
+        }, error => {
+          this.loading = false;
+          this.toastr.error('Por favor verifique sua conexão', 'Falha de comunicação');
+          console.log(error);
+        }
+      );
+
+      if (canPost) {
+        this.usuarioService.postUsuario(this.currentUsuario).subscribe((_usuario: Usuario) => {
+          this.toastr.success(`Usuario cadastrado com sucesso!`);
+          setTimeout(() => {
+            this.loading = false;
+            // this.salvarConexao();
+            this.router.navigate(['/login']);
+          }, 1000);
+        }, error => {
+          this.loading = false;
+          this.toastr.error('Erro ao tentar cadastrar');
+          console.log(error);
+        });
+      }
     }
     else {
       this.toastr.error('Verifique os campos informados e tente novamente.', 'Formulario invalido');
