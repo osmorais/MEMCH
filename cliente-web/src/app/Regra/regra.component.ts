@@ -56,7 +56,6 @@ export class RegraComponent implements OnInit {
     this.regraTipoService.getAllRegraTipo(localStorage.getItem('host')).subscribe((_regraTipos: RegraTipo[]) => {
 
       this.regraTipos = _regraTipos;
-      console.log(this.regraTipos);
 
     }, error => {
 
@@ -75,7 +74,6 @@ export class RegraComponent implements OnInit {
 
       if (this.regras.length > 1) { this.toastr.info(this.regras.length + ' regras foram retornadas!'); }
       if (this.regras.length == 1) { this.toastr.info(this.regras.length + ' regra foi retornada!'); }
-      console.log(_regras);
 
     }, error => {
 
