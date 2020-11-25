@@ -53,7 +53,7 @@ public class ConexaoDAO implements IConexaoDAO{
         try {
             ConnectionFactory con = new ConnectionFactory();
 
-            this.conexao = con.getConnection();
+            this.conexao = con.getConnectionMain();
             PreparedStatement stmt = this.conexao.prepareStatement(INSERT,
                     Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, conexao.getHost());
@@ -84,7 +84,7 @@ public class ConexaoDAO implements IConexaoDAO{
         try {
             ConnectionFactory con = new ConnectionFactory();
 
-            this.conexao = con.getConnection();
+            this.conexao = con.getConnectionMain();
             PreparedStatement stmt = this.conexao.prepareStatement(SELECTID);
             stmt.setInt(1, conexao.getId());
 
@@ -112,7 +112,7 @@ public class ConexaoDAO implements IConexaoDAO{
     public void alterar(Conexao conexao) {
         try {
             ConnectionFactory con = new ConnectionFactory();
-            this.conexao = con.getConnection();
+            this.conexao = con.getConnectionMain();
 
             PreparedStatement stmt = this.conexao.prepareStatement(UPDATE,
                     Statement.RETURN_GENERATED_KEYS);
@@ -148,7 +148,7 @@ public class ConexaoDAO implements IConexaoDAO{
         try {
             ConnectionFactory con = new ConnectionFactory();
 
-            this.conexao = con.getConnection();
+            this.conexao = con.getConnectionMain();
             PreparedStatement stmt = this.conexao.prepareStatement(DELETE);
             stmt.setInt(1, conexao.getId());
             
@@ -170,7 +170,7 @@ public class ConexaoDAO implements IConexaoDAO{
             
             ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
             PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
             stmt.setInt(1, usuarioid);
 

@@ -5,9 +5,9 @@
         <group>
             <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/dao/RegistroDAO.java</file>
             <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/dao/UsuarioDAO.java</file>
+            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/dao/ConexaoDAO.java</file>
             <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/recurso/RecRegra.java</file>
             <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/dao/InterfaceDAO/IUsuarioDAO.java</file>
-            <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/recurso/RecUsuario.java</file>
             <file>file:/home/pi/Desktop/MEMCH/servidor/src/java/servico/SrvcUsuario.java</file>
         </group>
     </open-files>

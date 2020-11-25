@@ -56,7 +56,7 @@ public class UsuarioDAO implements IUsuarioDAO{
          try {
             ConnectionFactory con = new ConnectionFactory();
 
-            this.conexao = con.getConnection();
+            this.conexao = con.getConnectionMain();
             PreparedStatement stmt = this.conexao.prepareStatement(INSERT,
                     Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, usuario.getLogin());
@@ -85,7 +85,7 @@ public class UsuarioDAO implements IUsuarioDAO{
         try {
             ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
             PreparedStatement stmt = conexao.prepareStatement(SELECTID);
             stmt.setInt(1, usuario.getId());
 
@@ -114,7 +114,7 @@ public class UsuarioDAO implements IUsuarioDAO{
         try {
             ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
             PreparedStatement stmt = conexao.prepareStatement(SELECTFORLOGIN);
             stmt.setString(1, usuario.getLogin());
             stmt.setString(2, usuario.getSenha());
@@ -143,7 +143,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     public void alterar(Usuario usuario) {
         try {
             ConnectionFactory con = new ConnectionFactory();
-            this.conexao = con.getConnection();
+            this.conexao = con.getConnectionMain();
 
             PreparedStatement stmt = this.conexao.prepareStatement(UPDATE,
                     Statement.RETURN_GENERATED_KEYS);
@@ -178,7 +178,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     try {
             ConnectionFactory con = new ConnectionFactory();
 
-            this.conexao = con.getConnection();
+            this.conexao = con.getConnectionMain();
             PreparedStatement stmt = this.conexao.prepareStatement(DELETE);
             stmt.setInt(1, usuario.getId());
 
@@ -202,7 +202,7 @@ public class UsuarioDAO implements IUsuarioDAO{
             
             ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
             PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
             
             ResultSet rs = stmt.executeQuery();
