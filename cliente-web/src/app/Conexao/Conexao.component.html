@@ -16,6 +16,16 @@
         <i class="fa fa-plus-circle"></i>
       </button>
     </div>
+    <div class="form-row mt-2 mb-2">
+      <div class="col-md-6">
+        <div class="form-inline mr-auto">
+          <div class="form-group mb-2" style="width: 535px;">
+            <input style="width: 482px;" type="text" class="form-control mr-2" placeholder="buscar"
+              [(ngModel)]="filtroLista">
+          </div>
+        </div>
+      </div>
+    </div>
     <table class="table table-striped">
       <thead class="thead-light">
         <tr>
@@ -29,7 +39,7 @@
         </tr>
       </thead>
       <tbody *ngIf="conexoes && conexoes.length">
-        <tr *ngFor="let conexao of conexoes">
+        <tr *ngFor="let conexao of conexoesFiltradas">
           <!-- <tr> -->
           <td>{{conexao.id}}</td>
           <td>{{conexao.host}}</td>

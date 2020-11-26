@@ -16,18 +16,41 @@ export class ConexaoComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   conexoes: Conexao[];
+  conexoesFiltradas: Conexao[];
   currentId: number;
   currentHidrometroId: number;
   currentConexao: Conexao;
   public loading = false;
   modoSalvar = 'post';
   bodyDeletarConexao = '';
+  _filtroLista = '';
 
   constructor(private route: ActivatedRoute,
     private modalService: BsModalService,
     private conexaoService: ConexaoService,
     private fb: FormBuilder,
     private toastr: ToastrService) { }
+
+  get filtroLista(): string {
+    return this._filtroLista;
+  }
+  set filtroLista(value: string) {
+    this._filtroLista = value;
+    this.conexoesFiltradas = this.filtroLista ? this.filtrarConexoes(this.filtroLista) : this.conexoes;
+  }
+
+  filtrarConexoes(filtrarPor: string): Conexao[] {
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.conexoes.filter(x => 
+      (x.id.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
+      (x.descricao.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
+      (x.host.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) ||
+      (x.hidrometro.chave.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
+      (x.hidrometro.descricao.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
+      (x.hidrometro.identificador.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
+      (x.hidrometro.modelo.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1)
+    );
+  }
 
   ngOnInit() {
     this.validador();
@@ -41,22 +64,23 @@ export class ConexaoComponent implements OnInit {
   validador() {
     this.registerForm = this.fb.group({
       host: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
-      ativo: ['', ],
+      ativo: ['',],
       descricao: ['', [Validators.required, Validators.minLength(4)]],
       identificador: ['', [Validators.required, Validators.minLength(4)]],
       chave: ['', [Validators.required, Validators.minLength(4)]],
-      hidrometroAtivo: ['', ],
+      hidrometroAtivo: ['',],
       modelo: ['', [Validators.required, Validators.minLength(4)]],
       hidrometrodescricao: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
-  getConexoes(){
+  getConexoes() {
     this.loading = true;
     this.conexaoService.getConexoes().subscribe((_conexoes: Conexao[]) => {
       this.loading = false;
 
       this.conexoes = _conexoes;
+      this.conexoesFiltradas = _conexoes;
 
       if (this.conexoes.length > 1) { this.toastr.info(this.conexoes.length + ' conexoes foram retornadas!'); }
       if (this.conexoes.length == 1) { this.toastr.info(this.conexoes.length + ' conexao foi retornada!'); }
@@ -137,7 +161,7 @@ export class ConexaoComponent implements OnInit {
       this.currentConexao.host = currentForm.host;
       this.currentConexao.ativo = currentForm.ativo;
       this.currentConexao.descricao = currentForm.descricao;
-      
+
       this.currentConexao.hidrometro = new Hidrometro();
       this.currentConexao.hidrometro.chave = currentForm.chave;
       this.currentConexao.hidrometro.ativo = currentForm.hidrometroAtivo;
@@ -182,7 +206,7 @@ export class ConexaoComponent implements OnInit {
               this.conexoes = [];
               this.getConexoes();
               modal.hide();
-            }, 1000); 
+            }, 1000);
           }, error => {
             this.loading = false;
             this.toastr.error('Erro ao tentar alterar');
@@ -191,8 +215,8 @@ export class ConexaoComponent implements OnInit {
         );
       }
     }
-    else{
-      this.toastr.error('Verifique os campos informados e tente novamente.','Formulario invalido');
+    else {
+      this.toastr.error('Verifique os campos informados e tente novamente.', 'Formulario invalido');
     }
   }
 }

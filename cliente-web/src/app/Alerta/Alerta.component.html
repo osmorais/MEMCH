@@ -13,6 +13,20 @@
         <p class="ml-2">ALERTAS</p>
       </div>
     </div>
+    <div class="form-row mt-2 mb-2">
+      <div class="col-md-6">
+        <div class="form-inline mr-auto">
+          <div class="form-group mb-2" style="width: 535px;">
+            <input style="width: 482px;" type="text" class="form-control mr-2" placeholder="buscar"
+              [(ngModel)]="filtroLista">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <input style="width: 482px;" type="text" bsDaterangepicker class="form-control mr-2" placeholder="buscar por data"
+              [(ngModel)]="daterange">
+      </div>
+    </div>
     <table class="table table-striped">
       <thead class="thead-light">
         <tr>
@@ -23,7 +37,7 @@
         </tr>
       </thead>
       <tbody *ngIf="alertas && alertas.length">
-        <tr *ngFor="let alertas of alertas">
+        <tr *ngFor="let alertas of alertasFiltrados">
           <!-- <tr> -->
           <td>{{alertas.id}}</td>
           <td>{{alertas.descricao}}</td>

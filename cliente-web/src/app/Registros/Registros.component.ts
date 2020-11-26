@@ -19,12 +19,22 @@ export class RegistrosComponent implements OnInit {
   hidrometroID: number;
   public loading = false;
   _filtroLista = '';
+  _daterange: string;
 
   constructor(private route: ActivatedRoute,
     private registroService: RegistroService,
     private hidrometroService: HidrometroService,
     private toastr: ToastrService) {
     this.route.params.subscribe(params => this.hidrometroID = params.id);
+  }
+
+  get daterange(){
+    return this._daterange;
+  }
+
+  set daterange(value: string){
+    this._daterange = value;
+    this.registrosFiltrados = this._daterange ? this.filtrarPorPeriodo(this._daterange) : this.registros;
   }
 
   get filtroLista(): string {
@@ -35,11 +45,17 @@ export class RegistrosComponent implements OnInit {
     this.registrosFiltrados = this.filtroLista ? this.filtrarRegistros(this.filtroLista) : this.registros;
   }
 
+  filtrarPorPeriodo(daterange: any){
+    return this.registros.filter(x => 
+      (new Date(x.data) >= new Date(daterange[0].toDateString())) &&
+      (new Date(x.data) <= new Date(daterange[1].toDateString()))
+    );
+  }
+
   filtrarRegistros(filtrarPor: string): Registro[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.registros.filter(x => 
       (x.id.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
-      (x.data.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
       (x.valor.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1)
     );
   }
