@@ -14,18 +14,21 @@
       </div>
     </div>
     <div class="form-row mt-2 mb-2">
-      <div class="col-md-6">
+      <div class="col-md-3">
         <div class="form-inline mr-auto">
-          <div class="form-group mb-2" style="width: 535px;">
-            <input style="width: 482px;" type="text" class="form-control mr-2" placeholder="buscar"
+          <div class="form-group mb-2" style="width: 250px;">
+            <input style="width: 250px;" type="text" class="form-control mr-2" placeholder="buscar"
               [(ngModel)]="filtroLista">
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <input style="width: 482px;" type="text" bsDaterangepicker class="form-control mr-2" placeholder="buscar por data"
+      <div class="col-md-7">
+        <input style="width: 250px;" type="text" bsDaterangepicker class="form-control mr-2" placeholder="buscar por data"
               [(ngModel)]="daterange">
       </div>
+      <button type="button" class="btn btn-outline-primary" (click)="limparFiltro()">
+        <i class="fas fa-broom"></i>&nbsp;Limpar Filtro
+      </button>
     </div>
     <table class="table table-striped">
       <thead class="thead-light">
@@ -35,7 +38,7 @@
           <th>Data</th>
         </tr>
       </thead>
-      <tbody *ngIf="registros && registros.length">
+      <tbody *ngIf="registrosFiltrados && registrosFiltrados.length">
         <tr *ngFor="let registro of registrosFiltrados">
           <!-- <tr> -->
           <td>{{registro.id}}</td>
@@ -43,7 +46,7 @@
           <td>{{registro.data | DateTimeFormatPipe}}</td>
         </tr>
       </tbody>
-      <tfoot *ngIf="!registros || registros.length < 1">
+      <tfoot *ngIf="!registrosFiltrados || registrosFiltrados.length < 1">
         <tr>
           <td colspan="7" class="text-center">
             Nenhum registro encontrado!

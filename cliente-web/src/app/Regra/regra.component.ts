@@ -18,6 +18,7 @@ export class RegraComponent implements OnInit {
   registerForm: FormGroup;
   modalRef: BsModalRef;
   regras: Regra[];
+  regrasFiltradas: Regra[];
   currentId: number;
   currentRegra: Regra;
   regraTipos: RegraTipo[];
@@ -25,6 +26,7 @@ export class RegraComponent implements OnInit {
   public loading = false;
   bodyDeletarRegra = '';
   modoSalvar = 'post';
+  _filtroLista = '';
 
   tiposList: RegraTipo[] = [
     { id: 1, descricao: 'Surto' },
@@ -38,6 +40,23 @@ export class RegraComponent implements OnInit {
     private regraTipoService: RegratipoService,
     private toastr: ToastrService) {
     this.route.params.subscribe(params => this.hidrometroID = params.id);
+  }
+
+  get filtroLista(): string {
+    return this._filtroLista;
+  }
+  set filtroLista(value: string) {
+    this._filtroLista = value;
+    this.regrasFiltradas = this.filtroLista ? this.filtrarRegras(this.filtroLista) : this.regras;
+  }
+
+  filtrarRegras(filtrarPor: string): Regra[] {
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.regras.filter(x => 
+      (x.id.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
+      (x.tipo.descricao.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
+      (x.valor.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1)
+    );
   }
 
   ngOnInit() {
@@ -71,6 +90,7 @@ export class RegraComponent implements OnInit {
     .subscribe((_regras: Regra[]) => {
       this.loading = false;
       this.regras = _regras;
+      this.regrasFiltradas = _regras;
 
       if (this.regras.length > 1) { this.toastr.info(this.regras.length + ' regras foram retornadas!'); }
       if (this.regras.length == 1) { this.toastr.info(this.regras.length + ' regra foi retornada!'); }

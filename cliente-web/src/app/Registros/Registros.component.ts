@@ -46,6 +46,7 @@ export class RegistrosComponent implements OnInit {
   }
 
   filtrarPorPeriodo(daterange: any){
+    this._filtroLista = '';
     return this.registros.filter(x => 
       (new Date(x.data) >= new Date(daterange[0].toDateString())) &&
       (new Date(x.data) <= new Date(daterange[1].toDateString()))
@@ -53,11 +54,18 @@ export class RegistrosComponent implements OnInit {
   }
 
   filtrarRegistros(filtrarPor: string): Registro[] {
+    this._daterange = '';
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.registros.filter(x => 
       (x.id.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) || 
       (x.valor.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1)
     );
+  }
+
+  limparFiltro(){
+    this._daterange = '';
+    this._filtroLista = '';
+    this.registrosFiltrados = this.registros;
   }
 
   ngOnInit() {

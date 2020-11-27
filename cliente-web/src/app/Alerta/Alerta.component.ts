@@ -42,6 +42,7 @@ export class AlertaComponent implements OnInit {
   }
 
   filtrarPorPeriodo(daterange: any) {
+    this._filtroLista = '';
     return this.alertas.filter(x =>
       (new Date(x.data) >= new Date(daterange[0].toDateString())) &&
       (new Date(x.data) <= new Date(daterange[1].toDateString()))
@@ -49,6 +50,7 @@ export class AlertaComponent implements OnInit {
   }
 
   filtraralertas(filtrarPor: string): Alerta[] {
+    this._daterange = '';
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.alertas.filter(x =>
       (x.id.toString().toLocaleLowerCase().indexOf(filtrarPor) !== -1) ||
@@ -59,6 +61,11 @@ export class AlertaComponent implements OnInit {
     );
   }
 
+  limparFiltro(){
+    this._daterange = '';
+    this._filtroLista = '';
+    this.alertasFiltrados = this.alertas;
+  }
 
   ngOnInit() {
     this.getAlertas();
