@@ -35,6 +35,17 @@ public class ConnectionFactory {
         }
     }
 
+    public Connection getConnection(ipdb: String) {
+        String otherUrl = "jdbc:postgresql://" + ipdb + ":5432/memch";
+        try {
+            Class.forName(DRIVER);
+
+            return DriverManager.getConnection(otherUrl, USER, PASS);
+        } catch (ClassNotFoundException | SQLException exception) {
+            throw new RuntimeException("Erro na Conexão: ", exception);
+        }
+    }
+
     public Connection getConnectionMain() {
         try {
             Class.forName(DRIVER);

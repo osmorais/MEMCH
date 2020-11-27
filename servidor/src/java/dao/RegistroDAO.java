@@ -102,11 +102,13 @@ public class RegistroDAO implements IRegistroDAO{
         }
     }
 
-    public ArrayList<Registro> listarMensal(Hidrometro hidrometro) {
+    public ArrayList<Registro> listarMensal(Conexao conexao) {
+        Hidrometro hidrometro = conexao.hidrometro;
+
         try {
             ArrayList<Registro> arrregistro = new ArrayList<Registro>();
             
-            ConnectionFactory con = new ConnectionFactory();
+            ConnectionFactory con = new ConnectionFactory(conexao.host);
 
             conexao = con.getConnection();
             PreparedStatement stmt = conexao.prepareStatement(SELECTBYMONTH);
