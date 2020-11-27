@@ -42,6 +42,7 @@ namespace PFC_V1.Visao
 				CtrlConexao controle = new CtrlConexao();
 				try
 				{
+					conexao.hidrometro.registros = null;
 					conexao = controle.alterar<Conexao>(conexao, op, this.conexao);
 
 					for (int i = 0; i < usuario.conexoes.Count; i++)

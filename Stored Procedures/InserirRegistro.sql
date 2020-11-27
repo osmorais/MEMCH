@@ -12,7 +12,7 @@ DECLARE
 	cursorRegra cursor(hidrometroid integer) 
 		 for select ID, PERIODO, VALOR, regratipofk, dt_inicio_periodo
 		 from REGRA
-		 where HIDROMETROFK = hidrometroid;
+		 where HIDROMETROFK = hidrometroid and REMOVIDA <> 1 and ATIVO = 1;
 BEGIN
 	ALERTADISPARADO := 0;
 

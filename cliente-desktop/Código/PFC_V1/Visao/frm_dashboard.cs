@@ -114,12 +114,15 @@ namespace PFC_V1
 
 					try
 					{
+						conexao_deletavel.hidrometro.registros = null;
 						Conexao conexao = controle.remover<Conexao>(conexao_deletavel, op, this.conexao);
 						usuario.conexoes.Remove(conexao_deletavel);
 
 						ControleInterno controleinterno = new ControleInterno();
 						controleinterno.excluirConexao(conexao_deletavel);
 
+						usuario.conexoes = null;
+						usuario.pessoa = null;
 						recuperar(usuario);
 						preencherDgv(usuario.conexoes);
 						if (conexao.id == 0) MessageBox.Show("Conexão excluída com Sucesso!!!");

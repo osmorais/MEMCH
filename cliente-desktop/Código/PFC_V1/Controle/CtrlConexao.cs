@@ -15,12 +15,12 @@ namespace PFC_V1.Controle
 
 		public T alterar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "alterar/"));
+			return operador.enviarConteudo<T>(objeto, new Uri(this.uri + "alterar/"));
 		}
 
 		public T cadastrar<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + string.Concat("cadastrar/", objeto.id, "/")));
+			return operador.enviarConteudo<T>(conexao, new Uri(this.uri + string.Concat("cadastrar/", objeto.id, "/")));
 		}
 
 		public List<T> listar<T>(IOperadorREST operador, Conexao conexao)
@@ -35,7 +35,7 @@ namespace PFC_V1.Controle
 
 		public T remover<T>(Objeto objeto, IOperadorREST operador, Conexao conexao)
 		{
-			return operador.enviarConteudo<T>(objeto, new Uri(string.Format(this.uri, conexao.host) + "remover/"));
+			return operador.enviarConteudo<T>(objeto, new Uri(this.uri + "remover/"));
 		}
 	}
 }

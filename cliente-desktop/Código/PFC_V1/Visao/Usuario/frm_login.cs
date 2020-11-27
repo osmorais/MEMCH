@@ -56,7 +56,7 @@ namespace PFC_V1
 
 				if (currentUsuario.id == 0) throw new Exception("Usuário inexistente.");
 
-				frm_dashboard formulario = new frm_dashboard(usuario);
+				frm_dashboard formulario = new frm_dashboard(currentUsuario);
                 formulario.ShowDialog();
             }
             catch (Exception ex)

@@ -53,7 +53,7 @@ namespace PFC_V1
 
 				try
 				{
-					this.conexao = controle.cadastrar<Conexao>(conexao, op, this.conexao);
+					this.conexao = controle.cadastrar<Conexao>(this.usuario, op, conexao);
 					
 					usuario.conexoes.Add(conexao);
 					ControleInterno controleinterno = new ControleInterno();
