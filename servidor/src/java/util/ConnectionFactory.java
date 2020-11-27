@@ -35,7 +35,7 @@ public class ConnectionFactory {
         }
     }
 
-    public Connection getConnection(ipdb: String) {
+    public Connection getConnection(String ipdb) {
         String otherUrl = "jdbc:postgresql://" + ipdb + ":5432/memch";
         try {
             Class.forName(DRIVER);

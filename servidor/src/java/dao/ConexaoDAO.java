@@ -191,7 +191,13 @@ public class ConexaoDAO implements IConexaoDAO{
                 objconexao.setHidrometro(hidrometro);
                 
                 RegistroDAO registrodao = new RegistroDAO(); 
-                objconexao.getHidrometro().setRegistros(registrodao.listarMensal(hidrometro));
+                
+                try{
+                    objconexao.getHidrometro().setRegistros(registrodao.listarMensal(objconexao));
+                }
+                catch(Exception ex){
+                    //continue
+                }
                 
                 arrconexao.add(objconexao);
             }

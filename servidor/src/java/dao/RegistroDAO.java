@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import modelo.Conexao;
 import modelo.Hidrometro;
 import modelo.Registro;
 import util.ConnectionFactory;
@@ -103,15 +104,15 @@ public class RegistroDAO implements IRegistroDAO{
     }
 
     public ArrayList<Registro> listarMensal(Conexao conexao) {
-        Hidrometro hidrometro = conexao.hidrometro;
+        Hidrometro hidrometro = conexao.getHidrometro();
 
         try {
             ArrayList<Registro> arrregistro = new ArrayList<Registro>();
             
-            ConnectionFactory con = new ConnectionFactory(conexao.host);
+            ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
-            PreparedStatement stmt = conexao.prepareStatement(SELECTBYMONTH);
+            this.conexao = con.getConnection(conexao.getHost());
+            PreparedStatement stmt = this.conexao.prepareStatement(SELECTBYMONTH);
             stmt.setInt(1, hidrometro.getId());
             stmt.setInt(2, hidrometro.getId());
             stmt.setInt(3, hidrometro.getId());

@@ -102,7 +102,7 @@ public class HidrometroDAO implements IHidrometroDAO{
         try {
             ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
             PreparedStatement stmt = conexao.prepareStatement(SELECTID);
             stmt.setInt(1, hidrometro.getId());
 
@@ -124,7 +124,7 @@ public class HidrometroDAO implements IHidrometroDAO{
     public void alterar(Hidrometro hidrometro) {
         try {
             ConnectionFactory con = new ConnectionFactory();
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
 
             PreparedStatement stmt = conexao.prepareStatement(UPDATE,
                     Statement.RETURN_GENERATED_KEYS);
@@ -155,7 +155,7 @@ public class HidrometroDAO implements IHidrometroDAO{
         try {
             ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
             PreparedStatement stmt = conexao.prepareStatement(LOGICALDELETE);
             stmt.setInt(1, hidrometro.getId());
 
@@ -174,7 +174,7 @@ public class HidrometroDAO implements IHidrometroDAO{
             
             ConnectionFactory con = new ConnectionFactory();
 
-            conexao = con.getConnection();
+            conexao = con.getConnectionMain();
             PreparedStatement stmt = conexao.prepareStatement(SELECTALL);
 
             ResultSet rs = stmt.executeQuery();
