@@ -156,23 +156,23 @@ export class UsuarioComponent implements OnInit {
 
       this.loading = true;
 
-      var canPost = false
-      this.usuarioService.postLogin(this.currentUsuario).subscribe(
-        (usuarioResponse: Usuario) => {
-          this.loading = false;
-          if (usuarioResponse.id != null && usuarioResponse.id != 0) {
-            this.toastr.warning('Já existe um registro com esse nome de usuario');
-          }
-          else {
-            canPost = true;
-          }
-          console.log(usuarioResponse);
-        }, error => {
-          this.loading = false;
-          this.toastr.error('Por favor verifique sua conexão', 'Falha de comunicação');
-          console.log(error);
-        }
-      );
+      var canPost = true;
+      // this.usuarioService.postLogin(this.currentUsuario).subscribe(
+      //   (usuarioResponse: Usuario) => {
+      //     this.loading = false;
+      //     if (usuarioResponse.id != null && usuarioResponse.id != 0) {
+      //       this.toastr.warning('Já existe um registro com esse nome de usuario');
+      //     }
+      //     else {
+      //       canPost = true;
+      //     }
+      //     console.log(usuarioResponse);
+      //   }, error => {
+      //     this.loading = false;
+      //     this.toastr.error('Por favor verifique sua conexão', 'Falha de comunicação');
+      //     console.log(error);
+      //   }
+      // );
 
       if (canPost) {
         this.usuarioService.postUsuario(this.currentUsuario).subscribe((_usuario: Usuario) => {
